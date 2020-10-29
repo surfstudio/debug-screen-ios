@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'DebugScreen_Example' do
+  pod 'DebugScreen', :path => '../'
+
+  target 'DebugScreen_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
