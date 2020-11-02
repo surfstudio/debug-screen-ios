@@ -7,4 +7,8 @@
 
 import Foundation
 
-protocol MainModuleOutput { }
+protocol MainModuleOutput {
+
+    var closeModuleBlock: (() -> Void)? { get set }
+
+}

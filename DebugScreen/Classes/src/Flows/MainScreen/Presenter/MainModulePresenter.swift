@@ -7,9 +7,26 @@
 
 import Foundation
 
-final class MainModulePresenter: MainViewOutput, MainModuleInput {
+final class MainModulePresenter: MainModuleOutput {
+
+    var closeModuleBlock: (() -> Void)?
 
     weak var view: MainViewInput?
-    var output: MainModuleOutput?
+
+}
+
+// MARK: - MainModuleInput
+
+extension MainModulePresenter: MainModuleInput {
+    
+}
+
+// MARK: - MainViewOutput
+
+extension MainModulePresenter: MainViewOutput {
+
+    func didTapCloseButton() {
+        closeModuleBlock?()
+    }
 
 }

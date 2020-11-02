@@ -7,4 +7,8 @@
 
 import Foundation
 
-protocol MainViewOutput { }
+protocol MainViewOutput {
+
+    func didTapCloseButton()
+
+}
