@@ -29,20 +29,6 @@ class ViewController: UIViewController {
         }
     }
 
-    public func openConsolePipe () {
-        setvbuf(stdout, nil, _IONBF, 0)
-        dup2(pipe.fileHandleForWriting.fileDescriptor, STDOUT_FILENO)
-        pipe.fileHandleForReading.readabilityHandler = { [weak self] (handle: FileHandle) in
-            let data = handle.availableData
-            let str = String(data: data, encoding: .utf8) ?? "<Non-UTF8 data of size\(data.count)>\n"
-            DispatchQueue.main.async {
-                if let logPath = self?.logPath {
-                    try! str.write(toFile: logPath, atomically: true, encoding: .utf8)
-                }
-            }
-        }
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
