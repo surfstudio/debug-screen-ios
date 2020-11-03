@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class DebugScreenCoordinator: BaseCoordinator {
 
@@ -29,6 +30,10 @@ final class DebugScreenCoordinator: BaseCoordinator {
             self?.navigationController.dismiss(animated: true, completion: self?.completionHandler)
         }
 
+        components.output.showCacheClearingOptionsBlock = { [weak self] (actions: [CacheCleanerAction]) in
+            self?.showCacheCleaningActions(actions: actions)
+        }
+
         router.present(navigationController)
     }
 }
@@ -36,5 +41,19 @@ final class DebugScreenCoordinator: BaseCoordinator {
 // MARK: - Private methods
 
 private extension DebugScreenCoordinator {
+
+    func showCacheCleaningActions(actions: [CacheCleanerAction]) {
+        let actionsSheet = UIAlertController(title: nil, message: "Clear cache", preferredStyle: .actionSheet)
+
+        for action in actions {
+            actionsSheet.addAction(UIAlertAction(title: action.title, style: .destructive, handler: { (_: UIAlertAction) in
+                action.block()
+            }))
+        }
+
+        actionsSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        self.navigationController.present(actionsSheet, animated: true, completion: nil)
+    }
 
 }

@@ -10,22 +10,17 @@ import UIKit
 import DebugScreen
 
 class ViewController: UIViewController {
-
-    var pipe = Pipe()
-    var logPath: String?
-    let service = LogCatcherService()
     @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.service.setStdErrCatcherEnabled()
-        self.service.setStdOutCatcherEnabled()
-
         print("___ ERROR!!! ___")
 
+        DebugScreenConfiguration.shared.cacheCleanerActionsProvider = ActionsProvider()
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-            self.textView.text = self.service.logs()
+            //self.textView.text = self.service.logs()
         }
     }
 
@@ -36,3 +31,15 @@ class ViewController: UIViewController {
 
 }
 
+class ActionsProvider: CacheCleanerActionsProvider {
+    func actions() -> [CacheCleanerAction] {
+        return [
+            CacheCleanerAction(title: "First action", block: {
+
+            }),
+            CacheCleanerAction(title: "Second action", block: {
+
+            })
+        ]
+    }
+}

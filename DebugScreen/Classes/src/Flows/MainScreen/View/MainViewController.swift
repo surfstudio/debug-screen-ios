@@ -14,6 +14,10 @@ class MainViewController: UIViewController {
 
     var output: MainViewOutput?
 
+    // MARK: - Private properties
+
+    @IBOutlet private weak var tableView: UITableView!
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -22,14 +26,14 @@ class MainViewController: UIViewController {
         title = "Debug Screen"
 
         setCloseButton()
+
+        output?.configureAdapter(tableView: tableView)
     }
 }
 
 // MARK: - MainViewInput
 
-extension MainViewController: MainViewInput {
-    
-}
+extension MainViewController: MainViewInput { }
 
 // MARK: - Private methods
 
