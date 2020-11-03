@@ -18,15 +18,10 @@ class ViewController: UIViewController {
         print("___ ERROR!!! ___")
 
         DebugScreenConfiguration.shared.cacheCleanerActionsProvider = ActionsProvider()
+        DebugScreenConfiguration.shared.selectServerActionsProvider = ServersProvider()
+        //DebugScreenConfiguration.shared.logCatcherService.setStdErrCatcherEnabled()
+        //DebugScreenConfiguration.shared.logCatcherService.setStdOutCatcherEnabled()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-            //self.textView.text = self.service.logs()
-        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 }
@@ -42,4 +37,20 @@ class ActionsProvider: CacheCleanerActionsProvider {
             })
         ]
     }
+}
+
+class ServersProvider: SelectServerActionsProvider {
+
+    func servers() -> [SelectServerAction] {
+        return [
+            SelectServerAction(url: URL(string: "https://google.com")!, title: "Google 123321 тут все фичи 123 321 лонгтитла", isActive: false),
+            SelectServerAction(url: URL(string: "https://surf.ru")!, title: "Surf", isActive: true),
+            SelectServerAction(url: URL(string: "https://yandex.ru")!, title: "yandex какой-то", isActive: false)
+        ]
+    }
+
+    func didSelectServer(_ server: SelectServerAction) {
+        // TODO: change active server
+    }
+
 }

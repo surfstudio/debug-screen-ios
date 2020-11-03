@@ -14,6 +14,7 @@ public class DebugScreenConfiguration {
     public static let shared = DebugScreenConfiguration()
 
     public var cacheCleanerActionsProvider: CacheCleanerActionsProvider?
+    public var selectServerActionsProvider: SelectServerActionsProvider?
     public var logCatcherService = LogCatcherService()
 
     // MARK: - Initialization
