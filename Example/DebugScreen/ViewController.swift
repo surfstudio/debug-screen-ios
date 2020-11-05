@@ -18,6 +18,8 @@ class ViewController: UIViewController {
         print("___ ERROR!!! ___")
 
         DebugScreenConfiguration.shared.cacheCleanerActionsProvider = ActionsProvider()
+        DebugScreenConfiguration.shared.logCatcherService.setStdErrCatcherEnabled()
+        DebugScreenConfiguration.shared.logCatcherService.setStdOutCatcherEnabled()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
             //self.textView.text = self.service.logs()

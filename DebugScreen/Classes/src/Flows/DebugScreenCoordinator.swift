@@ -15,6 +15,9 @@ final class DebugScreenCoordinator: BaseCoordinator {
     private let router = MainRouter()
     private let navigationController = UINavigationController()
 
+    private weak var bugReportInput: BugReportModuleInput?
+    private let pickerDelegate = ImagePickerDelegate()
+
     // MARK: - Public properties
 
     var completionHandler: (() -> Void)?
@@ -32,6 +35,10 @@ final class DebugScreenCoordinator: BaseCoordinator {
 
         components.output.showCacheClearingOptionsBlock = { [weak self] (actions: [CacheCleanerAction]) in
             self?.showCacheCleaningActions(actions: actions)
+        }
+
+        components.output.showBugReportBlock = { [weak self] in
+            self?.showBugReport()
         }
 
         router.present(navigationController)
@@ -54,6 +61,73 @@ private extension DebugScreenCoordinator {
         actionsSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
         self.navigationController.present(actionsSheet, animated: true, completion: nil)
+    }
+
+    func showBugReport() {
+        var components: BugReportModuleComponents = BugReportModuleConfigurator().configure()
+
+        bugReportInput = components.input
+
+        components.output.pickImageBlock = { [weak self] in
+            self?.showImagePicker()
+        }
+
+        components.output.shareReportBlock = { [weak self] (text: String, logPath: String?, image: UIImage?) in
+            self?.presentActivityController(items: [text], completionHandler: {
+                var items: [Any] = [image as Any]
+
+                if let logPath = logPath {
+                    items.append(URL(fileURLWithPath: logPath))
+                }
+
+                if !items.isEmpty {
+                    self?.presentActivityController(items: items.compactMap({ $0 }), completionHandler: nil)
+                }
+            })
+        }
+
+        self.navigationController.pushViewController(components.view, animated: true)
+    }
+
+    func showImagePicker() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
+        picker.mediaTypes = ["public.image"]
+        picker.delegate = pickerDelegate
+
+        pickerDelegate.didPickImageBlock = { [weak self, weak picker] (image: UIImage) in
+            self?.bugReportInput?.didPickImage(image)
+
+            picker?.dismiss(animated: true, completion: nil)
+        }
+
+        navigationController.present(picker, animated: true, completion: nil)
+    }
+
+    func presentActivityController(items: [Any], completionHandler: (() -> Void)?) {
+        let controller = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        controller.completionWithItemsHandler = { (_: UIActivity.ActivityType?, _: Bool, _: [Any]?, error: Error?) in
+            completionHandler?()
+        }
+
+        self.navigationController.present(controller, animated: true, completion: nil)
+    }
+
+}
+
+
+class ImagePickerDelegate: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    var didPickImageBlock: ((UIImage) -> Void)?
+
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image: UIImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            return
+        }
+
+        didPickImageBlock?(image)
     }
 
 }

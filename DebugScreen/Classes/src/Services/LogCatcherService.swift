@@ -13,7 +13,7 @@ public final class LogCatcherService {
 
     private let stdErrPipe = Pipe()
     private let stdOutPipe = Pipe()
-    private let logPath: String
+    let logPath: String
     private static let defaultLogName: String = "log"
 
     private struct Stream {

@@ -14,6 +14,7 @@ final class MainModulePresenter: MainModuleOutput {
 
     var closeModuleBlock: (() -> Void)?
     var showCacheClearingOptionsBlock: (([CacheCleanerAction]) -> Void)?
+    var showBugReportBlock: (() -> Void)?
 
     weak var view: MainViewInput?
 
@@ -55,6 +56,8 @@ private extension MainModulePresenter {
             adapter?.addCellGenerator(createCacheClearerGenerator(actions: actions))
         }
 
+        adapter?.addCellGenerator(createBugReportGenerator())
+
         adapter?.forceRefill()
     }
 
@@ -62,6 +65,15 @@ private extension MainModulePresenter {
         let generator = BaseNonReusableCellGenerator<TextTableCell>(with: TextTableCell.Model(title: "Clear application data"))
         generator.didSelectEvent += { [weak self] in
             self?.showCacheClearingOptionsBlock?(actions)
+        }
+
+        return generator
+    }
+
+    func createBugReportGenerator() -> TableCellGenerator {
+        let generator = BaseNonReusableCellGenerator<TextTableCell>(with: TextTableCell.Model(title: "Report a bug"))
+        generator.didSelectEvent += { [weak self] in
+            self?.showBugReportBlock?()
         }
 
         return generator

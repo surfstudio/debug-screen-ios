@@ -1,11 +1,20 @@
 PODS:
   - DebugScreen (0.1.0):
     - ReactiveDataDisplayManager
+    - SurfUtils/KeyboardPresentable
+    - Zip (~> 2.1.0)
   - ReactiveDataDisplayManager (6.0.0)
+  - SurfUtils/KeyboardPresentable (12.1.0)
+  - Zip (2.1.1)
 
 DEPENDENCIES:
   - DebugScreen (from `../`)
   - ReactiveDataDisplayManager (from `https://github.com/surfstudio/ReactiveDataDisplayManager`, commit `5a9244a2811c31f43a95d79857cc1a60637c674f`)
+  - SurfUtils/KeyboardPresentable (from `https://github.com/surfstudio/iOS-Utils`, commit `93c771258a88a5711f9d4851ec8a464035351616`)
+
+SPEC REPOS:
+  trunk:
+    - Zip
 
 EXTERNAL SOURCES:
   DebugScreen:
@@ -13,16 +22,24 @@ EXTERNAL SOURCES:
   ReactiveDataDisplayManager:
     :commit: 5a9244a2811c31f43a95d79857cc1a60637c674f
     :git: https://github.com/surfstudio/ReactiveDataDisplayManager
+  SurfUtils:
+    :commit: 93c771258a88a5711f9d4851ec8a464035351616
+    :git: https://github.com/surfstudio/iOS-Utils
 
 CHECKOUT OPTIONS:
   ReactiveDataDisplayManager:
     :commit: 5a9244a2811c31f43a95d79857cc1a60637c674f
     :git: https://github.com/surfstudio/ReactiveDataDisplayManager
+  SurfUtils:
+    :commit: 93c771258a88a5711f9d4851ec8a464035351616
+    :git: https://github.com/surfstudio/iOS-Utils
 
 SPEC CHECKSUMS:
-  DebugScreen: 756e09c4d96b02e62ecb1bba5841484055edf758
+  DebugScreen: e96f0eb3a6b90a4335f09dcc4f2d8c08a4476771
   ReactiveDataDisplayManager: 53c14bb0e0ccef2047a4816651ef904500cf83da
+  SurfUtils: 3f776686185fc8d403bd446d4680eac840714546
+  Zip: 414f59909701fda9a84ab774ebe0f5449b1082cc
 
-PODFILE CHECKSUM: 20493715969e3d42ca64d58a2907b3bbabf48945
+PODFILE CHECKSUM: 2f4f407d90e8e8e41bbbb020dab8e16075f67d36
 
 COCOAPODS: 1.10.0
