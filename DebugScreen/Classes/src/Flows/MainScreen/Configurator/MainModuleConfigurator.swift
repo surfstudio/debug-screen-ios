@@ -7,17 +7,22 @@
 
 import Foundation
 
+typealias MainModuleComponents = (view: UIViewController, output: MainModuleOutput)
+
 final class MainModuleConfigurator {
 
-    func configure(output: MainModuleOutput?) -> MainViewController {
+    // MARK: - Public methods
+
+    func configure(output: MainModuleOutput?) -> MainModuleComponents {
         let viewController: MainViewController = UIViewController.instantiate(ofType: MainViewController.self)
+        viewController.modalPresentationStyle = .overFullScreen
     
         let presenter = MainModulePresenter()
 
         presenter.view = viewController
-        presenter.output = output
+        viewController.output = presenter
 
-        return viewController
+        return (viewController, presenter)
     }
 
 }

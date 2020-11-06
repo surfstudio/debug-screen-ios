@@ -7,4 +7,9 @@
 
 import Foundation
 
-protocol MainModuleOutput { }
+protocol MainModuleOutput {
+
+    var closeModuleBlock: (() -> Void)? { get set }
+    var showCacheClearingOptionsBlock: (([CacheCleanerAction]) -> Void)? { get set }
+
+}
