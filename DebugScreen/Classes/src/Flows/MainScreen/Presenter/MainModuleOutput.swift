@@ -12,5 +12,6 @@ protocol MainModuleOutput {
     var closeModuleBlock: (() -> Void)? { get set }
     var showCacheClearingOptionsBlock: (([CacheCleanerAction]) -> Void)? { get set }
     var showBugReportBlock: (() -> Void)? { get set }
+    var showSelectServerBlock: (() -> Void)? { get set }
 
 }

@@ -25,7 +25,7 @@ final class DebugScreenCoordinator: BaseCoordinator {
     // MARK: - Public methods
 
     override func start() {
-        var components: MainModuleComponents = MainModuleConfigurator().configure(output: nil)
+        var components: MainModuleComponents = MainModuleConfigurator().configure()
         navigationController.setViewControllers([components.view], animated: false)
         navigationController.modalPresentationStyle = .overFullScreen
 
@@ -39,6 +39,10 @@ final class DebugScreenCoordinator: BaseCoordinator {
 
         components.output.showBugReportBlock = { [weak self] in
             self?.showBugReport()
+        }
+
+        components.output.showSelectServerBlock = { [weak self] in
+            self?.showSelectServer()
         }
 
         router.present(navigationController)
@@ -128,6 +132,17 @@ class ImagePickerDelegate: NSObject, UIImagePickerControllerDelegate, UINavigati
         }
 
         didPickImageBlock?(image)
+    }
+
+    func showSelectServer() {
+        guard let provider: SelectServerActionsProvider = DebugScreenConfiguration.shared.selectServerActionsProvider else {
+            assertionFailure("Impossible!")
+            return
+        }
+
+        let components: SelectServerModuleComponents = SelectServerModuleConfigurator().configure(provider: provider)
+
+        self.navigationController.pushViewController(components.view, animated: true)
     }
 
 }

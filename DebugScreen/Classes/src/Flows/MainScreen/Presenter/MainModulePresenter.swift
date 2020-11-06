@@ -15,6 +15,7 @@ final class MainModulePresenter: MainModuleOutput {
     var closeModuleBlock: (() -> Void)?
     var showCacheClearingOptionsBlock: (([CacheCleanerAction]) -> Void)?
     var showBugReportBlock: (() -> Void)?
+    var showSelectServerBlock: (() -> Void)?
 
     weak var view: MainViewInput?
 
@@ -58,6 +59,10 @@ private extension MainModulePresenter {
 
         adapter?.addCellGenerator(createBugReportGenerator())
 
+        if DebugScreenConfiguration.shared.selectServerActionsProvider != nil {
+            adapter?.addCellGenerator(createSelectServerGenerator())
+        }
+
         adapter?.forceRefill()
     }
 
@@ -74,6 +79,15 @@ private extension MainModulePresenter {
         let generator = BaseNonReusableCellGenerator<TextTableCell>(with: TextTableCell.Model(title: "Report a bug"))
         generator.didSelectEvent += { [weak self] in
             self?.showBugReportBlock?()
+        }
+
+        return generator
+    }
+
+    func createSelectServerGenerator() -> TableCellGenerator {
+        let generator = BaseNonReusableCellGenerator<TextTableCell>(with: TextTableCell.Model(title: "Select server"))
+        generator.didSelectEvent += { [weak self] in
+            self?.showSelectServerBlock?()
         }
 
         return generator
