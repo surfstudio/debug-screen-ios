@@ -13,8 +13,9 @@ public final class LogCatcherService {
 
     private let stdErrPipe = Pipe()
     private let stdOutPipe = Pipe()
-    let logPath: String
+    public let logPath: String
     private static let defaultLogName: String = "log"
+    private let queue = OperationQueue()
 
     private struct Stream {
         let id: Int32
@@ -77,7 +78,7 @@ private extension LogCatcherService {
 
         NotificationCenter.default.addObserver(forName: NSNotification.Name.NSFileHandleDataAvailable,
                                                object: pipe.fileHandleForReading,
-                                               queue: nil) { (notification: Notification) in
+                                               queue: queue) { (notification: Notification) in
             let data: Data = pipe.fileHandleForReading.availableData
             let str: String? = String(data: data, encoding: .utf8)
             if FileManager.default.fileExists(atPath: logPath) {

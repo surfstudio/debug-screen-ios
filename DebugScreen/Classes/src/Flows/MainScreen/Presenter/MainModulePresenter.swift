@@ -67,7 +67,7 @@ private extension MainModulePresenter {
     }
 
     func createCacheClearerGenerator(actions: [CacheCleanerAction]) -> TableCellGenerator {
-        let generator = BaseNonReusableCellGenerator<TextTableCell>(with: TextTableCell.Model(title: "Clear application data"))
+        let generator = BaseCellGenerator<TextTableCell>(with: TextTableCell.Model(title: "Clear application data"))
         generator.didSelectEvent += { [weak self] in
             self?.showCacheClearingOptionsBlock?(actions)
         }
@@ -76,7 +76,7 @@ private extension MainModulePresenter {
     }
 
     func createBugReportGenerator() -> TableCellGenerator {
-        let generator = BaseNonReusableCellGenerator<TextTableCell>(with: TextTableCell.Model(title: "Report a bug"))
+        let generator = BaseCellGenerator<TextTableCell>(with: TextTableCell.Model(title: "Report a bug"))
         generator.didSelectEvent += { [weak self] in
             self?.showBugReportBlock?()
         }
@@ -85,7 +85,7 @@ private extension MainModulePresenter {
     }
 
     func createSelectServerGenerator() -> TableCellGenerator {
-        let generator = BaseNonReusableCellGenerator<TextTableCell>(with: TextTableCell.Model(title: "Select server"))
+        let generator = BaseCellGenerator<TextTableCell>(with: TextTableCell.Model(title: "Select server"))
         generator.didSelectEvent += { [weak self] in
             self?.showSelectServerBlock?()
         }

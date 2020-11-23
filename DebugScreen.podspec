@@ -28,7 +28,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/Anton Shelar/DebugScreen.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '11.4'
+  s.ios.deployment_target = '11.0'
 
   s.source_files = 'DebugScreen/Classes/**/*'
   
@@ -40,5 +40,4 @@ TODO: Add long description of the pod here.
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'ReactiveDataDisplayManager'
   s.dependency 'SurfUtils/KeyboardPresentable'
-  s.dependency 'Zip', '~> 2.1.0'
 end

@@ -118,6 +118,17 @@ private extension DebugScreenCoordinator {
         self.navigationController.present(controller, animated: true, completion: nil)
     }
 
+    func showSelectServer() {
+        guard let provider: SelectServerActionsProvider = DebugScreenConfiguration.shared.selectServerActionsProvider else {
+            assertionFailure("Impossible!")
+            return
+        }
+
+        let components: SelectServerModuleComponents = SelectServerModuleConfigurator().configure(provider: provider)
+
+        self.navigationController.pushViewController(components.view, animated: true)
+    }
+
 }
 
 
@@ -132,17 +143,6 @@ class ImagePickerDelegate: NSObject, UIImagePickerControllerDelegate, UINavigati
         }
 
         didPickImageBlock?(image)
-    }
-
-    func showSelectServer() {
-        guard let provider: SelectServerActionsProvider = DebugScreenConfiguration.shared.selectServerActionsProvider else {
-            assertionFailure("Impossible!")
-            return
-        }
-
-        let components: SelectServerModuleComponents = SelectServerModuleConfigurator().configure(provider: provider)
-
-        self.navigationController.pushViewController(components.view, animated: true)
     }
 
 }
