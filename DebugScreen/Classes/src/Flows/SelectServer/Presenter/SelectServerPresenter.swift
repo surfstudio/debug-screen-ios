@@ -53,7 +53,7 @@ private extension SelectServerPresenter {
         let actions: [SelectServerAction] = provider.servers()
 
         for action in actions {
-            let generator = BaseNonReusableCellGenerator<SelectionTableCell>(with: action)
+            let generator = BaseCellGenerator<SelectionTableCell>(with: action)
             generator.didSelectEvent += { [weak self] in
                 self?.provider.didSelectServer(action)
                 self?.fillAdapter()
