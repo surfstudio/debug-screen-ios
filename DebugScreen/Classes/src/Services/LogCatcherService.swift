@@ -73,13 +73,11 @@ private extension LogCatcherService {
     private func setStreamCatcher(stream: LogCatcherService.Stream, pipe: Pipe, logPath: String) {
         setvbuf(stream.file, nil, _IONBF, 0)
         dup2(pipe.fileHandleForWriting.fileDescriptor, stream.id)
-        pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
 
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.NSFileHandleDataAvailable,
-                                               object: pipe.fileHandleForReading,
-                                               queue: nil) { (notification: Notification) in
-            let data: Data = pipe.fileHandleForReading.availableData
+        pipe.fileHandleForReading.readabilityHandler = { [weak self] handle in
+            let data = handle.availableData
             let str: String? = String(data: data, encoding: .utf8)
+
             if FileManager.default.fileExists(atPath: logPath) {
                 if let writeHandle = FileHandle(forWritingAtPath: logPath) {
                     writeHandle.seekToEndOfFile()
