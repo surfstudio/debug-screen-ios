@@ -17,8 +17,9 @@ class ViewController: UIViewController {
 
         print("___ ERROR!!! ___")
 
-        DebugScreenConfiguration.shared.cacheCleanerActionsProvider = ActionsProvider()
-        DebugScreenConfiguration.shared.selectServerActionsProvider = ServersProvider()
+//        DebugScreenConfiguration.shared.cacheCleanerActionsProvider = ActionsProvider()
+//        DebugScreenConfiguration.shared.selectServerActionsProvider = ServersProvider()
+        DebugScreenConfiguration.shared.featureToggleActionsProvider = FeatureToggleProvider()
         //DebugScreenConfiguration.shared.logCatcherService.setStdErrCatcherEnabled()
         //DebugScreenConfiguration.shared.logCatcherService.setStdOutCatcherEnabled()
 
@@ -52,5 +53,55 @@ class ServersProvider: SelectServerActionsProvider {
     func didSelectServer(_ server: SelectServerAction) {
         // TODO: change active server
     }
+
+}
+
+/// All feature toggles
+enum FeatureToggleKey {
+    case feature1
+    case feature2
+    case feature3
+    case business1
+}
+
+/// Business FeatureToggles, only true/false, without handling
+enum BusinessFeatureToggle {
+    static var isPushNotificationsAvailable = false
+}
+
+class FeatureToggleProvider: FeatureToggleActionsProvider {
+
+    let featureToggles: KeyValuePairs<FeatureToggleKey, FeatureToggleModel> = [
+        .feature1: FeatureToggleModel(text: "feature1", value: true),
+        .feature2: FeatureToggleModel(text: "feature2", value: false),
+        .feature3: FeatureToggleModel(text: "feature3", value: true),
+        .business1: FeatureToggleModel(text: "PushNotifications", value: BusinessFeatureToggle.isPushNotificationsAvailable)
+    ]
+
+    func actions() -> [FeatureToggleModel] {
+        return featureToggles.map { $0.value }
+    }
+
+    func handleAction(with text: String, newValue: Bool) {
+        guard
+            let featureToggle = featureToggles.first(where: { $1.text == text }) else {
+            return
+        }
+
+        switch featureToggle.key {
+        case .feature1:
+            doAction1()
+        case .feature2:
+            doAction2()
+        case .feature3:
+            doAction3()
+        case .business1:
+            BusinessFeatureToggle.isPushNotificationsAvailable = newValue
+        }
+    }
+
+    func doAction1() { }
+    func doAction2() { }
+    func doAction3() { }
 
 }

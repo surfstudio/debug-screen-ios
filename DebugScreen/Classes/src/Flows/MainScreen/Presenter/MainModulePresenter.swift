@@ -60,6 +60,13 @@ private extension MainModulePresenter {
             adapter?.addCellGenerator(createSelectServerGenerator())
         }
 
+        if let featureToggles = DebugScreenConfiguration.shared.featureToggleActionsProvider?.actions(),
+           !featureToggles.isEmpty {
+            featureToggles.forEach {
+                adapter?.addCellGenerator(createSwitcherGenerator(action: $0))
+            }
+        }
+
         adapter?.forceRefill()
     }
 
@@ -80,4 +87,13 @@ private extension MainModulePresenter {
 
         return generator
     }
+
+    func createSwitcherGenerator(action: FeatureToggleModel) -> TableCellGenerator {
+        let generator = SwitcherTableCellGenerator(with: action)
+        generator.didChangeSwitch = { newValue in
+            DebugScreenConfiguration.shared.featureToggleActionsProvider?.handleAction(with: action.text, newValue: newValue)
+        }
+        return generator
+    }
+
 }
