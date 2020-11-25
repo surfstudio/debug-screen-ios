@@ -57,11 +57,11 @@ class ServersProvider: SelectServerActionsProvider {
 }
 
 /// All feature toggles
-enum FeatureToggleKey {
+enum FeatureToggleKey: String {
     case feature1
     case feature2
     case feature3
-    case business1
+    case business1 = "PushNotifications"
 }
 
 /// Business FeatureToggles, only true/false, without handling
@@ -71,24 +71,21 @@ enum BusinessFeatureToggle {
 
 class FeatureToggleProvider: FeatureToggleActionsProvider {
 
-    let featureToggles: KeyValuePairs<FeatureToggleKey, FeatureToggleModel> = [
-        .feature1: FeatureToggleModel(text: "feature1", value: true),
-        .feature2: FeatureToggleModel(text: "feature2", value: false),
-        .feature3: FeatureToggleModel(text: "feature3", value: true),
-        .business1: FeatureToggleModel(text: "PushNotifications", value: BusinessFeatureToggle.isPushNotificationsAvailable)
-    ]
-
     func actions() -> [FeatureToggleModel] {
-        return featureToggles.map { $0.value }
+        return [
+            FeatureToggleModel(text: FeatureToggleKey.feature1.rawValue, value: true),
+            FeatureToggleModel(text: FeatureToggleKey.feature2.rawValue, value: false),
+            FeatureToggleModel(text: FeatureToggleKey.feature3.rawValue, value: true),
+            FeatureToggleModel(text: FeatureToggleKey.business1.rawValue, value: BusinessFeatureToggle.isPushNotificationsAvailable)
+        ]
     }
 
     func handleAction(with text: String, newValue: Bool) {
-        guard
-            let featureToggle = featureToggles.first(where: { $1.text == text }) else {
+        guard let featureToggle = FeatureToggleKey(rawValue: text) else {
             return
         }
 
-        switch featureToggle.key {
+        switch featureToggle {
         case .feature1:
             doAction1()
         case .feature2:

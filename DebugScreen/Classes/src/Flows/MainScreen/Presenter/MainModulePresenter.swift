@@ -60,8 +60,7 @@ private extension MainModulePresenter {
             adapter?.addCellGenerator(createSelectServerGenerator())
         }
 
-        if let featureToggles = DebugScreenConfiguration.shared.featureToggleActionsProvider?.actions(),
-           !featureToggles.isEmpty {
+        if let featureToggles = DebugScreenConfiguration.shared.featureToggleActionsProvider?.actions() {
             featureToggles.forEach {
                 adapter?.addCellGenerator(createSwitcherGenerator(action: $0))
             }
