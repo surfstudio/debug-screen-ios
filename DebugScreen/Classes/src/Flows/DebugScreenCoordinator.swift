@@ -128,7 +128,6 @@ private extension DebugScreenCoordinator {
 
         self.navigationController.pushViewController(components.view, animated: true)
     }
-
 }
 
 
@@ -144,5 +143,4 @@ class ImagePickerDelegate: NSObject, UIImagePickerControllerDelegate, UINavigati
 
         didPickImageBlock?(image)
     }
-
 }
