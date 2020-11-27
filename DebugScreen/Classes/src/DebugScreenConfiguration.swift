@@ -15,6 +15,7 @@ public class DebugScreenConfiguration {
 
     public var cacheCleanerActionsProvider: CacheCleanerActionsProvider?
     public var selectServerActionsProvider: SelectServerActionsProvider?
+    public var featureToggleActionsProvider: FeatureToggleActionsProvider?
     public var logCatcherService = LogCatcherService()
 
     // MARK: - Initialization
