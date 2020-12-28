@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import ReactiveDataDisplayManager
 
 final class SelectServerPresenter: SelectServerModuleOutput {
 
@@ -17,7 +16,7 @@ final class SelectServerPresenter: SelectServerModuleOutput {
     // MARK: - Private properties
 
     private let provider: SelectServerActionsProvider
-    private var adapter: BaseTableDataDisplayManager?
+    private var adapter = BaseTableManager()
 
     // MARK: - Initialization
 
@@ -36,7 +35,7 @@ extension SelectServerPresenter: SelectServerModuleInput { }
 extension SelectServerPresenter: SelectServerViewOutput {
 
     func configureAdapter(tableView: UITableView) {
-        adapter = BaseTableDataDisplayManager(collection: tableView)
+        adapter.setTableView(tableView)
 
         fillAdapter()
     }
@@ -48,21 +47,21 @@ extension SelectServerPresenter: SelectServerViewOutput {
 private extension SelectServerPresenter {
 
     func fillAdapter() {
-        adapter?.clearCellGenerators()
-
         let actions: [SelectServerAction] = provider.servers()
+        var units = [TableUnitItem]()
 
         for action in actions {
-            let generator = BaseCellGenerator<SelectionTableCell>(with: action)
-            generator.didSelectEvent += { [weak self] in
+            let model = SelectionTableCell.Model(title: action.title, url: action.url)
+            let unit = TableCellUnit<SelectionTableCell>.create(model)
+            model.didSelect = { [weak self] in
                 self?.provider.didSelectServer(action)
                 self?.fillAdapter()
             }
 
-            adapter?.addCellGenerator(generator)
+            units.append(unit)
         }
 
-        adapter?.forceRefill()
+        adapter.setSections([units])
     }
 
 }

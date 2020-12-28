@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import ReactiveDataDisplayManager
 
 final class MainModulePresenter: MainModuleOutput {
 
@@ -21,21 +20,19 @@ final class MainModulePresenter: MainModuleOutput {
 
     // MARK: - Private properties
 
-    private var adapter: BaseTableDataDisplayManager?
+    private let adapter = BaseTableManager()
 }
 
 // MARK: - MainModuleInput
 
-extension MainModulePresenter: MainModuleInput {
-    
-}
+extension MainModulePresenter: MainModuleInput { }
 
 // MARK: - MainViewOutput
 
 extension MainModulePresenter: MainViewOutput {
 
     func configureAdapter(tableView: UITableView) {
-        adapter = BaseTableDataDisplayManager(collection: tableView)
+        adapter.setTableView(tableView)
         fillAdapter()
     }
 
@@ -50,46 +47,73 @@ extension MainModulePresenter: MainViewOutput {
 private extension MainModulePresenter {
 
     func fillAdapter() {
-        adapter?.clearCellGenerators()
+        var items = [TableUnitItem]()
 
         if let actions: [CacheCleanerAction] = DebugScreenConfiguration.shared.cacheCleanerActionsProvider?.actions(),
            !actions.isEmpty {
-            adapter?.addCellGenerator(createCacheClearerGenerator(actions: actions))
+            items.append(createCacheClearerUnit(actions: actions))
         }
-
-        adapter?.addCellGenerator(createBugReportGenerator())
 
         if DebugScreenConfiguration.shared.selectServerActionsProvider != nil {
-            adapter?.addCellGenerator(createSelectServerGenerator())
+            items.append(createSelectServerUnit())
         }
 
-        adapter?.forceRefill()
+        items.append(createBugReportUnit())
+
+        if let featureToggles = DebugScreenConfiguration.shared.featureToggleActionsProvider?.actions() {
+            featureToggles.forEach {
+                items.append(createFeatureToggleUnit(action: $0))
+            }
+        }
+
+        adapter.setSections([items])
     }
 
-    func createCacheClearerGenerator(actions: [CacheCleanerAction]) -> TableCellGenerator {
-        let generator = BaseCellGenerator<TextTableCell>(with: TextTableCell.Model(title: "Clear application data"))
-        generator.didSelectEvent += { [weak self] in
+    func createCacheClearerUnit(actions: [CacheCleanerAction]) -> TableUnitItem {
+        let model = TextTableCell.Model(title: "Clear application data")
+        let unit = TableCellUnit<TextTableCell>.create(model)
+
+        model.didSelect = { [weak self] in
             self?.showCacheClearingOptionsBlock?(actions)
         }
 
-        return generator
+        return unit
     }
 
-    func createBugReportGenerator() -> TableCellGenerator {
-        let generator = BaseCellGenerator<TextTableCell>(with: TextTableCell.Model(title: "Report a bug"))
-        generator.didSelectEvent += { [weak self] in
-            self?.showBugReportBlock?()
-        }
+    func createSelectServerUnit() -> TableUnitItem {
+        let model = TextTableCell.Model(title: "Select server")
+        let unit = TableCellUnit<TextTableCell>.create(model)
 
-        return generator
-    }
-
-    func createSelectServerGenerator() -> TableCellGenerator {
-        let generator = BaseCellGenerator<TextTableCell>(with: TextTableCell.Model(title: "Select server"))
-        generator.didSelectEvent += { [weak self] in
+        model.didSelect = { [weak self] in
             self?.showSelectServerBlock?()
         }
 
-        return generator
+        return unit
     }
+
+    func createBugReportUnit() -> TableUnitItem {
+        let model = TextTableCell.Model(title: "Report a bug")
+        let unit = TableCellUnit<TextTableCell>.create(model)
+
+        model.didSelect = { [weak self] in
+            self?.showBugReportBlock?()
+        }
+
+        return unit
+    }
+
+    func createFeatureToggleUnit(action: FeatureToggleModel) -> TableUnitItem {
+        let model = SwitcherTableCell.Model(title: action.title, isOn: action.isEnabled) { (isEnabled: Bool) in
+            DebugScreenConfiguration.shared.featureToggleActionsProvider?.handleAction(action)
+        }
+
+        action.didChangeEnabled = { [weak model] (isEnabled: Bool) in
+            model?.isOn.value = isEnabled
+        }
+
+        let unit = TableCellUnit<SwitcherTableCell>.create(model)
+
+        return unit
+    }
+
 }

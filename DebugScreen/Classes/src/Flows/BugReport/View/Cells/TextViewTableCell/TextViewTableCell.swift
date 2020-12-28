@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import ReactiveDataDisplayManager
 
-class TextViewTableCell: UITableViewCell {
+class TextViewTableCell: UITableViewCell, CellProtocol {
 
     // MARK: - Private properties
 
@@ -16,8 +15,9 @@ class TextViewTableCell: UITableViewCell {
 
     private var model: Model?
 
-    struct Model {
-        let didChangeTextBlock: ((String?) -> Void)
+    final class Model: CellViewModelProtocol {
+        static let cellType: UIView.Type = TextViewTableCell.self
+        let text = SingleObservable<String?>(nil)
     }
 
     // MARK: - Lifecycle
@@ -33,13 +33,9 @@ class TextViewTableCell: UITableViewCell {
         selectionStyle = .none
     }
 
-}
+    // MARK: - CellProtocol
 
-// MARK: - Configurable
-
-extension TextViewTableCell: Configurable {
-
-    func configure(with model: Model) {
+    func setModel(_ model: Model) {
         self.model = model
     }
 
@@ -50,7 +46,7 @@ extension TextViewTableCell: Configurable {
 extension TextViewTableCell: UITextViewDelegate {
 
     func textViewDidChange(_ textView: UITextView) {
-        model?.didChangeTextBlock(textView.text)
+        model?.text.value = textView.text
     }
 
 }

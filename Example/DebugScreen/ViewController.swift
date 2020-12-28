@@ -19,6 +19,7 @@ class ViewController: UIViewController {
 
         DebugScreenConfiguration.shared.cacheCleanerActionsProvider = ActionsProvider()
         DebugScreenConfiguration.shared.selectServerActionsProvider = ServersProvider()
+        DebugScreenConfiguration.shared.featureToggleActionsProvider = FeatureToggleProvider()
         //DebugScreenConfiguration.shared.logCatcherService.setStdErrCatcherEnabled()
         //DebugScreenConfiguration.shared.logCatcherService.setStdOutCatcherEnabled()
 
@@ -52,5 +53,46 @@ class ServersProvider: SelectServerActionsProvider {
     func didSelectServer(_ server: SelectServerAction) {
         // TODO: change active server
     }
+
+}
+
+/// All feature toggles
+enum FeatureToggleKey: String {
+    case feature1
+    case feature2
+    case feature3
+    case business1 = "PushNotifications"
+}
+
+/// Business FeatureToggles, only true/false, without handling
+enum BusinessFeatureToggle {
+    static var isPushNotificationsAvailable = false
+}
+
+class FeatureToggleProvider: FeatureToggleActionsProvider {
+
+    private let features = [
+        FeatureToggleModel(title: FeatureToggleKey.feature1.rawValue, isEnabled: true),
+        FeatureToggleModel(title: FeatureToggleKey.feature2.rawValue, isEnabled: false),
+        FeatureToggleModel(title: FeatureToggleKey.feature3.rawValue, isEnabled: true),
+        FeatureToggleModel(title: FeatureToggleKey.business1.rawValue, isEnabled: BusinessFeatureToggle.isPushNotificationsAvailable)
+    ]
+
+    func actions() -> [FeatureToggleModel] {
+        return features
+    }
+
+    func handleAction(_ action: FeatureToggleModel) {
+        guard let feature = features.first(where: { $0 === action }) else {
+            assertionFailure()
+            return
+        }
+
+        feature.setEnabled(!feature.isEnabled)
+    }
+
+    func doAction1() { }
+    func doAction2() { }
+    func doAction3() { }
 
 }

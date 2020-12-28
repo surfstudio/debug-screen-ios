@@ -6,29 +6,28 @@
 //
 
 import UIKit
-import ReactiveDataDisplayManager
 
-class TextTableCell: UITableViewCell, SelectableItem {
+final class TextTableCell: UITableViewCell, CellProtocol {
 
-    // MARK: - Public properties
+    // MARK: - Model
 
-    var didSelectEvent = BaseEvent<Void>()
+    final class Model: CellViewModelProtocol, CellViewModelSelectable {
+        static let cellType: UIView.Type = TextTableCell.self
+        var didSelect: (() -> Void)?
+        let title: String?
+
+        init(title: String?) {
+            self.title = title
+        }
+    }
 
     // MARK: - Private properties
 
     @IBOutlet private weak var titleLabel: UILabel!
 
-    struct Model {
-        let title: String
-    }
+    // MARK: - CellProtocol
 
-}
-
-// MARK: - Configurable
-
-extension TextTableCell: Configurable {
-
-    func configure(with model: Model) {
+    func setModel(_ model: Model) {
         titleLabel.text = model.title
     }
 

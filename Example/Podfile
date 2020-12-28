@@ -2,12 +2,9 @@ use_frameworks!
 
 target 'DebugScreen_Example' do
   pod 'DebugScreen', :path => '../'
-  pod 'ReactiveDataDisplayManager', :git => 'https://github.com/surfstudio/ReactiveDataDisplayManager', :tag=>"5.0.1"
   pod 'SurfUtils/KeyboardPresentable', :git => 'https://github.com/surfstudio/iOS-Utils', :commit => '93c771258a88a5711f9d4851ec8a464035351616'
 
   target 'DebugScreen_Tests' do
     inherit! :search_paths
-
-    
   end
 end

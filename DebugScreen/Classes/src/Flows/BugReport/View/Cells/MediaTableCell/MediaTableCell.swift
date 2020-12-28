@@ -6,13 +6,13 @@
 //
 
 import UIKit
-import ReactiveDataDisplayManager
 
-class MediaTableCell: UITableViewCell {
+class MediaTableCell: UITableViewCell, CellProtocol {
 
-    struct Model {
-        let previewImage: UIImage?
-        let title: String
+    final class Model: CellViewModelProtocol, CellViewModelSelectable {
+        var didSelect: (() -> Void)?
+        static let cellType: UIView.Type = MediaTableCell.self
+        let previewImage = SingleObservable<UIImage?>(nil)
     }
 
     // MARK: - Private properties
@@ -20,25 +20,23 @@ class MediaTableCell: UITableViewCell {
     @IBOutlet private weak var previewImageView: UIImageView!
     @IBOutlet private weak var actionLabel: UILabel!
 
+    // MARK: - CellProtocol
+
+    func setModel(_ model: Model) {
+        model.previewImage.addObserver(self) { [weak self] (image: UIImage?) in
+            self?.previewImageView.image = image
+            self?.previewImageView.isHidden = (image == nil)
+
+            self?.actionLabel.text = (image == nil) ? "Add image" : "Delete image"
+        }
+    }
+
     // MARK: - Lifecycle
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
         previewImageView.isHidden = true
-    }
-
-}
-
-// MARK: - Configurable
-
-extension MediaTableCell: Configurable {
-
-    func configure(with model: Model) {
-        previewImageView.image = model.previewImage
-        previewImageView.isHidden = (model.previewImage == nil)
-
-        actionLabel.text = model.title
     }
 
 }
