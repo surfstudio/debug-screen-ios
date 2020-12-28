@@ -20,8 +20,12 @@ class ViewController: UIViewController {
         DebugScreenConfiguration.shared.cacheCleanerActionsProvider = ActionsProvider()
         DebugScreenConfiguration.shared.selectServerActionsProvider = ServersProvider()
         DebugScreenConfiguration.shared.featureToggleActionsProvider = FeatureToggleProvider()
-        //DebugScreenConfiguration.shared.logCatcherService.setStdErrCatcherEnabled()
-        //DebugScreenConfiguration.shared.logCatcherService.setStdOutCatcherEnabled()
+        DebugScreenConfiguration.shared.logCatcherService.setStdErrCatcherEnabled()
+        DebugScreenConfiguration.shared.logCatcherService.setStdOutCatcherEnabled()
+
+        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (_) in
+            print(" A B C")
+        }.fire()
 
     }
 

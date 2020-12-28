@@ -15,6 +15,7 @@ final class MainModulePresenter: MainModuleOutput {
     var showCacheClearingOptionsBlock: (([CacheCleanerAction]) -> Void)?
     var showBugReportBlock: (() -> Void)?
     var showSelectServerBlock: (() -> Void)?
+    var showLogsViewerBlock: (() -> Void)?
 
     weak var view: MainViewInput?
 
@@ -59,6 +60,7 @@ private extension MainModulePresenter {
         }
 
         items.append(createBugReportUnit())
+        items.append(createViewLogsUnit())
 
         if let featureToggles = DebugScreenConfiguration.shared.featureToggleActionsProvider?.actions() {
             featureToggles.forEach {
@@ -97,6 +99,17 @@ private extension MainModulePresenter {
 
         model.didSelect = { [weak self] in
             self?.showBugReportBlock?()
+        }
+
+        return unit
+    }
+
+    func createViewLogsUnit() -> TableUnitItem {
+        let model = TextTableCell.Model(title: "Inspect logs")
+        let unit = TableCellUnit<TextTableCell>.create(model)
+
+        model.didSelect = { [weak self] in
+            self?.showLogsViewerBlock?()
         }
 
         return unit

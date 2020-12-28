@@ -45,6 +45,10 @@ final class DebugScreenCoordinator: BaseCoordinator {
             self?.showSelectServer()
         }
 
+        components.output.showLogsViewerBlock = { [weak self] in
+            self?.showLogsViewer()
+        }
+
         router.present(navigationController)
     }
 }
@@ -128,6 +132,17 @@ private extension DebugScreenCoordinator {
 
         self.navigationController.pushViewController(components.view, animated: true)
     }
+
+    func showLogsViewer() {
+        var components: LogViewerModuleComponents = LogViewerModuleConfigurator().configure()
+
+        components.output.shareLogsBlock = { [weak self] (logs: String) in
+            self?.presentActivityController(items: [logs], completionHandler: nil)
+        }
+
+        self.navigationController.pushViewController(components.view, animated: true)
+    }
+
 }
 
 
