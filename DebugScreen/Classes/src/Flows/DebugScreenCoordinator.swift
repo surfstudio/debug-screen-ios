@@ -49,6 +49,10 @@ final class DebugScreenCoordinator: BaseCoordinator {
             self?.showLogsViewer()
         }
 
+        components.output.showKeyValueStorageSelector = { [weak self] (storages: [KeyValueStorageDataProvider]) in
+            self?.showKeyValueStorageSelector(storages: storages)
+        }
+
         router.present(navigationController)
     }
 }
@@ -143,10 +147,31 @@ private extension DebugScreenCoordinator {
         self.navigationController.pushViewController(components.view, animated: true)
     }
 
+    func showKeyValueStorageSelector(storages: [KeyValueStorageDataProvider]) {
+        let actionsSheet = UIAlertController(title: nil, message: "Select storage", preferredStyle: .actionSheet)
+
+        for storage in storages {
+            actionsSheet.addAction(UIAlertAction(title: storage.name(), style: .default, handler: { [weak self] (_: UIAlertAction) in
+                self?.showKeyValueStorageViewer(storage: storage)
+            }))
+        }
+
+        actionsSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        self.navigationController.present(actionsSheet, animated: true, completion: nil)
+    }
+
+    func showKeyValueStorageViewer(storage: KeyValueStorageDataProvider) {
+        let comoponents: KeyValueStorageViewerModuleComponents = KeyValueStorageViewerModuleConfigurator().configure(storage: storage)
+
+        self.navigationController.pushViewController(comoponents.view, animated: true)
+    }
+
 }
 
+// MARK: - ImagePickerDelegate
 
-class ImagePickerDelegate: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+final class ImagePickerDelegate: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var didPickImageBlock: ((UIImage) -> Void)?
 
@@ -158,4 +183,5 @@ class ImagePickerDelegate: NSObject, UIImagePickerControllerDelegate, UINavigati
 
         didPickImageBlock?(image)
     }
+
 }

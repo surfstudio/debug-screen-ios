@@ -40,7 +40,7 @@ extension BugReportPresenter: BugReportModuleInput {
 extension BugReportPresenter: BugReportViewOutput {
 
     func configureAdapter(tableView: UITableView) {
-        adapter.setTableView(tableView)
+        adapter.bindTableView(tableView)
 
         fillAdapter()
     }

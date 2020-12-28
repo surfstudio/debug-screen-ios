@@ -16,6 +16,7 @@ final class MainModulePresenter: MainModuleOutput {
     var showBugReportBlock: (() -> Void)?
     var showSelectServerBlock: (() -> Void)?
     var showLogsViewerBlock: (() -> Void)?
+    var showKeyValueStorageSelector: (([KeyValueStorageDataProvider]) -> Void)?
 
     weak var view: MainViewInput?
 
@@ -33,7 +34,7 @@ extension MainModulePresenter: MainModuleInput { }
 extension MainModulePresenter: MainViewOutput {
 
     func configureAdapter(tableView: UITableView) {
-        adapter.setTableView(tableView)
+        adapter.bindTableView(tableView)
         fillAdapter()
     }
 
@@ -61,6 +62,11 @@ private extension MainModulePresenter {
 
         items.append(createBugReportUnit())
         items.append(createViewLogsUnit())
+
+        if let storages: [KeyValueStorageDataProvider] = DebugScreenConfiguration.shared.keyValueStoragesProvider?.storages(),
+           !storages.isEmpty {
+            items.append(createKeyValueStoragesViewerUnit(storages: storages))
+        }
 
         if let featureToggles = DebugScreenConfiguration.shared.featureToggleActionsProvider?.actions() {
             featureToggles.forEach {
@@ -110,6 +116,17 @@ private extension MainModulePresenter {
 
         model.didSelect = { [weak self] in
             self?.showLogsViewerBlock?()
+        }
+
+        return unit
+    }
+
+    func createKeyValueStoragesViewerUnit(storages: [KeyValueStorageDataProvider]) -> TableUnitItem {
+        let model = TextTableCell.Model(title: "Key-value storages")
+        let unit = TableCellUnit<TextTableCell>.create(model)
+
+        model.didSelect = { [weak self] in
+            self?.showKeyValueStorageSelector?(storages)
         }
 
         return unit

@@ -13,10 +13,11 @@ public class DebugScreenConfiguration {
 
     public static let shared = DebugScreenConfiguration()
 
+    public let logCatcherService = LogCatcherService()
     public var cacheCleanerActionsProvider: CacheCleanerActionsProvider?
     public var selectServerActionsProvider: SelectServerActionsProvider?
     public var featureToggleActionsProvider: FeatureToggleActionsProvider?
-    public var logCatcherService = LogCatcherService()
+    public var keyValueStoragesProvider: KeyValueStoragesProvider? = DefaultKeyValueStoragesProvider()
 
     // MARK: - Initialization
 

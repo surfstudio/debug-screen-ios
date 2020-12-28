@@ -14,4 +14,5 @@ protocol MainModuleOutput {
     var showBugReportBlock: (() -> Void)? { get set }
     var showSelectServerBlock: (() -> Void)? { get set }
     var showLogsViewerBlock: (() -> Void)? { get set }
+    var showKeyValueStorageSelector: (([KeyValueStorageDataProvider]) -> Void)? { get set }
 }

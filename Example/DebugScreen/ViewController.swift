@@ -15,18 +15,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("___ ERROR!!! ___")
-
         DebugScreenConfiguration.shared.cacheCleanerActionsProvider = ActionsProvider()
         DebugScreenConfiguration.shared.selectServerActionsProvider = ServersProvider()
         DebugScreenConfiguration.shared.featureToggleActionsProvider = FeatureToggleProvider()
         DebugScreenConfiguration.shared.logCatcherService.setStdErrCatcherEnabled()
         DebugScreenConfiguration.shared.logCatcherService.setStdOutCatcherEnabled()
 
-        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (_) in
-            print(" A B C")
-        }.fire()
-
+        UserDefaults.standard.set(101, forKey: "Int 101")
+        UserDefaults.standard.setValue("string value", forKey: "string_value")
+        UserDefaults.standard.setValue(nil, forKey: "nil value")
+        UserDefaults.standard.synchronize()
     }
 
 }

@@ -12,7 +12,7 @@ class BaseTableManager: NSObject, UITableViewDataSource, UITableViewDelegate {
     private weak var tableView: UITableView?
     private var sections: [[TableUnitItem]] = []
 
-    func setTableView(_ tableView: UITableView) {
+    func bindTableView(_ tableView: UITableView) {
         self.sections.removeAll()
 
         self.tableView = tableView

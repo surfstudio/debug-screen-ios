@@ -35,7 +35,7 @@ extension SelectServerPresenter: SelectServerModuleInput { }
 extension SelectServerPresenter: SelectServerViewOutput {
 
     func configureAdapter(tableView: UITableView) {
-        adapter.setTableView(tableView)
+        adapter.bindTableView(tableView)
 
         fillAdapter()
     }
