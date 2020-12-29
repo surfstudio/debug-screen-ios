@@ -52,6 +52,7 @@ private extension SelectServerPresenter {
 
         for action in actions {
             let model = SelectionTableCell.Model(title: action.title, url: action.url)
+            model.isSelected.value = action.isActive
             let unit = TableCellUnit<SelectionTableCell>.create(model)
             model.didSelect = { [weak self] in
                 self?.provider.didSelectServer(action)
