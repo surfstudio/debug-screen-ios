@@ -6,6 +6,11 @@
 //
 
 import Foundation
+import Photos
+import UserNotifications
+import AVKit
+import CoreLocation
+import Device_swift
 
 final class MainModulePresenter: MainModuleOutput {
 
@@ -23,6 +28,8 @@ final class MainModulePresenter: MainModuleOutput {
     // MARK: - Private properties
 
     private let adapter = BaseTableManager()
+    private var infoModel: InfoTableCell.Model?
+
 }
 
 // MARK: - MainModuleInput
@@ -73,6 +80,8 @@ private extension MainModulePresenter {
                 items.append(createFeatureToggleUnit(action: $0))
             }
         }
+
+        items.append(createInfoUnit())
 
         adapter.setSections([items])
     }
@@ -146,4 +155,117 @@ private extension MainModulePresenter {
         return unit
     }
 
+    func createInfoUnit() -> TableUnitItem {
+        let geolocationPermission: CLAuthorizationStatus
+        if #available(iOS 14.0, *) {
+            geolocationPermission = CLLocationManager().authorizationStatus
+        } else {
+            geolocationPermission = CLLocationManager.authorizationStatus()
+        }
+
+        let deviceName: String = UIDevice.current.deviceType.displayName
+        let iOSVersion: String = UIDevice.current.systemVersion
+
+        let model = InfoTableCell.Model(deviceInfo: "\(deviceName), iOS \(iOSVersion)",
+                                        appInfo: appInfoString(),
+                                        photoLibraryPermission: PHPhotoLibrary.authorizationStatus().toString(),
+                                        geolocationPermission: geolocationPermission.toString(),
+                                        cameraPermission: AVCaptureDevice.authorizationStatus(for: .video).toString())
+
+        UNUserNotificationCenter.current().getNotificationSettings { (settings: UNNotificationSettings) in
+            model.notificationsPermission.value = settings.authorizationStatus.toString()
+        }
+
+        return TableCellUnit<InfoTableCell>.create(model)
+    }
+
+    func appInfoString() -> String {
+        let appName: String = Bundle.main.infoDictionary?["CFBundleName"] as? String ?? "UNDEFINED"
+        let appVersion: String = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "UNDEFINED"
+
+        return "\(appName), v. \(appVersion)"
+    }
+
+}
+
+// MARK: - PHAuthorizationStatus
+
+fileprivate extension PHAuthorizationStatus {
+    func toString() -> String {
+        switch self {
+        case .notDetermined:
+            return "not determined"
+        case .restricted:
+            return "restricted"
+        case .denied:
+            return "denied"
+        case .authorized:
+            return "authorized"
+        case .limited:
+            return "limited"
+        @unknown default:
+            return "unknown"
+        }
+    }
+}
+
+// MARK: - AVAuthorizationStatus
+
+fileprivate extension AVAuthorizationStatus {
+    func toString() -> String {
+        switch self {
+        case .notDetermined:
+            return "not determined"
+        case .restricted:
+            return "restricted"
+        case .denied:
+            return "denied"
+        case .authorized:
+            return "authorized"
+        @unknown default:
+            return "unknown"
+        }
+    }
+}
+
+// MARK: - CLAuthorizationStatus
+
+fileprivate extension CLAuthorizationStatus {
+    func toString() -> String {
+        switch self {
+        case .notDetermined:
+            return "not determined"
+        case .restricted:
+            return "restricted"
+        case .denied:
+            return "denied"
+        case .authorizedAlways:
+            return "authorized always"
+        case .authorizedWhenInUse:
+            return "authorized when in use"
+        @unknown default:
+            return "unknown"
+        }
+    }
+}
+
+// MARK: - UNAuthorizationStatus
+
+fileprivate extension UNAuthorizationStatus {
+    func toString() -> String {
+        switch self {
+        case .notDetermined:
+            return "not determined"
+        case .denied:
+            return "denied"
+        case .authorized:
+            return "authorized"
+        case .provisional:
+            return "provisional"
+        case .ephemeral:
+            return "ephermal"
+        @unknown default:
+            return "unknown"
+        }
+    }
 }

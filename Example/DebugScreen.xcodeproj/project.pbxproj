@@ -316,11 +316,13 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DebugScreen_Example/Pods-DebugScreen_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DebugScreen/DebugScreen.framework",
+				"${BUILT_PRODUCTS_DIR}/Device.swift/Device_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SurfUtils/SurfUtils.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DebugScreen.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Device_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SurfUtils.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
