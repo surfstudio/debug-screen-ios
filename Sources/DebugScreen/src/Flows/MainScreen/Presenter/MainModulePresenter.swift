@@ -10,7 +10,11 @@ import Photos
 import UserNotifications
 import AVKit
 import CoreLocation
+#if canImport(Device)
 import Device
+#else
+import Device_swift
+#endif
 
 final class MainModulePresenter: MainModuleOutput {
 

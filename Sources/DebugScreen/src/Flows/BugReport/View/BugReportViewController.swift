@@ -6,7 +6,11 @@
 //
 
 import UIKit
+#if canImport(Utils)
 import Utils
+#else
+import SurfUtils
+#endif
 
 class BugReportViewController: UIViewController, KeyboardObservable {
 
