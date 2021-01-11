@@ -3,7 +3,7 @@ use_frameworks!
 target 'DebugScreen_Example' do
   pod 'DebugScreen', :path => '../'
   pod 'SurfUtils/KeyboardPresentable', :git => 'https://github.com/surfstudio/iOS-Utils', :commit => '93c771258a88a5711f9d4851ec8a464035351616'
-  pod 'Device.swift', :git => 'https://github.com/surfstudio/Device.swift', :commit => '0b8b135dab32ff81d4d892b3aeb3608c76e8fd96'
+  pod 'Device.swift', :git => 'https://github.com/shelaranton/Device.swift', :commit => '5755e40c7de835938c6863abdc4553108e069e6f'
 
   target 'DebugScreen_Tests' do
     inherit! :search_paths

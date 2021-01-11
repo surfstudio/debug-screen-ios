@@ -30,7 +30,7 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '11.0'
 
-  s.source_files = 'DebugScreen/Classes/**/*'
+  s.source_files = 'Sources/DebugScreen/**/*'
   
   # s.resource_bundles = {
   #   'DebugScreen' => ['DebugScreen/Assets/*.png']
