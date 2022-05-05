@@ -51,9 +51,6 @@ extension MainModulePresenter: MainViewOutput {
     func featureToggled(model: FeatureToggleModel, newValue: Bool) {
         DebugScreenConfiguration.shared.featureToggleActionsProvider?
             .handleAction(with: model.text, newValue: newValue)
-
-        let tableSections = createTableSections()
-        view?.update(sections: tableSections)
     }
 
 }

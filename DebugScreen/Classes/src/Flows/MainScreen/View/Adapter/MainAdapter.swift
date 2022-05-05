@@ -108,6 +108,8 @@ extension MainAdapter: UITableViewDataSource {
 extension MainAdapter: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         guard let section = sections[safe: indexPath.section],
               let block = section.blocks[safe: indexPath.row] else {
             return
