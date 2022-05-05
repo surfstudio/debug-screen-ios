@@ -71,18 +71,26 @@ enum BusinessFeatureToggle {
 
 class FeatureToggleProvider: FeatureToggleActionsProvider {
 
+    private var featureActions = [
+        FeatureToggleModel(text: FeatureToggleKey.feature1.rawValue, value: true),
+        FeatureToggleModel(text: FeatureToggleKey.feature2.rawValue, value: false),
+        FeatureToggleModel(text: FeatureToggleKey.feature3.rawValue, value: true),
+        FeatureToggleModel(text: FeatureToggleKey.business1.rawValue, value: BusinessFeatureToggle.isPushNotificationsAvailable)
+    ]
+
     func actions() -> [FeatureToggleModel] {
-        return [
-            FeatureToggleModel(text: FeatureToggleKey.feature1.rawValue, value: true),
-            FeatureToggleModel(text: FeatureToggleKey.feature2.rawValue, value: false),
-            FeatureToggleModel(text: FeatureToggleKey.feature3.rawValue, value: true),
-            FeatureToggleModel(text: FeatureToggleKey.business1.rawValue, value: BusinessFeatureToggle.isPushNotificationsAvailable)
-        ]
+        return featureActions
     }
 
     func handleAction(with text: String, newValue: Bool) {
         guard let featureToggle = FeatureToggleKey(rawValue: text) else {
             return
+        }
+
+        if let featureIndex = featureActions.firstIndex(
+            where: { $0.text == featureToggle.rawValue }
+        ) {
+            featureActions[featureIndex].value = newValue
         }
 
         switch featureToggle {

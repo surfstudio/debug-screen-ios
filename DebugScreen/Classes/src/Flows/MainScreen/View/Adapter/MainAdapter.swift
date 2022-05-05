@@ -7,24 +7,30 @@
 
 import UIKit
 
+// TODO: to separate file
+struct TableSection {
+    let title: String
+    let blocks: [MainTableBlock]
+}
+
 enum MainTableBlock {
     case featureToggle(model: FeatureToggleModel)
     case cacheCleaner(models: [CacheCleanerAction])
-    case selectServer
+    case selectServer(model: SelectServerAction)
 }
 
 final class MainAdapter: NSObject {
 
     // MARK: - Properties
 
-    var onSelectServer: (() -> Void)?
+    var onSelectServer: ((SelectServerAction) -> Void)?
     var onSelectCacheCleanerAction: (([CacheCleanerAction]) -> Void)?
     var onToggleFeatureAction: ((_ model: FeatureToggleModel, _ newValue: Bool) -> Void)?
 
     // MARK: - Private Properties
 
     private weak var tableView: UITableView?
-    private var blocks: [MainTableBlock] = []
+    private var sections: [TableSection] = []
 
     // MARK: - Initialization
 
@@ -34,14 +40,15 @@ final class MainAdapter: NSObject {
 
         tableView.registerNib(TextTableCell.self)
         tableView.registerNib(SwitcherTableCell.self)
+        tableView.registerNib(SelectionTableCell.self)
         tableView.delegate = self
         tableView.dataSource = self
     }
 
     // MARK: - Methods
 
-    func fill(with blocks: [MainTableBlock]) {
-        self.blocks = blocks
+    func fill(with sections: [TableSection]) {
+        self.sections = sections
         tableView?.reloadData()
     }
 
@@ -51,12 +58,21 @@ final class MainAdapter: NSObject {
 
 extension MainAdapter: UITableViewDataSource {
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return blocks.count
+        return sections[safe: section]?.blocks.count ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[safe: section]?.title
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let block = blocks[safe: indexPath.row] else {
+        guard let section = sections[safe: indexPath.section],
+              let block = section.blocks[safe: indexPath.row] else {
             return UITableViewCell()
         }
 
@@ -76,11 +92,11 @@ extension MainAdapter: UITableViewDataSource {
             }
             cell.configure(with: "Clear application data")
             return cell
-        case .selectServer:
-            guard let cell = tableView.dequeueReusableCell(TextTableCell.self, indexPath: indexPath) else {
+        case .selectServer(let model):
+            guard let cell = tableView.dequeueReusableCell(SelectionTableCell.self, indexPath: indexPath) else {
                 return UITableViewCell()
             }
-            cell.configure(with: "Select server")
+            cell.configure(with: model)
             return cell
         }
     }
@@ -93,8 +109,9 @@ extension MainAdapter: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
-        guard let block = blocks[safe: indexPath.row] else {
+        
+        guard let section = sections[safe: indexPath.section],
+              let block = section.blocks[safe: indexPath.row] else {
             return
         }
         switch block {
@@ -102,8 +119,8 @@ extension MainAdapter: UITableViewDelegate {
             break
         case .cacheCleaner(let model):
             onSelectCacheCleanerAction?(model)
-        case .selectServer:
-            onSelectServer?()
+        case .selectServer(let model):
+            onSelectServer?(model)
         }
     }
 
