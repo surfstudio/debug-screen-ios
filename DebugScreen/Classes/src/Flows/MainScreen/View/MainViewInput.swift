@@ -7,4 +7,6 @@
 
 import Foundation
 
-protocol MainViewInput: class { }
+protocol MainViewInput: AnyObject {
+    func setupInitialState(blocks: [MainTableBlock]) 
+}

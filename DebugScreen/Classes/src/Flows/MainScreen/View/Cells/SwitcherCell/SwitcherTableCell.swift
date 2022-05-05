@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ReactiveDataDisplayManager
 
 class SwitcherTableCell: UITableViewCell {
 
@@ -29,7 +28,7 @@ class SwitcherTableCell: UITableViewCell {
 
 // MARK: - Configurable
 
-extension SwitcherTableCell: Configurable {
+extension SwitcherTableCell {
 
     func configure(with model: FeatureToggleModel) {
         titleLabel.text = model.text

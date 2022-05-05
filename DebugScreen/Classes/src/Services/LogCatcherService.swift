@@ -74,7 +74,7 @@ private extension LogCatcherService {
         setvbuf(stream.file, nil, _IONBF, 0)
         dup2(pipe.fileHandleForWriting.fileDescriptor, stream.id)
 
-        pipe.fileHandleForReading.readabilityHandler = { [weak self] handle in
+        pipe.fileHandleForReading.readabilityHandler = { handle in
             let data = handle.availableData
             let str: String? = String(data: data, encoding: .utf8)
 

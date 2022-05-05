@@ -9,7 +9,10 @@ import UIKit
 
 protocol MainViewOutput {
 
+    func viewLoaded()
     func didTapCloseButton()
-    func configureAdapter(tableView: UITableView)
+    func serverSelected()
+    func clearCacheSelected(actions: [CacheCleanerAction])
+    func featureToggled(model: FeatureToggleModel, newValue: Bool)
 
 }
