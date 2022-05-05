@@ -5,7 +5,7 @@
 import Foundation
 
 /// Base protocol for coordinator
-protocol Coordinator: class {
+protocol Coordinator: AnyObject {
     /// Notifies coordinator that it can start itself
     func start()
     /// Notifies coordinator that it should start itself with deeplink option

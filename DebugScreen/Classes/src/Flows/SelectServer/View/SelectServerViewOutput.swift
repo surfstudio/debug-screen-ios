@@ -9,6 +9,7 @@ import Foundation
 
 protocol SelectServerViewOutput {
 
-    func configureAdapter(tableView: UITableView)
+    func viewLoaded()
+    func serverSelected(action: SelectServerAction)
 
 }

@@ -10,19 +10,15 @@ import UIKit
 import DebugScreen
 
 class ViewController: UIViewController {
-    @IBOutlet weak var textView: UITextView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("___ ERROR!!! ___")
-
-//        DebugScreenConfiguration.shared.cacheCleanerActionsProvider = ActionsProvider()
-//        DebugScreenConfiguration.shared.selectServerActionsProvider = ServersProvider()
+        DebugScreenConfiguration.shared.cacheCleanerActionsProvider = ActionsProvider()
+        DebugScreenConfiguration.shared.selectServerActionsProvider = ServersProvider()
         DebugScreenConfiguration.shared.featureToggleActionsProvider = FeatureToggleProvider()
-        //DebugScreenConfiguration.shared.logCatcherService.setStdErrCatcherEnabled()
-        //DebugScreenConfiguration.shared.logCatcherService.setStdOutCatcherEnabled()
-
+        DebugScreenConfiguration.shared.logCatcherService.setStdErrCatcherEnabled()
+        DebugScreenConfiguration.shared.logCatcherService.setStdOutCatcherEnabled()
     }
 
 }
@@ -42,16 +38,20 @@ class ActionsProvider: CacheCleanerActionsProvider {
 
 class ServersProvider: SelectServerActionsProvider {
 
+    private var serverActions = [
+        SelectServerAction(url: URL(string: "https://google.com")!, title: "Google 123321 тут все фичи 123 321 лонгтитла", isActive: false),
+        SelectServerAction(url: URL(string: "https://surf.ru")!, title: "Surf", isActive: true),
+        SelectServerAction(url: URL(string: "https://yandex.ru")!, title: "yandex какой-то", isActive: false)
+    ]
+
     func servers() -> [SelectServerAction] {
-        return [
-            SelectServerAction(url: URL(string: "https://google.com")!, title: "Google 123321 тут все фичи 123 321 лонгтитла", isActive: false),
-            SelectServerAction(url: URL(string: "https://surf.ru")!, title: "Surf", isActive: true),
-            SelectServerAction(url: URL(string: "https://yandex.ru")!, title: "yandex какой-то", isActive: false)
-        ]
+        return serverActions
     }
 
     func didSelectServer(_ server: SelectServerAction) {
-        // TODO: change active server
+        serverActions = serverActions.map {
+            SelectServerAction(url: $0.url, title: $0.title, isActive: $0.url == server.url)
+        }
     }
 
 }

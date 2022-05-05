@@ -1,28 +1,16 @@
 PODS:
-  - DebugScreen (0.1.0):
-    - ReactiveDataDisplayManager
-  - ReactiveDataDisplayManager (6.0.0)
+  - DebugScreen (0.1.0)
 
 DEPENDENCIES:
   - DebugScreen (from `../`)
-  - ReactiveDataDisplayManager (from `https://github.com/surfstudio/ReactiveDataDisplayManager`, commit `5a9244a2811c31f43a95d79857cc1a60637c674f`)
 
 EXTERNAL SOURCES:
   DebugScreen:
     :path: "../"
-  ReactiveDataDisplayManager:
-    :commit: 5a9244a2811c31f43a95d79857cc1a60637c674f
-    :git: https://github.com/surfstudio/ReactiveDataDisplayManager
-
-CHECKOUT OPTIONS:
-  ReactiveDataDisplayManager:
-    :commit: 5a9244a2811c31f43a95d79857cc1a60637c674f
-    :git: https://github.com/surfstudio/ReactiveDataDisplayManager
 
 SPEC CHECKSUMS:
-  DebugScreen: 756e09c4d96b02e62ecb1bba5841484055edf758
-  ReactiveDataDisplayManager: 53c14bb0e0ccef2047a4816651ef904500cf83da
+  DebugScreen: af6d32748bc64acf4f3642ade72d01d07134df99
 
-PODFILE CHECKSUM: 20493715969e3d42ca64d58a2907b3bbabf48945
+PODFILE CHECKSUM: 746f29af20592654544b32b9ef809821cfd427e6
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

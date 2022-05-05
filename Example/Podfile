@@ -2,7 +2,6 @@ use_frameworks!
 
 target 'DebugScreen_Example' do
   pod 'DebugScreen', :path => '../'
-  pod 'ReactiveDataDisplayManager', :git => 'https://github.com/surfstudio/ReactiveDataDisplayManager', :commit => '5a9244a2811c31f43a95d79857cc1a60637c674f'
 
   target 'DebugScreen_Tests' do
     inherit! :search_paths

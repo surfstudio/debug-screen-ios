@@ -7,4 +7,7 @@
 
 import Foundation
 
-protocol SelectServerViewInput: class { }
+protocol SelectServerViewInput: AnyObject {
+    func setupInitialState(actions: [SelectServerAction])
+    func update(actions: [SelectServerAction])
+}

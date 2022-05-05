@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import ReactiveDataDisplayManager
 
 final class MainModulePresenter: MainModuleOutput {
 
@@ -17,10 +16,6 @@ final class MainModulePresenter: MainModuleOutput {
     var showSelectServerBlock: (() -> Void)?
 
     weak var view: MainViewInput?
-
-    // MARK: - Private properties
-
-    private var adapter: BaseTableDataDisplayManager?
 }
 
 // MARK: - MainModuleInput
@@ -33,66 +28,39 @@ extension MainModulePresenter: MainModuleInput {
 
 extension MainModulePresenter: MainViewOutput {
 
-    func configureAdapter(tableView: UITableView) {
-        adapter = BaseTableDataDisplayManager(collection: tableView)
-        fillAdapter()
+    func viewLoaded() {
+        var tableBlocks = [MainTableBlock]()
+        if let actions: [CacheCleanerAction] = DebugScreenConfiguration.shared.cacheCleanerActionsProvider?.actions(),
+           !actions.isEmpty {
+               tableBlocks.append(.cacheCleaner(models: actions))
+        }
+
+        if DebugScreenConfiguration.shared.selectServerActionsProvider != nil {
+            tableBlocks.append(.selectServer)
+        }
+
+        if let featureToggles = DebugScreenConfiguration.shared.featureToggleActionsProvider?.actions() {
+            featureToggles.forEach {
+                tableBlocks.append(.featureToggle(model: $0))
+            }
+        }
+        view?.setupInitialState(blocks: tableBlocks)
     }
 
     func didTapCloseButton() {
         closeModuleBlock?()
     }
 
-}
-
-// MARK: - Private methods
-
-private extension MainModulePresenter {
-
-    func fillAdapter() {
-        adapter?.clearCellGenerators()
-
-        if let actions: [CacheCleanerAction] = DebugScreenConfiguration.shared.cacheCleanerActionsProvider?.actions(),
-           !actions.isEmpty {
-            adapter?.addCellGenerator(createCacheClearerGenerator(actions: actions))
-        }
-
-        if DebugScreenConfiguration.shared.selectServerActionsProvider != nil {
-            adapter?.addCellGenerator(createSelectServerGenerator())
-        }
-
-        if let featureToggles = DebugScreenConfiguration.shared.featureToggleActionsProvider?.actions() {
-            featureToggles.forEach {
-                adapter?.addCellGenerator(createSwitcherGenerator(action: $0))
-            }
-        }
-
-        adapter?.forceRefill()
+    func serverSelected() {
+        showSelectServerBlock?()
     }
 
-    func createCacheClearerGenerator(actions: [CacheCleanerAction]) -> TableCellGenerator {
-        let generator = BaseCellGenerator<TextTableCell>(with: TextTableCell.Model(title: "Clear application data"))
-        generator.didSelectEvent += { [weak self] in
-            self?.showCacheClearingOptionsBlock?(actions)
-        }
-
-        return generator
+    func clearCacheSelected(actions: [CacheCleanerAction]) {
+        showCacheClearingOptionsBlock?(actions)
     }
 
-    func createSelectServerGenerator() -> TableCellGenerator {
-        let generator = BaseCellGenerator<TextTableCell>(with: TextTableCell.Model(title: "Select server"))
-        generator.didSelectEvent += { [weak self] in
-            self?.showSelectServerBlock?()
-        }
-
-        return generator
-    }
-
-    func createSwitcherGenerator(action: FeatureToggleModel) -> TableCellGenerator {
-        let generator = SwitcherTableCellGenerator(with: action)
-        generator.didChangeSwitch = { newValue in
-            DebugScreenConfiguration.shared.featureToggleActionsProvider?.handleAction(with: action.text, newValue: newValue)
-        }
-        return generator
+    func featureToggled(model: FeatureToggleModel, newValue: Bool) {
+        DebugScreenConfiguration.shared.featureToggleActionsProvider?.handleAction(with: model.text, newValue: newValue)
     }
 
 }

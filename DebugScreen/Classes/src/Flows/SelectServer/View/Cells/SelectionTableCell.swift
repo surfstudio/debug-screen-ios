@@ -6,13 +6,8 @@
 //
 
 import UIKit
-import ReactiveDataDisplayManager
 
-class SelectionTableCell: UITableViewCell, SelectableItem {
-
-    // MARK: - Public properties
-
-    var didSelectEvent = BaseEvent<Void>()
+class SelectionTableCell: UITableViewCell {
 
     // MARK: - Private properties
 
@@ -24,7 +19,7 @@ class SelectionTableCell: UITableViewCell, SelectableItem {
 
 // MARK: - Configurable
 
-extension SelectionTableCell: Configurable {
+extension SelectionTableCell {
 
     func configure(with model: SelectServerAction) {
         titleLabel.text = model.title
