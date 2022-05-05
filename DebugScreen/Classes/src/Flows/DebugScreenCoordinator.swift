@@ -34,10 +34,6 @@ final class DebugScreenCoordinator: BaseCoordinator {
             self?.showCacheCleaningActions(actions: actions)
         }
 
-        components.output.showSelectServerBlock = { [weak self] in
-            self?.showSelectServer()
-        }
-
         router.present(navigationController)
     }
 }
@@ -58,17 +54,6 @@ private extension DebugScreenCoordinator {
         actionsSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
         self.navigationController.present(actionsSheet, animated: true, completion: nil)
-    }
-
-    func showSelectServer() {
-        guard let provider: SelectServerActionsProvider = DebugScreenConfiguration.shared.selectServerActionsProvider else {
-            assertionFailure("Impossible!")
-            return
-        }
-
-        let components: SelectServerModuleComponents = SelectServerModuleConfigurator().configure(provider: provider)
-
-        self.navigationController.pushViewController(components.view, animated: true)
     }
 
 }

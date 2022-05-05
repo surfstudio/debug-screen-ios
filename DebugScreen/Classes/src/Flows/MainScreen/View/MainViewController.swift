@@ -30,9 +30,13 @@ class MainViewController: UIViewController {
 
 extension MainViewController: MainViewInput {
 
-    func setupInitialState(blocks: [MainTableBlock]) {
+    func setupInitialState(sections: [TableSection]) {
         configureAppearance()
-        adapter?.fill(with: blocks)
+        update(sections: sections)
+    }
+
+    func update(sections: [TableSection]) {
+        adapter?.fill(with: sections)
     }
 
 }
@@ -52,8 +56,8 @@ private extension MainViewController {
         adapter?.onSelectCacheCleanerAction = { [weak self] actions in
             self?.output?.clearCacheSelected(actions: actions)
         }
-        adapter?.onSelectServer = { [weak self] in
-            self?.output?.serverSelected()
+        adapter?.onSelectServer = { [weak self] action in
+            self?.output?.serverSelected(action: action)
         }
         adapter?.onToggleFeatureAction = { [weak self] action, newValue in
             self?.output?.featureToggled(model: action, newValue: newValue)
