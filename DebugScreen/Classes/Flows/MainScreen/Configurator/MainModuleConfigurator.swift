@@ -14,7 +14,7 @@ final class MainModuleConfigurator {
     // MARK: - Public methods
 
     func configure() -> MainModuleComponents {
-        let viewController: MainViewController = UIViewController.instantiate(ofType: MainViewController.self)
+        let viewController = UIViewController.instantiate(ofType: MainViewController.self)
         viewController.modalPresentationStyle = .overFullScreen
     
         let presenter = MainModulePresenter()

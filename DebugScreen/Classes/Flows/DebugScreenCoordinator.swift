@@ -9,6 +9,13 @@ import Foundation
 import UIKit
 
 final class DebugScreenCoordinator: BaseCoordinator {
+    
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let clearCache = "Clear cache"
+        static let cancelAction = "Cancel"
+    }
 
     // MARK: - Private properties
 
@@ -43,7 +50,7 @@ final class DebugScreenCoordinator: BaseCoordinator {
 private extension DebugScreenCoordinator {
 
     func showCacheCleaningActions(actions: [CacheCleanerAction]) {
-        let actionsSheet = UIAlertController(title: nil, message: "Clear cache", preferredStyle: .actionSheet)
+        let actionsSheet = UIAlertController(title: nil, message: Constants.clearCache, preferredStyle: .actionSheet)
 
         for action in actions {
             actionsSheet.addAction(UIAlertAction(title: action.title, style: .destructive, handler: { (_: UIAlertAction) in
@@ -51,7 +58,7 @@ private extension DebugScreenCoordinator {
             }))
         }
 
-        actionsSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionsSheet.addAction(UIAlertAction(title: Constants.cancelAction, style: .cancel, handler: nil))
 
         self.navigationController.present(actionsSheet, animated: true, completion: nil)
     }

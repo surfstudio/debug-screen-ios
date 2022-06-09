@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A425B44728520E0C00FD123A /* DebugScreen in Frameworks */ = {isa = PBXBuildFile; productRef = A425B44628520E0C00FD123A /* DebugScreen */; };
 		A466A3F4285143FC0017807F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466A3F3285143FC0017807F /* AppDelegate.swift */; };
 		A466A3F6285143FC0017807F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466A3F5285143FC0017807F /* SceneDelegate.swift */; };
 		A466A3F8285143FC0017807F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466A3F7285143FC0017807F /* ViewController.swift */; };
 		A466A3FB285143FC0017807F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A466A3F9285143FC0017807F /* Main.storyboard */; };
 		A466A3FD285143FD0017807F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A466A3FC285143FD0017807F /* Assets.xcassets */; };
 		A466A400285143FD0017807F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A466A3FE285143FD0017807F /* LaunchScreen.storyboard */; };
-		A466A40D285145E70017807F /* DebugScreen in Frameworks */ = {isa = PBXBuildFile; productRef = A466A40C285145E70017807F /* DebugScreen */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A425B44528520DF200FD123A /* debug-screen-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "debug-screen-ios"; path = ..; sourceTree = "<group>"; };
 		A466A3F0285143FC0017807F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A466A3F3285143FC0017807F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A466A3F5285143FC0017807F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -25,7 +26,6 @@
 		A466A3FC285143FD0017807F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A466A3FF285143FD0017807F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A466A401285143FD0017807F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A466A40B285145E00017807F /* DebugScreen */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DebugScreen; path = ../DebugScreen; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,7 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A466A40D285145E70017807F /* DebugScreen in Frameworks */,
+				A425B44728520E0C00FD123A /* DebugScreen in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +74,7 @@
 		A466A409285144420017807F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A466A40B285145E00017807F /* DebugScreen */,
+				A425B44528520DF200FD123A /* debug-screen-ios */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -96,7 +96,7 @@
 			);
 			name = Example;
 			packageProductDependencies = (
-				A466A40C285145E70017807F /* DebugScreen */,
+				A425B44628520E0C00FD123A /* DebugScreen */,
 			);
 			productName = Example;
 			productReference = A466A3F0285143FC0017807F /* Example.app */;
@@ -231,7 +231,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -285,7 +285,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -302,6 +302,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = ..;
 				DEVELOPMENT_TEAM = 7HNL3338TZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Example/Info.plist;
@@ -330,6 +331,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = ..;
 				DEVELOPMENT_TEAM = 7HNL3338TZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Example/Info.plist;
@@ -375,7 +377,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A466A40C285145E70017807F /* DebugScreen */ = {
+		A425B44628520E0C00FD123A /* DebugScreen */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DebugScreen;
 		};

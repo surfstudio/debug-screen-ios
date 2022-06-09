@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A48C764C2850F828004FFAAB /* DebugScreen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A48C76412850F828004FFAAB /* DebugScreen.framework */; };
-		A48C76512850F828004FFAAB /* DebugScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C76502850F828004FFAAB /* DebugScreenTests.swift */; };
 		A48C765C28514304004FFAAB /* DebugScreen.docc in Sources */ = {isa = PBXBuildFile; fileRef = A48C765B28514304004FFAAB /* DebugScreen.docc */; };
 		A4BDF49228512F7700651C61 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF48128512F7700651C61 /* MainRouter.swift */; };
 		A4BDF49328512F7700651C61 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF48328512F7700651C61 /* Array.swift */; };
@@ -61,7 +60,6 @@
 		A466A40E285146590017807F /* DebugScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DebugScreen.h; sourceTree = "<group>"; };
 		A48C76412850F828004FFAAB /* DebugScreen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DebugScreen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A48C764B2850F828004FFAAB /* DebugScreenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DebugScreenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A48C76502850F828004FFAAB /* DebugScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugScreenTests.swift; sourceTree = "<group>"; };
 		A48C765B28514304004FFAAB /* DebugScreen.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; name = DebugScreen.docc; path = ../DebugScreen.docc; sourceTree = "<group>"; };
 		A4BDF48128512F7700651C61 /* MainRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		A4BDF48328512F7700651C61 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 				A466A40E285146590017807F /* DebugScreen.h */,
 				A48C765B28514304004FFAAB /* DebugScreen.docc */,
 				A48C76432850F828004FFAAB /* DebugScreen */,
-				A48C764F2850F828004FFAAB /* DebugScreenTests */,
 				A48C76422850F828004FFAAB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -149,14 +146,6 @@
 			);
 			name = DebugScreen;
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		A48C764F2850F828004FFAAB /* DebugScreenTests */ = {
-			isa = PBXGroup;
-			children = (
-				A48C76502850F828004FFAAB /* DebugScreenTests.swift */,
-			);
-			path = DebugScreenTests;
 			sourceTree = "<group>";
 		};
 		A4BDF47F28512F7700651C61 /* Common */ = {
@@ -477,7 +466,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A48C76512850F828004FFAAB /* DebugScreenTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,7 +531,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -600,7 +588,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

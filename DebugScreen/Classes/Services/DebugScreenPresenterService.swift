@@ -24,7 +24,7 @@ final class DebugScreenPresenterService {
     // MARK: - Public methods
 
     func handleMotionEnded() {
-        if coordinator != nil {
+        guard coordinator == nil else {
             return
         }
 

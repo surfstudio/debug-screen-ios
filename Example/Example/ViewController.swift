@@ -1,15 +1,14 @@
 //
-//  ViewController.swift
-//  DebugScreen
+//  SceneDelegate.swift
+//  Example
 //
-//  Created by Anton Shelar on 10/29/2020.
-//  Copyright (c) 2020 Anton Shelar. All rights reserved.
+//  Created by vasilev on 09.06.2022.
 //
 
 import UIKit
 import DebugScreen
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +21,7 @@ class ViewController: UIViewController {
 
 }
 
-class ActionsProvider: CacheCleanerActionsProvider {
+final class ActionsProvider: CacheCleanerActionsProvider {
     func actions() -> [CacheCleanerAction] {
         return [
             CacheCleanerAction(title: "First action", block: {
@@ -35,7 +34,7 @@ class ActionsProvider: CacheCleanerActionsProvider {
     }
 }
 
-class ServersProvider: SelectServerActionsProvider {
+final class ServersProvider: SelectServerActionsProvider {
 
     private var serverActions = [
         SelectServerAction(url: URL(string: "https://google.com")!, title: "Google 123321 тут все фичи 123 321 лонгтитла", isActive: false),
@@ -68,7 +67,7 @@ enum BusinessFeatureToggle {
     static var isPushNotificationsAvailable = false
 }
 
-class FeatureToggleProvider: FeatureToggleActionsProvider {
+final class FeatureToggleProvider: FeatureToggleActionsProvider {
 
     private var featureActions = [
         FeatureToggleModel(text: FeatureToggleKey.feature1.rawValue, value: true),

@@ -6,21 +6,37 @@ import UIKit
 
 /// Provides methods and properties for all navigation operations.
 /// Instantiate, and use the object of this class in coordinators.
-class MainRouter: Router {
+final class MainRouter: Router {
 
     private var window: UIWindow? {
-        return UIApplication.shared.delegate?.window ?? UIApplication.shared.keyWindow
+        return UIApplication
+            .shared
+            .connectedScenes
+            .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+            .first { $0.isKeyWindow }
     }
 
     private var navigationController: UINavigationController? {
-        if let tabBar = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController {
+        let keyWindow = UIApplication
+            .shared
+            .connectedScenes
+            .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+            .first { $0.isKeyWindow }
+
+        if let tabBar = keyWindow?.rootViewController as? UITabBarController {
             return tabBar.selectedViewController as? UINavigationController
         }
-        return UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
+
+        return keyWindow?.rootViewController as? UINavigationController
     }
 
     private var tabBarController: UITabBarController? {
-        return UIApplication.shared.keyWindow?.rootViewController as? UITabBarController
+        let keyWindow = UIApplication
+            .shared
+            .connectedScenes
+            .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+            .first { $0.isKeyWindow }
+        return keyWindow?.rootViewController as? UITabBarController
     }
 
     private var topViewController: UIViewController? {

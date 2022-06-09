@@ -21,6 +21,12 @@ enum MainTableBlock {
 
 final class MainAdapter: NSObject {
 
+    // MARK: - Constants
+
+    private enum Constants {
+        static let clearAppData = "Clear application data"
+    }
+
     // MARK: - Properties
 
     var onSelectServer: ((SelectServerAction) -> Void)?
@@ -90,7 +96,7 @@ extension MainAdapter: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(TextTableCell.self, indexPath: indexPath) else {
                 return UITableViewCell()
             }
-            cell.configure(with: "Clear application data")
+            cell.configure(with: Constants.clearAppData)
             return cell
         case .selectServer(let model):
             guard let cell = tableView.dequeueReusableCell(SelectionTableCell.self, indexPath: indexPath) else {
@@ -115,12 +121,13 @@ extension MainAdapter: UITableViewDelegate {
             return
         }
         switch block {
-        case .featureToggle:
-            break
         case .cacheCleaner(let model):
             onSelectCacheCleanerAction?(model)
         case .selectServer(let model):
             onSelectServer?(model)
+        case .featureToggle:
+            break
+
         }
     }
 

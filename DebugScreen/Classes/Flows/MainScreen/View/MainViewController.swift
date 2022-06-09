@@ -9,6 +9,12 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    // MARK: - Constants
+
+    private enum Constants {
+        static let debugTitle = "Debug Screen"
+    }
+
     // MARK: - Public properties
 
     var output: MainViewOutput?
@@ -46,7 +52,7 @@ extension MainViewController: MainViewInput {
 private extension MainViewController {
 
     func configureAppearance() {
-        title = "Debug Screen"
+        title = Constants.debugTitle
         setCloseButton()
         configureAdapter()
     }

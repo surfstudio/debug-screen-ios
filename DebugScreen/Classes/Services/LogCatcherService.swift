@@ -33,13 +33,11 @@ public final class LogCatcherService {
 
     init(logPath: String) {
         self.logPath = logPath
-
         clearLogfile()
     }
 
     public init() {
         self.logPath = NSTemporaryDirectory().appending("\(LogCatcherService.defaultLogName)")
-
         clearLogfile()
     }
 

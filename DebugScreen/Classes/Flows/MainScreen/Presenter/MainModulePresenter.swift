@@ -8,6 +8,14 @@
 import Foundation
 
 final class MainModulePresenter: MainModuleOutput {
+    
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let clearDataTitle = "Clear data"
+        static let serverTitle = "Select server"
+        static let featuresTitle = "Features"
+    }
 
     // MARK: - MainModuleOutput
 
@@ -19,9 +27,7 @@ final class MainModulePresenter: MainModuleOutput {
 
 // MARK: - MainModuleInput
 
-extension MainModulePresenter: MainModuleInput {
-    
-}
+extension MainModulePresenter: MainModuleInput { }
 
 // MARK: - MainViewOutput
 
@@ -64,7 +70,7 @@ private extension MainModulePresenter {
         if let actions: [CacheCleanerAction] = DebugScreenConfiguration.shared.cacheCleanerActionsProvider?.actions(),
            !actions.isEmpty {
             tableSections.append(TableSection(
-                title: "Clear data",
+                title: Constants.clearDataTitle,
                 blocks: [.cacheCleaner(models: actions)]
             ))
         }
@@ -74,14 +80,14 @@ private extension MainModulePresenter {
             let tableBlocks = servers.map { server in
                 MainTableBlock.selectServer(model: server)
             }
-            tableSections.append(TableSection(title: "Select server", blocks: tableBlocks))
+            tableSections.append(TableSection(title: Constants.serverTitle, blocks: tableBlocks))
         }
 
         if let featureToggles = DebugScreenConfiguration.shared.featureToggleActionsProvider?.actions() {
             let tableBlocks = featureToggles.map { featureToggle in
                 MainTableBlock.featureToggle(model: featureToggle)
             }
-            tableSections.append(TableSection(title: "Features", blocks: tableBlocks))
+            tableSections.append(TableSection(title: Constants.featuresTitle, blocks: tableBlocks))
         }
         return tableSections
     }
