@@ -7,13 +7,13 @@
 
 import UIKit
 
-class SelectionTableCell: UITableViewCell {
+final class SelectionTableCell: UITableViewCell {
 
     // MARK: - Private properties
 
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var urlLabel: UILabel!
-    @IBOutlet private weak var statusLabel: UILabel!
+    @IBOutlet private weak var title: UILabel!
+    @IBOutlet private weak var url: UILabel!
+    @IBOutlet private weak var status: UILabel!
     
 }
 
@@ -22,9 +22,9 @@ class SelectionTableCell: UITableViewCell {
 extension SelectionTableCell {
 
     func configure(with model: SelectServerAction) {
-        titleLabel.text = model.title
-        urlLabel.text = model.url.absoluteString
-        statusLabel.text = (model.isActive ? "Active" : nil)
+        title.text = model.title
+        url.text = model.url.absoluteString
+        status.text = (model.isActive ? "Active" : nil)
     }
 
 }

@@ -9,8 +9,9 @@ import UIKit
 
 extension UIViewController {
 
+    // Метод для создания UIViewController из XIB
     static func instantiate<ViewController: UIViewController>(ofType: ViewController.Type) -> ViewController {
-        return .init(nibName: ofType.className, bundle: Bundle(for: ofType))
+        return .init(nibName: ofType.className, bundle: Bundle.shared(for: ofType))
     }
 
 }

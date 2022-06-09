@@ -7,11 +7,11 @@
 
 import UIKit
 
-class TextTableCell: UITableViewCell {
+final class TextTableCell: UITableViewCell {
 
     // MARK: - Private properties
 
-    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var title: UILabel!
 
 }
 
@@ -20,7 +20,7 @@ class TextTableCell: UITableViewCell {
 extension TextTableCell {
 
     func configure(with title: String) {
-        titleLabel.text = title
+        self.title.text = title
     }
 
 }

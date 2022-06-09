@@ -20,7 +20,7 @@ class BaseCoordinator: Coordinator {
 
     func start(with deepLinkOption: DeepLinkOption?) { }
 
-    // add only unique object
+    // Add only unique object
     func addDependency(_ coordinator: Coordinator) {
         guard !haveDependency(coordinator) else {
             return

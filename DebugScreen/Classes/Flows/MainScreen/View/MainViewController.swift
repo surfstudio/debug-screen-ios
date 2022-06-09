@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
 
     // MARK: - Constants
 
@@ -15,13 +15,16 @@ class MainViewController: UIViewController {
         static let debugTitle = "Debug Screen"
     }
 
+    // MARK: - @IBOutlets
+
+    @IBOutlet private weak var tableView: UITableView!
+
     // MARK: - Public properties
 
     var output: MainViewOutput?
 
     // MARK: - Private properties
 
-    @IBOutlet private weak var tableView: UITableView!
     private var adapter: MainAdapter?
 
     // MARK: - Lifecycle
@@ -30,6 +33,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         output?.viewLoaded()
     }
+
 }
 
 // MARK: - MainViewInput
@@ -47,7 +51,7 @@ extension MainViewController: MainViewInput {
 
 }
 
-// MARK: - Private methods
+// MARK: - Configuration
 
 private extension MainViewController {
 
@@ -75,7 +79,13 @@ private extension MainViewController {
         self.navigationItem.rightBarButtonItem = item
     }
 
-    @objc
+}
+
+// MARK: - Actions
+
+@objc
+private extension MainViewController {
+
     func didTapCloseButton() {
         output?.didTapCloseButton()
     }

@@ -11,7 +11,7 @@ typealias MainModuleComponents = (view: UIViewController, output: MainModuleOutp
 
 final class MainModuleConfigurator {
 
-    // MARK: - Public methods
+    // MARK: - Methods
 
     func configure() -> MainModuleComponents {
         let viewController = UIViewController.instantiate(ofType: MainViewController.self)

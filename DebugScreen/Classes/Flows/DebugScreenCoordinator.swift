@@ -26,7 +26,7 @@ final class DebugScreenCoordinator: BaseCoordinator {
 
     var completionHandler: (() -> Void)?
 
-    // MARK: - Public methods
+    // MARK: - Methods
 
     override func start() {
         var components: MainModuleComponents = MainModuleConfigurator().configure()

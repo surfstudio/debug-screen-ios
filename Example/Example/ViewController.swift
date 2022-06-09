@@ -10,6 +10,7 @@ import DebugScreen
 
 final class ViewController: UIViewController {
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         DebugScreenConfiguration.shared.cacheCleanerActionsProvider = ActionsProvider()

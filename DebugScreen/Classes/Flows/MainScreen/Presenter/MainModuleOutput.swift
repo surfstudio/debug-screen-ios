@@ -8,8 +8,6 @@
 import Foundation
 
 protocol MainModuleOutput {
-
     var closeModuleBlock: (() -> Void)? { get set }
     var showCacheClearingOptionsBlock: (([CacheCleanerAction]) -> Void)? { get set }
-
 }

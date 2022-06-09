@@ -7,15 +7,15 @@
 
 import UIKit
 
-class SwitcherTableCell: UITableViewCell {
+final class SwitcherTableCell: UITableViewCell {
 
     // MARK: - Public properties
 
     var didChangeSwitch: ((Bool) -> Void)?
 
-    // MARK: - Private properties
+    // MARK: - IBOutlets
 
-    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var title: UILabel!
     @IBOutlet private weak var switchControl: UISwitch!
 
     // MARK: - Actions
@@ -31,7 +31,7 @@ class SwitcherTableCell: UITableViewCell {
 extension SwitcherTableCell {
 
     func configure(with model: FeatureToggleModel) {
-        titleLabel.text = model.text
+        title.text = model.text
         switchControl.isOn = model.value
         selectionStyle = .none
     }

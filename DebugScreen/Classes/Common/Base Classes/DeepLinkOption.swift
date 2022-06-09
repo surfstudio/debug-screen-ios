@@ -4,5 +4,4 @@
 
 import Foundation
 
-enum DeepLinkOption {
-}
+enum DeepLinkOption { }
