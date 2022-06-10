@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A425B44728520E0C00FD123A /* DebugScreen in Frameworks */ = {isa = PBXBuildFile; productRef = A425B44628520E0C00FD123A /* DebugScreen */; };
+		A425B44F28533E7300FD123A /* DebugScreen in Frameworks */ = {isa = PBXBuildFile; productRef = A425B44E28533E7300FD123A /* DebugScreen */; };
 		A466A3F4285143FC0017807F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466A3F3285143FC0017807F /* AppDelegate.swift */; };
 		A466A3F6285143FC0017807F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466A3F5285143FC0017807F /* SceneDelegate.swift */; };
 		A466A3F8285143FC0017807F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466A3F7285143FC0017807F /* ViewController.swift */; };
@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A425B44528520DF200FD123A /* debug-screen-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "debug-screen-ios"; path = ..; sourceTree = "<group>"; };
+		A425B44D28533C1600FD123A /* debug-screen-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "debug-screen-ios"; path = ..; sourceTree = "<group>"; };
 		A466A3F0285143FC0017807F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A466A3F3285143FC0017807F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A466A3F5285143FC0017807F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,16 +33,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A425B44728520E0C00FD123A /* DebugScreen in Frameworks */,
+				A425B44F28533E7300FD123A /* DebugScreen in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A425B44C28533C1600FD123A /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				A425B44D28533C1600FD123A /* debug-screen-ios */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		A466A3E7285143FC0017807F = {
 			isa = PBXGroup;
 			children = (
+				A425B44C28533C1600FD123A /* Packages */,
 				A466A3F2285143FC0017807F /* Example */,
 				A466A3F1285143FC0017807F /* Products */,
 				A466A409285144420017807F /* Frameworks */,
@@ -74,7 +83,6 @@
 		A466A409285144420017807F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A425B44528520DF200FD123A /* debug-screen-ios */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -96,7 +104,7 @@
 			);
 			name = Example;
 			packageProductDependencies = (
-				A425B44628520E0C00FD123A /* DebugScreen */,
+				A425B44E28533E7300FD123A /* DebugScreen */,
 			);
 			productName = Example;
 			productReference = A466A3F0285143FC0017807F /* Example.app */;
@@ -300,10 +308,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = ..;
-				DEVELOPMENT_TEAM = 7HNL3338TZ;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Example/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -318,6 +326,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.surf.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -329,10 +338,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = ..;
-				DEVELOPMENT_TEAM = 7HNL3338TZ;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Example/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -347,6 +356,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.surf.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -377,7 +387,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A425B44628520E0C00FD123A /* DebugScreen */ = {
+		A425B44E28533E7300FD123A /* DebugScreen */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DebugScreen;
 		};

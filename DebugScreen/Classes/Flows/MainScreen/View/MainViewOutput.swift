@@ -8,11 +8,9 @@
 import UIKit
 
 protocol MainViewOutput {
-
     func viewLoaded()
     func didTapCloseButton()
     func serverSelected(action: SelectServerAction)
     func clearCacheSelected(actions: [CacheCleanerAction])
     func featureToggled(model: FeatureToggleModel, newValue: Bool)
-
 }

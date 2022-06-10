@@ -17,11 +17,4 @@ public extension NSObject {
         return ""
     }
 
-    var className: String {
-        if let name = NSStringFromClass(type(of: self)).components(separatedBy: ".").last {
-            return name
-        }
-        return ""
-    }
-
 }

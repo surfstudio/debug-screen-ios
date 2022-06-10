@@ -83,9 +83,9 @@ private extension MainViewController {
 
 // MARK: - Actions
 
-@objc
 private extension MainViewController {
 
+    @objc
     func didTapCloseButton() {
         output?.didTapCloseButton()
     }

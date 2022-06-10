@@ -32,7 +32,7 @@ class BaseCoordinator: Coordinator {
         guard
             !childCoordinators.isEmpty,
             let coordinator = coordinator
-            else { return }
+        else { return }
 
         for (index, element) in childCoordinators.enumerated() {
             if element === coordinator {
@@ -43,9 +43,7 @@ class BaseCoordinator: Coordinator {
     }
 
     func removeAllChilds() {
-        guard
-            !childCoordinators.isEmpty
-            else { return }
+        guard !childCoordinators.isEmpty else { return }
 
         for coordinator in childCoordinators {
             if let coordinator = coordinator as? BaseCoordinator {

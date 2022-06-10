@@ -9,19 +9,11 @@ import UIKit
 final class MainRouter: Router {
 
     private var window: UIWindow? {
-        return UIApplication
-            .shared
-            .connectedScenes
-            .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
-            .first { $0.isKeyWindow }
+        return UIApplication.firstKeyWindow
     }
 
     private var navigationController: UINavigationController? {
-        let keyWindow = UIApplication
-            .shared
-            .connectedScenes
-            .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
-            .first { $0.isKeyWindow }
+        let keyWindow = UIApplication.firstKeyWindow
 
         if let tabBar = keyWindow?.rootViewController as? UITabBarController {
             return tabBar.selectedViewController as? UINavigationController
@@ -31,11 +23,7 @@ final class MainRouter: Router {
     }
 
     private var tabBarController: UITabBarController? {
-        let keyWindow = UIApplication
-            .shared
-            .connectedScenes
-            .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
-            .first { $0.isKeyWindow }
+        let keyWindow = UIApplication.firstKeyWindow
         return keyWindow?.rootViewController as? UITabBarController
     }
 

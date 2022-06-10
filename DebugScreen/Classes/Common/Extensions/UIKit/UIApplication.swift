@@ -6,14 +6,29 @@ import UIKit
 
 extension UIApplication {
 
-    static func topViewController(
-        _ controller: UIViewController?
-        = UIApplication
+    // MARK: - Static Properties
+
+    static var rootView: UIViewController? {
+        return UIApplication
             .shared
             .connectedScenes
             .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
             .first { $0.isKeyWindow }?
             .rootViewController
+    }
+
+    static var firstKeyWindow: UIWindow? {
+        return UIApplication
+            .shared
+            .connectedScenes
+            .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+            .first { $0.isKeyWindow }
+    }
+
+    // MARK: - Static Methods
+
+    static func topViewController(
+        _ controller: UIViewController? = rootView
     ) -> UIViewController? {
         if let navigationController = controller as? UINavigationController {
             return topViewController(navigationController.visibleViewController)

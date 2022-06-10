@@ -1,6 +1,0 @@
-framework module DebugScreen {
-  umbrella header "DebugScreen-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,5 +1,5 @@
 //
-//  SceneDelegate.swift
+//  ViewController.swift
 //  Example
 //
 //  Created by vasilev on 09.06.2022.
