@@ -10,13 +10,13 @@
 #     https://docs.fastlane.tools/plugins/available-plugins
 #
 
-pod_bundle_id = "org.cocoapods.DebugScreen"
+pod_bundle_id = "ru.surfstudio.DebugScreen"
 pod_scheme = "DebugScreen"
 pod_target = "DebugScreen"
 
-example_bundle_id = "org.cocoapods.Pods-DebugScreen-Example"
-example_scheme = "Pods-DebugScreen_Example"
-example_target = "Pods-DebugScreen_Example"
+example_bundle_id = "org.cocoapods.Example"
+example_scheme = "Example"
+example_target = "Example"
 
 derived_data_path = "./buildData"
 

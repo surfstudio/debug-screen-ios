@@ -40,18 +40,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A425B44C28533C1600FD123A /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				A425B44D28533C1600FD123A /* debug-screen-ios */,
-			);
-			name = Packages;
-			sourceTree = "<group>";
-		};
 		A466A3E7285143FC0017807F = {
 			isa = PBXGroup;
 			children = (
-				A425B44C28533C1600FD123A /* Packages */,
 				A466A3F2285143FC0017807F /* Example */,
 				A466A3F1285143FC0017807F /* Products */,
 				A466A409285144420017807F /* Frameworks */,
@@ -83,6 +74,7 @@
 		A466A409285144420017807F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A425B44D28533C1600FD123A /* debug-screen-ios */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
