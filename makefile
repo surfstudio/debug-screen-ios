@@ -7,8 +7,6 @@ init:
 	fi
 	-bundle update
 	-bundle install --path .bundle
-	-bundle exec pod repo update
-	-bundle exec pod install --project-directory=Example
 
 build:
 	bundle exec fastlane build clean:true
@@ -16,9 +14,6 @@ build:
 example_build:
 	cd Example
 	bundle exec fastlane example_build clean:true
-
-pod:
-	bundle exec pod install --project-directory=Example
 
 
 # COLORS
