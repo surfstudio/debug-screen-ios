@@ -1,15 +1,14 @@
 //
 //  ViewController.swift
-//  Example
+//  DebugScreenExample
 //
-//  Created by vasilev on 09.06.2022.
+//  Created by vasilev on 20.06.2022.
 //
 
 import UIKit
 import DebugScreen
 
 final class ViewController: UIViewController {
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,3 +108,5 @@ final class FeatureToggleProvider: FeatureToggleActionsProvider {
     func doAction3() { }
 
 }
+
+

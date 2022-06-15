@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end if Gem::Version.new(Bundler::VERSION) < Gem::Version.new('2')
 
-gem "fastlane", "~> 2.174.0"
+gem 'xcpretty', "0.3.0"
 
 plugins_path = File.join(File.dirname(__FILE__), 'fastlane', 'Pluginfile')
 eval_gemfile(plugins_path) if File.exist?(plugins_path)
