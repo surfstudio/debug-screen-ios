@@ -1,13 +1,13 @@
 //
-//  DebugScreenExampleSPMUITests.swift
-//  DebugScreenExampleSPMUITests
+//  ExampleUITests.swift
+//  ExampleUITests
 //
 //  Created by vasilev on 20.06.2022.
 //
 
 import XCTest
 
-class DebugScreenExampleSPMUITests: XCTestCase {
+class ExampleUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

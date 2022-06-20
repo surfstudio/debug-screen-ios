@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  DebugScreenExample
+//  Example
 //
 //  Created by vasilev on 20.06.2022.
 //

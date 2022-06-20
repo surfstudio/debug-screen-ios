@@ -1,13 +1,13 @@
 //
-//  DebugScreenExampleSPMUITestsLaunchTests.swift
-//  DebugScreenExampleSPMUITests
+//  ExampleUITestsLaunchTests.swift
+//  ExampleUITests
 //
 //  Created by vasilev on 20.06.2022.
 //
 
 import XCTest
 
-class DebugScreenExampleSPMUITestsLaunchTests: XCTestCase {
+class ExampleUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
