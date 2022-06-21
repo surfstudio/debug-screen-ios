@@ -9,12 +9,19 @@ init:
 	-bundle install --path .bundle
 
 build:
-	bundle exec fastlane build clean:true
+	xcodebuild clean -scheme DebugScreen -sdk iphonesimulator | bundle exec xcpretty -c
+	xcodebuild build -scheme DebugScreen -sdk iphonesimulator | bundle exec xcpretty -c
 
+spm_build:
+	swift package clean
+	swift build -Xswiftc "-sdk" -Xswiftc "`xcrun --sdk iphonesimulator --show-sdk-path`" -Xswiftc "-target" -Xswiftc "x86_64-apple-ios15.5-simulator" -Xswiftc "-lswiftUIKit"
+	
 example_build:
-	cd Example
-	bundle exec fastlane example_build clean:true
+	cd Example && xcodebuild clean -scheme Example -sdk iphonesimulator | bundle exec xcpretty -c
+	cd Example && xcodebuild build -scheme Example -sdk iphonesimulator | bundle exec xcpretty -c
 
+test:
+	xcodebuild test -scheme DebugScreenTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO -enableCodeCoverage YES -destination 'platform=iOS Simulator,name=iPhone 8,OS=15.5' | bundle exec xcpretty -c
 
 # COLORS
 GREEN  := $(shell tput -Txterm setaf 2)
