@@ -20,7 +20,7 @@ jobs:
     - name: Init
       run: |
         make init
-    - name: Force xcode 14
+    - name: Force xcode 13
       run: |
         sudo xcode-select -switch /Applications/Xcode_13.4.app
     - name: Build
