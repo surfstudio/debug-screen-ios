@@ -29,9 +29,9 @@ jobs:
     - name: SPM Build
       run: |
         make spm_build
-    - name: Example Build
-      run: |
-        make example_build 
     - name: Test
       run: |
         make test
+    - name: Example Build
+      run: |
+        make example_build 
