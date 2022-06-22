@@ -16,7 +16,7 @@ spm_build:
 	swift build -Xswiftc "-sdk" -Xswiftc "`xcrun --sdk iphonesimulator --show-sdk-path`" -Xswiftc "-target" -Xswiftc "x86_64-apple-ios15.5-simulator" -Xswiftc "-lswiftUIKit"
 
 test:
-	xcodebuild test -scheme DebugScreenTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO -enableCodeCoverage YES -destination 'platform=iOS Simulator,name=iPhone 8,OS=15.5' | bundle exec xcpretty -c
+	xcodebuild test -scheme DebugScreen -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO -enableCodeCoverage YES -destination 'platform=iOS Simulator,name=iPhone 8,OS=15.5' | bundle exec xcpretty -c
 
 example_build:
 	cd Example && xcodebuild clean build -scheme Example -sdk iphonesimulator | bundle exec xcpretty -c
