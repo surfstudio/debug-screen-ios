@@ -7,12 +7,12 @@ let package = Package(
     name: "DebugScreen",
     defaultLocalization: "en",
     platforms: [
-        .iOS(.v13),
+        .iOS(.v13)
     ],
     products: [
         .library(
             name: "DebugScreen",
-            targets: ["DebugScreen"]),
+            targets: ["DebugScreen"])
     ],
     targets: [
         .target(
@@ -20,7 +20,7 @@ let package = Package(
             dependencies: [],
             path: "DebugScreen",
             exclude: [
-                "Info.plist",
+                "Info.plist"
             ]
         )
     ]

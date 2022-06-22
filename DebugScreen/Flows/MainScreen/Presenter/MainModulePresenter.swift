@@ -8,9 +8,9 @@
 import Foundation
 
 final class MainModulePresenter: MainModuleOutput {
-    
+
     // MARK: - Constants
-    
+
     private enum Constants {
         static let clearDataTitle = "Clear data"
         static let serverTitle = "Select server"

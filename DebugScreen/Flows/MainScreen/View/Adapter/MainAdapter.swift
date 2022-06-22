@@ -7,18 +7,6 @@
 
 import UIKit
 
-// TODO: to separate file
-struct TableSection {
-    let title: String
-    let blocks: [MainTableBlock]
-}
-
-enum MainTableBlock {
-    case featureToggle(model: FeatureToggleModel)
-    case cacheCleaner(models: [CacheCleanerAction])
-    case selectServer(model: SelectServerAction)
-}
-
 final class MainAdapter: NSObject {
 
     // MARK: - Constants
@@ -77,8 +65,10 @@ extension MainAdapter: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let section = sections[safe: indexPath.section],
-              let block = section.blocks[safe: indexPath.row] else {
+        guard
+            let section = sections[safe: indexPath.section],
+            let block = section.blocks[safe: indexPath.row]
+        else {
             return UITableViewCell()
         }
 
@@ -115,11 +105,14 @@ extension MainAdapter: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        guard let section = sections[safe: indexPath.section],
-              let block = section.blocks[safe: indexPath.row] else {
+
+        guard
+            let section = sections[safe: indexPath.section],
+            let block = section.blocks[safe: indexPath.row]
+        else {
             return
         }
+
         switch block {
         case .cacheCleaner(let model):
             onSelectCacheCleanerAction?(model)

@@ -13,11 +13,11 @@ public protocol SelectServerActionsProvider {
 }
 
 public struct SelectServerAction {
-    public let url: URL
+    public let url: URL?
     public let title: String
     public let isActive: Bool
 
-    public init(url: URL, title: String, isActive: Bool) {
+    public init(url: URL?, title: String, isActive: Bool) {
         self.url = url
         self.title = title
         self.isActive = isActive

@@ -37,9 +37,21 @@ final class ActionsProvider: CacheCleanerActionsProvider {
 final class ServersProvider: SelectServerActionsProvider {
 
     private var serverActions = [
-        SelectServerAction(url: URL(string: "https://google.com")!, title: "Google 123321 тут все фичи 123 321 лонгтитла", isActive: false),
-        SelectServerAction(url: URL(string: "https://surf.ru")!, title: "Surf", isActive: true),
-        SelectServerAction(url: URL(string: "https://yandex.ru")!, title: "yandex какой-то", isActive: false)
+        SelectServerAction(
+            url: URL(string: "https://google.com"),
+            title: "Google 123321 тут все фичи 123 321 лонгтитла",
+            isActive: false
+        ),
+        SelectServerAction(
+            url: URL(string: "https://surf.ru"),
+            title: "Surf",
+            isActive: true
+        ),
+        SelectServerAction(
+            url: URL(string: "https://yandex.ru"),
+            title: "yandex какой-то",
+            isActive: false
+        )
     ]
 
     func servers() -> [SelectServerAction] {
@@ -73,7 +85,10 @@ final class FeatureToggleProvider: FeatureToggleActionsProvider {
         FeatureToggleModel(text: FeatureToggleKey.feature1.rawValue, value: true),
         FeatureToggleModel(text: FeatureToggleKey.feature2.rawValue, value: false),
         FeatureToggleModel(text: FeatureToggleKey.feature3.rawValue, value: true),
-        FeatureToggleModel(text: FeatureToggleKey.business1.rawValue, value: BusinessFeatureToggle.isPushNotificationsAvailable)
+        FeatureToggleModel(
+            text: FeatureToggleKey.business1.rawValue,
+            value: BusinessFeatureToggle.isPushNotificationsAvailable
+        )
     ]
 
     func actions() -> [FeatureToggleModel] {
@@ -108,5 +123,3 @@ final class FeatureToggleProvider: FeatureToggleActionsProvider {
     func doAction3() { }
 
 }
-
-
