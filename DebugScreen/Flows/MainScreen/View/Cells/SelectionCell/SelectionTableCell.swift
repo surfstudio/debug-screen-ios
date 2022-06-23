@@ -14,7 +14,7 @@ final class SelectionTableCell: UITableViewCell {
     @IBOutlet private weak var title: UILabel!
     @IBOutlet private weak var url: UILabel!
     @IBOutlet private weak var status: UILabel!
-    
+
 }
 
 // MARK: - Configurable
@@ -23,7 +23,7 @@ extension SelectionTableCell {
 
     func configure(with model: SelectServerAction) {
         title.text = model.title
-        url.text = model.url.absoluteString
+        url.text = model.url?.absoluteString
         status.text = (model.isActive ? "Active" : nil)
     }
 

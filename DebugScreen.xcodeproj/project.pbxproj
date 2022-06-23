@@ -44,6 +44,7 @@
 		A4BDF4D228512FB000651C61 /* CacheCleanerActionsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4CD28512FB000651C61 /* CacheCleanerActionsProvider.swift */; };
 		A4BDF4D328512FB000651C61 /* FeatureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4CE28512FB000651C61 /* FeatureToggle.swift */; };
 		A4BDF4D528512FB500651C61 /* DebugScreenConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4D428512FB500651C61 /* DebugScreenConfiguration.swift */; };
+		A4D337562863A7AA002328F2 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D337552863A7AA002328F2 /* TableSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		A4BDF4CD28512FB000651C61 /* CacheCleanerActionsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheCleanerActionsProvider.swift; sourceTree = "<group>"; };
 		A4BDF4CE28512FB000651C61 /* FeatureToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureToggle.swift; sourceTree = "<group>"; };
 		A4BDF4D428512FB500651C61 /* DebugScreenConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugScreenConfiguration.swift; sourceTree = "<group>"; };
+		A4D337552863A7AA002328F2 /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
 		A4F267172858EFD20096AB68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		A4F267192858EFE60096AB68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = DebugScreen/Info.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -290,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				A4BDF4B528512FAA00651C61 /* MainAdapter.swift */,
+				A4D337552863A7AA002328F2 /* TableSection.swift */,
 			);
 			path = Adapter;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				A48C763D2850F828004FFAAB /* Sources */,
 				A48C763E2850F828004FFAAB /* Frameworks */,
 				A48C763F2850F828004FFAAB /* Resources */,
+				A4D337542863A4FC002328F2 /* Swift Lint */,
 			);
 			buildRules = (
 			);
@@ -420,6 +424,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A4D337542863A4FC002328F2 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PROJECT_DIR}/BuildTools/swiftlint_0_47_1\" --config ${SRCROOT}/.swiftlint.yml\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A48C763D2850F828004FFAAB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -435,6 +460,7 @@
 				A4BDF4C728512FAA00651C61 /* MainModuleConfigurator.swift in Sources */,
 				A4BDF49328512F7700651C61 /* Array.swift in Sources */,
 				A4BDF49428512F7700651C61 /* NSObject.swift in Sources */,
+				A4D337562863A7AA002328F2 /* TableSection.swift in Sources */,
 				A4BDF49C28512F7700651C61 /* Presentable.swift in Sources */,
 				A4BDF49E28512F7700651C61 /* Coordinator.swift in Sources */,
 				A4BDF4C228512FAA00651C61 /* MainViewInput.swift in Sources */,
@@ -604,6 +630,7 @@
 				INFOPLIST_FILE = DebugScreen/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -635,6 +662,7 @@
 				INFOPLIST_FILE = DebugScreen/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

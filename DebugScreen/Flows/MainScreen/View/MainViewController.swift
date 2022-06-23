@@ -75,7 +75,11 @@ private extension MainViewController {
     }
 
     func setCloseButton() {
-        let item = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(didTapCloseButton))
+        let item = UIBarButtonItem(
+            barButtonSystemItem: UIBarButtonItem.SystemItem.cancel,
+            target: self,
+            action: #selector(didTapCloseButton)
+        )
         self.navigationItem.rightBarButtonItem = item
     }
 

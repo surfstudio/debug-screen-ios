@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 final class DebugScreenCoordinator: BaseCoordinator {
-    
+
     // MARK: - Constants
-    
+
     private enum Constants {
         static let clearCache = "Clear cache"
         static let cancelAction = "Cancel"
@@ -52,10 +52,10 @@ private extension DebugScreenCoordinator {
     func showCacheCleaningActions(actions: [CacheCleanerAction]) {
         let actionsSheet = UIAlertController(title: nil, message: Constants.clearCache, preferredStyle: .actionSheet)
 
-        for action in actions {
-            actionsSheet.addAction(UIAlertAction(title: action.title, style: .destructive, handler: { (_: UIAlertAction) in
+        actions.forEach { action in
+            actionsSheet.addAction(UIAlertAction(title: action.title, style: .destructive) { _ in
                 action.block()
-            }))
+            })
         }
 
         actionsSheet.addAction(UIAlertAction(title: Constants.cancelAction, style: .cancel, handler: nil))
