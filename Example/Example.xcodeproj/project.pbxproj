@@ -286,7 +286,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PROJECT_DIR}/BuildTools/swiftlint_0_47_1\" --config ${SRCROOT}/.swiftlint.yml\n";
+			shellScript = "\"${PROJECT_DIR}/../BuildTools/swiftlint_0_47_1\" --config ${SRCROOT}/.swiftlint.yml\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
