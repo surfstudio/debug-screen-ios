@@ -139,11 +139,11 @@
 		A48C76432850F828004FFAAB /* DebugScreen */ = {
 			isa = PBXGroup;
 			children = (
-				A4F267192858EFE60096AB68 /* Info.plist */,
-				A4BDF4D428512FB500651C61 /* DebugScreenConfiguration.swift */,
-				A4BDF4C928512FB000651C61 /* Services */,
-				A4BDF49F28512FAA00651C61 /* Flows */,
 				A4BDF47F28512F7700651C61 /* Common */,
+				A4BDF49F28512FAA00651C61 /* Flows */,
+				A4BDF4C928512FB000651C61 /* Services */,
+				A4BDF4D428512FB500651C61 /* DebugScreenConfiguration.swift */,
+				A4F267192858EFE60096AB68 /* Info.plist */,
 			);
 			path = DebugScreen;
 			sourceTree = "<group>";
@@ -151,10 +151,10 @@
 		A4BDF47F28512F7700651C61 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				A4BDF48028512F7700651C61 /* Routers */,
-				A4BDF48228512F7700651C61 /* Extensions */,
 				A4BDF48B28512F7700651C61 /* Base Classes */,
+				A4BDF48228512F7700651C61 /* Extensions */,
 				A4BDF48E28512F7700651C61 /* Protocols */,
+				A4BDF48028512F7700651C61 /* Routers */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -170,10 +170,10 @@
 		A4BDF48228512F7700651C61 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A4BDF48528512F7700651C61 /* NSObject.swift */,
-				A4BDF48328512F7700651C61 /* Array.swift */,
 				A4BDF48428512F7700651C61 /* UIKit */,
+				A4BDF48328512F7700651C61 /* Array.swift */,
 				A4BDF48A28512F7700651C61 /* Bundle.swift */,
+				A4BDF48528512F7700651C61 /* NSObject.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -221,9 +221,9 @@
 		A4BDF4A028512FAA00651C61 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				A4BDF4B628512FAA00651C61 /* Configurator */,
 				A4BDF4A128512FAA00651C61 /* Presenter */,
 				A4BDF4A528512FAA00651C61 /* View */,
-				A4BDF4B628512FAA00651C61 /* Configurator */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -241,12 +241,12 @@
 		A4BDF4A528512FAA00651C61 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A4BDF4B428512FAA00651C61 /* Adapter */,
 				A4BDF4A628512FAA00651C61 /* Cells */,
 				A4BDF4B028512FAA00651C61 /* MainViewInput.swift */,
-				A4BDF4B128512FAA00651C61 /* MainViewController.xib */,
 				A4BDF4B228512FAA00651C61 /* MainViewOutput.swift */,
 				A4BDF4B328512FAA00651C61 /* MainViewController.swift */,
-				A4BDF4B428512FAA00651C61 /* Adapter */,
+				A4BDF4B128512FAA00651C61 /* MainViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -264,8 +264,8 @@
 		A4BDF4A728512FAA00651C61 /* TextCell */ = {
 			isa = PBXGroup;
 			children = (
-				A4BDF4A828512FAA00651C61 /* TextTableCell.xib */,
 				A4BDF4A928512FAA00651C61 /* TextTableCell.swift */,
+				A4BDF4A828512FAA00651C61 /* TextTableCell.xib */,
 			);
 			path = TextCell;
 			sourceTree = "<group>";
@@ -273,8 +273,8 @@
 		A4BDF4AA28512FAA00651C61 /* SwitcherCell */ = {
 			isa = PBXGroup;
 			children = (
-				A4BDF4AB28512FAA00651C61 /* SwitcherTableCell.xib */,
 				A4BDF4AC28512FAA00651C61 /* SwitcherTableCell.swift */,
+				A4BDF4AB28512FAA00651C61 /* SwitcherTableCell.xib */,
 			);
 			path = SwitcherCell;
 			sourceTree = "<group>";

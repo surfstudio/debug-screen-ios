@@ -9,7 +9,7 @@ import UIKit
 
 final class SelectionTableCell: UITableViewCell {
 
-    // MARK: - Private properties
+    // MARK: - IBOutlet
 
     @IBOutlet private weak var title: UILabel!
     @IBOutlet private weak var url: UILabel!
@@ -24,7 +24,13 @@ extension SelectionTableCell {
     func configure(with model: SelectServerAction) {
         title.text = model.title
         url.text = model.url?.absoluteString
-        status.text = (model.isActive ? "Active" : nil)
+        configureStatus(isActive: model.isActive)
+    }
+    
+    func configureStatus(isActive: Bool) {
+        status.text = (isActive ? "Active" : nil)
+        status.font = .systemFont(ofSize: 15, weight: .bold)
+        status.textColor = .systemGreen
     }
 
 }

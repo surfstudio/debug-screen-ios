@@ -27,7 +27,7 @@ final class MainViewController: UIViewController {
 
     private var adapter: MainAdapter?
 
-    // MARK: - Lifecycle
+    // MARK: - UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,10 +64,10 @@ private extension MainViewController {
     func configureAdapter() {
         adapter = MainAdapter(tableView: tableView)
         adapter?.onSelectCacheCleanerAction = { [weak self] actions in
-            self?.output?.clearCacheSelected(actions: actions)
+            self?.output?.selectClearCache(actions: actions)
         }
         adapter?.onSelectServer = { [weak self] action in
-            self?.output?.serverSelected(action: action)
+            self?.output?.selectServer(action: action)
         }
         adapter?.onToggleFeatureAction = { [weak self] action, newValue in
             self?.output?.featureToggled(model: action, newValue: newValue)

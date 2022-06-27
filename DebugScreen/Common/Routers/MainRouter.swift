@@ -28,7 +28,7 @@ final class MainRouter: Router {
     }
 
     private var topViewController: UIViewController? {
-        return UIApplication.topViewController()
+        return UIApplication.getTopViewController()
     }
 
     func present(_ module: Presentable?) {

@@ -21,6 +21,7 @@ extension TextTableCell {
 
     func configure(with title: String) {
         self.title.text = title
+        self.title.font = .systemFont(ofSize: 17)
     }
 
 }

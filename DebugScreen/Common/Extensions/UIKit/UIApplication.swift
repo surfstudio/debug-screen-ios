@@ -27,24 +27,24 @@ extension UIApplication {
 
     // MARK: - Static Methods
 
-    static func topViewController(
+    static func getTopViewController(
         _ controller: UIViewController? = rootView
     ) -> UIViewController? {
         if let navigationController = controller as? UINavigationController {
-            return topViewController(navigationController.visibleViewController)
+            return getTopViewController(navigationController.visibleViewController)
         }
         if let tabController = controller as? UITabBarController {
             if let selected = tabController.selectedViewController {
-                return topViewController(selected)
+                return getTopViewController(selected)
             }
         }
         if let presented = controller?.presentedViewController {
-            return topViewController(presented)
+            return getTopViewController(presented)
         }
         return controller
     }
 
-    static func appVersion() -> String? {
+    static func getAppVersion() -> String? {
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         return appVersion
     }

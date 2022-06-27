@@ -33,11 +33,11 @@ final class DebugScreenCoordinator: BaseCoordinator {
         navigationController.setViewControllers([components.view], animated: false)
         navigationController.modalPresentationStyle = .overFullScreen
 
-        components.output.closeModuleBlock = { [weak self] in
+        components.output.didModuleClosed = { [weak self] in
             self?.navigationController.dismiss(animated: true, completion: self?.completionHandler)
         }
 
-        components.output.showCacheClearingOptionsBlock = { [weak self] (actions: [CacheCleanerAction]) in
+        components.output.didCacheClearingOptionsShowed = { [weak self] (actions: [CacheCleanerAction]) in
             self?.showCacheCleaningActions(actions: actions)
         }
 

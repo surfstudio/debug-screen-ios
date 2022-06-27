@@ -19,8 +19,8 @@ final class MainModulePresenter: MainModuleOutput {
 
     // MARK: - MainModuleOutput
 
-    var closeModuleBlock: (() -> Void)?
-    var showCacheClearingOptionsBlock: (([CacheCleanerAction]) -> Void)?
+    var didModuleClosed: (() -> Void)?
+    var didCacheClearingOptionsShowed: (([CacheCleanerAction]) -> Void)?
 
     weak var view: MainViewInput?
 }
@@ -39,10 +39,10 @@ extension MainModulePresenter: MainViewOutput {
     }
 
     func didTapCloseButton() {
-        closeModuleBlock?()
+        didModuleClosed?()
     }
 
-    func serverSelected(action: SelectServerAction) {
+    func selectServer(action: SelectServerAction) {
         DebugScreenConfiguration.shared.selectServerActionsProvider?
             .didSelectServer(action)
 
@@ -50,8 +50,8 @@ extension MainModulePresenter: MainViewOutput {
         view?.update(sections: tableSections)
     }
 
-    func clearCacheSelected(actions: [CacheCleanerAction]) {
-        showCacheClearingOptionsBlock?(actions)
+    func selectClearCache(actions: [CacheCleanerAction]) {
+        didCacheClearingOptionsShowed?(actions)
     }
 
     func featureToggled(model: FeatureToggleModel, newValue: Bool) {
