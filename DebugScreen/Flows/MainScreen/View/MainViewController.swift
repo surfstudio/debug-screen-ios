@@ -9,12 +9,6 @@ import UIKit
 
 final class MainViewController: UIViewController {
 
-    // MARK: - Constants
-
-    private enum Constants {
-        static let debugTitle = "Debug Screen"
-    }
-
     // MARK: - @IBOutlets
 
     @IBOutlet private weak var tableView: UITableView!
@@ -56,7 +50,7 @@ extension MainViewController: MainViewInput {
 private extension MainViewController {
 
     func configureAppearance() {
-        title = Constants.debugTitle
+        title = L10n.MainViewController.debugTitle
         setCloseButton()
         configureAdapter()
     }

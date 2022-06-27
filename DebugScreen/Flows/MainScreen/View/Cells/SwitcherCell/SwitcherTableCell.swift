@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Cell with switcher in right side
 final class SwitcherTableCell: UITableViewCell {
 
     // MARK: - IBOutlets
@@ -23,7 +24,7 @@ final class SwitcherTableCell: UITableViewCell {
 // MARK: - Actions
 
 extension SwitcherTableCell {
-    
+
     @IBAction func didChangeSwitchControl(_ sender: Any) {
         didChangeSwitch?(switchControl.isOn)
     }

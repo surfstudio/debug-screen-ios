@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Cell with status and placeholder for url
 final class SelectionTableCell: UITableViewCell {
 
     // MARK: - IBOutlet
@@ -23,12 +24,18 @@ extension SelectionTableCell {
 
     func configure(with model: SelectServerAction) {
         title.text = model.title
-        url.text = model.url?.absoluteString
+        configureURL(url: model.url?.absoluteString)
         configureStatus(isActive: model.isActive)
     }
-    
+
+    func configureURL(url: String?) {
+        self.url.text = url
+        self.url.font = .systemFont(ofSize: 13)
+        self.url.textColor = .darkGray
+    }
+
     func configureStatus(isActive: Bool) {
-        status.text = (isActive ? "Active" : nil)
+        status.text = (isActive ? L10n.SelectionTableCell.statusTitle : nil)
         status.font = .systemFont(ofSize: 15, weight: .bold)
         status.textColor = .systemGreen
     }

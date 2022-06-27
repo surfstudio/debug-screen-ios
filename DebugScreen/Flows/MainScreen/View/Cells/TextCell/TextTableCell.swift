@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Usually cell with label in center
 final class TextTableCell: UITableViewCell {
 
     // MARK: - Private properties

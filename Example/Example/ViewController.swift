@@ -24,12 +24,8 @@ final class ViewController: UIViewController {
 final class ActionsProvider: CacheCleanerActionsProvider {
     func actions() -> [CacheCleanerAction] {
         return [
-            CacheCleanerAction(title: "First action", block: {
-
-            }),
-            CacheCleanerAction(title: "Second action", block: {
-
-            })
+            CacheCleanerAction(title: "First action", block: { }),
+            CacheCleanerAction(title: "Second action", block: { })
         ]
     }
 }
