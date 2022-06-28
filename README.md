@@ -1,45 +1,46 @@
 # DebugScreen
 
-[![CI Status](https://img.shields.io/travis/Anton Shelar/DebugScreen.svg?style=flat)](https://travis-ci.org/Anton Shelar/DebugScreen)
+[![CI](https://github.com/surfstudio/debug-screen-ios/actions/workflows/main.yml/badge.svg)](https://github.com/surfstudio/debug-screen-ios/actions/workflows/main.yml)
 [![Version](https://img.shields.io/cocoapods/v/DebugScreen.svg?style=flat)](https://cocoapods.org/pods/DebugScreen)
 [![License](https://img.shields.io/cocoapods/l/DebugScreen.svg?style=flat)](https://cocoapods.org/pods/DebugScreen)
-[![Platform](https://img.shields.io/cocoapods/p/DebugScreen.svg?style=flat)](https://cocoapods.org/pods/DebugScreen)
+[![SPM Compatible](https://img.shields.io/badge/SPM-compatible-blue.svg)](https://github.com/apple/swift-package-manager)
 
-## Example
+## About
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+Библеотека для простого и удобного способа создания, и кастомизации экрана отладки приложения.
 
-## Requirements
+## Screenshots
+
+![DebugScreenScreenshots](https://i.ibb.co/TKQSVkb/2022-06-28-18-08-44.png)
+![DebugScreenScreenshots](https://i.ibb.co/FYjkqG2/2022-06-28-18-08-52.png)
 
 ## Installation
 
-DebugScreen is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+#### Swift Package Manager
 
-```ruby
-pod 'DebugScreen'
-```
+- В XCode пройдите в `File > Swift Packages > Add Package Dependency`
+- Введите URL репозитория `https://github.com/surfstudio/DebugScreen.git`
 
-## Author
+## Features
 
-Anton Shelar, shelaranton@gmail.com
+При создании библиотеки преследовались следующие цели: 
 
-## License
+- создать готовый и кастомизируемый шаблон для отладки приложения
+- упростить взаимодействие с экраном отладки
+- передать в него самые востребованные функции
+- ускорить разработку приложения 
 
-DebugScreen is available under the MIT license. See the LICENSE file for more info.
+Для этого были реализованы следующие фичи:
 
-## Как пользоваться
+- **CacheActionsProvider** - Отчистка кэша приложения
+- **SelectServerActionsProvider** - Выбор сервера
+- **FeatureToggleActionsProvider** - Добавление FeatureToggles (бизнесовых и девелоперских)
+- **LogCatcherService** - Запись логов
+- Экран настроек появляется, если потрясти телефон.
 
-Экран настроек появляется, если потрясти телефон.
+## Example
 
-Доступные функции:
-
-cacheCleanerActionsProvider - очистка кэша.
-selectServerActionsProvider - выбор сервера.
-featureToggleActionsProvider - добавление FeatureToggles (бизнесовых и девелоперских).
-logCatcherService - запись логов.
-
-В библиотеку функции передаются через DebugScreenConfiguration.shared
+Все вышеперечисленное можно увидеть в Example-проекте. Для его корректного запуска и конфигурации скачайте репозиторий и выполните команду `make init` перед тем как его запустить.
 
 ### CacheActionsProvider
 
@@ -126,3 +127,11 @@ return [
 ```DebugScreenConfiguration.shared.logCatcherService.setStdErrCatcherEnabled()
 DebugScreenConfiguration.shared.logCatcherService.setStdOutCatcherEnabled()
 ```
+
+## Changelog
+
+Список всех изменений можно посмотреть в этом [файле](./CHANGELOG.md).
+
+## License
+
+[MIT License](./LICENSE)
