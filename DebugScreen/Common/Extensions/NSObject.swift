@@ -8,8 +8,9 @@
 import Foundation
 
 @objc
-public extension NSObject {
+extension NSObject {
 
+    /// Return class name
     class var className: String {
         if let name = NSStringFromClass(self).components(separatedBy: ".").last {
             return name

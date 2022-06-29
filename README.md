@@ -1,6 +1,7 @@
 # DebugScreen
 
 [![CI Status](https://img.shields.io/travis/Anton Shelar/DebugScreen.svg?style=flat)](https://travis-ci.org/Anton Shelar/DebugScreen)
+[![Documentation](https://github.com/surfstudio/debug-screen-ios/blob/main/docs/badge.svg)](https://surfstudio.github.io/debug-screen-ios/)
 [![Version](https://img.shields.io/cocoapods/v/DebugScreen.svg?style=flat)](https://cocoapods.org/pods/DebugScreen)
 [![License](https://img.shields.io/cocoapods/l/DebugScreen.svg?style=flat)](https://cocoapods.org/pods/DebugScreen)
 [![Platform](https://img.shields.io/cocoapods/p/DebugScreen.svg?style=flat)](https://cocoapods.org/pods/DebugScreen)

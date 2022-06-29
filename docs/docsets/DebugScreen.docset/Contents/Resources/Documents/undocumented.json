@@ -1,0 +1,61 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/vasilev/debug-screen-ios/DebugScreen/Common/Extensions/UIKit/UIWindow.swift",
+      "line": 12,
+      "symbol": "UIWindow.motionEnded(_:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vasilev/debug-screen-ios/DebugScreen/Services/CacheCleanerActionsProvider.swift",
+      "line": 24,
+      "symbol": "CacheCleanerAction.title",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vasilev/debug-screen-ios/DebugScreen/Services/CacheCleanerActionsProvider.swift",
+      "line": 25,
+      "symbol": "CacheCleanerAction.block",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vasilev/debug-screen-ios/DebugScreen/Services/FeatureToggle.swift",
+      "line": 22,
+      "symbol": "FeatureToggleModel.text",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vasilev/debug-screen-ios/DebugScreen/Services/FeatureToggle.swift",
+      "line": 23,
+      "symbol": "FeatureToggleModel.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vasilev/debug-screen-ios/DebugScreen/Services/SelectServerActionsProvider.swift",
+      "line": 22,
+      "symbol": "SelectServerAction.url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vasilev/debug-screen-ios/DebugScreen/Services/SelectServerActionsProvider.swift",
+      "line": 23,
+      "symbol": "SelectServerAction.title",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vasilev/debug-screen-ios/DebugScreen/Services/SelectServerActionsProvider.swift",
+      "line": 24,
+      "symbol": "SelectServerAction.isActive",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/vasilev/debug-screen-ios"
+}

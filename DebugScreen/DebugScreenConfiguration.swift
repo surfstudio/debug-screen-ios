@@ -5,12 +5,12 @@
 //  Created by Anton Shelar on 02.11.2020.
 //
 
-import Foundation
-
+/// Main configurator for debug screen that get all configurations for features
 public class DebugScreenConfiguration {
 
     // MARK: - Public properties
 
+    /// Singleton
     public static let shared = DebugScreenConfiguration()
 
     /// Propertie for add configurations in clear cache

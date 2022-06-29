@@ -15,7 +15,7 @@ final class DebugScreenCoordinator: BaseCoordinator {
     private let router = MainRouter()
     private let navigationController = UINavigationController()
 
-    // MARK: - Public properties
+    // MARK: - Properties
 
     var completionHandler: (() -> Void)?
 

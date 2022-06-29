@@ -13,7 +13,7 @@ final class MainViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
-    // MARK: - Public properties
+    // MARK: - Properties
 
     var output: MainViewOutput?
 
