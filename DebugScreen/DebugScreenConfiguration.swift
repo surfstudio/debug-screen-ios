@@ -8,7 +8,7 @@
 /// Main configurator for debug screen that get all configurations for features
 public class DebugScreenConfiguration {
 
-    // MARK: - Public properties
+    // MARK: - Public Properties
 
     /// Singleton
     public static let shared = DebugScreenConfiguration()

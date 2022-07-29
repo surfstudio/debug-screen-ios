@@ -16,9 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SurfStudio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgp-Pq-koQ">
-                                <rect key="frame" x="116.5" y="424" width="181.5" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Surf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgp-Pq-koQ">
+                                <rect key="frame" x="171.5" y="424" width="71" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake me!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmJ-YW-tjS">
+                                <rect key="frame" x="167.5" y="512" width="79.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -28,6 +34,8 @@
                         <constraints>
                             <constraint firstItem="Bgp-Pq-koQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AoW-7W-XbI"/>
                             <constraint firstItem="Bgp-Pq-koQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="BMA-Mv-96K"/>
+                            <constraint firstItem="jmJ-YW-tjS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HWI-wR-jXo"/>
+                            <constraint firstItem="jmJ-YW-tjS" firstAttribute="top" secondItem="Bgp-Pq-koQ" secondAttribute="bottom" constant="40" id="ZyI-Io-CJH"/>
                         </constraints>
                     </view>
                 </viewController>

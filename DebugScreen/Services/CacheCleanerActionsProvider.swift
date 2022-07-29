@@ -19,7 +19,7 @@ public protocol CacheCleanerActionsProvider {
 /// Model for configurations Cache Cleaner
 public struct CacheCleanerAction {
 
-    // MARK: - Public properties
+    // MARK: - Public Properties
 
     /// Name of Action
     public let title: String
@@ -36,4 +36,5 @@ public struct CacheCleanerAction {
         self.title = title
         self.block = block
     }
+
 }

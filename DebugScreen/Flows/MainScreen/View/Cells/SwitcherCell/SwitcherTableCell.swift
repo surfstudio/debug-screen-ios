@@ -21,16 +21,6 @@ final class SwitcherTableCell: UITableViewCell {
 
 }
 
-// MARK: - Actions
-
-extension SwitcherTableCell {
-
-    @IBAction func didChangeSwitchControl(_ sender: Any) {
-        didChangeSwitch?(switchControl.isOn)
-    }
-
-}
-
 // MARK: - Configurable
 
 extension SwitcherTableCell {
@@ -40,6 +30,16 @@ extension SwitcherTableCell {
         title.font = .systemFont(ofSize: 17)
         switchControl.isOn = model.value
         selectionStyle = .none
+    }
+
+}
+
+// MARK: - Actions
+
+extension SwitcherTableCell {
+
+    @IBAction func didChangeSwitchControl(_ sender: Any) {
+        didChangeSwitch?(switchControl.isOn)
     }
 
 }

@@ -15,8 +15,6 @@ final class ViewController: UIViewController {
         DebugScreenConfiguration.shared.cacheCleanerActionsProvider = ActionsProvider()
         DebugScreenConfiguration.shared.selectServerActionsProvider = ServersProvider()
         DebugScreenConfiguration.shared.featureToggleActionsProvider = FeatureToggleProvider()
-        DebugScreenConfiguration.shared.logCatcherService.setStdErrCatcherEnabled()
-        DebugScreenConfiguration.shared.logCatcherService.setStdOutCatcherEnabled()
     }
 
 }
@@ -24,8 +22,12 @@ final class ViewController: UIViewController {
 final class ActionsProvider: CacheCleanerActionsProvider {
     func actions() -> [CacheCleanerAction] {
         return [
-            CacheCleanerAction(title: "First action", block: { }),
-            CacheCleanerAction(title: "Second action", block: { })
+            CacheCleanerAction(title: "First action", block: {
+                print("perform first clear action")
+            }),
+            CacheCleanerAction(title: "Second action", block: {
+                print("perform second clear action")
+            })
         ]
     }
 }
@@ -34,18 +36,18 @@ final class ServersProvider: SelectServerActionsProvider {
 
     private var serverActions = [
         SelectServerAction(
-            url: URL(string: "https://google.com"),
-            title: "Google 123321 тут все фичи 123 321 лонгтитла",
+            url: URL(string: "https://surf.ru/address/prod"),
+            title: "Production",
             isActive: false
         ),
         SelectServerAction(
-            url: URL(string: "https://surf.ru"),
-            title: "Surf",
+            url: URL(string: "https://surf.ru/address/test"),
+            title: "Test server",
             isActive: true
         ),
         SelectServerAction(
-            url: URL(string: "https://yandex.ru"),
-            title: "yandex какой-то",
+            url: URL(string: "https://surf.ru/address/stage"),
+            title: "Stage server (with long long long description)",
             isActive: false
         )
     ]
@@ -56,8 +58,9 @@ final class ServersProvider: SelectServerActionsProvider {
 
     func didSelectServer(_ server: SelectServerAction) {
         serverActions = serverActions.map {
-            SelectServerAction(url: $0.url, title: $0.title, isActive: $0.url == server.url)
+            .init(url: $0.url, title: $0.title, isActive: $0.url == server.url)
         }
+        // do something usefull
     }
 
 }

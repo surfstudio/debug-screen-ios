@@ -9,11 +9,11 @@ import Foundation
 
 final class DebugScreenPresenterService {
 
-    // MARK: - Static properties
+    // MARK: - Static Properties
 
     static let shared = DebugScreenPresenterService()
 
-    // MARK: - Private properties
+    // MARK: - Private Properties
 
     private var coordinator: DebugScreenCoordinator?
 
@@ -34,4 +34,5 @@ final class DebugScreenPresenterService {
             self?.coordinator = nil
         }
     }
+
 }
