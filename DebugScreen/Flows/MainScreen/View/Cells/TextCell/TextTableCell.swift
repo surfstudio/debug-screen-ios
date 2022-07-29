@@ -7,9 +7,10 @@
 
 import UIKit
 
+/// Usually cell with label in center
 final class TextTableCell: UITableViewCell {
 
-    // MARK: - Private properties
+    // MARK: - IBOutlets
 
     @IBOutlet private weak var title: UILabel!
 
@@ -21,6 +22,7 @@ extension TextTableCell {
 
     func configure(with title: String) {
         self.title.text = title
+        self.title.font = .systemFont(ofSize: 17)
     }
 
 }

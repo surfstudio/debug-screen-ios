@@ -13,7 +13,7 @@ extension UITableView {
 
     func registerNib(_ cellType: UITableViewCell.Type) {
         self.register(UINib(nibName: cellType.className,
-                            bundle: Bundle.shared(for: cellType.self)),
+                            bundle: Bundle.getBundle(for: cellType.self)),
                       forCellReuseIdentifier: cellType.className)
     }
 

@@ -1,0 +1,19 @@
+xcassets:
+  - inputs: 
+      - DebugScreen/Resources/Images/Assets.xcassets
+      - DebugScreen/Resources/Colors/Colors.xcassets
+    outputs:
+      - templateName: swift4
+        output: DebugScreen/Resources/Images/Assets.swift
+        params:
+          enumName: Resources
+          publicAccess: false
+
+strings:
+  inputs:
+    - DebugScreen/Resources/Strings/ru.lproj/Localizable.strings
+  outputs:
+    - templateName: structured-swift4
+      output: DebugScreen/Resources/Strings/Strings.swift
+      params:
+        publicAccess: false

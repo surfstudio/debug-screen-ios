@@ -1,0 +1,29 @@
+//
+//  StringAttributes.swift
+//
+//
+//  Created by Евгений Васильев on 27.06.2022.
+//
+
+// MARK: - MainPresenter
+
+"MainPresenter.clearDataTitle" = "Clear data";
+"MainPresenter.serverTitle" = "Select server";
+"MainPresenter.featuresTitle" = "Features";
+
+// MARK: - SelectionTableCell
+
+"SelectionTableCell.statusTitle" = "Active";
+
+// MARK: - MainAdapter
+
+"MainAdapter.clearAppData" = "Clear application data";
+
+// MARK: - MainViewController
+
+"MainViewController.debugTitle" = "Debug Screen";
+
+// MARK: - DebugScreenCoordinator
+
+"DebugScreenCoordinator.clearCache" = "Clear cache";
+"DebugScreenCoordinator.cancelAction" = "Cancel";

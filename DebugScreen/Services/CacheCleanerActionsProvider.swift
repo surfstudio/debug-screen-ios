@@ -15,7 +15,7 @@ public protocol CacheCleanerActionsProvider {
 
 public struct CacheCleanerAction {
 
-    // MARK: - Public properties
+    // MARK: - Public Properties
 
     public let title: String
     public let block: (() -> Void)
@@ -26,4 +26,5 @@ public struct CacheCleanerAction {
         self.title = title
         self.block = block
     }
+
 }

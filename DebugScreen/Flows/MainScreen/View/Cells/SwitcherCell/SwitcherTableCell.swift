@@ -7,22 +7,17 @@
 
 import UIKit
 
+/// Cell with switcher in right side
 final class SwitcherTableCell: UITableViewCell {
-
-    // MARK: - Public properties
-
-    var didChangeSwitch: ((Bool) -> Void)?
 
     // MARK: - IBOutlets
 
     @IBOutlet private weak var title: UILabel!
     @IBOutlet private weak var switchControl: UISwitch!
 
-    // MARK: - Actions
+    // MARK: - Properties
 
-    @IBAction func didChangeSwitchControl(_ sender: Any) {
-        didChangeSwitch?(switchControl.isOn)
-    }
+    var didChangeSwitch: ((Bool) -> Void)?
 
 }
 
@@ -32,8 +27,19 @@ extension SwitcherTableCell {
 
     func configure(with model: FeatureToggleModel) {
         title.text = model.text
+        title.font = .systemFont(ofSize: 17)
         switchControl.isOn = model.value
         selectionStyle = .none
+    }
+
+}
+
+// MARK: - Actions
+
+extension SwitcherTableCell {
+
+    @IBAction func didChangeSwitchControl(_ sender: Any) {
+        didChangeSwitch?(switchControl.isOn)
     }
 
 }

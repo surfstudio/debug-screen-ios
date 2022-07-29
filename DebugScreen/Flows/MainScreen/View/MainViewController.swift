@@ -9,25 +9,19 @@ import UIKit
 
 final class MainViewController: UIViewController {
 
-    // MARK: - Constants
-
-    private enum Constants {
-        static let debugTitle = "Debug Screen"
-    }
-
     // MARK: - @IBOutlets
 
     @IBOutlet private weak var tableView: UITableView!
 
-    // MARK: - Public properties
+    // MARK: - Properties
 
     var output: MainViewOutput?
 
-    // MARK: - Private properties
+    // MARK: - Private Properties
 
     private var adapter: MainAdapter?
 
-    // MARK: - Lifecycle
+    // MARK: - UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,31 +50,29 @@ extension MainViewController: MainViewInput {
 private extension MainViewController {
 
     func configureAppearance() {
-        title = Constants.debugTitle
-        setCloseButton()
+        title = L10n.MainViewController.debugTitle
+        configureCloseButton()
         configureAdapter()
+    }
+
+    func configureCloseButton() {
+        let item = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel,
+                                   target: self,
+                                   action: #selector(didTapCloseButton))
+        self.navigationItem.rightBarButtonItem = item
     }
 
     func configureAdapter() {
         adapter = MainAdapter(tableView: tableView)
         adapter?.onSelectCacheCleanerAction = { [weak self] actions in
-            self?.output?.clearCacheSelected(actions: actions)
+            self?.output?.selectClearCache(actions: actions)
         }
         adapter?.onSelectServer = { [weak self] action in
-            self?.output?.serverSelected(action: action)
+            self?.output?.selectServer(action: action)
         }
         adapter?.onToggleFeatureAction = { [weak self] action, newValue in
             self?.output?.featureToggled(model: action, newValue: newValue)
         }
-    }
-
-    func setCloseButton() {
-        let item = UIBarButtonItem(
-            barButtonSystemItem: UIBarButtonItem.SystemItem.cancel,
-            target: self,
-            action: #selector(didTapCloseButton)
-        )
-        self.navigationItem.rightBarButtonItem = item
     }
 
 }

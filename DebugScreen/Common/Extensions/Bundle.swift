@@ -9,7 +9,7 @@ import Foundation
 
 extension Bundle {
 
-    static func shared(for type: AnyClass) -> Bundle {
+    static func getBundle(for type: AnyClass) -> Bundle {
         #if SWIFT_PACKAGE
         return Bundle.module
         #else
