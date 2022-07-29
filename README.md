@@ -9,7 +9,7 @@
 
 ## Screenshots
 
-![DebugScreenScreenshots](https://ibb.co/pbX9CYp)
+![DebugScreenScreenshot](https://i.ibb.co/34hLtgH/2022-07-29-12-41-47.png)
 
 ## Installation
 
@@ -53,8 +53,7 @@ DebugScreenConfiguration.shared.featureToggleActionsProvider = FeatureToggleProv
 
 <details>
 <summary>Подробное описание</summary>
-
-
+    
 Очистка кеша. Для использования необходимо
 - создать свой класс, реализующий протокол CacheCleanerActionsProvider
 - определить его единственный метод `func actions() -> [CacheCleanerAction]`
@@ -73,8 +72,7 @@ CacheCleanerAction(title: "Clear score", block: {
 
 <details>
 <summary>Подробное описание</summary>
-
-
+    
 Выбор сервера. Для использования необходимо
 - создать свой класс, реализующий протокол SelectServerActionsProvider
 - определить метод `func servers() -> [SelectServerAction]`, возвращающий список доступных к выбору серверов
@@ -122,8 +120,7 @@ final class ServersProvider: SelectServerActionsProvider {
 
 <details>
 <summary>Подробное описание</summary>
-
-
+    
 Работа с FeatureToggles. Для использования необходимо
 - создать свой класс, реализующий протокол FeatureToggleActionsProvider
 - определить метод `func actions() -> [FeatureToggleModel]`, возвращающий список доступных к изменению настроек
@@ -189,8 +186,7 @@ func doAction2() { }
 
 <details>
 <summary>Подробное описание</summary>
-
-
+    
 Для записи логов указать в настройках:
 ```swift
 DebugScreenConfiguration.shared.logCatcherService.setStdErrCatcherEnabled()
