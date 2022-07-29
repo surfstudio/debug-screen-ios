@@ -21,6 +21,19 @@ test:
 example_build:
 	cd Example && xcodebuild clean build -scheme Example -sdk iphonesimulator | bundle exec xcpretty -c
 
+# После нее нужно будет пройти в debug-screen-ios/build/Build/Products/Debug-iphonesimulator и вынести в директорию проекта
+# файл DebugScreen.doccarchive
+# После вызвать
+# $(xcrun --find docc) process-archive \
+transform-for-static-hosting DebugScreen.doccarchive \
+--output-path docs \
+--hosting-base-path debug-screen-ios
+documentation_build:
+	xcodebuild clean build -scheme DebugScreen -sdk iphonesimulator | bundle exec xcpretty -c
+	xcodebuild docbuild -scheme DebugScreen -derivedDataPath build -destination 'platform=iOS Simulator,name=iPhone 8,OS=15.5'
+
+	
+
 # COLORS
 GREEN  := $(shell tput -Txterm setaf 2)
 YELLOW := $(shell tput -Txterm setaf 3)

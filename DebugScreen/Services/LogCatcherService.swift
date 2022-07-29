@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Class for initialization and configurations log service in debug screen
 public final class LogCatcherService {
 
     // MARK: - Nested Types
@@ -43,6 +44,7 @@ public final class LogCatcherService {
         clearLogfile()
     }
 
+    /// Initialization log service in debug screen
     public init() {
         self.logPath = NSTemporaryDirectory().appending("\(Constants.defaultLogName)")
         clearLogfile()
@@ -50,14 +52,18 @@ public final class LogCatcherService {
 
     // MARK: - Public Methods
 
+    /// Enable Error catcher viewer for log service
     public func setStdErrCatcherEnabled() {
         setStreamCatcher(stream: Stream.stdErr(), pipe: stdErrPipe, logPath: logPath)
     }
 
+    /// Enable Out catcher viewer for log service
     public func setStdOutCatcherEnabled() {
         setStreamCatcher(stream: Stream.stdOut(), pipe: stdOutPipe, logPath: logPath)
     }
 
+    /// Method for get logs
+    /// - Returns: Logs
     public func logs() -> String? {
         return try? String(contentsOfFile: logPath)
     }
