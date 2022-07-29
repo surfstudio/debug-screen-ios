@@ -58,8 +58,9 @@ final class ServersProvider: SelectServerActionsProvider {
 
     func didSelectServer(_ server: SelectServerAction) {
         serverActions = serverActions.map {
-            SelectServerAction(url: $0.url, title: $0.title, isActive: $0.url == server.url)
+            .init(url: $0.url, title: $0.title, isActive: $0.url == server.url)
         }
+        // do something usefull
     }
 
 }
