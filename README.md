@@ -1,128 +1,210 @@
 # DebugScreen
 
-[![CI Status](https://img.shields.io/travis/Anton Shelar/DebugScreen.svg?style=flat)](https://travis-ci.org/Anton Shelar/DebugScreen)
-[![Version](https://img.shields.io/cocoapods/v/DebugScreen.svg?style=flat)](https://cocoapods.org/pods/DebugScreen)
-[![License](https://img.shields.io/cocoapods/l/DebugScreen.svg?style=flat)](https://cocoapods.org/pods/DebugScreen)
-[![Platform](https://img.shields.io/cocoapods/p/DebugScreen.svg?style=flat)](https://cocoapods.org/pods/DebugScreen)
+[![CI](https://github.com/surfstudio/debug-screen-ios/actions/workflows/main.yml/badge.svg)](https://github.com/surfstudio/debug-screen-ios/actions/workflows/main.yml)
+[![SPM Compatible](https://img.shields.io/badge/SPM-compatible-blue.svg)](https://github.com/apple/swift-package-manager)
 
-## Example
+[![DebugScreen](https://i.ibb.co/PtrBh4f/Group-48095986.png)](https://github.com/surfstudio/debug-screen-ios)
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+## About
 
-## Requirements
+Библиотека для быстрого создания и кастомизации экрана отладки приложения.
+
+## Screenshots
+
+![DebugScreenScreenshot](https://i.ibb.co/4NDCqQK/Group-48095985.png)
 
 ## Installation
 
-DebugScreen is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+#### Swift Package Manager
 
-```ruby
-pod 'DebugScreen'
+- В XCode пройдите в `File > Swift Packages > Add Package Dependency`
+- Введите URL репозитория `https://github.com/surfstudio/DebugScreen.git`
+
+## Features
+
+При создании библиотеки преследовались следующие цели: 
+
+- создать готовый и кастомизируемый шаблон для экрана отладки приложения
+- упростить взаимодействие с экраном отладки
+- передать в него самые востребованные функции
+- ускорить разработку приложения 
+
+Для этого были реализованы следующие фичи:
+
+- **CacheActionsProvider** - Отчистка кэша приложения
+- **SelectServerActionsProvider** - Выбор сервера
+- **FeatureToggleActionsProvider** - Добавление FeatureToggles (бизнесовых и девелоперских)
+- **LogCatcherService** - Запись логов
+
+## Example
+
+Все вышеперечисленное можно увидеть в Example-проекте. Для его корректного запуска и конфигурации скачайте репозиторий и выполните команду `make init` перед тем как его запустить.
+
+## Usage
+
+Для настройки внешнего вида и возможностей экрана отладки необходимо задать на старте приложения его провайдеры, например:
+```swift
+DebugScreenConfiguration.shared.cacheCleanerActionsProvider = ActionsProvider()
+DebugScreenConfiguration.shared.selectServerActionsProvider = ServersProvider()
+DebugScreenConfiguration.shared.featureToggleActionsProvider = FeatureToggleProvider()
 ```
 
-## Author
-
-Anton Shelar, shelaranton@gmail.com
-
-## License
-
-DebugScreen is available under the MIT license. See the LICENSE file for more info.
-
-## Как пользоваться
-
-Экран настроек появляется, если потрясти телефон.
-
-Доступные функции:
-
-cacheCleanerActionsProvider - очистка кэша.
-selectServerActionsProvider - выбор сервера.
-featureToggleActionsProvider - добавление FeatureToggles (бизнесовых и девелоперских).
-logCatcherService - запись логов.
-
-В библиотеку функции передаются через DebugScreenConfiguration.shared
+Сам экран отладки появляется, если потрясти телефон.
 
 ### CacheActionsProvider
 
-Очистка кеша. Реализуется наследованием от CacheCleanerActionsProvider.
-В CacheCleanerAction проставляется функционал в block, пример использования:
+<details>
+<summary>Подробное описание</summary>
+    
+Очистка кеша. Для использования необходимо
+- создать свой класс, реализующий протокол CacheCleanerActionsProvider
+- определить его единственный метод `func actions() -> [CacheCleanerAction]`
 
-```CacheCleanerAction(title: "Clear score", block: {
-RatingService.clearScore()
-RatingService.didRate = false
+CacheCleanerAction определяет заголовок, который будет показан на экране, а также блок кода, который будет вызван при выборе данного action. Пример:
+
+```swift
+CacheCleanerAction(title: "Clear score", block: {
+    RatingService.clearScore()
+    RatingService.didRate = false
 })
 ```
+</details>
 
 ### SelectServerActionsProvider
 
-Выбор сервера. Реализуется наследованием от SelectServerActionsProvider.
-В SelectServerAction задаются url и выбирается основной, пример использования:
+<details>
+<summary>Подробное описание</summary>
+    
+Выбор сервера. Для использования необходимо
+- создать свой класс, реализующий протокол SelectServerActionsProvider
+- определить метод `func servers() -> [SelectServerAction]`, возвращающий список доступных к выбору серверов
+- определить метод `func didSelectServer(_ server: SelectServerAction)`, который будет вызван при выборе того или иного сервера
 
-```SelectServerAction(url: URL(string: "https://surf.ru")!, title: "Surf", isActive: true)
-...
-func didSelectServer(_ server: SelectServerAction) {
-Urls._base = server.url.absoluteString
+Пример использования:
+
+```swift
+final class ServersProvider: SelectServerActionsProvider {
+
+    private var serverActions = [
+        SelectServerAction(
+            url: URL(string: "https://surf.ru/address/prod"),
+            title: "Production",
+            isActive: false
+        ),
+        SelectServerAction(
+            url: URL(string: "https://surf.ru/address/test"),
+            title: "Test server",
+            isActive: true
+        ),
+        SelectServerAction(
+            url: URL(string: "https://surf.ru/address/stage"),
+            title: "Stage server (with long long long description)",
+            isActive: false
+        )
+    ]
+
+    func servers() -> [SelectServerAction] {
+        return serverActions
+    }
+
+    func didSelectServer(_ server: SelectServerAction) {
+        serverActions = serverActions.map {
+            .init(url: $0.url, title: $0.title, isActive: $0.url == server.url)
+        }
+        // do something usefull
+    }
+
 }
 ```
+</details>
 
 ### FeatureToggleActionsProvider
 
-Работа с FeatureToggles. Реализуется наследованием от FeatureToggleActionsProvider.
+<details>
+<summary>Подробное описание</summary>
+    
+Работа с FeatureToggles. Для использования необходимо
+- создать свой класс, реализующий протокол FeatureToggleActionsProvider
+- определить метод `func actions() -> [FeatureToggleModel]`, возвращающий список доступных к изменению настроек
+- определить метод `func handleAction(with text: String, newValue: Bool)`, который будет вызван при изменении той или иной настройки
 
 #### Полезная практика
 
-Есть бизнесовые и девелоперские FeatureToggles. 
-Бизнесовые - чисто true/false, на них делается проверка в коде для разрешения какой-либо реализации.
-Девелоперские - те FeatureToggles, изменения которых обрабатываются глобально во всём коде. Например, отключение анимации. Эти FeatureToggle не проверяются в коде.
+Есть бизнесовые и девелоперские FeatureToggles:
+- Бизнесовые - те FeatureToggles, на которые делается проверка в коде для разрешения какой-либо реализации.
+- Девелоперские - те FeatureToggles, изменения которых обрабатываются глобально во всём коде. Например, отключение анимации. Эти FeatureToggle не проверяются в коде.
 
-Поэтому есть список всех FeatureToggles, отдельно хранятся бизнесовые FeatureToggles для проверки их в коде.
+Поэтому рекомендуется иметь под рукой список всех FeatureToggles, но при этом хранить значения бизнесовых FeatureToggles отдельно, например:
 
-FeatureToggleKey - enum с перечислением всех кейсов FeatureToggles и их названиями. Тут и бизнесовые, и девелоперские.
-```enum FeatureToggleKey: String {
-case feature1
-case feature2
-case business1 = "PushNotifications"
+```swift
+/// All feature toggles
+enum FeatureToggleKey: String {
+    case feature1
+    case feature2
+    case feature3
+    case business1 = "PushNotifications"
+}
+
+/// Business FeatureToggles, only true/false, without handling
+enum BusinessFeatureToggle {
+    static var isPushNotificationsAvailable = false
 }
 ```
 
-BusinessFeatureToggle - enum со статическими FeatureToggles на true/false. 
-```enum BusinessFeatureToggle {
-static var isPushNotificationsAvailable = false
+В таком случае реализация метода `func actions() -> [FeatureToggleModel]` провайдера может выглядеть следующим образом:
+```swift
+func actions() -> [FeatureToggleModel] {
+    return [
+        FeatureToggleModel(text: FeatureToggleKey.feature1.rawValue, value: true),
+        FeatureToggleModel(text: FeatureToggleKey.feature2.rawValue, value: false),
+        FeatureToggleModel(text: FeatureToggleKey.business1.rawValue, value: BusinessFeatureToggle.isPushNotificationsAvailable)
+    ]
 }
 ```
 
-В таком случае actions провайдера будут выглядеть следующим образом:
-``` func actions() -> [FeatureToggleModel] {
-return [
-    FeatureToggleModel(text: FeatureToggleKey.feature1.rawValue, value: true),
-    FeatureToggleModel(text: FeatureToggleKey.feature2.rawValue, value: false),
-    FeatureToggleModel(text: FeatureToggleKey.business1.rawValue, value: BusinessFeatureToggle.isPushNotificationsAvailable)
-]
-}
-```
-
-Также идёт обработка события выбора FeatureToggle. Для девелоперских прописываются обработчики действий. Для бизнесовых изменяется значение переменной:
-```func handleAction(with text: String, newValue: Bool) {
-        guard let featureToggle = FeatureToggleKey(rawValue: text) else {
-            return
-        }
-
-        switch featureToggle {
-        case .feature1:
-            doAction1()
-        case .feature2:
-            doAction2()
-        case .business1:
-            BusinessFeatureToggle.isPushNotificationsAvailable = newValue
-        }
+А так может выглядеть обработка изменения того или иного FeatureToggle. Для девелоперских прописываются обработчики действий. Для бизнесовых изменяется значение переменной:
+```swift
+func handleAction(with text: String, newValue: Bool) {
+    guard let featureToggle = FeatureToggleKey(rawValue: text) else {
+        return
     }
 
-    func doAction1() { }
-    func doAction2() { }
+    switch featureToggle {
+    case .feature1:
+        doAction1()
+    case .feature2:
+        doAction2()
+    case .business1:
+        BusinessFeatureToggle.isPushNotificationsAvailable = newValue
+    }
+}
+
+func doAction1() { }
+func doAction2() { }
 ```
+</details>
 
 ### Логирование
 
+<details>
+<summary>Подробное описание</summary>
+    
 Для записи логов указать в настройках:
-```DebugScreenConfiguration.shared.logCatcherService.setStdErrCatcherEnabled()
+```swift
+DebugScreenConfiguration.shared.logCatcherService.setStdErrCatcherEnabled()
 DebugScreenConfiguration.shared.logCatcherService.setStdOutCatcherEnabled()
 ```
+
+Для их получения можно вызвать
+```swift
+let log = DebugScreenConfiguration.shared.logCatcherService.logs()
+```
+</details>
+
+## Changelog
+
+Список всех изменений можно посмотреть в этом [файле](./Changelog.md).
+
+## License
+
+[MIT License](./LICENSE)
