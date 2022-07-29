@@ -38,18 +38,18 @@ final class ServersProvider: SelectServerActionsProvider {
 
     private var serverActions = [
         SelectServerAction(
-            url: URL(string: "https://google.com"),
-            title: "Google 123321 тут все фичи 123 321 лонгтитла",
+            url: URL(string: "https://surf.ru/address/prod"),
+            title: "Production",
             isActive: false
         ),
         SelectServerAction(
-            url: URL(string: "https://surf.ru"),
-            title: "Surf",
+            url: URL(string: "https://surf.ru/address/test"),
+            title: "Test server",
             isActive: true
         ),
         SelectServerAction(
-            url: URL(string: "https://yandex.ru"),
-            title: "yandex какой-то",
+            url: URL(string: "https://surf.ru/address/stage"),
+            title: "Stage server (with long long long description)",
             isActive: false
         )
     ]
