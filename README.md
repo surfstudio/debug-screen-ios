@@ -3,13 +3,15 @@
 [![CI](https://github.com/surfstudio/debug-screen-ios/actions/workflows/main.yml/badge.svg)](https://github.com/surfstudio/debug-screen-ios/actions/workflows/main.yml)
 [![SPM Compatible](https://img.shields.io/badge/SPM-compatible-blue.svg)](https://github.com/apple/swift-package-manager)
 
+[![DebugScreen](https://i.ibb.co/PtrBh4f/Group-48095986.png)](https://github.com/surfstudio/debug-screen-ios)
+
 ## About
 
 Библиотека для быстрого создания и кастомизации экрана отладки приложения.
 
 ## Screenshots
 
-![DebugScreenScreenshot](https://i.ibb.co/34hLtgH/2022-07-29-12-41-47.png)
+![DebugScreenScreenshot](https://i.ibb.co/4NDCqQK/Group-48095985.png)
 
 ## Installation
 
