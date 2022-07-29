@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Class for initialization and configurations log service in debug screen
+/// Service, that allows you to catch and get all logs from the console output
 public final class LogCatcherService {
 
     // MARK: - Nested Types
@@ -62,8 +62,7 @@ public final class LogCatcherService {
         setStreamCatcher(stream: Stream.stdOut(), pipe: stdOutPipe, logPath: logPath)
     }
 
-    /// Method for get logs
-    /// - Returns: Logs
+    /// Returns you all saved logs
     public func logs() -> String? {
         return try? String(contentsOfFile: logPath)
     }

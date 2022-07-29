@@ -7,17 +7,20 @@
 
 import Foundation
 
-/// Protocol for configurations select server
+/// Protocol for select server configurations
 public protocol SelectServerActionsProvider {
-    /// Method for configurations servers in debug screen
+    /// Method returns all available server, that user may select
+    ///
     /// - Returns: Servers array
     func servers() -> [SelectServerAction]
-    /// Method for configurations actions then chouse server
-    /// - Parameter server: Server what get action
+    /// Method that calls when user will select some server
+    /// 
+    /// - Parameters:
+    ///     - server: Selected server
     func didSelectServer(_ server: SelectServerAction)
 }
 
-/// Model for configurations Select Server
+/// Model for Select Server configuration
 public struct SelectServerAction {
     
     /// Sever's URL
@@ -27,7 +30,8 @@ public struct SelectServerAction {
     /// Server's status
     public let isActive: Bool
 
-    /// Parameters for configurations server
+    /// Allows you to create server action model
+    ///
     /// - Parameters:
     ///   - url: Server's URL
     ///   - title: Server's name
@@ -37,4 +41,5 @@ public struct SelectServerAction {
         self.title = title
         self.isActive = isActive
     }
+
 }

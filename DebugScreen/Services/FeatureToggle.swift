@@ -5,19 +5,21 @@
 //  Created by Полина Полухина on 24.11.2020.
 //
 
-/// Protocol for configurations  feature toggle 
+/// Protocol for feature toggle configurations
 public protocol FeatureToggleActionsProvider {
-    /// Method for add some actions actions for feature toggle
-    /// - Returns: Feature Toggle actions
+    /// Method returns all available feature toggles
+    ///
+    /// - Returns: Feature Toggle actions, that will be display on the screen
     func actions() -> [FeatureToggleModel]
-    /// Handler for actions
+    /// Method that calls when user will change some feature toggle
+    ///
     /// - Parameters:
-    ///   - text: Action's name
+    ///   - text: Feature toggle name
     ///   - newValue: New toggle status
     func handleAction(with text: String, newValue: Bool)
 }
 
-/// Model for configurations Feature Toggle
+/// Model for Feature Toggle configuration
 public struct FeatureToggleModel {
     
     /// Name for toggle
@@ -25,7 +27,8 @@ public struct FeatureToggleModel {
     /// Toggle's status
     public var value: Bool
 
-    /// Parameters for configurations cache cleaner action
+    /// Allows you create feature toggle model
+    ///
     /// - Parameters:
     ///   - text: Name for toggle
     ///   - value: Toggle's status

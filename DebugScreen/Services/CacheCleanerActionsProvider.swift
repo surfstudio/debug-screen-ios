@@ -7,31 +7,32 @@
 
 import Foundation
 
-/// Protocol for configurations cache cleaner
+/// Protocol for cache cleaner configuration
 public protocol CacheCleanerActionsProvider {
-    /// Method for add some actions for cache clean button
-    /// - Returns: Cache cleaner actions
+    /// Method returns all available cache cleaner actions
+    /// - Returns: Cache cleaner actions, that will be display on the screen
     func actions() -> [CacheCleanerAction]
 }
 
 // MARK: - CacheCleanerAction
 
-/// Model for configurations Cache Cleaner
+/// Model for Cache Cleaner configuration
 public struct CacheCleanerAction {
 
     // MARK: - Public Properties
 
     /// Name of Action
     public let title: String
-    /// Some action for model
+    /// Block of code, that will be performed on action select
     public let block: (() -> Void)
 
     // MARK: - Initialization
 
-    /// Parameters for configurations cache cleaner action
+    /// Allows you create cache cleaner action
+    ///
     /// - Parameters:
     ///   - title: Name for action
-    ///   - block: Some to do action
+    ///   - block: Block of code, that will be performed on action select
     public init(title: String, block: @escaping (() -> Void)) {
         self.title = title
         self.block = block

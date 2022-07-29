@@ -5,21 +5,24 @@
 //  Created by Anton Shelar on 02.11.2020.
 //
 
-/// Main configurator for debug screen that get all configurations for features
+/// Main configuration object for debug screen that provides all configurations for features
 public class DebugScreenConfiguration {
 
     // MARK: - Public Properties
 
-    /// Singleton
+    /// Singleton that provides access to all configurations parameters
     public static let shared = DebugScreenConfiguration()
 
-    /// Propertie for add configurations in clear cache
+    /// Provider to cache cleaner features
     public var cacheCleanerActionsProvider: CacheCleanerActionsProvider?
-    /// Propertie for add configurations in server
+    /// Provider that allows to select and change server address
     public var selectServerActionsProvider: SelectServerActionsProvider?
-    /// Propertie for add configurations in feature toggle
+    /// Feature toggle configuration provider
     public var featureToggleActionsProvider: FeatureToggleActionsProvider?
-    /// Propertie for add configure in log catche
+    /// Service that allows you to cath all logs from console
+    ///
+    /// if you want to enable it, than you have do it manually.
+    /// See detail description in ``LogCatcherService``
     public var logCatcherService = LogCatcherService()
 
     // MARK: - Initialization
