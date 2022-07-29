@@ -9,20 +9,15 @@ import Foundation
 
 final class MainModulePresenter: MainModuleOutput {
 
-    // MARK: - Constants
-
-    private enum Constants {
-        static let clearDataTitle = "Clear data"
-        static let serverTitle = "Select server"
-        static let featuresTitle = "Features"
-    }
-
     // MARK: - MainModuleOutput
 
-    var closeModuleBlock: (() -> Void)?
-    var showCacheClearingOptionsBlock: (([CacheCleanerAction]) -> Void)?
+    var didModuleClosed: (() -> Void)?
+    var didCacheClearingOptionsShowed: (([CacheCleanerAction]) -> Void)?
+
+    // MARK: - Properties
 
     weak var view: MainViewInput?
+
 }
 
 // MARK: - MainModuleInput
@@ -34,24 +29,24 @@ extension MainModulePresenter: MainModuleInput { }
 extension MainModulePresenter: MainViewOutput {
 
     func viewLoaded() {
-        let tableSections = createTableSections()
-        view?.setupInitialState(sections: tableSections)
+        let sections = createSections()
+        view?.setupInitialState(sections: sections)
     }
 
     func didTapCloseButton() {
-        closeModuleBlock?()
+        didModuleClosed?()
     }
 
-    func serverSelected(action: SelectServerAction) {
+    func selectServer(action: SelectServerAction) {
         DebugScreenConfiguration.shared.selectServerActionsProvider?
             .didSelectServer(action)
 
-        let tableSections = createTableSections()
-        view?.update(sections: tableSections)
+        let sections = createSections()
+        view?.update(sections: sections)
     }
 
-    func clearCacheSelected(actions: [CacheCleanerAction]) {
-        showCacheClearingOptionsBlock?(actions)
+    func selectClearCache(actions: [CacheCleanerAction]) {
+        didCacheClearingOptionsShowed?(actions)
     }
 
     func featureToggled(model: FeatureToggleModel, newValue: Bool) {
@@ -65,31 +60,30 @@ extension MainModulePresenter: MainViewOutput {
 
 private extension MainModulePresenter {
 
-    func createTableSections() -> [TableSection] {
-        var tableSections = [TableSection]()
-        if let actions: [CacheCleanerAction] = DebugScreenConfiguration.shared.cacheCleanerActionsProvider?.actions(),
-           !actions.isEmpty {
-            tableSections.append(TableSection(
-                title: Constants.clearDataTitle,
-                blocks: [.cacheCleaner(models: actions)]
-            ))
+    func createSections() -> [TableSection] {
+        var sections = [TableSection]()
+        if
+            let actions = DebugScreenConfiguration.shared.cacheCleanerActionsProvider?.actions(),
+            !actions.isEmpty
+        {
+            sections.append(.init(title: L10n.MainPresenter.clearDataTitle,
+                                  blocks: [.cacheCleaner(models: actions)]))
         }
 
         if let provider = DebugScreenConfiguration.shared.selectServerActionsProvider {
-            let servers = provider.servers()
-            let tableBlocks = servers.map { server in
-                MainTableBlock.selectServer(model: server)
-            }
-            tableSections.append(TableSection(title: Constants.serverTitle, blocks: tableBlocks))
+            let blocks = provider
+                .servers()
+                .map { MainTableBlock.selectServer(model: $0) }
+            sections.append(.init(title: L10n.MainPresenter.serverTitle,
+                                  blocks: blocks))
         }
 
         if let featureToggles = DebugScreenConfiguration.shared.featureToggleActionsProvider?.actions() {
-            let tableBlocks = featureToggles.map { featureToggle in
-                MainTableBlock.featureToggle(model: featureToggle)
-            }
-            tableSections.append(TableSection(title: Constants.featuresTitle, blocks: tableBlocks))
+            let blocks = featureToggles.map { MainTableBlock.featureToggle(model: $0) }
+            sections.append(.init(title: L10n.MainPresenter.featuresTitle,
+                                  blocks: blocks))
         }
-        return tableSections
+        return sections
     }
 
 }

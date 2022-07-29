@@ -15,8 +15,6 @@ final class ViewController: UIViewController {
         DebugScreenConfiguration.shared.cacheCleanerActionsProvider = ActionsProvider()
         DebugScreenConfiguration.shared.selectServerActionsProvider = ServersProvider()
         DebugScreenConfiguration.shared.featureToggleActionsProvider = FeatureToggleProvider()
-        DebugScreenConfiguration.shared.logCatcherService.setStdErrCatcherEnabled()
-        DebugScreenConfiguration.shared.logCatcherService.setStdOutCatcherEnabled()
     }
 
 }
@@ -25,10 +23,10 @@ final class ActionsProvider: CacheCleanerActionsProvider {
     func actions() -> [CacheCleanerAction] {
         return [
             CacheCleanerAction(title: "First action", block: {
-
+                print("perform first clear action")
             }),
             CacheCleanerAction(title: "Second action", block: {
-
+                print("perform second clear action")
             })
         ]
     }
@@ -49,7 +47,7 @@ final class ServersProvider: SelectServerActionsProvider {
         ),
         SelectServerAction(
             url: URL(string: "https://yandex.ru"),
-            title: "yandex какой-то",
+            title: "адрес yandex-а",
             isActive: false
         )
     ]

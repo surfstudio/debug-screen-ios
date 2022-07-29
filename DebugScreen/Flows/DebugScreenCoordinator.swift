@@ -10,13 +10,6 @@ import UIKit
 
 final class DebugScreenCoordinator: BaseCoordinator {
 
-    // MARK: - Constants
-
-    private enum Constants {
-        static let clearCache = "Clear cache"
-        static let cancelAction = "Cancel"
-    }
-
     // MARK: - Private properties
 
     private let router = MainRouter()
@@ -33,11 +26,11 @@ final class DebugScreenCoordinator: BaseCoordinator {
         navigationController.setViewControllers([components.view], animated: false)
         navigationController.modalPresentationStyle = .overFullScreen
 
-        components.output.closeModuleBlock = { [weak self] in
+        components.output.didModuleClosed = { [weak self] in
             self?.navigationController.dismiss(animated: true, completion: self?.completionHandler)
         }
 
-        components.output.showCacheClearingOptionsBlock = { [weak self] (actions: [CacheCleanerAction]) in
+        components.output.didCacheClearingOptionsShowed = { [weak self] (actions: [CacheCleanerAction]) in
             self?.showCacheCleaningActions(actions: actions)
         }
 
@@ -50,7 +43,11 @@ final class DebugScreenCoordinator: BaseCoordinator {
 private extension DebugScreenCoordinator {
 
     func showCacheCleaningActions(actions: [CacheCleanerAction]) {
-        let actionsSheet = UIAlertController(title: nil, message: Constants.clearCache, preferredStyle: .actionSheet)
+        let actionsSheet = UIAlertController(
+            title: nil,
+            message: L10n.DebugScreenCoordinator.clearCache,
+            preferredStyle: .actionSheet
+        )
 
         actions.forEach { action in
             actionsSheet.addAction(UIAlertAction(title: action.title, style: .destructive) { _ in
@@ -58,7 +55,11 @@ private extension DebugScreenCoordinator {
             })
         }
 
-        actionsSheet.addAction(UIAlertAction(title: Constants.cancelAction, style: .cancel, handler: nil))
+        actionsSheet.addAction(UIAlertAction(
+            title: L10n.DebugScreenCoordinator.cancelAction,
+            style: .cancel,
+            handler: nil
+        ))
 
         self.navigationController.present(actionsSheet, animated: true, completion: nil)
     }

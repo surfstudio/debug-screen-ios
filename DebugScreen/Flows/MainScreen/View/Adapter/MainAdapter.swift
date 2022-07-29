@@ -9,12 +9,6 @@ import UIKit
 
 final class MainAdapter: NSObject {
 
-    // MARK: - Constants
-
-    private enum Constants {
-        static let clearAppData = "Clear application data"
-    }
-
     // MARK: - Properties
 
     var onSelectServer: ((SelectServerAction) -> Void)?
@@ -86,7 +80,7 @@ extension MainAdapter: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(TextTableCell.self, indexPath: indexPath) else {
                 return UITableViewCell()
             }
-            cell.configure(with: Constants.clearAppData)
+            cell.configure(with: L10n.MainAdapter.clearAppData)
             return cell
         case .selectServer(let model):
             guard let cell = tableView.dequeueReusableCell(SelectionTableCell.self, indexPath: indexPath) else {
@@ -120,7 +114,6 @@ extension MainAdapter: UITableViewDelegate {
             onSelectServer?(model)
         case .featureToggle:
             break
-
         }
     }
 

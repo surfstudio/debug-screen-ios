@@ -1,0 +1,29 @@
+//
+//  StringAttributes.swift
+//
+//
+//  Created by Евгений Васильев on 27.06.2022.
+//
+
+// MARK: - MainPresenter
+
+"MainPresenter.clearDataTitle" = "Отчистить данные";
+"MainPresenter.serverTitle" = "Выбрать сервер";
+"MainPresenter.featuresTitle" = "Функции";
+
+// MARK: - SelectionTableCell
+
+"SelectionTableCell.statusTitle" = "Активен";
+
+// MARK: - MainAdapter
+
+"MainAdapter.clearAppData" = "Отчистить данные приложения";
+
+// MARK: - MainViewController
+
+"MainViewController.debugTitle" = "Debug Screen";
+
+// MARK: - DebugScreenCoordinator
+
+"DebugScreenCoordinator.clearCache" = "Отчистить кэш";
+"DebugScreenCoordinator.cancelAction" = "Отмена";
