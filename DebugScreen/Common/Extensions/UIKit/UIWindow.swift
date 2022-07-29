@@ -8,7 +8,13 @@
 import UIKit
 
 extension UIWindow {
-
+    
+    /// Overrides UIWindow's motion method
+    ///
+    /// This overriding allows to show debug screen by shake motion
+    /// - Parameters:
+    ///   - motion: ended motion
+    ///   - event: ended event
     open override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             DebugScreenPresenterService.shared.handleMotionEnded()

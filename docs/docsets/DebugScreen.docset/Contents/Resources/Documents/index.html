@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DebugScreen  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a title="DebugScreen  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">DebugScreen 0.1.0 Docs</a> (100% documented)</p>
+        <div class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">DebugScreen Reference</a>
+        <img id="carat" src="img/carat.png" alt=""/>
+        DebugScreen  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/DebugScreenConfiguration.html">DebugScreenConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LogCatcherService.html">LogCatcherService</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/UIWindow.html">UIWindow</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/CacheCleanerActionsProvider.html">CacheCleanerActionsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/FeatureToggleActionsProvider.html">FeatureToggleActionsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/SelectServerActionsProvider.html">SelectServerActionsProvider</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/CacheCleanerAction.html">CacheCleanerAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/FeatureToggleModel.html">FeatureToggleModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/SelectServerAction.html">SelectServerAction</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='debugscreen' class='heading'>DebugScreen</h1>
+
+<p><a href="https://github.com/surfstudio/debug-screen-ios/actions/workflows/main.yml"><img src="https://github.com/surfstudio/debug-screen-ios/actions/workflows/main.yml/badge.svg" alt="CI"></a>
+<a href="https://surfstudio.github.io/debug-screen-ios/"><img src="https://github.com/surfstudio/debug-screen-ios/blob/main/docs/badge.svg" alt="Documentation"></a>
+<a href="https://github.com/apple/swift-package-manager"><img src="https://img.shields.io/badge/SPM-compatible-blue.svg" alt="SPM Compatible"></a></p>
+
+<p><a href="https://github.com/surfstudio/debug-screen-ios"><img src="https://i.ibb.co/PtrBh4f/Group-48095986.png" alt="DebugScreen"></a></p>
+<h2 id='about' class='heading'>About</h2>
+
+<p>Библиотека для быстрого создания и кастомизации экрана отладки приложения.</p>
+<h2 id='screenshots' class='heading'>Screenshots</h2>
+
+<p><img src="https://i.ibb.co/4NDCqQK/Group-48095985.png" alt="DebugScreenScreenshot"></p>
+<h2 id='installation' class='heading'>Installation</h2>
+<h4 id='swift-package-manager' class='heading'>Swift Package Manager</h4>
+
+<ul>
+<li>В XCode пройдите в <code>File &gt; Swift Packages &gt; Add Package Dependency</code></li>
+<li>Введите URL репозитория <code>https://github.com/surfstudio/DebugScreen.git</code></li>
+</ul>
+<h2 id='features' class='heading'>Features</h2>
+
+<p>При создании библиотеки преследовались следующие цели: </p>
+
+<ul>
+<li>создать готовый и кастомизируемый шаблон для экрана отладки приложения</li>
+<li>упростить взаимодействие с экраном отладки</li>
+<li>передать в него самые востребованные функции</li>
+<li>ускорить разработку приложения</li>
+</ul>
+
+<p>Для этого были реализованы следующие фичи:</p>
+
+<ul>
+<li><strong>CacheActionsProvider</strong> - Отчистка кэша приложения</li>
+<li><strong>SelectServerActionsProvider</strong> - Выбор сервера</li>
+<li><strong>FeatureToggleActionsProvider</strong> - Добавление FeatureToggles (бизнесовых и девелоперских)</li>
+<li><strong>LogCatcherService</strong> - Запись логов</li>
+</ul>
+<h2 id='example' class='heading'>Example</h2>
+
+<p>Все вышеперечисленное можно увидеть в Example-проекте. Для его корректного запуска и конфигурации скачайте репозиторий и выполните команду <code>make init</code> перед тем как его запустить.</p>
+<h2 id='usage' class='heading'>Usage</h2>
+
+<p>Для настройки внешнего вида и возможностей экрана отладки необходимо задать на старте приложения его провайдеры, например:</p>
+<pre class="highlight swift"><code><span class="kt">DebugScreenConfiguration</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">cacheCleanerActionsProvider</span> <span class="o">=</span> <span class="kt">ActionsProvider</span><span class="p">()</span>
+<span class="kt">DebugScreenConfiguration</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">selectServerActionsProvider</span> <span class="o">=</span> <span class="kt">ServersProvider</span><span class="p">()</span>
+<span class="kt">DebugScreenConfiguration</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">featureToggleActionsProvider</span> <span class="o">=</span> <span class="kt">FeatureToggleProvider</span><span class="p">()</span>
+</code></pre>
+
+<p>Сам экран отладки появляется, если потрясти телефон.</p>
+<h3 id='cacheactionsprovider' class='heading'>CacheActionsProvider</h3>
+
+<details>
+<summary>Подробное описание</summary>
+    
+Очистка кеша. Для использования необходимо
+- создать свой класс, реализующий протокол CacheCleanerActionsProvider
+- определить его единственный метод `func actions() -> [CacheCleanerAction]`
+
+CacheCleanerAction определяет заголовок, который будет показан на экране, а также блок кода, который будет вызван при выборе данного action. Пример:
+
+&ldquo;`swift
+CacheCleanerAction(title: &quot;Clear score&rdquo;, block: {
+    RatingService.clearScore()
+    RatingService.didRate = false
+})
+&ldquo;`
+</details>
+<h3 id='selectserveractionsprovider' class='heading'>SelectServerActionsProvider</h3>
+
+<details>
+<summary>Подробное описание</summary>
+    
+Выбор сервера. Для использования необходимо
+- создать свой класс, реализующий протокол SelectServerActionsProvider
+- определить метод `func servers() -> [SelectServerAction]`, возвращающий список доступных к выбору серверов
+- определить метод `func didSelectServer(_ server: SelectServerAction)`, который будет вызван при выборе того или иного сервера
+
+Пример использования:
+
+&rdquo;`swift
+final class ServersProvider: SelectServerActionsProvider {
+
+    private var serverActions = [
+        SelectServerAction(
+            url: URL(string: &ldquo;https://surf.ru/address/prod&rdquo;),
+            title: &ldquo;Production&rdquo;,
+            isActive: false
+        ),
+        SelectServerAction(
+            url: URL(string: &ldquo;https://surf.ru/address/test&rdquo;),
+            title: &ldquo;Test server&rdquo;,
+            isActive: true
+        ),
+        SelectServerAction(
+            url: URL(string: &ldquo;https://surf.ru/address/stage&rdquo;),
+            title: &ldquo;Stage server (with long long long description)&rdquo;,
+            isActive: false
+        )
+    ]
+
+    func servers() -> [SelectServerAction] {
+        return serverActions
+    }
+
+    func didSelectServer(_ server: SelectServerAction) {
+        serverActions = serverActions.map {
+            .init(url: $0.url, title: $0.title, isActive: $0.url == server.url)
+        }
+        // do something usefull
+    }
+
+}
+&ldquo;`
+</details>
+<h3 id='featuretoggleactionsprovider' class='heading'>FeatureToggleActionsProvider</h3>
+
+<details>
+<summary>Подробное описание</summary>
+    
+Работа с FeatureToggles. Для использования необходимо
+- создать свой класс, реализующий протокол FeatureToggleActionsProvider
+- определить метод `func actions() -> [FeatureToggleModel]`, возвращающий список доступных к изменению настроек
+- определить метод `func handleAction(with text: String, newValue: Bool)`, который будет вызван при изменении той или иной настройки
+
+#### Полезная практика
+
+Есть бизнесовые и девелоперские FeatureToggles:
+- Бизнесовые - те FeatureToggles, на которые делается проверка в коде для разрешения какой-либо реализации.
+- Девелоперские - те FeatureToggles, изменения которых обрабатываются глобально во всём коде. Например, отключение анимации. Эти FeatureToggle не проверяются в коде.
+
+Поэтому рекомендуется иметь под рукой список всех FeatureToggles, но при этом хранить значения бизнесовых FeatureToggles отдельно, например:
+
+&rdquo;`swift
+/// All feature toggles
+enum FeatureToggleKey: String {
+    case feature1
+    case feature2
+    case feature3
+    case business1 = &ldquo;PushNotifications&rdquo;
+}
+
+/// Business FeatureToggles, only true/false, without handling
+enum BusinessFeatureToggle {
+    static var isPushNotificationsAvailable = false
+}
+&ldquo;`
+
+В таком случае реализация метода `func actions() -> [FeatureToggleModel]` провайдера может выглядеть следующим образом:
+&rdquo;`swift
+func actions() -> [FeatureToggleModel] {
+    return [
+        FeatureToggleModel(text: FeatureToggleKey.feature1.rawValue, value: true),
+        FeatureToggleModel(text: FeatureToggleKey.feature2.rawValue, value: false),
+        FeatureToggleModel(text: FeatureToggleKey.business1.rawValue, value: BusinessFeatureToggle.isPushNotificationsAvailable)
+    ]
+}
+&ldquo;`
+
+А так может выглядеть обработка изменения того или иного FeatureToggle. Для девелоперских прописываются обработчики действий. Для бизнесовых изменяется значение переменной:
+&rdquo;`swift
+func handleAction(with text: String, newValue: Bool) {
+    guard let featureToggle = FeatureToggleKey(rawValue: text) else {
+        return
+    }
+
+    switch featureToggle {
+    case .feature1:
+        doAction1()
+    case .feature2:
+        doAction2()
+    case .business1:
+        BusinessFeatureToggle.isPushNotificationsAvailable = newValue
+    }
+}
+
+func doAction1() { }
+func doAction2() { }
+&ldquo;`
+</details>
+<h3 id='логирование' class='heading'>Логирование</h3>
+
+<details>
+<summary>Подробное описание</summary>
+    
+Для записи логов указать в настройках:
+&rdquo;`swift
+DebugScreenConfiguration.shared.logCatcherService.setStdErrCatcherEnabled()
+DebugScreenConfiguration.shared.logCatcherService.setStdOutCatcherEnabled()
+&ldquo;`
+
+Для их получения можно вызвать
+&rdquo;`swift
+let log = DebugScreenConfiguration.shared.logCatcherService.logs()
+&ldquo;`
+</details>
+<h2 id='changelog' class='heading'>Changelog</h2>
+
+<p>Список всех изменений можно посмотреть в этом <a href="./Changelog.md">файле</a>.</p>
+<h2 id='license' class='heading'>License</h2>
+
+<p><a href="./LICENSE">MIT License</a></p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2022 <a class="link" href="https://github.com/surfstudio/DebugScreen" target="_blank" rel="external noopener">Anton Shelar</a>. All rights reserved. (Last updated: 2022-07-29)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>

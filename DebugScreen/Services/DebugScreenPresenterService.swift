@@ -9,7 +9,7 @@ import Foundation
 
 final class DebugScreenPresenterService {
 
-    // MARK: - Properties
+    // MARK: - Static Properties
 
     static let shared = DebugScreenPresenterService()
 
