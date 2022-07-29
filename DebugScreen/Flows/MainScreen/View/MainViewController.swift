@@ -13,11 +13,11 @@ final class MainViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
-    // MARK: - Public properties
+    // MARK: - Properties
 
     var output: MainViewOutput?
 
-    // MARK: - Private properties
+    // MARK: - Private Properties
 
     private var adapter: MainAdapter?
 
@@ -51,8 +51,15 @@ private extension MainViewController {
 
     func configureAppearance() {
         title = L10n.MainViewController.debugTitle
-        setCloseButton()
+        configureCloseButton()
         configureAdapter()
+    }
+
+    func configureCloseButton() {
+        let item = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel,
+                                   target: self,
+                                   action: #selector(didTapCloseButton))
+        self.navigationItem.rightBarButtonItem = item
     }
 
     func configureAdapter() {
@@ -66,15 +73,6 @@ private extension MainViewController {
         adapter?.onToggleFeatureAction = { [weak self] action, newValue in
             self?.output?.featureToggled(model: action, newValue: newValue)
         }
-    }
-
-    func setCloseButton() {
-        let item = UIBarButtonItem(
-            barButtonSystemItem: UIBarButtonItem.SystemItem.cancel,
-            target: self,
-            action: #selector(didTapCloseButton)
-        )
-        self.navigationItem.rightBarButtonItem = item
     }
 
 }

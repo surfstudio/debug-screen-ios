@@ -9,7 +9,7 @@ import Foundation
 
 public class DebugScreenConfiguration {
 
-    // MARK: - Public properties
+    // MARK: - Public Properties
 
     public static let shared = DebugScreenConfiguration()
 

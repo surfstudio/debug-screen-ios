@@ -14,7 +14,10 @@ final class MainModulePresenter: MainModuleOutput {
     var didModuleClosed: (() -> Void)?
     var didCacheClearingOptionsShowed: (([CacheCleanerAction]) -> Void)?
 
+    // MARK: - Properties
+
     weak var view: MainViewInput?
+
 }
 
 // MARK: - MainModuleInput
@@ -26,8 +29,8 @@ extension MainModulePresenter: MainModuleInput { }
 extension MainModulePresenter: MainViewOutput {
 
     func viewLoaded() {
-        let tableSections = createTableSections()
-        view?.setupInitialState(sections: tableSections)
+        let sections = createSections()
+        view?.setupInitialState(sections: sections)
     }
 
     func didTapCloseButton() {
@@ -38,8 +41,8 @@ extension MainModulePresenter: MainViewOutput {
         DebugScreenConfiguration.shared.selectServerActionsProvider?
             .didSelectServer(action)
 
-        let tableSections = createTableSections()
-        view?.update(sections: tableSections)
+        let sections = createSections()
+        view?.update(sections: sections)
     }
 
     func selectClearCache(actions: [CacheCleanerAction]) {
@@ -57,31 +60,30 @@ extension MainModulePresenter: MainViewOutput {
 
 private extension MainModulePresenter {
 
-    func createTableSections() -> [TableSection] {
-        var tableSections = [TableSection]()
-        if let actions: [CacheCleanerAction] = DebugScreenConfiguration.shared.cacheCleanerActionsProvider?.actions(),
-           !actions.isEmpty {
-            tableSections.append(TableSection(
-                title: L10n.MainPresenter.clearDataTitle,
-                blocks: [.cacheCleaner(models: actions)]
-            ))
+    func createSections() -> [TableSection] {
+        var sections = [TableSection]()
+        if
+            let actions = DebugScreenConfiguration.shared.cacheCleanerActionsProvider?.actions(),
+            !actions.isEmpty
+        {
+            sections.append(.init(title: L10n.MainPresenter.clearDataTitle,
+                                  blocks: [.cacheCleaner(models: actions)]))
         }
 
         if let provider = DebugScreenConfiguration.shared.selectServerActionsProvider {
-            let servers = provider.servers()
-            let tableBlocks = servers.map { server in
-                MainTableBlock.selectServer(model: server)
-            }
-            tableSections.append(TableSection(title: L10n.MainPresenter.serverTitle, blocks: tableBlocks))
+            let blocks = provider
+                .servers()
+                .map { MainTableBlock.selectServer(model: $0) }
+            sections.append(.init(title: L10n.MainPresenter.serverTitle,
+                                  blocks: blocks))
         }
 
         if let featureToggles = DebugScreenConfiguration.shared.featureToggleActionsProvider?.actions() {
-            let tableBlocks = featureToggles.map { featureToggle in
-                MainTableBlock.featureToggle(model: featureToggle)
-            }
-            tableSections.append(TableSection(title: L10n.MainPresenter.featuresTitle, blocks: tableBlocks))
+            let blocks = featureToggles.map { MainTableBlock.featureToggle(model: $0) }
+            sections.append(.init(title: L10n.MainPresenter.featuresTitle,
+                                  blocks: blocks))
         }
-        return tableSections
+        return sections
     }
 
 }

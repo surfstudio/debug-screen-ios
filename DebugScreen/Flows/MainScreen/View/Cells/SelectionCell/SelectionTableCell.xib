@@ -20,11 +20,8 @@
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="k5m-ox-b6A">
                         <rect key="frame" x="16" y="16" width="388" height="75"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYA-Hc-B9Z">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYA-Hc-B9Z">
                                 <rect key="frame" x="0.0" y="0.0" width="388" height="57"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="57" id="A1Y-eG-1Cy"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -59,7 +56,7 @@
                 <outlet property="title" destination="vYA-Hc-B9Z" id="2mM-yk-Nox"/>
                 <outlet property="url" destination="Xji-GC-dpE" id="V5D-dY-Ot5"/>
             </connections>
-            <point key="canvasLocation" x="180" y="51"/>
+            <point key="canvasLocation" x="179.71014492753625" y="50.558035714285715"/>
         </tableViewCell>
     </objects>
     <resources>

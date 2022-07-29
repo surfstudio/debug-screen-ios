@@ -9,12 +9,7 @@ import Foundation
 
 public final class LogCatcherService {
 
-    // MARK: - Private properties
-
-    private let stdErrPipe = Pipe()
-    private let stdOutPipe = Pipe()
-    private let logPath: String
-    private static let defaultLogName = "log"
+    // MARK: - Nested Types
 
     private struct Stream {
         let id: Int32
@@ -29,6 +24,18 @@ public final class LogCatcherService {
         }
     }
 
+    // MARK: - Constants
+
+    private enum Constants {
+        static let defaultLogName = "log"
+    }
+
+    // MARK: - Private Properties
+
+    private let stdErrPipe = Pipe()
+    private let stdOutPipe = Pipe()
+    private let logPath: String
+
     // MARK: - Initialization
 
     init(logPath: String) {
@@ -37,11 +44,11 @@ public final class LogCatcherService {
     }
 
     public init() {
-        self.logPath = NSTemporaryDirectory().appending("\(LogCatcherService.defaultLogName)")
+        self.logPath = NSTemporaryDirectory().appending("\(Constants.defaultLogName)")
         clearLogfile()
     }
 
-    // MARK: - Public methods
+    // MARK: - Public Methods
 
     public func setStdErrCatcherEnabled() {
         setStreamCatcher(stream: Stream.stdErr(), pipe: stdErrPipe, logPath: logPath)
@@ -54,9 +61,10 @@ public final class LogCatcherService {
     public func logs() -> String? {
         return try? String(contentsOfFile: logPath)
     }
+
 }
 
-// MARK: - Private methods
+// MARK: - Private Methods
 
 private extension LogCatcherService {
 

@@ -201,6 +201,7 @@
 		A4BDF47F28512F7700651C61 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A4BDF48B28512F7700651C61 /* Base Classes */,
 				A4BDF48228512F7700651C61 /* Extensions */,
 				A4BDF48E28512F7700651C61 /* Protocols */,
 				A4BDF48028512F7700651C61 /* Routers */,
@@ -250,7 +251,6 @@
 		A4BDF48E28512F7700651C61 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				A4BDF48B28512F7700651C61 /* Base Classes */,
 				A4BDF48F28512F7700651C61 /* Presentable.swift */,
 				A4BDF49028512F7700651C61 /* Router.swift */,
 				A4BDF49128512F7700651C61 /* Coordinator.swift */,
