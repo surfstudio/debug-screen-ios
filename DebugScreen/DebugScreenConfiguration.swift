@@ -19,7 +19,7 @@ public class DebugScreenConfiguration {
     public var selectServerActionsProvider: SelectServerActionsProvider?
     /// Feature toggle configuration provider
     public var featureToggleActionsProvider: FeatureToggleActionsProvider?
-    /// Service that allows you to cath all logs from console
+    /// Service that allows you to catch all logs from console
     ///
     /// if you want to enable it, than you have do it manually.
     /// See detail description in ``LogCatcherService``
