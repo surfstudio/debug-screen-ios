@@ -47,7 +47,7 @@
 		A4BDF4CF28512FB000651C61 /* SelectServerActionsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4CA28512FB000651C61 /* SelectServerActionsProvider.swift */; };
 		A4BDF4D028512FB000651C61 /* LogCatcherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4CB28512FB000651C61 /* LogCatcherService.swift */; };
 		A4BDF4D128512FB000651C61 /* DebugScreenPresenterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4CC28512FB000651C61 /* DebugScreenPresenterService.swift */; };
-		A4BDF4D228512FB000651C61 /* CacheCleanerActionsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4CD28512FB000651C61 /* CacheCleanerActionsProvider.swift */; };
+		A4BDF4D228512FB000651C61 /* ActionsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4CD28512FB000651C61 /* ActionsProvider.swift */; };
 		A4BDF4D328512FB000651C61 /* FeatureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4CE28512FB000651C61 /* FeatureToggle.swift */; };
 		A4BDF4D528512FB500651C61 /* DebugScreenConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4D428512FB500651C61 /* DebugScreenConfiguration.swift */; };
 		A4D337562863A7AA002328F2 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D337552863A7AA002328F2 /* TableSection.swift */; };
@@ -96,7 +96,7 @@
 		A4BDF4CA28512FB000651C61 /* SelectServerActionsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectServerActionsProvider.swift; sourceTree = "<group>"; };
 		A4BDF4CB28512FB000651C61 /* LogCatcherService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogCatcherService.swift; sourceTree = "<group>"; };
 		A4BDF4CC28512FB000651C61 /* DebugScreenPresenterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugScreenPresenterService.swift; sourceTree = "<group>"; };
-		A4BDF4CD28512FB000651C61 /* CacheCleanerActionsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheCleanerActionsProvider.swift; sourceTree = "<group>"; };
+		A4BDF4CD28512FB000651C61 /* ActionsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsProvider.swift; sourceTree = "<group>"; };
 		A4BDF4CE28512FB000651C61 /* FeatureToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureToggle.swift; sourceTree = "<group>"; };
 		A4BDF4D428512FB500651C61 /* DebugScreenConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugScreenConfiguration.swift; sourceTree = "<group>"; };
 		A4D337552863A7AA002328F2 /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
@@ -360,7 +360,7 @@
 				A4BDF4CA28512FB000651C61 /* SelectServerActionsProvider.swift */,
 				A4BDF4CB28512FB000651C61 /* LogCatcherService.swift */,
 				A4BDF4CC28512FB000651C61 /* DebugScreenPresenterService.swift */,
-				A4BDF4CD28512FB000651C61 /* CacheCleanerActionsProvider.swift */,
+				A4BDF4CD28512FB000651C61 /* ActionsProvider.swift */,
 				A4BDF4CE28512FB000651C61 /* FeatureToggle.swift */,
 			);
 			path = Services;
@@ -534,7 +534,7 @@
 				A4BDF49928512F7700651C61 /* Bundle.swift in Sources */,
 				A47BDB44286A1249002326B8 /* Assets.swift in Sources */,
 				A4BDF49728512F7700651C61 /* UIWindow.swift in Sources */,
-				A4BDF4D228512FB000651C61 /* CacheCleanerActionsProvider.swift in Sources */,
+				A4BDF4D228512FB000651C61 /* ActionsProvider.swift in Sources */,
 				A4BDF4C728512FAA00651C61 /* MainModuleConfigurator.swift in Sources */,
 				A4BDF49328512F7700651C61 /* Array.swift in Sources */,
 				A4BDF49428512F7700651C61 /* NSObject.swift in Sources */,

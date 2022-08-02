@@ -13,8 +13,8 @@ public class DebugScreenConfiguration {
     /// Singleton that provides access to all configurations parameters
     public static let shared = DebugScreenConfiguration()
 
-    /// Provider to cache cleaner features
-    public var cacheCleanerActionsProvider: CacheCleanerActionsProvider?
+    /// Provider to action features
+    public var actionsProvider: ActionsProvider?
     /// Provider that allows to select and change server address
     public var selectServerActionsProvider: SelectServerActionsProvider?
     /// Feature toggle configuration provider

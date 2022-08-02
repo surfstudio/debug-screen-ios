@@ -12,7 +12,7 @@ final class MainModulePresenter: MainModuleOutput {
     // MARK: - MainModuleOutput
 
     var didModuleClosed: (() -> Void)?
-    var didCacheClearingOptionsShowed: (([CacheCleanerAction]) -> Void)?
+    var didActionOptionsShowed: ((ActionsProviderModel) -> Void)?
 
     // MARK: - Properties
 
@@ -45,8 +45,8 @@ extension MainModulePresenter: MainViewOutput {
         view?.update(sections: sections)
     }
 
-    func selectClearCache(actions: [CacheCleanerAction]) {
-        didCacheClearingOptionsShowed?(actions)
+    func selectAction(model: ActionsProviderModel) {
+        didActionOptionsShowed?(model)
     }
 
     func featureToggled(model: FeatureToggleModel, newValue: Bool) {
@@ -63,11 +63,13 @@ private extension MainModulePresenter {
     func createSections() -> [TableSection] {
         var sections = [TableSection]()
         if
-            let actions = DebugScreenConfiguration.shared.cacheCleanerActionsProvider?.actions(),
-            !actions.isEmpty
+            let models = DebugScreenConfiguration.shared.actionsProvider?.makeActions(),
+            !models.isEmpty
         {
-            sections.append(.init(title: L10n.MainPresenter.clearDataTitle,
-                                  blocks: [.cacheCleaner(models: actions)]))
+            models.forEach { model in
+                sections.append(.init(title: model.header,
+                                      blocks: [.featureAction(models: model)]))
+            }
         }
 
         if let provider = DebugScreenConfiguration.shared.selectServerActionsProvider {

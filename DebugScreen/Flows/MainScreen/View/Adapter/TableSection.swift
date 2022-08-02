@@ -12,6 +12,6 @@ struct TableSection {
 
 enum MainTableBlock {
     case featureToggle(model: FeatureToggleModel)
-    case cacheCleaner(models: [CacheCleanerAction])
+    case featureAction(models: ActionsProviderModel)
     case selectServer(model: SelectServerAction)
 }

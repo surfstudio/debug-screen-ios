@@ -11,6 +11,6 @@ protocol MainViewOutput {
     func viewLoaded()
     func didTapCloseButton()
     func selectServer(action: SelectServerAction)
-    func selectClearCache(actions: [CacheCleanerAction])
+    func selectAction(model: ActionsProviderModel)
     func featureToggled(model: FeatureToggleModel, newValue: Bool)
 }

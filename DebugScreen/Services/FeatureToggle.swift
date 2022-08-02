@@ -21,7 +21,7 @@ public protocol FeatureToggleActionsProvider {
 
 /// Model for Feature Toggle configuration
 public struct FeatureToggleModel {
-    
+
     /// Name for toggle
     public let text: String
     /// Toggle's status
