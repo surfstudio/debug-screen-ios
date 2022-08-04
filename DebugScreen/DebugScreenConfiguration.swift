@@ -19,6 +19,8 @@ public class DebugScreenConfiguration {
     public var selectServerActionsProvider: SelectServerActionsProvider?
     /// Feature toggle configuration provider
     public var featureToggleActionsProvider: FeatureToggleActionsProvider?
+    /// Service for creat selected text cells
+    public var selectTextService: SelectTextService?
     /// Service that allows you to catch all logs from console
     ///
     /// if you want to enable it, than you have do it manually.

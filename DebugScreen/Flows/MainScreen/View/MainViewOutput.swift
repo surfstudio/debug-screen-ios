@@ -10,7 +10,8 @@ import UIKit
 protocol MainViewOutput {
     func viewLoaded()
     func didTapCloseButton()
-    func selectServer(action: SelectServerAction)
+    func selectServer(model: SelectServerActionModel)
     func selectAction(model: ActionsProviderModel)
+    func selectText(model: SelectTextModel)
     func featureToggled(model: FeatureToggleModel, newValue: Bool)
 }

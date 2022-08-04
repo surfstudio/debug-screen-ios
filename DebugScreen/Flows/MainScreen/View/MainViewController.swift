@@ -67,8 +67,11 @@ private extension MainViewController {
         adapter?.onSelectAction = { [weak self] model in
             self?.output?.selectAction(model: model)
         }
-        adapter?.onSelectServer = { [weak self] action in
-            self?.output?.selectServer(action: action)
+        adapter?.onSelectServer = { [weak self] model in
+            self?.output?.selectServer(model: model)
+        }
+        adapter?.onSelectText = { [weak self] model in
+            self?.output?.selectText(model: model)
         }
         adapter?.onToggleFeatureAction = { [weak self] action, newValue in
             self?.output?.featureToggled(model: action, newValue: newValue)

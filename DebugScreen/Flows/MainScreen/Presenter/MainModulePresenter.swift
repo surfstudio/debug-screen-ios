@@ -37,9 +37,9 @@ extension MainModulePresenter: MainViewOutput {
         didModuleClosed?()
     }
 
-    func selectServer(action: SelectServerAction) {
+    func selectServer(model: SelectServerActionModel) {
         DebugScreenConfiguration.shared.selectServerActionsProvider?
-            .didSelectServer(action)
+            .didSelectServer(model)
 
         let sections = createSections()
         view?.update(sections: sections)
@@ -47,6 +47,14 @@ extension MainModulePresenter: MainViewOutput {
 
     func selectAction(model: ActionsProviderModel) {
         didActionOptionsShowed?(model)
+    }
+    
+    func selectText(model: SelectTextModel) {
+        DebugScreenConfiguration.shared.selectTextService?
+            .didSelectText(model)
+
+        let sections = createSections()
+        view?.update(sections: sections)
     }
 
     func featureToggled(model: FeatureToggleModel, newValue: Bool) {
@@ -85,6 +93,15 @@ private extension MainModulePresenter {
             sections.append(.init(title: L10n.MainPresenter.featuresTitle,
                                   blocks: blocks))
         }
+
+        if let selectText = DebugScreenConfiguration.shared.selectTextService {
+            let blocks = selectText
+                .text()
+                .map { MainTableBlock.selectText(model: $0) }
+            sections.append(.init(title: L10n.MainPresenter.selectedTextTitle,
+                                  blocks: blocks))
+        }
+
         return sections
     }
 

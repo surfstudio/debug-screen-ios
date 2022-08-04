@@ -15,6 +15,7 @@ final class ViewController: UIViewController {
         DebugScreenConfiguration.shared.actionsProvider = ActionsProviderExample()
         DebugScreenConfiguration.shared.selectServerActionsProvider = ServersProvider()
         DebugScreenConfiguration.shared.featureToggleActionsProvider = FeatureToggleProvider()
+        DebugScreenConfiguration.shared.selectTextService = SelectTextProvider()
     }
 
 }
@@ -49,28 +50,28 @@ final class ActionsProviderExample: ActionsProvider {
 final class ServersProvider: SelectServerActionsProvider {
 
     private var serverActions = [
-        SelectServerAction(
+        SelectServerActionModel(
             url: URL(string: "https://surf.ru/address/prod"),
             title: "Production",
             isActive: false
         ),
-        SelectServerAction(
+        SelectServerActionModel(
             url: URL(string: "https://surf.ru/address/test"),
             title: "Test server",
             isActive: true
         ),
-        SelectServerAction(
+        SelectServerActionModel(
             url: URL(string: "https://surf.ru/address/stage"),
             title: "Stage server (with long long long description)",
             isActive: false
         )
     ]
 
-    func servers() -> [SelectServerAction] {
+    func servers() -> [SelectServerActionModel] {
         return serverActions
     }
 
-    func didSelectServer(_ server: SelectServerAction) {
+    func didSelectServer(_ server: SelectServerActionModel) {
         serverActions = serverActions.map {
             .init(url: $0.url, title: $0.title, isActive: $0.url == server.url)
         }
@@ -135,4 +136,30 @@ final class FeatureToggleProvider: FeatureToggleActionsProvider {
     func doAction2() { }
     func doAction3() { }
 
+}
+
+final class SelectTextProvider: SelectTextService {
+
+    private var selectedText = [
+        SelectTextModel(
+            title: "SSH key"
+        ),
+        SelectTextModel(
+            title: "Token"
+        ),
+        SelectTextModel(
+            title: "Some data for copy"
+        )
+    ]
+
+    func text() -> [SelectTextModel] {
+        return selectedText
+    }
+
+    func didSelectText(_ model: SelectTextModel) {
+        selectedText = selectedText.map {
+            .init(title: $0.title)
+        }
+        print("Text selected \(model.title)")
+    }
 }

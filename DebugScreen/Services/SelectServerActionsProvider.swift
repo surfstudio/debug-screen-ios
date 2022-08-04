@@ -12,16 +12,16 @@ public protocol SelectServerActionsProvider {
     /// Method returns all available server, that user may select
     ///
     /// - Returns: Servers array
-    func servers() -> [SelectServerAction]
+    func servers() -> [SelectServerActionModel]
     /// Method that calls when user will select some server
     /// 
     /// - Parameters:
     ///     - server: Selected server
-    func didSelectServer(_ server: SelectServerAction)
+    func didSelectServer(_ server: SelectServerActionModel)
 }
 
 /// Model for Select Server configuration
-public struct SelectServerAction {
+public struct SelectServerActionModel {
 
     /// Sever's URL
     public let url: URL?

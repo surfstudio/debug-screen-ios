@@ -7,17 +7,13 @@
 
 // MARK: - MainPresenter
 
-"MainPresenter.clearDataTitle" = "Отчистить данные";
 "MainPresenter.serverTitle" = "Выбрать сервер";
 "MainPresenter.featuresTitle" = "Функции";
+"MainPresenter.selectedTextTitle" = "Нажимаемый текст";
 
 // MARK: - SelectionTableCell
 
 "SelectionTableCell.statusTitle" = "Активен";
-
-// MARK: - MainAdapter
-
-"MainAdapter.clearAppData" = "Отчистить данные приложения";
 
 // MARK: - MainViewController
 
@@ -25,5 +21,4 @@
 
 // MARK: - DebugScreenCoordinator
 
-"DebugScreenCoordinator.clearCache" = "Отчистить кэш";
 "DebugScreenCoordinator.cancelAction" = "Отмена";

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A4301A65285A462F006B77C0 /* DebugScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43019E6285A3137006B77C0 /* DebugScreenTests.swift */; };
+		A44907A5289A0C270022D440 /* SelectedTextTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44907A3289A0C270022D440 /* SelectedTextTableCell.swift */; };
+		A44907A8289A14670022D440 /* SelectTextService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44907A7289A14670022D440 /* SelectTextService.swift */; };
+		A4567F46289D52DB008AE667 /* SelectedTextTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4567F45289D52DB008AE667 /* SelectedTextTableCell.xib */; };
 		A47BDB42286A1249002326B8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A47BDB38286A1249002326B8 /* Colors.xcassets */; };
 		A47BDB43286A1249002326B8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDB39286A1249002326B8 /* Colors.swift */; };
 		A47BDB44286A1249002326B8 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDB3B286A1249002326B8 /* Assets.swift */; };
@@ -55,6 +58,9 @@
 
 /* Begin PBXFileReference section */
 		A43019E6285A3137006B77C0 /* DebugScreenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugScreenTests.swift; sourceTree = "<group>"; };
+		A44907A3289A0C270022D440 /* SelectedTextTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTextTableCell.swift; sourceTree = "<group>"; };
+		A44907A7289A14670022D440 /* SelectTextService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTextService.swift; sourceTree = "<group>"; };
+		A4567F45289D52DB008AE667 /* SelectedTextTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedTextTableCell.xib; sourceTree = "<group>"; };
 		A47BDB38286A1249002326B8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		A47BDB39286A1249002326B8 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A47BDB3B286A1249002326B8 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
@@ -128,6 +134,15 @@
 				A43019E6285A3137006B77C0 /* DebugScreenTests.swift */,
 			);
 			path = DebugScreenTests;
+			sourceTree = "<group>";
+		};
+		A44907A2289A0C0A0022D440 /* SelectedTextCell */ = {
+			isa = PBXGroup;
+			children = (
+				A44907A3289A0C270022D440 /* SelectedTextTableCell.swift */,
+				A4567F45289D52DB008AE667 /* SelectedTextTableCell.xib */,
+			);
+			path = SelectedTextCell;
 			sourceTree = "<group>";
 		};
 		A47BDB35286A11E4002326B8 /* Resources */ = {
@@ -303,6 +318,7 @@
 		A4BDF4A628512FAA00651C61 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				A44907A2289A0C0A0022D440 /* SelectedTextCell */,
 				A4BDF4A728512FAA00651C61 /* TextCell */,
 				A4BDF4AA28512FAA00651C61 /* SwitcherCell */,
 				A4BDF4AD28512FAA00651C61 /* SelectionCell */,
@@ -362,6 +378,7 @@
 				A4BDF4CC28512FB000651C61 /* DebugScreenPresenterService.swift */,
 				A4BDF4CD28512FB000651C61 /* ActionsProvider.swift */,
 				A4BDF4CE28512FB000651C61 /* FeatureToggle.swift */,
+				A44907A7289A14670022D440 /* SelectTextService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -463,6 +480,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4567F46289D52DB008AE667 /* SelectedTextTableCell.xib in Resources */,
 				A47BDB42286A1249002326B8 /* Colors.xcassets in Resources */,
 				A4BDF4BC28512FAA00651C61 /* TextTableCell.xib in Resources */,
 				A4BDF4C128512FAA00651C61 /* SelectionTableCell.xib in Resources */,
@@ -560,6 +578,8 @@
 				A4BDF4B928512FAA00651C61 /* MainModuleInput.swift in Sources */,
 				A4BDF4C828512FAA00651C61 /* DebugScreenCoordinator.swift in Sources */,
 				A4BDF4BF28512FAA00651C61 /* SwitcherTableCell.swift in Sources */,
+				A44907A8289A14670022D440 /* SelectTextService.swift in Sources */,
+				A44907A5289A0C270022D440 /* SelectedTextTableCell.swift in Sources */,
 				A4BDF4D028512FB000651C61 /* LogCatcherService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
