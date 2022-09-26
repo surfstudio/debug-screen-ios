@@ -27,10 +27,11 @@ final class DebugScreenCoordinator: BaseCoordinator {
         navigationController.modalPresentationStyle = .overFullScreen
 
         components.output.didModuleClosed = { [weak self] in
-            self?.navigationController.dismiss(animated: true, completion: self?.completionHandler)
+            self?.navigationController.dismiss(animated: true,
+                                               completion: self?.completionHandler)
         }
 
-        components.output.didActionOptionsShowed = { [weak self] (model: ActionsProviderModel) in
+        components.output.didActionOptionsShowed = { [weak self] model in
             self?.showCacheCleaningActions(model: model)
         }
 
@@ -50,8 +51,10 @@ private extension DebugScreenCoordinator {
         )
 
         model.actions.forEach { action in
-            actionsSheet.addAction(UIAlertAction(title: action.title, style: .destructive) { _ in
-                action.block()
+            actionsSheet.addAction(UIAlertAction(
+                title: action.title,
+                style: .destructive) { _ in
+                    action.block()
             })
         }
 

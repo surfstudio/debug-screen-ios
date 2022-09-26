@@ -1,5 +1,5 @@
 //
-//  CacheCleanerActionsProvider.swift
+//  ActionsProvider.swift
 //  DebugScreen
 //
 //  Created by Anton Shelar on 02.11.2020.
@@ -9,12 +9,12 @@ import Foundation
 
 /// Protocol for action configuration
 public protocol ActionsProvider {
-    /// Method returns all available cache cleaner actions
-    /// - Returns: Cache cleaner actions, that will be display on the screen
+    /// Method returns all available actions
+    /// - Returns: Actions, that will be display on the screen
     func makeActions() -> [ActionsProviderModel]
 }
 
-// MARK: - CacheCleanerAction
+// MARK: - ActionsProviderModel
 
 public struct ActionsProviderModel {
 
