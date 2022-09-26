@@ -22,7 +22,7 @@ final class SelectionTableCell: UITableViewCell {
 
 extension SelectionTableCell {
 
-    func configure(with model: SelectServerAction) {
+    func configure(with model: SelectServerActionModel) {
         title.text = model.title
         configureURL(url: model.url?.absoluteString)
         configureStatus(isActive: model.isActive)

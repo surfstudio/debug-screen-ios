@@ -11,8 +11,9 @@ final class MainAdapter: NSObject {
 
     // MARK: - Properties
 
-    var onSelectServer: ((SelectServerAction) -> Void)?
+    var onSelectServer: ((SelectServerActionModel) -> Void)?
     var onSelectAction: ((ActionsProviderModel) -> Void)?
+    var onSelectText: ((SelectableTextModel) -> Void)?
     var onToggleFeatureAction: ((_ model: FeatureToggleModel, _ newValue: Bool) -> Void)?
 
     // MARK: - Private Properties
@@ -29,6 +30,7 @@ final class MainAdapter: NSObject {
         tableView.registerNib(TextTableCell.self)
         tableView.registerNib(SwitcherTableCell.self)
         tableView.registerNib(SelectionTableCell.self)
+        tableView.registerNib(SelectedTextTableCell.self)
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -88,6 +90,12 @@ extension MainAdapter: UITableViewDataSource {
             }
             cell.configure(with: model)
             return cell
+        case .selectText(model: let model):
+            guard let cell = tableView.dequeueReusableCell(SelectedTextTableCell.self, indexPath: indexPath) else {
+                return UITableViewCell()
+            }
+            cell.configure(with: model.title)
+            return cell
         }
     }
 
@@ -108,6 +116,8 @@ extension MainAdapter: UITableViewDelegate {
         }
 
         switch block {
+        case .selectText(let model):
+            onSelectText?(model)
         case .featureAction(let model):
             onSelectAction?(model)
         case .selectServer(let model):

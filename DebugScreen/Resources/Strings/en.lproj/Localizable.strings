@@ -7,17 +7,13 @@
 
 // MARK: - MainPresenter
 
-"MainPresenter.clearDataTitle" = "Clear data";
 "MainPresenter.serverTitle" = "Select server";
 "MainPresenter.featuresTitle" = "Features";
+"MainPresenter.selectedTextTitle" = "Selected text";
 
 // MARK: - SelectionTableCell
 
 "SelectionTableCell.statusTitle" = "Active";
-
-// MARK: - MainAdapter
-
-"MainAdapter.clearAppData" = "Clear application data";
 
 // MARK: - MainViewController
 
@@ -25,5 +21,4 @@
 
 // MARK: - DebugScreenCoordinator
 
-"DebugScreenCoordinator.clearCache" = "Clear cache";
 "DebugScreenCoordinator.cancelAction" = "Cancel";

@@ -13,5 +13,6 @@ struct TableSection {
 enum MainTableBlock {
     case featureToggle(model: FeatureToggleModel)
     case featureAction(models: ActionsProviderModel)
-    case selectServer(model: SelectServerAction)
+    case selectServer(model: SelectServerActionModel)
+    case selectText(model: SelectableTextModel)
 }

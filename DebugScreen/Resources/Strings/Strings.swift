@@ -14,20 +14,13 @@ internal enum L10n {
   internal enum DebugScreenCoordinator {
     /// Отмена
     internal static let cancelAction = L10n.tr("Localizable", "DebugScreenCoordinator.cancelAction")
-    /// Отчистить кэш
-    internal static let clearCache = L10n.tr("Localizable", "DebugScreenCoordinator.clearCache")
-  }
-
-  internal enum MainAdapter {
-    /// Отчистить данные приложения
-    internal static let clearAppData = L10n.tr("Localizable", "MainAdapter.clearAppData")
   }
 
   internal enum MainPresenter {
-    /// Отчистить данные
-    internal static let clearDataTitle = L10n.tr("Localizable", "MainPresenter.clearDataTitle")
     /// Функции
     internal static let featuresTitle = L10n.tr("Localizable", "MainPresenter.featuresTitle")
+    /// Нажимаемый текст
+    internal static let selectedTextTitle = L10n.tr("Localizable", "MainPresenter.selectedTextTitle")
     /// Выбрать сервер
     internal static let serverTitle = L10n.tr("Localizable", "MainPresenter.serverTitle")
   }
