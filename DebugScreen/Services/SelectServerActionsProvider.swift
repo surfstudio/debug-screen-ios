@@ -22,7 +22,7 @@ public protocol SelectServerActionsProvider {
 
 /// Model for Select Server configuration
 public struct SelectServerAction {
-    
+
     /// Sever's URL
     public let url: URL?
     /// Server's name

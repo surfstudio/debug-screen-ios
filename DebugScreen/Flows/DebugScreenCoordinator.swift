@@ -27,11 +27,12 @@ final class DebugScreenCoordinator: BaseCoordinator {
         navigationController.modalPresentationStyle = .overFullScreen
 
         components.output.didModuleClosed = { [weak self] in
-            self?.navigationController.dismiss(animated: true, completion: self?.completionHandler)
+            self?.navigationController.dismiss(animated: true,
+                                               completion: self?.completionHandler)
         }
 
-        components.output.didCacheClearingOptionsShowed = { [weak self] (actions: [CacheCleanerAction]) in
-            self?.showCacheCleaningActions(actions: actions)
+        components.output.didActionOptionsShowed = { [weak self] model in
+            self?.showCacheCleaningActions(model: model)
         }
 
         router.present(navigationController)
@@ -42,16 +43,18 @@ final class DebugScreenCoordinator: BaseCoordinator {
 
 private extension DebugScreenCoordinator {
 
-    func showCacheCleaningActions(actions: [CacheCleanerAction]) {
+    func showCacheCleaningActions(model: ActionsProviderModel) {
         let actionsSheet = UIAlertController(
             title: nil,
-            message: L10n.DebugScreenCoordinator.clearCache,
+            message: model.message,
             preferredStyle: .actionSheet
         )
 
-        actions.forEach { action in
-            actionsSheet.addAction(UIAlertAction(title: action.title, style: .destructive) { _ in
-                action.block()
+        model.actions.forEach { action in
+            actionsSheet.addAction(UIAlertAction(
+                title: action.title,
+                style: .destructive) { _ in
+                    action.block()
             })
         }
 

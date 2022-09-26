@@ -12,23 +12,37 @@ final class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        DebugScreenConfiguration.shared.cacheCleanerActionsProvider = ActionsProvider()
+        DebugScreenConfiguration.shared.actionsProvider = ActionsProviderExample()
         DebugScreenConfiguration.shared.selectServerActionsProvider = ServersProvider()
         DebugScreenConfiguration.shared.featureToggleActionsProvider = FeatureToggleProvider()
     }
 
 }
 
-final class ActionsProvider: CacheCleanerActionsProvider {
-    func actions() -> [CacheCleanerAction] {
+final class ActionsProviderExample: ActionsProvider {
+
+    func makeActions() -> [ActionsProviderModel] {
+        let modelForFirstAction = ActionModel(title: "First action", block: {
+            print("perform first clear action")
+        })
+        let modelForSecondAction = ActionModel(title: "Second action", block: {
+            print("perform second clear action")
+        })
         return [
-            CacheCleanerAction(title: "First action", block: {
-                print("perform first clear action")
-            }),
-            CacheCleanerAction(title: "Second action", block: {
-                print("perform second clear action")
-            })
+            ActionsProviderModel(
+                header: "Header of first action",
+                title: "First action",
+                message: "Some info first message",
+                actions: [modelForFirstAction, modelForSecondAction]
+            ),
+            ActionsProviderModel(
+                header: "Header of second action",
+                title: "Second action",
+                message: "Some info second message",
+                actions: [modelForFirstAction, modelForSecondAction]
+            )
         ]
+
     }
 }
 

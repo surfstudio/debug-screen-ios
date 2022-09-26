@@ -64,8 +64,8 @@ private extension MainViewController {
 
     func configureAdapter() {
         adapter = MainAdapter(tableView: tableView)
-        adapter?.onSelectCacheCleanerAction = { [weak self] actions in
-            self?.output?.selectClearCache(actions: actions)
+        adapter?.onSelectAction = { [weak self] model in
+            self?.output?.selectAction(model: model)
         }
         adapter?.onSelectServer = { [weak self] action in
             self?.output?.selectServer(action: action)

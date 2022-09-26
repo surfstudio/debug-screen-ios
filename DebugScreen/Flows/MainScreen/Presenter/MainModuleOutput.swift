@@ -11,5 +11,5 @@ protocol MainModuleOutput {
     /// Call then clouse module
     var didModuleClosed: (() -> Void)? { get set }
     /// Call then press clear cache button
-    var didCacheClearingOptionsShowed: (([CacheCleanerAction]) -> Void)? { get set }
+    var didActionOptionsShowed: ((ActionsProviderModel) -> Void)? { get set }
 }

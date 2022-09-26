@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIWindow {
-    
+
     /// Overrides UIWindow's motion method
     ///
     /// This overriding allows to show debug screen by shake motion

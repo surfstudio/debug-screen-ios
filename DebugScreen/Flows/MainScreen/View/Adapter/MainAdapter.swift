@@ -12,7 +12,7 @@ final class MainAdapter: NSObject {
     // MARK: - Properties
 
     var onSelectServer: ((SelectServerAction) -> Void)?
-    var onSelectCacheCleanerAction: (([CacheCleanerAction]) -> Void)?
+    var onSelectAction: ((ActionsProviderModel) -> Void)?
     var onToggleFeatureAction: ((_ model: FeatureToggleModel, _ newValue: Bool) -> Void)?
 
     // MARK: - Private Properties
@@ -76,11 +76,11 @@ extension MainAdapter: UITableViewDataSource {
                 self?.onToggleFeatureAction?(model, newValue)
             }
             return cell
-        case .cacheCleaner:
+        case .featureAction(let model):
             guard let cell = tableView.dequeueReusableCell(TextTableCell.self, indexPath: indexPath) else {
                 return UITableViewCell()
             }
-            cell.configure(with: L10n.MainAdapter.clearAppData)
+            cell.configure(with: model.title)
             return cell
         case .selectServer(let model):
             guard let cell = tableView.dequeueReusableCell(SelectionTableCell.self, indexPath: indexPath) else {
@@ -108,8 +108,8 @@ extension MainAdapter: UITableViewDelegate {
         }
 
         switch block {
-        case .cacheCleaner(let model):
-            onSelectCacheCleanerAction?(model)
+        case .featureAction(let model):
+            onSelectAction?(model)
         case .selectServer(let model):
             onSelectServer?(model)
         case .featureToggle:
