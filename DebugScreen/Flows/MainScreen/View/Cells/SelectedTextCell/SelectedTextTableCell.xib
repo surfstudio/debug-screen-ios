@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0no-dX-Lfz">
-                        <rect key="frame" x="16" y="16" width="42" height="12"/>
+                        <rect key="frame" x="16" y="16" width="260" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -34,6 +34,7 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="0no-dX-Lfz" secondAttribute="bottom" constant="16" id="IlW-nx-oy5"/>
                     <constraint firstItem="0no-dX-Lfz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="J2L-th-MLX"/>
+                    <constraint firstItem="NXE-s0-QzS" firstAttribute="leading" secondItem="0no-dX-Lfz" secondAttribute="trailing" constant="16" id="LCg-BZ-s8f"/>
                     <constraint firstItem="0no-dX-Lfz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="gfS-52-cSR"/>
                     <constraint firstItem="NXE-s0-QzS" firstAttribute="centerY" secondItem="0no-dX-Lfz" secondAttribute="centerY" id="stR-R2-4bV"/>
                     <constraint firstAttribute="trailing" secondItem="NXE-s0-QzS" secondAttribute="trailing" constant="16" id="udo-gg-vii"/>

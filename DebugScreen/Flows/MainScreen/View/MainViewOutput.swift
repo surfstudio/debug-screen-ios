@@ -12,6 +12,6 @@ protocol MainViewOutput {
     func didTapCloseButton()
     func selectServer(model: SelectServerActionModel)
     func selectAction(model: ActionsProviderModel)
-    func selectText(model: SelectTextModel)
+    func selectText(model: SelectableTextModel)
     func featureToggled(model: FeatureToggleModel, newValue: Bool)
 }

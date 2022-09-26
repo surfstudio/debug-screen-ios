@@ -14,5 +14,5 @@ enum MainTableBlock {
     case featureToggle(model: FeatureToggleModel)
     case featureAction(models: ActionsProviderModel)
     case selectServer(model: SelectServerActionModel)
-    case selectText(model: SelectTextModel)
+    case selectText(model: SelectableTextModel)
 }

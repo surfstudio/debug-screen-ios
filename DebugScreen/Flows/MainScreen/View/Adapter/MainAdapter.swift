@@ -13,7 +13,7 @@ final class MainAdapter: NSObject {
 
     var onSelectServer: ((SelectServerActionModel) -> Void)?
     var onSelectAction: ((ActionsProviderModel) -> Void)?
-    var onSelectText: ((SelectTextModel) -> Void)?
+    var onSelectText: ((SelectableTextModel) -> Void)?
     var onToggleFeatureAction: ((_ model: FeatureToggleModel, _ newValue: Bool) -> Void)?
 
     // MARK: - Private Properties

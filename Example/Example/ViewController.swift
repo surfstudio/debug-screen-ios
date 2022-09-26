@@ -15,7 +15,7 @@ final class ViewController: UIViewController {
         DebugScreenConfiguration.shared.actionsProvider = ActionsProviderExample()
         DebugScreenConfiguration.shared.selectServerActionsProvider = ServersProvider()
         DebugScreenConfiguration.shared.featureToggleActionsProvider = FeatureToggleProvider()
-        DebugScreenConfiguration.shared.selectTextService = SelectTextProvider()
+        DebugScreenConfiguration.shared.selectableTextProvider = TextsProvider()
     }
 
 }
@@ -138,28 +138,20 @@ final class FeatureToggleProvider: FeatureToggleActionsProvider {
 
 }
 
-final class SelectTextProvider: SelectTextService {
+final class TextsProvider: SelectableTextProvider {
 
-    private var selectedText = [
-        SelectTextModel(
-            title: "SSH key"
-        ),
-        SelectTextModel(
-            title: "Token"
-        ),
-        SelectTextModel(
-            title: "Some data for copy"
-        )
+    private var selectedText: [SelectableTextModel] = [
+        .init(title: "SSH key", value: "kjdhgaieagf8yhfb8445u_SSH_key"),
+        .init(title: "Token", value: "2283gghug4783g4h_Token"),
+        .init(title: "Some data for copy")
     ]
 
-    func text() -> [SelectTextModel] {
+    func texts() -> [SelectableTextModel] {
         return selectedText
     }
 
-    func didSelectText(_ model: SelectTextModel) {
-        selectedText = selectedText.map {
-            .init(title: $0.title)
-        }
-        print("Text selected \(model.title)")
+    func didSelectText(_ model: SelectableTextModel) {
+        print("Text selected \(model.title) with value \(model.value ?? "<empty>")")
     }
+
 }
