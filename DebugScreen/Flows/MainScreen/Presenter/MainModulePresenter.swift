@@ -48,7 +48,7 @@ extension MainModulePresenter: MainViewOutput {
     func selectAction(model: ActionsProviderModel) {
         didActionOptionsShowed?(model)
     }
-    
+
     func selectText(model: SelectableTextModel) {
         DebugScreenConfiguration.shared.selectableTextProvider?
             .didSelectText(model)

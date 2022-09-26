@@ -21,7 +21,7 @@ public class DebugScreenConfiguration {
     public var featureToggleActionsProvider: FeatureToggleActionsProvider?
     /// Service holds some texts, that you can select with performing some usefull action
     public var selectableTextProvider: SelectableTextProvider?
-    
+
     /// Service that allows you to catch all logs from console
     ///
     /// if you want to enable it, than you have do it manually.
