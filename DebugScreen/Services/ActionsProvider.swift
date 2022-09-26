@@ -16,6 +16,8 @@ public protocol ActionsProvider {
 
 // MARK: - ActionsProviderModel
 
+/// Model represents single row in DebugScreen table,
+/// contains available actions and support information about they
 public struct ActionsProviderModel {
 
     /// Name of Action Provider
