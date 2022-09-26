@@ -1,41 +1,19 @@
-#
-# Be sure to run `pod lib lint DebugScreen.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
-#
-
-Pod::Spec.new do |s|
-  s.name             = 'DebugScreen'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of DebugScreen.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Pod::Spec.new do |spec|
+  spec.name             = 'DebugScreen'
+  spec.version          = '1.0.0'
+  spec.summary          = 'A library for quickly creating and customizing an application`s debug screen.'
+  spec.description      = <<-DESC
+Allows you to customize your DebugScreen as you want! Available features: server selection, feature toggle managment, custom actions.
                        DESC
+  spec.homepage         = 'https://github.com/surfstudio/DebugScreen'
+  spec.license          = { :type => 'MIT', :file => 'LICENSE' }
 
-  s.homepage         = 'https://github.com/surfstudio/DebugScreen'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Anton Shelar' => 'shelaranton@gmail.com' }
-  s.source           = { :git => 'https://github.com/surfstudio/DebugScreen.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  spec.author           = { 'Surf' => 'chausov@surf.dev' }
 
-  s.ios.deployment_target = '13.0'
+  spec.platform       = :ios, "13.0"
+  spec.swift_version  = '5.0'
 
-  s.source_files = 'DebugScreen/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'DebugScreen' => ['DebugScreen/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  spec.source       = { :git => "https://github.com/surfstudio/DebugScreen.git", :tag => spec.version.to_s }
+  spec.source_files = "DebugScreen/**/*.{swift,strings}"
+  spec.resources    = "DebugScreen/**/*.{xib,xcassets}"
 end
