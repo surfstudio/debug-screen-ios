@@ -45,26 +45,27 @@
 
 Для настройки внешнего вида и возможностей экрана отладки необходимо задать на старте приложения его провайдеры, например:
 ```swift
-DebugScreenConfiguration.shared.cacheCleanerActionsProvider = ActionsProvider()
+DebugScreenConfiguration.shared.actionsProvider = ActionsProvider()
 DebugScreenConfiguration.shared.selectServerActionsProvider = ServersProvider()
 DebugScreenConfiguration.shared.featureToggleActionsProvider = FeatureToggleProvider()
 ```
 
 Сам экран отладки появляется, если потрясти телефон.
 
-### CacheActionsProvider
+### ActionsProvider
 
 <details>
 <summary>Подробное описание</summary>
     
-Очистка кеша. Для использования необходимо
-- создать свой класс, реализующий протокол CacheCleanerActionsProvider
-- определить его единственный метод `func actions() -> [CacheCleanerAction]`
+Позволяет выполнить какие-либо действия. Для использования необходимо
+- создать свой класс, реализующий протокол ActionsProvider
+- определить его единственный метод `func actions() -> [ActionsProviderModel]`
+- каждый ActionsProviderModel под капотом держит массив ActionModel
 
-CacheCleanerAction определяет заголовок, который будет показан на экране, а также блок кода, который будет вызван при выборе данного action. Пример:
+ActionModel определяет заголовок, который будет показан на экране, а также блок кода, который будет вызван при выборе данного action. Пример:
 
 ```swift
-CacheCleanerAction(title: "Clear score", block: {
+ActionModel(title: "Clear score", block: {
     RatingService.clearScore()
     RatingService.didRate = false
 })
