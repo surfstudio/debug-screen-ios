@@ -17,7 +17,7 @@
     <a title="Structures  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">DebugScreen 0.1.0 Docs</a> (100% documented)</p>
+        <p><a href="index.html">DebugScreen 0.1.0 Docs</a> (97% documented)</p>
         <div class="header-right">
           <form role="search" action="search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
@@ -58,7 +58,7 @@
             <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Protocols/CacheCleanerActionsProvider.html">CacheCleanerActionsProvider</a>
+                <a href="Protocols/ActionsProvider.html">ActionsProvider</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/FeatureToggleActionsProvider.html">FeatureToggleActionsProvider</a>
@@ -66,19 +66,28 @@
               <li class="nav-group-task">
                 <a href="Protocols/SelectServerActionsProvider.html">SelectServerActionsProvider</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Protocols/SelectableTextProvider.html">SelectableTextProvider</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Structs/CacheCleanerAction.html">CacheCleanerAction</a>
+                <a href="Structs/ActionModel.html">ActionModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ActionsProviderModel.html">ActionsProviderModel</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/FeatureToggleModel.html">FeatureToggleModel</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/SelectServerAction.html">SelectServerAction</a>
+                <a href="Structs/SelectServerActionModel.html">SelectServerActionModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/SelectableTextModel.html">SelectableTextModel</a>
               </li>
             </ul>
           </li>
@@ -94,11 +103,11 @@
           <section class="section task-group-section">
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/CacheCleanerAction"></a>
-                <a name="//apple_ref/swift/Section/CacheCleanerAction" class="dashAnchor"></a>
+                <a name="/ActionsProviderModel"></a>
+                <a name="//apple_ref/swift/Section/ActionsProviderModel" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/CacheCleanerAction"></a>
-                  <h3 class="section-name"><span>CacheCleanerAction</span>
+                  <a class="section-name-link" href="#/ActionsProviderModel"></a>
+                  <h3 class="section-name"><span>ActionsProviderModel</span>
 </h3>
                 </div>
               </div>
@@ -106,9 +115,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11DebugScreen18CacheCleanerActionV"></a>
-                    <a name="//apple_ref/swift/Struct/CacheCleanerAction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11DebugScreen18CacheCleanerActionV">CacheCleanerAction</a>
+                    <a name="/s:11DebugScreen20ActionsProviderModelV"></a>
+                    <a name="//apple_ref/swift/Struct/ActionsProviderModel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11DebugScreen20ActionsProviderModelV">ActionsProviderModel</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -116,15 +125,43 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Model for Cache Cleaner configuration</p>
+                        <p>Undocumented</p>
 
-                        <a href="Structs/CacheCleanerAction.html" class="slightly-smaller">See more</a>
+                        <a href="Structs/ActionsProviderModel.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CacheCleanerAction</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ActionsProviderModel</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11DebugScreen11ActionModelV"></a>
+                    <a name="//apple_ref/swift/Struct/ActionModel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11DebugScreen11ActionModelV">ActionModel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Model for action configuration</p>
+
+                        <a href="Structs/ActionModel.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ActionModel</span></code></pre>
 
                         </div>
                       </div>
@@ -162,9 +199,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11DebugScreen18SelectServerActionV"></a>
-                    <a name="//apple_ref/swift/Struct/SelectServerAction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11DebugScreen18SelectServerActionV">SelectServerAction</a>
+                    <a name="/s:11DebugScreen23SelectServerActionModelV"></a>
+                    <a name="//apple_ref/swift/Struct/SelectServerActionModel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11DebugScreen23SelectServerActionModelV">SelectServerActionModel</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -174,13 +211,41 @@
                       <div class="abstract">
                         <p>Model for Select Server configuration</p>
 
-                        <a href="Structs/SelectServerAction.html" class="slightly-smaller">See more</a>
+                        <a href="Structs/SelectServerActionModel.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SelectServerAction</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SelectServerActionModel</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11DebugScreen19SelectableTextModelV"></a>
+                    <a name="//apple_ref/swift/Struct/SelectableTextModel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11DebugScreen19SelectableTextModelV">SelectableTextModel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Model holds info about some text</p>
+
+                        <a href="Structs/SelectableTextModel.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SelectableTextModel</span></code></pre>
 
                         </div>
                       </div>
@@ -192,7 +257,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://github.com/surfstudio/DebugScreen" target="_blank" rel="external noopener">Anton Shelar</a>. All rights reserved. (Last updated: 2022-07-29)</p>
+          <p>&copy; 2022 <a class="link" href="https://github.com/surfstudio/DebugScreen" target="_blank" rel="external noopener">Anton Shelar</a>. All rights reserved. (Last updated: 2022-09-26)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

@@ -16,7 +16,7 @@
     <a title="DebugScreen  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">DebugScreen 0.1.0 Docs</a> (100% documented)</p>
+        <p><a href="index.html">DebugScreen 0.1.0 Docs</a> (97% documented)</p>
         <div class="header-right">
           <form role="search" action="search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
@@ -57,7 +57,7 @@
             <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Protocols/CacheCleanerActionsProvider.html">CacheCleanerActionsProvider</a>
+                <a href="Protocols/ActionsProvider.html">ActionsProvider</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/FeatureToggleActionsProvider.html">FeatureToggleActionsProvider</a>
@@ -65,19 +65,28 @@
               <li class="nav-group-task">
                 <a href="Protocols/SelectServerActionsProvider.html">SelectServerActionsProvider</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Protocols/SelectableTextProvider.html">SelectableTextProvider</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Structs/CacheCleanerAction.html">CacheCleanerAction</a>
+                <a href="Structs/ActionModel.html">ActionModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ActionsProviderModel.html">ActionsProviderModel</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/FeatureToggleModel.html">FeatureToggleModel</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/SelectServerAction.html">SelectServerAction</a>
+                <a href="Structs/SelectServerActionModel.html">SelectServerActionModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/SelectableTextModel.html">SelectableTextModel</a>
               </li>
             </ul>
           </li>
@@ -90,7 +99,7 @@
             <h1 id='debugscreen' class='heading'>DebugScreen</h1>
 
 <p><a href="https://github.com/surfstudio/debug-screen-ios/actions/workflows/main.yml"><img src="https://github.com/surfstudio/debug-screen-ios/actions/workflows/main.yml/badge.svg" alt="CI"></a>
-<a href="https://surfstudio.github.io/debug-screen-ios/"><img src="https://github.com/surfstudio/debug-screen-ios/blob/main/docs/badge.svg" alt="Documentation"></a>
+<a href="https://surfstudio.github.io/debug-screen-ios/"><img src="https://github.com/surfstudio/debug-screen-ios/blob/master/docs/badge.svg" alt="Documentation"></a>
 <a href="https://github.com/apple/swift-package-manager"><img src="https://img.shields.io/badge/SPM-compatible-blue.svg" alt="SPM Compatible"></a></p>
 
 <p><a href="https://github.com/surfstudio/debug-screen-ios"><img src="https://i.ibb.co/PtrBh4f/Group-48095986.png" alt="DebugScreen"></a></p>
@@ -132,25 +141,26 @@
 <h2 id='usage' class='heading'>Usage</h2>
 
 <p>Для настройки внешнего вида и возможностей экрана отладки необходимо задать на старте приложения его провайдеры, например:</p>
-<pre class="highlight swift"><code><span class="kt">DebugScreenConfiguration</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">cacheCleanerActionsProvider</span> <span class="o">=</span> <span class="kt">ActionsProvider</span><span class="p">()</span>
+<pre class="highlight swift"><code><span class="kt">DebugScreenConfiguration</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">actionsProvider</span> <span class="o">=</span> <span class="kt">ActionsProvider</span><span class="p">()</span>
 <span class="kt">DebugScreenConfiguration</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">selectServerActionsProvider</span> <span class="o">=</span> <span class="kt">ServersProvider</span><span class="p">()</span>
 <span class="kt">DebugScreenConfiguration</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">featureToggleActionsProvider</span> <span class="o">=</span> <span class="kt">FeatureToggleProvider</span><span class="p">()</span>
 </code></pre>
 
 <p>Сам экран отладки появляется, если потрясти телефон.</p>
-<h3 id='cacheactionsprovider' class='heading'>CacheActionsProvider</h3>
+<h3 id='actionsprovider' class='heading'>ActionsProvider</h3>
 
 <details>
 <summary>Подробное описание</summary>
     
-Очистка кеша. Для использования необходимо
-- создать свой класс, реализующий протокол CacheCleanerActionsProvider
-- определить его единственный метод `func actions() -> [CacheCleanerAction]`
+Позволяет выполнить какие-либо действия. Для использования необходимо
+- создать свой класс, реализующий протокол ActionsProvider
+- определить его единственный метод `func actions() -> [ActionsProviderModel]`
+- каждый ActionsProviderModel под капотом держит массив ActionModel
 
-CacheCleanerAction определяет заголовок, который будет показан на экране, а также блок кода, который будет вызван при выборе данного action. Пример:
+ActionModel определяет заголовок, который будет показан на экране, а также блок кода, который будет вызван при выборе данного action. Пример:
 
 &ldquo;`swift
-CacheCleanerAction(title: &quot;Clear score&rdquo;, block: {
+ActionModel(title: &quot;Clear score&rdquo;, block: {
     RatingService.clearScore()
     RatingService.didRate = false
 })
@@ -294,7 +304,7 @@ let log = DebugScreenConfiguration.shared.logCatcherService.logs()
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://github.com/surfstudio/DebugScreen" target="_blank" rel="external noopener">Anton Shelar</a>. All rights reserved. (Last updated: 2022-07-29)</p>
+          <p>&copy; 2022 <a class="link" href="https://github.com/surfstudio/DebugScreen" target="_blank" rel="external noopener">Anton Shelar</a>. All rights reserved. (Last updated: 2022-09-26)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

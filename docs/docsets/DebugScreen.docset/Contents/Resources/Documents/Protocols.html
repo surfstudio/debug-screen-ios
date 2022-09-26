@@ -17,7 +17,7 @@
     <a title="Protocols  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">DebugScreen 0.1.0 Docs</a> (100% documented)</p>
+        <p><a href="index.html">DebugScreen 0.1.0 Docs</a> (97% documented)</p>
         <div class="header-right">
           <form role="search" action="search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
@@ -58,7 +58,7 @@
             <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Protocols/CacheCleanerActionsProvider.html">CacheCleanerActionsProvider</a>
+                <a href="Protocols/ActionsProvider.html">ActionsProvider</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/FeatureToggleActionsProvider.html">FeatureToggleActionsProvider</a>
@@ -66,19 +66,28 @@
               <li class="nav-group-task">
                 <a href="Protocols/SelectServerActionsProvider.html">SelectServerActionsProvider</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Protocols/SelectableTextProvider.html">SelectableTextProvider</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Structs/CacheCleanerAction.html">CacheCleanerAction</a>
+                <a href="Structs/ActionModel.html">ActionModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ActionsProviderModel.html">ActionsProviderModel</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/FeatureToggleModel.html">FeatureToggleModel</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/SelectServerAction.html">SelectServerAction</a>
+                <a href="Structs/SelectServerActionModel.html">SelectServerActionModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/SelectableTextModel.html">SelectableTextModel</a>
               </li>
             </ul>
           </li>
@@ -97,9 +106,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11DebugScreen27CacheCleanerActionsProviderP"></a>
-                    <a name="//apple_ref/swift/Protocol/CacheCleanerActionsProvider" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11DebugScreen27CacheCleanerActionsProviderP">CacheCleanerActionsProvider</a>
+                    <a name="/s:11DebugScreen15ActionsProviderP"></a>
+                    <a name="//apple_ref/swift/Protocol/ActionsProvider" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11DebugScreen15ActionsProviderP">ActionsProvider</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -107,15 +116,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Protocol for cache cleaner configuration</p>
+                        <p>Protocol for action configuration</p>
 
-                        <a href="Protocols/CacheCleanerActionsProvider.html" class="slightly-smaller">See more</a>
+                        <a href="Protocols/ActionsProvider.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">CacheCleanerActionsProvider</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ActionsProvider</span></code></pre>
 
                         </div>
                       </div>
@@ -178,12 +187,42 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11DebugScreen22SelectableTextProviderP"></a>
+                    <a name="//apple_ref/swift/Protocol/SelectableTextProvider" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11DebugScreen22SelectableTextProviderP">SelectableTextProvider</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Protocol for selectable text provider entity</p>
+
+<p>Holds some texts, that user can select (tap by cell) and do some useful action (e.x. copy it)</p>
+
+                        <a href="Protocols/SelectableTextProvider.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SelectableTextProvider</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://github.com/surfstudio/DebugScreen" target="_blank" rel="external noopener">Anton Shelar</a>. All rights reserved. (Last updated: 2022-07-29)</p>
+          <p>&copy; 2022 <a class="link" href="https://github.com/surfstudio/DebugScreen" target="_blank" rel="external noopener">Anton Shelar</a>. All rights reserved. (Last updated: 2022-09-26)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
