@@ -32,10 +32,10 @@
 
 Для этого были реализованы следующие фичи:
 
-- **CacheActionsProvider** - Отчистка кэша приложения
+- **ActionsProvider** - Позволяет выполнить кастомные действия по нажатию на кнопки экрана
 - **SelectServerActionsProvider** - Выбор сервера
 - **FeatureToggleActionsProvider** - Добавление FeatureToggles (бизнесовых и девелоперских)
-- **LogCatcherService** - Запись логов
+- **SelectableTextProvider** - Позволяет добавить на экран тапабельный текст и задать действие при тапе по нему
 
 ## Example
 
@@ -77,7 +77,7 @@ ActionModel(title: "Clear score", block: {
 <details>
 <summary>Подробное описание</summary>
     
-Выбор сервера. Для использования необходимо
+Для использования необходимо
 - создать свой класс, реализующий протокол SelectServerActionsProvider
 - определить метод `func servers() -> [SelectServerAction]`, возвращающий список доступных к выбору серверов
 - определить метод `func didSelectServer(_ server: SelectServerAction)`, который будет вызван при выборе того или иного сервера
@@ -125,7 +125,7 @@ final class ServersProvider: SelectServerActionsProvider {
 <details>
 <summary>Подробное описание</summary>
     
-Работа с FeatureToggles. Для использования необходимо
+Для использования необходимо
 - создать свой класс, реализующий протокол FeatureToggleActionsProvider
 - определить метод `func actions() -> [FeatureToggleModel]`, возвращающий список доступных к изменению настроек
 - определить метод `func handleAction(with text: String, newValue: Bool)`, который будет вызван при изменении той или иной настройки
@@ -186,6 +186,38 @@ func doAction2() { }
 ```
 </details>
 
+### SelectableTextProvider
+
+<details>
+<summary>Подробное описание</summary>
+
+Для использования необходимо
+- создать свой класс, реализующий протокол SelectableTextProvider
+- определить метод `func texts() -> [SelectableTextModel]`, возвращающий список тапабельных элементов
+- определить метод `func didSelectText(_ text: SelectableTextModel)`, который будет вызван при выборе того или иного элемента
+
+Пример использования:
+
+```swift
+final class TextsProvider: SelectableTextProvider {
+
+    private var selectedText: [SelectableTextModel] = [
+        .init(title: "SSH key", value: SSHKeyService().key),
+        .init(title: "Token", value: TokenService().token)
+    ]
+
+    func texts() -> [SelectableTextModel] {
+        return selectedText
+    }
+
+    func didSelectText(_ model: SelectableTextModel) {
+        // copy model.value in buffer
+    }
+
+}
+```
+</details>
+
 ### Логирование
 
 <details>
@@ -201,6 +233,8 @@ DebugScreenConfiguration.shared.logCatcherService.setStdOutCatcherEnabled()
 ```swift
 let log = DebugScreenConfiguration.shared.logCatcherService.logs()
 ```
+
+> В данный момент находится в режиме отладки, к полноценному использованию не готов
 </details>
 
 ## Changelog
