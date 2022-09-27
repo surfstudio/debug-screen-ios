@@ -1,12 +1,6 @@
 {
   "warnings": [
-    {
-      "file": "/Users/runner/work/debug-screen-ios/debug-screen-ios/DebugScreen/Services/ActionsProvider.swift",
-      "line": 19,
-      "symbol": "ActionsProviderModel",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    }
+
   ],
   "source_directory": "/Users/runner/work/debug-screen-ios/debug-screen-ios"
 }
