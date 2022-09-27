@@ -5,7 +5,7 @@ Pod::Spec.new do |spec|
   spec.description      = <<-DESC
 Allows you to customize your DebugScreen as you want! Available features: server selection, feature toggle managment, custom actions.
                        DESC
-  spec.homepage         = 'https://github.com/surfstudio/DebugScreen'
+  spec.homepage         = 'https://github.com/surfstudio/debug-screen-ios'
   spec.license          = { :type => 'MIT', :file => 'LICENSE' }
 
   spec.author           = { 'Surf' => 'chausov@surf.dev' }
