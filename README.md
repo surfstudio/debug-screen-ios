@@ -3,6 +3,7 @@
 [![CI](https://github.com/surfstudio/debug-screen-ios/actions/workflows/main.yml/badge.svg)](https://github.com/surfstudio/debug-screen-ios/actions/workflows/main.yml)
 [![Documentation](https://github.com/surfstudio/debug-screen-ios/blob/master/docs/badge.svg)](https://surfstudio.github.io/debug-screen-ios/)
 [![SPM Compatible](https://img.shields.io/badge/SPM-compatible-blue.svg)](https://github.com/apple/swift-package-manager)
+[![CocoaPods Version](https://img.shields.io/cocoapods/v/DebugScreen.svg?style=flat)](https://cocoapods.org)
 
 [![DebugScreen](https://i.ibb.co/PtrBh4f/Group-48095986.png)](https://github.com/surfstudio/debug-screen-ios)
 
@@ -20,6 +21,14 @@
 
 - В XCode пройдите в `File > Swift Packages > Add Package Dependency`
 - Введите URL репозитория `https://github.com/surfstudio/DebugScreen.git`
+
+#### CocoaPods:
+
+Добавьте в свой Podfile следующую строку, затем запустите `pod install`
+
+```ruby
+pod 'DebugScreen'
+```
 
 ## Features
 
