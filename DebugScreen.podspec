@@ -13,7 +13,7 @@ Allows you to customize your DebugScreen as you want! Available features: server
   spec.platform       = :ios, "13.0"
   spec.swift_version  = '5.0'
 
-  spec.source       = { :git => "https://github.com/surfstudio/DebugScreen.git", :tag => spec.version.to_s }
+  spec.source       = { :git => "https://github.com/surfstudio/debug-screen-ios.git", :tag => spec.version.to_s }
   spec.source_files = "DebugScreen/**/*.{swift,strings}"
   spec.resources    = "DebugScreen/**/*.{xib,xcassets}"
 end
