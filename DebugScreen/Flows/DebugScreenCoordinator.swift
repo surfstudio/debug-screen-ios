@@ -35,6 +35,10 @@ final class DebugScreenCoordinator: BaseCoordinator {
             self?.showCacheCleaningActions(model: model)
         }
 
+        components.output.didModuleDissapear = { [weak self] in
+            self?.completionHandler?()
+        }
+
         router.present(navigationController)
     }
 }

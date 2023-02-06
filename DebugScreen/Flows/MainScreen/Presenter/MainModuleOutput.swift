@@ -12,4 +12,6 @@ protocol MainModuleOutput {
     var didModuleClosed: (() -> Void)? { get set }
     /// Call then press clear cache button
     var didActionOptionsShowed: ((ActionsProviderModel) -> Void)? { get set }
+    /// Call after module dissapeared from window
+    var didModuleDissapear: (() -> Void)? { get set }
 }

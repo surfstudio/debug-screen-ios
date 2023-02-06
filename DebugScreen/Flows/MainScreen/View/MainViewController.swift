@@ -28,6 +28,11 @@ final class MainViewController: UIViewController {
         output?.viewLoaded()
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        output?.viewDissapeared()
+    }
+
 }
 
 // MARK: - MainViewInput

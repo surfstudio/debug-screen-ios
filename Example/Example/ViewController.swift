@@ -16,6 +16,16 @@ final class ViewController: UIViewController {
         DebugScreenConfiguration.shared.selectServerActionsProvider = ServersProvider()
         DebugScreenConfiguration.shared.featureToggleActionsProvider = FeatureToggleProvider()
         DebugScreenConfiguration.shared.selectableTextProvider = TextsProvider()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) { [weak self] in
+            let keyWindow = UIApplication.shared.windows.first(where: {$0.isKeyWindow})
+
+            guard let topController = keyWindow?.rootViewController?.presentedViewController else {
+                return
+            }
+
+            topController.dismiss(animated: true)
+        }
     }
 
 }
