@@ -9,7 +9,6 @@ import UIKit
 
 protocol MainViewOutput {
     func viewLoaded()
-    func viewDissapeared()
     func didTapCloseButton()
     func selectServer(model: SelectServerActionModel)
     func selectAction(model: ActionsProviderModel)

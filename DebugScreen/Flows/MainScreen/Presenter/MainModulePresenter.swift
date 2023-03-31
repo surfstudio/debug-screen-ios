@@ -13,11 +13,17 @@ final class MainModulePresenter: MainModuleOutput {
 
     var didModuleClosed: (() -> Void)?
     var didActionOptionsShowed: ((ActionsProviderModel) -> Void)?
-    var didModuleDissapear: (() -> Void)?
+    var didModuleDismissed: (() -> Void)?
 
     // MARK: - Properties
 
     weak var view: MainViewInput?
+
+    // MARK: - Deinitialization
+
+    deinit {
+        didModuleDismissed?()
+    }
 
 }
 
@@ -32,10 +38,6 @@ extension MainModulePresenter: MainViewOutput {
     func viewLoaded() {
         let sections = createSections()
         view?.setupInitialState(sections: sections)
-    }
-
-    func viewDissapeared() {
-        didModuleDissapear?()
     }
 
     func didTapCloseButton() {

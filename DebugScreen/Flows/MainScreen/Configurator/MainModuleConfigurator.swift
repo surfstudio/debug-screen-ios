@@ -15,14 +15,15 @@ final class MainModuleConfigurator {
 
     func configure() -> MainModuleComponents {
         let viewController = UIViewController.instantiate(ofType: MainViewController.self)
-        viewController.modalPresentationStyle = .overFullScreen
-
         let presenter = MainModulePresenter()
 
         presenter.view = viewController
         viewController.output = presenter
 
-        return (viewController, presenter)
+        let navController = UINavigationController(rootViewController: viewController)
+        navController.modalPresentationStyle = .overFullScreen
+
+        return (navController, presenter)
     }
 
 }
