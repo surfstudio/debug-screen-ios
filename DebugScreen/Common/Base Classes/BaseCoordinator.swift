@@ -12,7 +12,19 @@ class BaseCoordinator: Coordinator {
 
     var childCoordinators: [Coordinator] = []
 
-    // MARK: - Internal Methods
+    // MARK: - Initialization
+
+    init() {
+        debugPrint("🎂 \(self) created")
+    }
+
+    // MARK: - Deinitialization
+
+    deinit {
+        debugPrint("❗️\(self) deinitialized")
+    }
+
+    // MARK: - Methods
 
     func start() {
         start(with: nil)
@@ -26,13 +38,16 @@ class BaseCoordinator: Coordinator {
             return
         }
         childCoordinators.append(coordinator)
+        debugPrint("✅ \(coordinator) added into \(self)")
     }
 
     func removeDependency(_ coordinator: Coordinator?) {
         guard
             !childCoordinators.isEmpty,
             let coordinator = coordinator
-        else { return }
+        else {
+            return
+        }
 
         for (index, element) in childCoordinators.enumerated() {
             if element === coordinator {
@@ -54,15 +69,14 @@ class BaseCoordinator: Coordinator {
         childCoordinators.removeAll()
     }
 
-    // MARK: - Private Methods
+}
 
-    private func haveDependency(_ coordinator: Coordinator) -> Bool {
-        for element in childCoordinators {
-            if element === coordinator {
-                return true
-            }
-        }
-        return false
+// MARK: - Private Methods
+
+private extension BaseCoordinator {
+
+    func haveDependency(_ coordinator: Coordinator) -> Bool {
+        childCoordinators.contains { $0 === coordinator }
     }
 
 }

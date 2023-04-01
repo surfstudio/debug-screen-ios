@@ -13,7 +13,6 @@ final class DebugScreenCoordinator: BaseCoordinator {
     // MARK: - Private properties
 
     private let router = MainRouter()
-    private let navigationController = UINavigationController()
 
     // MARK: - Properties
 
@@ -22,26 +21,28 @@ final class DebugScreenCoordinator: BaseCoordinator {
     // MARK: - Methods
 
     override func start() {
-        var components: MainModuleComponents = MainModuleConfigurator().configure()
-        navigationController.setViewControllers([components.view], animated: false)
-        navigationController.modalPresentationStyle = .overFullScreen
-
-        components.output.didModuleClosed = { [weak self] in
-            self?.navigationController.dismiss(animated: true,
-                                               completion: self?.completionHandler)
-        }
-
-        components.output.didActionOptionsShowed = { [weak self] model in
-            self?.showCacheCleaningActions(model: model)
-        }
-
-        router.present(navigationController)
+        showMainScreen()
     }
+
 }
 
 // MARK: - Private methods
 
 private extension DebugScreenCoordinator {
+
+    func showMainScreen() {
+        let (view, output) = MainModuleConfigurator().configure()
+        output.didModuleClosed = { [weak self] in
+            self?.router.dismissModule()
+        }
+        output.didActionOptionsShowed = { [weak self] model in
+            self?.showCacheCleaningActions(model: model)
+        }
+        output.didModuleDismissed = { [weak self] in
+            self?.completionHandler?()
+        }
+        router.present(view)
+    }
 
     func showCacheCleaningActions(model: ActionsProviderModel) {
         let actionsSheet = UIAlertController(
@@ -49,7 +50,6 @@ private extension DebugScreenCoordinator {
             message: model.message,
             preferredStyle: .actionSheet
         )
-
         model.actions.forEach { action in
             actionsSheet.addAction(UIAlertAction(
                 title: action.title,
@@ -57,14 +57,12 @@ private extension DebugScreenCoordinator {
                     action.block()
             })
         }
-
         actionsSheet.addAction(UIAlertAction(
             title: L10n.DebugScreenCoordinator.cancelAction,
             style: .cancel,
             handler: nil
         ))
-
-        self.navigationController.present(actionsSheet, animated: true, completion: nil)
+        router.present(actionsSheet)
     }
 
 }

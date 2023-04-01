@@ -7,4 +7,4 @@
 
 import Foundation
 
-protocol MainModuleInput { }
+protocol MainModuleInput: AnyObject { }

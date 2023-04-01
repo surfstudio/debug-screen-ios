@@ -13,10 +13,17 @@ final class MainModulePresenter: MainModuleOutput {
 
     var didModuleClosed: (() -> Void)?
     var didActionOptionsShowed: ((ActionsProviderModel) -> Void)?
+    var didModuleDismissed: (() -> Void)?
 
     // MARK: - Properties
 
     weak var view: MainViewInput?
+
+    // MARK: - Deinitialization
+
+    deinit {
+        didModuleDismissed?()
+    }
 
 }
 
