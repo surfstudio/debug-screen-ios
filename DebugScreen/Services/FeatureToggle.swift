@@ -11,12 +11,6 @@ public protocol FeatureToggleActionsProvider {
     ///
     /// - Returns: Feature Toggle actions, that will be display on the screen
     func actions() -> [FeatureToggleModel]
-    /// Method that calls when user will change some feature toggle
-    ///
-    /// - Parameters:
-    ///   - text: Feature toggle name
-    ///   - newValue: New toggle status
-    func handleAction(with text: String, newValue: Bool)
 }
 
 /// Model for Feature Toggle configuration
@@ -26,14 +20,18 @@ public struct FeatureToggleModel {
     public let text: String
     /// Toggle's status
     public var value: Bool
+    /// Block of code, that will be performed on toggle switch
+    public let block: ((Bool) -> Void)
 
     /// Allows you create feature toggle model
     ///
     /// - Parameters:
     ///   - text: Name for toggle
     ///   - value: Toggle's status
-    public init(text: String, value: Bool) {
+    ///   - block: Block of code, that will be performed on toggle switch
+    public init(text: String, value: Bool, block: @escaping ((Bool) -> Void)) {
         self.text = text
         self.value = value
+        self.block = block
     }
 }
