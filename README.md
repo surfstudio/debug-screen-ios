@@ -137,7 +137,7 @@ final class ServersProvider: SelectServerActionsProvider {
 Для использования необходимо
 - создать свой класс, реализующий протокол FeatureToggleActionsProvider
 - определить метод `func actions() -> [FeatureToggleModel]`, возвращающий список доступных к изменению настроек
-- определить метод `func handleAction(with text: String, newValue: Bool)`, который будет вызван при изменении той или иной настройки
+- для каждой настройки определить closure, который будет вызываться при переключении свитчера
 
 #### Полезная практика
 
@@ -165,34 +165,27 @@ enum BusinessFeatureToggle {
 В таком случае реализация метода `func actions() -> [FeatureToggleModel]` провайдера может выглядеть следующим образом:
 ```swift
 func actions() -> [FeatureToggleModel] {
-    return [
-        FeatureToggleModel(text: FeatureToggleKey.feature1.rawValue, value: true),
-        FeatureToggleModel(text: FeatureToggleKey.feature2.rawValue, value: false),
-        FeatureToggleModel(text: FeatureToggleKey.business1.rawValue, value: BusinessFeatureToggle.isPushNotificationsAvailable)
+    let featureActions = [
+        FeatureToggleModel(text: FeatureToggleKey.feature1.rawValue, value: true) { [weak self] newValue in
+            self?.doAction1(with: newValue)
+        },
+        FeatureToggleModel(text: FeatureToggleKey.feature2.rawValue, value: false) { [weak self] newValue in
+            self?.doAction2(with: newValue)
+        },
+        FeatureToggleModel(
+            text: FeatureToggleKey.business1.rawValue,
+            value: BusinessFeatureToggle.isPushNotificationsAvailable
+        ) { [weak self] newValue in
+            BusinessFeatureToggle.isPushNotificationsAvailable = newValue
+        }
     ]
+
+    return featureActions
 }
 ```
 
-А так может выглядеть обработка изменения того или иного FeatureToggle. Для девелоперских прописываются обработчики действий. Для бизнесовых изменяется значение переменной:
-```swift
-func handleAction(with text: String, newValue: Bool) {
-    guard let featureToggle = FeatureToggleKey(rawValue: text) else {
-        return
-    }
+Для девелоперских FeatureToggle в closure вызываются обработчики действий, а для бизнесовых - изменяется значение переменной.
 
-    switch featureToggle {
-    case .feature1:
-        doAction1()
-    case .feature2:
-        doAction2()
-    case .business1:
-        BusinessFeatureToggle.isPushNotificationsAvailable = newValue
-    }
-}
-
-func doAction1() { }
-func doAction2() { }
-```
 </details>
 
 ### SelectableTextProvider
@@ -232,19 +225,35 @@ final class TextsProvider: SelectableTextProvider {
 <details>
 <summary>Подробное описание</summary>
     
-Для записи логов указать в настройках:
+Сервис позволяет дублировать в файл информационные сообщения и сообщения об ошибках, которые выводятся в консоль Xcode.  
+Для включения логгера необходимо вызывать следующую функцию:
 ```swift
-DebugScreenConfiguration.shared.logCatcherService.setStdErrCatcherEnabled()
-DebugScreenConfiguration.shared.logCatcherService.setStdOutCatcherEnabled()
+DebugScreenConfiguration.shared.logCatcherService.start()
 ```
 
-Для их получения можно вызвать
+Для получения списка логов в строковом виде можно воспользоваться функцией `logs()`:
 ```swift
-let log = DebugScreenConfiguration.shared.logCatcherService.logs()
+let logs = DebugScreenConfiguration.shared.logCatcherService.logs()
 ```
 
-> В данный момент находится в режиме отладки, к полноценному использованию не готов
-</details>
+Для того, чтобы очистить файл с логами, можно вызвать функцию `clearLogFile`:
+```swift
+DebugScreenConfiguration.shared.logCatcherService.clearLogFile { [weak self] isSuccess in
+    let text = isSuccess ?
+        L10n.MainPresenter.Logger.ClearLogs.success :
+        L10n.MainPresenter.Logger.ClearLogs.error
+    self?.onAlertShow?(text)
+}
+```
+
+
+Единственный параметр этой функции - closure `onClearComplete: ((Bool) -> Void)?` будет вызван после завершения очистки и вернет true / false в зависимости от успешности операции. По умолчанию значение этого параметра - nil.
+
+Также управлять логгером можно непосредственно на самом Debug экране:
+- включение / отключение записи в файл информационных сообщений (print statements etc.)
+- включение / отключение записи в файл сообщений об ошибках
+- просмотр файла логов с возможностью им поделиться
+- очистка файла
 
 ## Changelog
 
