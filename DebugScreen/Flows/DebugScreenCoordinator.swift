@@ -38,6 +38,12 @@ private extension DebugScreenCoordinator {
         output.didActionOptionsShowed = { [weak self] model in
             self?.showCacheCleaningActions(model: model)
         }
+        output.onLogsFileOpen = { [weak self] filePath in
+            self?.showFile(with: filePath)
+        }
+        output.onAlertShow = { [weak self] message in
+            self?.showAlert(with: message)
+        }
         output.didModuleDismissed = { [weak self] in
             self?.completionHandler?()
         }
@@ -63,6 +69,16 @@ private extension DebugScreenCoordinator {
             handler: nil
         ))
         router.present(actionsSheet)
+    }
+
+    func showFile(with filePath: String) {
+        let (view, _) = FileViewerModuleConfigurator().configure(with: filePath)
+        router.present(view)
+    }
+
+    func showAlert(with message: String?) {
+        let view = SimpleAlertModuleConfigurator().configure(with: message)
+        router.present(view)
     }
 
 }

@@ -10,6 +10,14 @@
 "MainPresenter.serverTitle" = "Выбрать сервер";
 "MainPresenter.featuresTitle" = "Функции";
 "MainPresenter.selectedTextTitle" = "Нажимаемый текст";
+"MainPresenter.Logger.header" = "Logger";
+"MainPresenter.Logger.LogFile.header" = "Файл логов";
+"MainPresenter.Logger.LogFile.openActionTitle" = "Открыть";
+"MainPresenter.Logger.LogFile.clearActionTitle" = "Очистить";
+"MainPresenter.Logger.infoMessages" = "Информация";
+"MainPresenter.Logger.errorMessages" = "Ошибки";
+"MainPresenter.Logger.ClearLogs.success" = "Очистка завершена";
+"MainPresenter.Logger.ClearLogs.error" = "Ошибка при очистке файла логов. Попробуйте позже";
 
 // MARK: - SelectionTableCell
 
@@ -22,3 +30,7 @@
 // MARK: - DebugScreenCoordinator
 
 "DebugScreenCoordinator.cancelAction" = "Отмена";
+
+// MARK: - Common
+
+"Common.Actions.ok" = "ОК";
