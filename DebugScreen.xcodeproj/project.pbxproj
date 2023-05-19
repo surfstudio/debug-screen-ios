@@ -54,6 +54,15 @@
 		A4BDF4D328512FB000651C61 /* FeatureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4CE28512FB000651C61 /* FeatureToggle.swift */; };
 		A4BDF4D528512FB500651C61 /* DebugScreenConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4D428512FB500651C61 /* DebugScreenConfiguration.swift */; };
 		A4D337562863A7AA002328F2 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D337552863A7AA002328F2 /* TableSection.swift */; };
+		B2610E212A16D90600509FA1 /* FileViewerModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2610E202A16D90600509FA1 /* FileViewerModuleConfigurator.swift */; };
+		B2610E242A16DCC300509FA1 /* SimpleAlertModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2610E232A16DCC300509FA1 /* SimpleAlertModuleConfigurator.swift */; };
+		B2CA74DB2A1743A900E91B24 /* FileViewerModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA74DA2A1743A900E91B24 /* FileViewerModuleInput.swift */; };
+		B2CA74DD2A1743B700E91B24 /* FileViewerModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA74DC2A1743B700E91B24 /* FileViewerModuleOutput.swift */; };
+		B2CA74DF2A1743C700E91B24 /* FileViewerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA74DE2A1743C700E91B24 /* FileViewerPresenter.swift */; };
+		B2CA74E12A1744E300E91B24 /* FileViewerViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA74E02A1744E300E91B24 /* FileViewerViewInput.swift */; };
+		B2CA74E32A1744F300E91B24 /* FileViewerViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA74E22A1744F300E91B24 /* FileViewerViewOutput.swift */; };
+		B2CA74E82A175D7700E91B24 /* FileViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA74E62A175D7700E91B24 /* FileViewerViewController.swift */; };
+		B2CA74E92A175D7700E91B24 /* FileViewerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2CA74E72A175D7700E91B24 /* FileViewerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +116,15 @@
 		A4BDF4D428512FB500651C61 /* DebugScreenConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugScreenConfiguration.swift; sourceTree = "<group>"; };
 		A4D337552863A7AA002328F2 /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
 		A4F267192858EFE60096AB68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = DebugScreen/Info.plist; sourceTree = SOURCE_ROOT; };
+		B2610E202A16D90600509FA1 /* FileViewerModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileViewerModuleConfigurator.swift; sourceTree = "<group>"; };
+		B2610E232A16DCC300509FA1 /* SimpleAlertModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlertModuleConfigurator.swift; sourceTree = "<group>"; };
+		B2CA74DA2A1743A900E91B24 /* FileViewerModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerModuleInput.swift; sourceTree = "<group>"; };
+		B2CA74DC2A1743B700E91B24 /* FileViewerModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerModuleOutput.swift; sourceTree = "<group>"; };
+		B2CA74DE2A1743C700E91B24 /* FileViewerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerPresenter.swift; sourceTree = "<group>"; };
+		B2CA74E02A1744E300E91B24 /* FileViewerViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerViewInput.swift; sourceTree = "<group>"; };
+		B2CA74E22A1744F300E91B24 /* FileViewerViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerViewOutput.swift; sourceTree = "<group>"; };
+		B2CA74E62A175D7700E91B24 /* FileViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerViewController.swift; sourceTree = "<group>"; };
+		B2CA74E72A175D7700E91B24 /* FileViewerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FileViewerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +294,7 @@
 		A4BDF49F28512FAA00651C61 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				B2610E1E2A16D90600509FA1 /* CommonFlow */,
 				A4BDF4A028512FAA00651C61 /* MainScreen */,
 				A4BDF4B828512FAA00651C61 /* DebugScreenCoordinator.swift */,
 			);
@@ -383,6 +402,62 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		B2610E1E2A16D90600509FA1 /* CommonFlow */ = {
+			isa = PBXGroup;
+			children = (
+				B2610E1F2A16D90600509FA1 /* FileViewer */,
+				B2610E222A16DCAC00509FA1 /* SimpleAlert */,
+			);
+			path = CommonFlow;
+			sourceTree = "<group>";
+		};
+		B2610E1F2A16D90600509FA1 /* FileViewer */ = {
+			isa = PBXGroup;
+			children = (
+				B2CA74D72A17436600E91B24 /* Configurator */,
+				B2CA74D82A17437800E91B24 /* Presenter */,
+				B2CA74D92A17437E00E91B24 /* View */,
+			);
+			path = FileViewer;
+			sourceTree = "<group>";
+		};
+		B2610E222A16DCAC00509FA1 /* SimpleAlert */ = {
+			isa = PBXGroup;
+			children = (
+				B2610E232A16DCC300509FA1 /* SimpleAlertModuleConfigurator.swift */,
+			);
+			path = SimpleAlert;
+			sourceTree = "<group>";
+		};
+		B2CA74D72A17436600E91B24 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				B2610E202A16D90600509FA1 /* FileViewerModuleConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		B2CA74D82A17437800E91B24 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B2CA74DA2A1743A900E91B24 /* FileViewerModuleInput.swift */,
+				B2CA74DC2A1743B700E91B24 /* FileViewerModuleOutput.swift */,
+				B2CA74DE2A1743C700E91B24 /* FileViewerPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B2CA74D92A17437E00E91B24 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B2CA74E62A175D7700E91B24 /* FileViewerViewController.swift */,
+				B2CA74E72A175D7700E91B24 /* FileViewerViewController.xib */,
+				B2CA74E02A1744E300E91B24 /* FileViewerViewInput.swift */,
+				B2CA74E22A1744F300E91B24 /* FileViewerViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -488,6 +563,7 @@
 				A4BDF4BE28512FAA00651C61 /* SwitcherTableCell.xib in Resources */,
 				A47BDB45286A1249002326B8 /* Assets.xcassets in Resources */,
 				A4BDF4C328512FAA00651C61 /* MainViewController.xib in Resources */,
+				B2CA74E92A175D7700E91B24 /* FileViewerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,14 +620,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2CA74E12A1744E300E91B24 /* FileViewerViewInput.swift in Sources */,
 				A4BDF4CF28512FB000651C61 /* SelectServerActionsProvider.swift in Sources */,
 				A47BDB43286A1249002326B8 /* Colors.swift in Sources */,
 				A4BDF49828512F7700651C61 /* UIApplication.swift in Sources */,
 				A4BDF4C528512FAA00651C61 /* MainViewController.swift in Sources */,
+				B2610E242A16DCC300509FA1 /* SimpleAlertModuleConfigurator.swift in Sources */,
 				A4BDF4BD28512FAA00651C61 /* TextTableCell.swift in Sources */,
 				A4BDF49928512F7700651C61 /* Bundle.swift in Sources */,
+				B2CA74DD2A1743B700E91B24 /* FileViewerModuleOutput.swift in Sources */,
 				A47BDB44286A1249002326B8 /* Assets.swift in Sources */,
 				A4BDF49728512F7700651C61 /* UIWindow.swift in Sources */,
+				B2CA74E32A1744F300E91B24 /* FileViewerViewOutput.swift in Sources */,
 				A4BDF4D228512FB000651C61 /* ActionsProvider.swift in Sources */,
 				A4BDF4C728512FAA00651C61 /* MainModuleConfigurator.swift in Sources */,
 				A4BDF49328512F7700651C61 /* Array.swift in Sources */,
@@ -560,18 +640,22 @@
 				A4BDF49C28512F7700651C61 /* Presentable.swift in Sources */,
 				A4BDF49E28512F7700651C61 /* Coordinator.swift in Sources */,
 				904A3C4A28E20E8A00844715 /* SelectableTextProvider.swift in Sources */,
+				B2610E212A16D90600509FA1 /* FileViewerModuleConfigurator.swift in Sources */,
 				A4BDF4C228512FAA00651C61 /* MainViewInput.swift in Sources */,
 				A4BDF4C628512FAA00651C61 /* MainAdapter.swift in Sources */,
 				A4BDF4BB28512FAA00651C61 /* MainModulePresenter.swift in Sources */,
 				A4BDF4D328512FB000651C61 /* FeatureToggle.swift in Sources */,
 				A4BDF4C028512FAA00651C61 /* SelectionTableCell.swift in Sources */,
 				A4BDF49628512F7700651C61 /* UIViewController.swift in Sources */,
+				B2CA74E82A175D7700E91B24 /* FileViewerViewController.swift in Sources */,
 				A4BDF49528512F7700651C61 /* UITableView.swift in Sources */,
+				B2CA74DF2A1743C700E91B24 /* FileViewerPresenter.swift in Sources */,
 				A4BDF4C428512FAA00651C61 /* MainViewOutput.swift in Sources */,
 				A4BDF49A28512F7700651C61 /* DeepLinkOption.swift in Sources */,
 				A4BDF49B28512F7700651C61 /* BaseCoordinator.swift in Sources */,
 				A4BDF49228512F7700651C61 /* MainRouter.swift in Sources */,
 				A4BDF4D528512FB500651C61 /* DebugScreenConfiguration.swift in Sources */,
+				B2CA74DB2A1743A900E91B24 /* FileViewerModuleInput.swift in Sources */,
 				A47BDB49286A13AC002326B8 /* Strings.swift in Sources */,
 				A4BDF4D128512FB000651C61 /* DebugScreenPresenterService.swift in Sources */,
 				A4BDF4BA28512FAA00651C61 /* MainModuleOutput.swift in Sources */,
