@@ -16,9 +16,14 @@ extension UIWindow {
     ///   - motion: ended motion
     ///   - event: ended event
     open override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        if motion == .motionShake {
-            DebugScreenPresenterService.shared.handleMotionEnded()
+        guard
+            motion == .motionShake,
+            DebugScreenConfiguration.shared.isEnabledOnShake
+        else {
+            return
         }
+
+        DebugScreenPresenterService.shared.showDebugScreen()
     }
 
 }
