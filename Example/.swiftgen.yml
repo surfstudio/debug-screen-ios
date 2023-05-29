@@ -1,0 +1,8 @@
+strings:
+  inputs:
+    - Example/Resources/Strings/ru.lproj/Localizable.strings
+  outputs:
+    - templateName: structured-swift4
+      output: Example/Resources/Strings/Strings.swift
+      params:
+        publicAccess: false

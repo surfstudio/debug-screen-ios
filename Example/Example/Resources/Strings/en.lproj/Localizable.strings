@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  Example
+
+  Created by Ilya Klimenyuk on 29.05.2023.
+  
+*/
+
+// MARK: - ActionsProvider
+
+"ActionsProvider.FirstAction.header" = "Header of first action";
+"ActionsProvider.FirstAction.title" = "FirstAction";
+"ActionsProvider.FirstAction.message" = "Some info first message";
+"ActionsProvider.SecondAction.header" = "Header of second action";
+"ActionsProvider.SecondAction.title" = "SecondAction";
+"ActionsProvider.SecondAction.message" = "Some info second message";
+
+// MARK: - SelectServerActionsProvider
+
+"SelectServerActionsProvider.FirstServer.title" = "Production";
+"SelectServerActionsProvider.SecondServer.title" = "Test server";
+"SelectServerActionsProvider.ThirdServer.title" = "Stage server (with long long long description)";
+
+// MARK: - SelectableTextProvider
+
+"SelectableTextProvider.FirstText.title" = "SSH key";
+"SelectableTextProvider.SecondText.title" = "Token";
+"SelectableTextProvider.ThirdText.title" = "Some data for copy";
