@@ -255,6 +255,12 @@ DebugScreenConfiguration.shared.logCatcherService.clearLogFile { [weak self] isS
 - просмотр файла логов с возможностью им поделиться
 - очистка файла
 
+На данный момент в файл с логами не пишутся ошибки, связанные с установкой констрейнтов. В log-файл не попадут сообщения, содержащие следующие ключевые слова:
+- LayoutConstraints
+- UIViewAlertForUnsatisfiableConstraints
+
+При этом в консоли они по-прежнему будут отображаться.
+
 ## Changelog
 
 Список всех изменений можно посмотреть в этом [файле](./Changelog.md).

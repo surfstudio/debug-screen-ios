@@ -34,13 +34,13 @@ public final class LogCatcherService {
     // MARK: - Public Properties
 
     public var logFilePath: String {
-        logPath
+        return logPath
     }
 
-    /// LogCatcher write info messages to logFile on true value
-    public var stdOutCatchingEnabled = false
-    /// LogCatcher write error messages to logFile on true value
-    public var stdErrCatchingEnabled = false
+    /// LogCatcher write info messages to logFile on `true` value
+    public var stdOutCatchingEnabled = true
+    /// LogCatcher write error messages to logFile on `true` value
+    public var stdErrCatchingEnabled = true
 
     // MARK: - Private Properties
 

@@ -294,8 +294,9 @@
 		A4BDF49F28512FAA00651C61 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
-				B2610E1E2A16D90600509FA1 /* CommonFlow */,
+				B2610E1F2A16D90600509FA1 /* FileViewer */,
 				A4BDF4A028512FAA00651C61 /* MainScreen */,
+				B2610E222A16DCAC00509FA1 /* SimpleAlert */,
 				A4BDF4B828512FAA00651C61 /* DebugScreenCoordinator.swift */,
 			);
 			path = Flows;
@@ -400,15 +401,6 @@
 				A4BDF4CA28512FB000651C61 /* SelectServerActionsProvider.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		B2610E1E2A16D90600509FA1 /* CommonFlow */ = {
-			isa = PBXGroup;
-			children = (
-				B2610E1F2A16D90600509FA1 /* FileViewer */,
-				B2610E222A16DCAC00509FA1 /* SimpleAlert */,
-			);
-			path = CommonFlow;
 			sourceTree = "<group>";
 		};
 		B2610E1F2A16D90600509FA1 /* FileViewer */ = {
