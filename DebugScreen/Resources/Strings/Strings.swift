@@ -11,6 +11,13 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
 
+  internal enum Common {
+    internal enum Actions {
+      /// ОК
+      internal static let ok = L10n.tr("Localizable", "Common.Actions.ok")
+    }
+  }
+
   internal enum DebugScreenCoordinator {
     /// Отмена
     internal static let cancelAction = L10n.tr("Localizable", "DebugScreenCoordinator.cancelAction")
@@ -23,6 +30,28 @@ internal enum L10n {
     internal static let selectedTextTitle = L10n.tr("Localizable", "MainPresenter.selectedTextTitle")
     /// Выбрать сервер
     internal static let serverTitle = L10n.tr("Localizable", "MainPresenter.serverTitle")
+    internal enum Logger {
+      /// Ошибки
+      internal static let errorMessages = L10n.tr("Localizable", "MainPresenter.Logger.errorMessages")
+      /// Logger
+      internal static let header = L10n.tr("Localizable", "MainPresenter.Logger.header")
+      /// Информация
+      internal static let infoMessages = L10n.tr("Localizable", "MainPresenter.Logger.infoMessages")
+      internal enum ClearLogs {
+        /// Ошибка при очистке файла логов. Попробуйте позже
+        internal static let error = L10n.tr("Localizable", "MainPresenter.Logger.ClearLogs.error")
+        /// Очистка завершена
+        internal static let success = L10n.tr("Localizable", "MainPresenter.Logger.ClearLogs.success")
+      }
+      internal enum LogFile {
+        /// Очистить
+        internal static let clearActionTitle = L10n.tr("Localizable", "MainPresenter.Logger.LogFile.clearActionTitle")
+        /// Файл логов
+        internal static let header = L10n.tr("Localizable", "MainPresenter.Logger.LogFile.header")
+        /// Открыть
+        internal static let openActionTitle = L10n.tr("Localizable", "MainPresenter.Logger.LogFile.openActionTitle")
+      }
+    }
   }
 
   internal enum MainViewController {

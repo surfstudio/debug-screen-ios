@@ -16,6 +16,8 @@ final class ViewController: UIViewController {
         DebugScreenConfiguration.shared.selectServerActionsProvider = ServersProvider()
         DebugScreenConfiguration.shared.featureToggleActionsProvider = FeatureToggleProvider()
         DebugScreenConfiguration.shared.selectableTextProvider = TextsProvider()
+
+        DebugScreenConfiguration.shared.logCatcherService.start()
     }
 
 }
@@ -23,23 +25,24 @@ final class ViewController: UIViewController {
 final class ActionsProviderExample: ActionsProvider {
 
     func makeActions() -> [ActionsProviderModel] {
-        let modelForFirstAction = ActionModel(title: "First action", block: {
+        let modelForFirstAction = ActionModel(title: L10n.ActionsProvider.FirstAction.title, block: {
             print("perform first clear action")
         })
-        let modelForSecondAction = ActionModel(title: "Second action", block: {
+        let modelForSecondAction = ActionModel(title: L10n.ActionsProvider.SecondAction.title, block: {
             print("perform second clear action")
         })
+
         return [
             ActionsProviderModel(
-                header: "Header of first action",
-                title: "First action",
-                message: "Some info first message",
+                header: L10n.ActionsProvider.FirstAction.header,
+                title: L10n.ActionsProvider.FirstAction.title,
+                message: L10n.ActionsProvider.FirstAction.message,
                 actions: [modelForFirstAction, modelForSecondAction]
             ),
             ActionsProviderModel(
-                header: "Header of second action",
-                title: "Second action",
-                message: "Some info second message",
+                header: L10n.ActionsProvider.SecondAction.header,
+                title: L10n.ActionsProvider.SecondAction.title,
+                message: L10n.ActionsProvider.SecondAction.message,
                 actions: [modelForFirstAction, modelForSecondAction]
             )
         ]
@@ -52,17 +55,17 @@ final class ServersProvider: SelectServerActionsProvider {
     private var serverActions = [
         SelectServerActionModel(
             url: URL(string: "https://surf.ru/address/prod"),
-            title: "Production",
+            title: L10n.SelectServerActionsProvider.FirstServer.title,
             isActive: false
         ),
         SelectServerActionModel(
             url: URL(string: "https://surf.ru/address/test"),
-            title: "Test server",
+            title: L10n.SelectServerActionsProvider.SecondServer.title,
             isActive: true
         ),
         SelectServerActionModel(
             url: URL(string: "https://surf.ru/address/stage"),
-            title: "Stage server (with long long long description)",
+            title: L10n.SelectServerActionsProvider.ThirdServer.title,
             isActive: false
         )
     ]
@@ -95,55 +98,61 @@ enum BusinessFeatureToggle {
 
 final class FeatureToggleProvider: FeatureToggleActionsProvider {
 
-    private var featureActions = [
-        FeatureToggleModel(text: FeatureToggleKey.feature1.rawValue, value: true),
-        FeatureToggleModel(text: FeatureToggleKey.feature2.rawValue, value: false),
-        FeatureToggleModel(text: FeatureToggleKey.feature3.rawValue, value: true),
-        FeatureToggleModel(
-            text: FeatureToggleKey.business1.rawValue,
-            value: BusinessFeatureToggle.isPushNotificationsAvailable
-        )
-    ]
+    private var featureActions: [FeatureToggleModel] = []
 
     func actions() -> [FeatureToggleModel] {
+        let featureActions = [
+            FeatureToggleModel(text: FeatureToggleKey.feature1.rawValue, value: true) { [weak self] newValue in
+                self?.updateModel(with: FeatureToggleKey.feature1.rawValue, newValue: newValue)
+                self?.doAction1()
+            },
+            FeatureToggleModel(text: FeatureToggleKey.feature2.rawValue, value: false) { [weak self] newValue in
+                self?.updateModel(with: FeatureToggleKey.feature2.rawValue, newValue: newValue)
+                self?.doAction2()
+            },
+            FeatureToggleModel(text: FeatureToggleKey.feature3.rawValue, value: true) { [weak self] newValue in
+                self?.updateModel(with: FeatureToggleKey.feature3.rawValue, newValue: newValue)
+                self?.doAction3()
+            },
+            FeatureToggleModel(
+                text: FeatureToggleKey.business1.rawValue,
+                value: BusinessFeatureToggle.isPushNotificationsAvailable
+            ) { [weak self] newValue in
+                self?.updateModel(with: FeatureToggleKey.business1.rawValue, newValue: newValue)
+                BusinessFeatureToggle.isPushNotificationsAvailable = newValue
+            }
+        ]
+
+        self.featureActions = featureActions
+
         return featureActions
     }
 
-    func handleAction(with text: String, newValue: Bool) {
-        guard let featureToggle = FeatureToggleKey(rawValue: text) else {
+    func updateModel(with text: String, newValue: Bool) {
+        guard
+            let featureToggle = FeatureToggleKey(rawValue: text),
+            let featureIndex = featureActions.firstIndex(where: { $0.text == featureToggle.rawValue })
+        else {
             return
         }
 
-        if let featureIndex = featureActions.firstIndex(
-            where: { $0.text == featureToggle.rawValue }
-        ) {
-            featureActions[featureIndex].value = newValue
-        }
-
-        switch featureToggle {
-        case .feature1:
-            doAction1()
-        case .feature2:
-            doAction2()
-        case .feature3:
-            doAction3()
-        case .business1:
-            BusinessFeatureToggle.isPushNotificationsAvailable = newValue
-        }
+        featureActions[featureIndex].value = newValue
     }
 
-    func doAction1() { }
-    func doAction2() { }
-    func doAction3() { }
+    func doAction1() {}
+
+    func doAction2() {}
+
+    func doAction3() {}
 
 }
 
 final class TextsProvider: SelectableTextProvider {
 
     private var selectedText: [SelectableTextModel] = [
-        .init(title: "SSH key", value: "kjdhgaieagf8yhfb8445u_SSH_key"),
-        .init(title: "Token", value: "2283gghug4783g4h_Token"),
-        .init(title: "Some data for copy")
+        .init(title: L10n.SelectableTextProvider.FirstText.title, value: "kjdhgaieagf8yhfb8445u_SSH_key"),
+        .init(title: L10n.SelectableTextProvider.SecondText.title, value: "2283gghug4783g4h_Token"),
+        .init(title: L10n.SelectableTextProvider.ThirdText.title)
     ]
 
     func texts() -> [SelectableTextModel] {
