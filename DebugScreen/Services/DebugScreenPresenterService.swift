@@ -7,11 +7,11 @@
 
 import Foundation
 
-final class DebugScreenPresenterService {
+public final class DebugScreenPresenterService {
 
     // MARK: - Static Properties
 
-    static let shared = DebugScreenPresenterService()
+    public static let shared = DebugScreenPresenterService()
 
     // MARK: - Private Properties
 
@@ -23,7 +23,7 @@ final class DebugScreenPresenterService {
 
     // MARK: - Methods
 
-    func handleMotionEnded() {
+    public func showDebugScreen() {
         guard coordinator == nil else {
             return
         }

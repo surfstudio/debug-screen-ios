@@ -28,6 +28,10 @@ public class DebugScreenConfiguration {
     /// See detail description in ``LogCatcherService``
     public var logCatcherService = LogCatcherService()
 
+    /// Option that allows you to open Debug screen on device shake
+    /// Default value is `false`
+    public var isEnabledOnShake = false
+
     // MARK: - Initialization
 
     private init() { }
