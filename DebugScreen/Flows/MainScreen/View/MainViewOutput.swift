@@ -9,9 +9,7 @@ import UIKit
 
 protocol MainViewOutput {
     func viewLoaded()
+    func didTapActionsList(model: ActionsList)
+    func didTapSelectableText(model: CopiedText)
     func didTapCloseButton()
-    func selectServer(model: SelectServerActionModel)
-    func selectAction(model: ActionsProviderModel)
-    func selectText(model: SelectableTextModel)
-    func featureToggled(model: FeatureToggleModel, newValue: Bool)
 }
