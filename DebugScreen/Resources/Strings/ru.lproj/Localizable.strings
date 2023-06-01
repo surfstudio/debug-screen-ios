@@ -7,30 +7,27 @@
 
 // MARK: - MainPresenter
 
-"MainPresenter.serverTitle" = "Выбрать сервер";
-"MainPresenter.featuresTitle" = "Функции";
-"MainPresenter.selectedTextTitle" = "Нажимаемый текст";
-"MainPresenter.Logger.header" = "Logger";
-"MainPresenter.Logger.LogFile.header" = "Файл логов";
-"MainPresenter.Logger.LogFile.openActionTitle" = "Открыть";
-"MainPresenter.Logger.LogFile.clearActionTitle" = "Очистить";
-"MainPresenter.Logger.infoMessages" = "Информация";
-"MainPresenter.Logger.errorMessages" = "Ошибки";
-"MainPresenter.Logger.ClearLogs.success" = "Очистка завершена";
-"MainPresenter.Logger.ClearLogs.error" = "Ошибка при очистке файла логов. Попробуйте позже";
+"MainPresenter.copyTextAction.complete" = "Текст скопирован";
 
-// MARK: - SelectionTableCell
+// MARK: - Logger
 
-"SelectionTableCell.statusTitle" = "Активен";
+"Logger.header" = "Логгер";
+"Logger.enableToggleTitle" = "Записывать логи";
+"Logger.enableLogInfoMessagesTitle" = "Информация";
+"Logger.enableLogErrorMessagesTitle" = "Ошибки";
+"Logger.LogFile.header" = "Файл логов";
+"Logger.LogFile.ActionsList.openActionTitle" = "Открыть";
+"Logger.LogFile.ActionsList.clearActionTitle" = "Очистить";
+"Logger.openLogFileActionTitle" = "Открыть файл логов";
+"Logger.clearLogFileActionTitle" = "Очистить файл логов";
+"Logger.ClearLogsAlert.success" = "Очистка выполнена";
+"Logger.ClearLogsAlert.error" = "Ошибка при очистке файла логов. Попробуйте позже";
 
 // MARK: - MainViewController
 
 "MainViewController.debugTitle" = "Debug Screen";
 
-// MARK: - DebugScreenCoordinator
-
-"DebugScreenCoordinator.cancelAction" = "Отмена";
-
 // MARK: - Common
 
 "Common.Actions.ok" = "ОК";
+"Common.Actions.cancel" = "Отмена";
