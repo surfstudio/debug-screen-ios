@@ -48,7 +48,7 @@ extension MainModulePresenter: MainViewOutput {
     func didTapSelectableText(model: CopiedText) {
         UIPasteboard.general.string = model.value
         onAlertShow?(L10n.MainPresenter.CopyTextAction.complete)
-        debugPrint("✅ Data of \(model.title) copied to clipboard")
+        debugPrint("✅ \(model.title) copied to clipboard")
     }
 
     func didTapCloseButton() {

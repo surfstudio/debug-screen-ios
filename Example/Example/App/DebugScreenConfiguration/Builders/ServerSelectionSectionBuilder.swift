@@ -51,7 +51,7 @@ private extension ServerSelectionSectionBuilder {
             }
 
             UserDefaultsService().serverUrl = url
-            debugPrint("✅ Selected \(item.name) server")
+            debugPrint("✅ \(item.name) server selected")
         }
 
         return [.selectionList(model: selectionList)]
