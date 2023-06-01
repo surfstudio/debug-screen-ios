@@ -4,4 +4,7 @@
 
 import Foundation
 
-enum DeepLinkOption { }
+enum DeepLinkOption {
+    case alert(message: String)
+    case fileViewer(path: String)
+}
