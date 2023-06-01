@@ -21,15 +21,42 @@ public final class DebugScreenPresenterService {
 
     private init() { }
 
-    // MARK: - Methods
+    // MARK: - Public Methods
 
     public func showDebugScreen() {
         guard coordinator == nil else {
             return
         }
 
-        coordinator = DebugScreenCoordinator()
+        configureCoordinator()
         coordinator?.start()
+    }
+
+    public func showAlert(with message: String) {
+        if coordinator == nil {
+            configureCoordinator()
+        }
+
+        coordinator?.handle(deepLinkOption: .alert(message: message))
+    }
+
+    public func openLogFile() {
+        if coordinator == nil {
+            configureCoordinator()
+        }
+
+        let logFilePath = DebugScreenConfiguration.shared.logCatcherService.logFilePath
+        coordinator?.handle(deepLinkOption: .fileViewer(path: logFilePath))
+    }
+
+}
+
+// MARK: - Private Methods
+
+private extension DebugScreenPresenterService {
+
+    func configureCoordinator() {
+        coordinator = DebugScreenCoordinator()
         coordinator?.completionHandler = { [weak self] in
             self?.coordinator = nil
         }

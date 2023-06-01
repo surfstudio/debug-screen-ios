@@ -24,6 +24,15 @@ final class DebugScreenCoordinator: BaseCoordinator {
         showMainScreen()
     }
 
+    override func handle(deepLinkOption option: DeepLinkOption) {
+        switch option {
+        case .alert(let message):
+            showAlert(with: message)
+        case .fileViewer(let path):
+            showFile(with: path)
+        }
+    }
+
 }
 
 // MARK: - Private methods
@@ -35,11 +44,8 @@ private extension DebugScreenCoordinator {
         output.didModuleClosed = { [weak self] in
             self?.router.dismissModule()
         }
-        output.didActionOptionsShowed = { [weak self] model in
-            self?.showCacheCleaningActions(model: model)
-        }
-        output.onLogsFileOpen = { [weak self] filePath in
-            self?.showFile(with: filePath)
+        output.onActionsListShow = { [weak self] model in
+            self?.showActionsList(model: model)
         }
         output.onAlertShow = { [weak self] message in
             self?.showAlert(with: message)
@@ -50,24 +56,24 @@ private extension DebugScreenCoordinator {
         router.present(view)
     }
 
-    func showCacheCleaningActions(model: ActionsProviderModel) {
-        let actionsSheet = UIAlertController(
-            title: nil,
-            message: model.message,
-            preferredStyle: .actionSheet
-        )
-        model.actions.forEach { action in
-            actionsSheet.addAction(UIAlertAction(
-                title: action.title,
-                style: .destructive) { _ in
-                    action.block()
-            })
+    func showActionsList(model: ActionsList) {
+        let actionsSheet = UIAlertController(title: nil,
+                                             message: model.message,
+                                             preferredStyle: .actionSheet)
+
+        model.actions.forEach { actionModel in
+            let action = UIAlertAction(title: actionModel.title, style: .destructive) { _ in
+                actionModel.block?()
+            }
+
+            actionsSheet.addAction(action)
         }
-        actionsSheet.addAction(UIAlertAction(
-            title: L10n.DebugScreenCoordinator.cancelAction,
-            style: .cancel,
-            handler: nil
-        ))
+
+        let cancelAction = UIAlertAction(title: L10n.Common.Actions.cancel,
+                                         style: .cancel,
+                                         handler: nil)
+        actionsSheet.addAction(cancelAction)
+
         router.present(actionsSheet)
     }
 

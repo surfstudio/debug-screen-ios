@@ -33,14 +33,21 @@ public final class LogCatcherService {
 
     // MARK: - Public Properties
 
-    public var logFilePath: String {
+    /// Containts `true` on logger start.
+    /// Default value is `false`
+    public var isActive = false
+    /// Need write info messages to logFile.
+    /// Default value is `true`
+    public var writeInfoMessages = true
+    /// Need write error messages to logFile.
+    /// Default value is `true`
+    public var writeErrorMessages = true
+
+    // MARK: - Properties
+
+    var logFilePath: String {
         return logPath
     }
-
-    /// LogCatcher write info messages to logFile on `true` value
-    public var stdOutCatchingEnabled = true
-    /// LogCatcher write error messages to logFile on `true` value
-    public var stdErrCatchingEnabled = true
 
     // MARK: - Private Properties
 
@@ -57,22 +64,16 @@ public final class LogCatcherService {
 
     init(logPath: String) {
         self.logPath = logPath
-        clearLogFile()
+        setupInitialState()
     }
 
     /// Initialization log service in debug screen
     public init() {
         self.logPath = NSTemporaryDirectory().appending("\(Constants.defaultLogName)")
-        clearLogFile()
+        setupInitialState()
     }
 
     // MARK: - Public Methods
-
-    /// Start logger and configure cathers
-    public func start() {
-        setStreamCatcher(stream: Stream.stdErr(), pipe: stdErrPipe, logPath: logPath)
-        setStreamCatcher(stream: Stream.stdOut(), pipe: stdOutPipe, logPath: logPath)
-    }
 
     /// Returns you all saved logs
     public func logs() -> String? {
@@ -96,6 +97,12 @@ public final class LogCatcherService {
 
 private extension LogCatcherService {
 
+    func setupInitialState() {
+        clearLogFile()
+        setStreamCatcher(stream: Stream.stdErr(), pipe: stdErrPipe, logPath: logPath)
+        setStreamCatcher(stream: Stream.stdOut(), pipe: stdOutPipe, logPath: logPath)
+    }
+
     private func setStreamCatcher(stream: LogCatcherService.Stream, pipe: Pipe, logPath: String) {
         setvbuf(stream.file, nil, _IONBF, 0)
 
@@ -115,6 +122,7 @@ private extension LogCatcherService {
             self?.consolePipe.fileHandleForWriting.write(data)
 
             guard
+                self?.isActive == true,
                 self?.isNeedCatchStream(stream) == true,
                 self?.isLayoutMessage(str) == false
             else {
@@ -153,7 +161,7 @@ private extension LogCatcherService {
     }
 
     private func isNeedCatchStream(_ stream: LogCatcherService.Stream) -> Bool {
-        (stream.id == STDOUT_FILENO && stdOutCatchingEnabled) || (stream.id == STDERR_FILENO && stdErrCatchingEnabled)
+        (stream.id == STDOUT_FILENO && writeInfoMessages) || (stream.id == STDERR_FILENO && writeErrorMessages)
     }
 
     func isLayoutMessage(_ message: String?) -> Bool {
