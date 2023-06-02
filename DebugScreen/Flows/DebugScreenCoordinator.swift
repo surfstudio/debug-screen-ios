@@ -26,10 +26,10 @@ final class DebugScreenCoordinator: BaseCoordinator {
 
     override func handle(deepLinkOption option: DeepLinkOption) {
         switch option {
-        case .alert(let message):
-            showAlert(with: message)
-        case .fileViewer(let path):
-            showFile(with: path)
+        case .alert(let model):
+            showAlert(with: model.value, isRoot: model.isRootModule)
+        case .fileViewer(let model):
+            showFile(with: model.value, isRoot: model.isRootModule)
         }
     }
 
@@ -77,13 +77,26 @@ private extension DebugScreenCoordinator {
         router.present(actionsSheet)
     }
 
-    func showFile(with filePath: String) {
-        let (view, _) = FileViewerModuleConfigurator().configure(with: filePath)
+    func showFile(with filePath: String, isRoot: Bool = false) {
+        let (view, output) = FileViewerModuleConfigurator().configure(with: filePath)
+        output.didModuleDismissed = { [weak self] in
+            guard isRoot else {
+                return
+            }
+
+            self?.completionHandler?()
+        }
         router.present(view)
     }
 
-    func showAlert(with message: String?) {
-        let view = SimpleAlertModuleConfigurator().configure(with: message)
+    func showAlert(with message: String?, isRoot: Bool = false) {
+        let view = SimpleAlertModuleConfigurator().configure(with: message) { [weak self] in
+            guard isRoot else {
+                return
+            }
+
+            self?.completionHandler?()
+        }
         router.present(view)
     }
 

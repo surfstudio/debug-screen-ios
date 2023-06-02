@@ -9,22 +9,22 @@
 
 ## About
 
-Библиотека для быстрого создания и кастомизации экрана отладки приложения.
+Library for quickly creating and customizing an application`s debug screen. It allows you to customize your DebugScreen as you want.
 
 ## Screenshots
 
-![DebugScreenScreenshot](https://i.ibb.co/4NDCqQK/Group-48095985.png)
+![DebugScreenScreenshot](https://i.ibb.co/rb5ZHpr/2023-06-02-11-07-36.png)
 
 ## Installation
 
 #### Swift Package Manager
 
-- В XCode пройдите в `File > Swift Packages > Add Package Dependency`
-- Введите URL репозитория `https://github.com/surfstudio/DebugScreen.git`
+- Open your Xcode project and select `File > Add Packages...`
+- Enter repository URL `https://github.com/surfstudio/DebugScreen`
 
 #### CocoaPods:
 
-Добавьте в свой Podfile следующую строку, затем запустите `pod install`
+Add following string into your Podfile and run `pod install` command:
 
 ```ruby
 pod 'DebugScreen'
@@ -32,238 +32,659 @@ pod 'DebugScreen'
 
 ## Features
 
-При создании библиотеки преследовались следующие цели: 
+Library has different components for create debug screen with functionality that you need.
 
-- создать готовый и кастомизируемый шаблон для экрана отладки приложения
-- упростить взаимодействие с экраном отладки
-- передать в него самые востребованные функции
-- ускорить разработку приложения 
+### Available blocks
 
-Для этого были реализованы следующие фичи:
+- **Action** - Allows you to perform some action on button tap
+- **ActionsList** - Provides custom actions list, that will be opened on button tap
+- **CopiedText** - Allows to add tapable text, that will be copied to clipboard on tap
+- **FeatureToggle** - Provides toggles for activate / disable your application features
+- **SelectionList** - Allows you to implement element selection from list (using UIPickerView)
 
-- **ActionsProvider** - Позволяет выполнить кастомные действия по нажатию на кнопки экрана
-- **SelectServerActionsProvider** - Выбор сервера
-- **FeatureToggleActionsProvider** - Добавление FeatureToggles (бизнесовых и девелоперских)
-- **SelectableTextProvider** - Позволяет добавить на экран тапабельный текст и задать действие при тапе по нему
+Also library has ready-to-use components, can be used for builing logger section.
+
+### Services
+
+- **Logger** - Allows you to catch and get all logs from the Xcode console output
+- **Presenter** - Provides functionality for open DebugScreen, logs file and show simple alerts with messages 
 
 ## Example
 
-Все вышеперечисленное можно увидеть в Example-проекте. Для его корректного запуска и конфигурации скачайте репозиторий и выполните команду `make init` перед тем как его запустить.
+All of this you can see in our Example-project. 
+
+Download repository and run command `make init` before start. It's needed for project correct setup and work.
 
 ## Usage
 
-Для настройки внешнего вида и возможностей экрана отладки необходимо задать на старте приложения его провайдеры, например:
-```swift
-DebugScreenConfiguration.shared.actionsProvider = ActionsProvider()
-DebugScreenConfiguration.shared.selectServerActionsProvider = ServersProvider()
-DebugScreenConfiguration.shared.featureToggleActionsProvider = FeatureToggleProvider()
-```
-
-Сам экран отладки появляется, если потрясти телефон.
-
-### ActionsProvider
+### Operations
 
 <details>
-<summary>Подробное описание</summary>
-    
-Позволяет выполнить какие-либо действия. Для использования необходимо
-- создать свой класс, реализующий протокол ActionsProvider
-- определить его единственный метод `func actions() -> [ActionsProviderModel]`
-- каждый ActionsProviderModel под капотом держит массив ActionModel
+<summary>Details</summary>
 
-ActionModel определяет заголовок, который будет показан на экране, а также блок кода, который будет вызван при выборе данного action. Пример:
+#### Content configuration
 
+<details>
+<summary>Details</summary>
+
+Components of DebugScreen are separated by sections. You can combine components of different types inside one section.
+
+To configure DebugScreen section you'll need to follow next steps:
+- add instances, that implements protocols of needed components (in other words, create models for your blocks)
+- add instances, that implements `SectionBuilder` protocol. It has only one function `build() -> TableSection`, inside which you can configure section the way you want.
+
+  **Every section need its own builder!**
+- build sections and set them into DebugScreen `sections` property
+
+Common way of content configuration may look like this:
+ 
 ```swift
-ActionModel(title: "Clear score", block: {
-    RatingService.clearScore()
-    RatingService.didRate = false
-})
+func configureDebugScreen() {
+    DebugScreenConfiguration.shared.logCatcherService.isActive = true
+    configureDebugScreenSections()
+}
+
+func configureDebugScreenSections() {
+    let serverSelectionSection = ServerSelectionSectionBuilder().build()
+    let actionsSection = ActionsSectionBuilder().build()
+    let togglesSection = TogglesSectionBuilder().build()
+    let copiedTextSection = CopiedTextSectionBuilder().build()
+
+    DebugScreenConfiguration.shared.sections = [serverSelectionSection,
+                                                actionsSection,
+                                                togglesSection,
+                                                copiedTextSection]
+}
 ```
+Here we are implement builders for every needed section, build them and then add into sections array.
+
+**Sections will be displayed on the screen in the same order as they are in the array!**  
+  
 </details>
 
-### SelectServerActionsProvider
+#### Open Debug screen
 
 <details>
-<summary>Подробное описание</summary>
-    
-Для использования необходимо
-- создать свой класс, реализующий протокол SelectServerActionsProvider
-- определить метод `func servers() -> [SelectServerAction]`, возвращающий список доступных к выбору серверов
-- определить метод `func didSelectServer(_ server: SelectServerAction)`, который будет вызван при выборе того или иного сервера
+<summary>Details</summary>
 
-Пример использования:
+Debug screen can be opened two ways - programmatically or on device shake.
 
+##### Programmatically
+
+For programmatically opening you'll need to call next function:
 ```swift
-final class ServersProvider: SelectServerActionsProvider {
-
-    private var serverActions = [
-        SelectServerAction(
-            url: URL(string: "https://surf.ru/address/prod"),
-            title: "Production",
-            isActive: false
-        ),
-        SelectServerAction(
-            url: URL(string: "https://surf.ru/address/test"),
-            title: "Test server",
-            isActive: true
-        ),
-        SelectServerAction(
-            url: URL(string: "https://surf.ru/address/stage"),
-            title: "Stage server (with long long long description)",
-            isActive: false
-        )
-    ]
-
-    func servers() -> [SelectServerAction] {
-        return serverActions
-    }
-
-    func didSelectServer(_ server: SelectServerAction) {
-        serverActions = serverActions.map {
-            .init(url: $0.url, title: $0.title, isActive: $0.url == server.url)
-        }
-        // do something usefull
-    }
-
-}
+DebugScreenPresenterService.shared.showDebugScreen()
 ```
+##### On device shake
+
+For open debug screen on device shake you'll need to activate this feature next way:
+```swift
+DebugScreenConfiguration.shared.isEnabledOnShake = true
+```
+By default this property is `false`.
 </details>
 
-### FeatureToggleActionsProvider
+#### Logging
 
 <details>
-<summary>Подробное описание</summary>
+<summary>Details</summary>
     
-Для использования необходимо
-- создать свой класс, реализующий протокол FeatureToggleActionsProvider
-- определить метод `func actions() -> [FeatureToggleModel]`, возвращающий список доступных к изменению настроек
-- для каждой настройки определить closure, который будет вызываться при переключении свитчера
+Library has a logger service. It allows you to duplicate informational messages and error messages that are displayed in the Xcode console into a file.
 
-#### Полезная практика
-
-Есть бизнесовые и девелоперские FeatureToggles:
-- Бизнесовые - те FeatureToggles, на которые делается проверка в коде для разрешения какой-либо реализации.
-- Девелоперские - те FeatureToggles, изменения которых обрабатываются глобально во всём коде. Например, отключение анимации. Эти FeatureToggle не проверяются в коде.
-
-Поэтому рекомендуется иметь под рукой список всех FeatureToggles, но при этом хранить значения бизнесовых FeatureToggles отдельно, например:
-
+##### Enable / Disable logger
+  
+To enable the logger, run the following command:
 ```swift
-/// All feature toggles
-enum FeatureToggleKey: String {
-    case feature1
-    case feature2
-    case feature3
-    case business1 = "PushNotifications"
-}
-
-/// Business FeatureToggles, only true/false, without handling
-enum BusinessFeatureToggle {
-    static var isPushNotificationsAvailable = false
-}
+DebugScreenConfiguration.shared.logCatcherService.isActive = true
+```
+To disable logger, set `isActive` property into `false`:
+```swift
+DebugScreenConfiguration.shared.logCatcherService.isActive = false
 ```
 
-В таком случае реализация метода `func actions() -> [FeatureToggleModel]` провайдера может выглядеть следующим образом:
+**By default logger is disabled!** 
+  
+##### Logging settings  
+  
+By default logger write info and error messages into file. But you can on / off any of this options.
+  
+To disable catching info messages, set `writeInfoMessages` property of `logCatcherService` into `false`:
 ```swift
-func actions() -> [FeatureToggleModel] {
-    let featureActions = [
-        FeatureToggleModel(text: FeatureToggleKey.feature1.rawValue, value: true) { [weak self] newValue in
-            self?.doAction1(with: newValue)
-        },
-        FeatureToggleModel(text: FeatureToggleKey.feature2.rawValue, value: false) { [weak self] newValue in
-            self?.doAction2(with: newValue)
-        },
-        FeatureToggleModel(
-            text: FeatureToggleKey.business1.rawValue,
-            value: BusinessFeatureToggle.isPushNotificationsAvailable
-        ) { [weak self] newValue in
-            BusinessFeatureToggle.isPushNotificationsAvailable = newValue
-        }
-    ]
-
-    return featureActions
-}
+DebugScreenConfiguration.shared.logCatcherService.writeInfoMessages = false
 ```
-
-Для девелоперских FeatureToggle в closure вызываются обработчики действий, а для бизнесовых - изменяется значение переменной.
-
-</details>
-
-### SelectableTextProvider
-
-<details>
-<summary>Подробное описание</summary>
-
-Для использования необходимо
-- создать свой класс, реализующий протокол SelectableTextProvider
-- определить метод `func texts() -> [SelectableTextModel]`, возвращающий список тапабельных элементов
-- определить метод `func didSelectText(_ text: SelectableTextModel)`, который будет вызван при выборе того или иного элемента
-
-Пример использования:
-
+To disable catching error messages, set `writeErrorMessages` property of `logCatcherService` into `false`:
 ```swift
-final class TextsProvider: SelectableTextProvider {
+DebugScreenConfiguration.shared.logCatcherService.writeErrorMessages = false
+```  
 
-    private var selectedText: [SelectableTextModel] = [
-        .init(title: "SSH key", value: SSHKeyService().key),
-        .init(title: "Token", value: TokenService().token)
-    ]
-
-    func texts() -> [SelectableTextModel] {
-        return selectedText
-    }
-
-    func didSelectText(_ model: SelectableTextModel) {
-        // copy model.value in buffer
-    }
-
-}
-```
-</details>
-
-### Логирование
-
-<details>
-<summary>Подробное описание</summary>
-    
-Сервис позволяет дублировать в файл информационные сообщения и сообщения об ошибках, которые выводятся в консоль Xcode.  
-Для включения логгера необходимо вызывать следующую функцию:
+##### Manage logs
+  
+To open log file from any place of your app call `openLogFile()` function:
 ```swift
-DebugScreenConfiguration.shared.logCatcherService.start()
+DebugScreenPresenterService.shared.openLogFile()
 ```
-
-Для получения списка логов в строковом виде можно воспользоваться функцией `logs()`:
+  
+To get a list of logs in string form, you can use the function `logs()`:   
 ```swift
 let logs = DebugScreenConfiguration.shared.logCatcherService.logs()
 ```
 
-Для того, чтобы очистить файл с логами, можно вызвать функцию `clearLogFile`:
+In order to clear the log file, you can call the function `clearLogFile`:
 ```swift
 DebugScreenConfiguration.shared.logCatcherService.clearLogFile { [weak self] isSuccess in
-    let text = isSuccess ?
-        L10n.MainPresenter.Logger.ClearLogs.success :
-        L10n.MainPresenter.Logger.ClearLogs.error
-    self?.onAlertShow?(text)
+    let message = isSuccess ?
+        "Clear complete" :
+        "Some problems with clear log file"
+    DebugScreenPresenterService.shared.showAlert(with: message)
 }
 ```
 
+The only parameter of this function - closure `onClearComplete: ((Bool) -> Void)?` will be called after clear process end and returns true / false according to operation result. Default value of this parameter - nil.
 
-Единственный параметр этой функции - closure `onClearComplete: ((Bool) -> Void)?` будет вызван после завершения очистки и вернет true / false в зависимости от успешности операции. По умолчанию значение этого параметра - nil.
-
-Также управлять логгером можно непосредственно на самом Debug экране:
-- включение / отключение записи в файл информационных сообщений (print statements etc.)
-- включение / отключение записи в файл сообщений об ошибках
-- просмотр файла логов с возможностью им поделиться
-- очистка файла
-
-На данный момент в файл с логами не пишутся ошибки, связанные с установкой констрейнтов. В log-файл не попадут сообщения, содержащие следующие ключевые слова:
+At the moment, errors related to the setup of constraints are not written to the log file. The log file won't include messages containing the following keywords:
 - LayoutConstraints
 - UIViewAlertForUnsatisfiableConstraints
 
-При этом в консоли они по-прежнему будут отображаться.
+However, they will still be displayed in the Xcode console.
+</details>
+
+</details>
+
+### Components
+
+<details>
+<summary>Details</summary>
+
+#### Action
+
+<details>
+<summary>Details</summary>
+    
+Allows you to perform some action on button tap. 
+
+For using it you'll need to do next:
+- create instance, that implements `Action` protocol (it will be model of your action)
+
+```swift
+import DebugScreen
+
+final class DebugScreenAction: Action {
+
+    // MARK: - Properties
+
+    let title: String
+    let type: ActionType
+    let block: (() -> Void)?
+
+    // MARK: - Initialization
+
+    init(title: String, type: ActionType = .primary, block: (() -> Void)?) {
+        self.title = title
+        self.type = type
+        self.block = block
+    }
+
+}
+```
+    - `title` - Text, that will be displayed on action button
+    - `type` - Type of action, that affects on the action button appearance (can be primary, secondary, destructive). Default value is `primary`.
+    - `block` - Action block, that will be triggered on button tap
+
+- create instance, that implements `Builder` protocol for needed section
+- initialize actions models and add them into section with help `.action(model: Action)` block
+
+```swift
+import DebugScreen
+
+final class ActionsSectionBuilder: SectionBuilder {
+
+    // MARK: - Methods
+
+    func build() -> TableSection {
+        var blocks: [MainTableBlock] = []
+
+        let defaultAction = getAction(type: .secondary)
+        let destructiveAction = getAction(type: .destructive)
+
+        blocks = [
+            .action(model: defaultAction),
+            .action(model: destructiveAction)
+        ]
+
+        return .init(title: L10n.Actions.header, blocks: blocks)
+    }
+  
+    // MARK: - Private Methods
+  
+    private func getAction(type: ActionType) -> DebugScreenAction {
+        let title = type == .secondary ? L10n.Actions.secondaryTitle : L10n.Actions.destructiveTitle
+        let actionName = type == .secondary ? "Secondary" : "Destructive"
+
+        let action: DebugScreenAction = .init(title: title, type: type) {
+            debugPrint("✅ \(actionName) action complete")
+        }
+
+        return action
+     }
+
+}
+```
+  
+</details>
+
+#### ActionsList
+
+<details>
+<summary>Details</summary>
+    
+Provides custom actions list, that will be opened on button tap. Actions inside list needs to conform `Action` protocol.
+
+For using it you'll need to do next:
+- create instance, that implements `ActionList` protocol (it will be model of your actions list)
+
+```swift
+import DebugScreen
+  
+final class DebugScreenActionsList: ActionsList {
+
+    // MARK: - Properties
+
+    var title: String
+    var message: String?
+    var actions: [Action]
+
+    // MARK: - Initialization
+
+    init(title: String, message: String?, actions: [Action]) {
+        self.title = title
+        self.message = message
+        self.actions = actions
+    }
+
+}
+```
+    - `title` - Text, that will be displayed on action button
+    - `message` - Text, that will be displayer on top of action sheet
+    - `actions` - Action sheet actions (cancel action added by default, don't need to implement it yourself)
+
+- create instance, that implements `Builder` protocol for needed section
+- initialize actions models and add them into section with help `.actionsList(model: ActionsList)` block
+
+```swift
+import DebugScreen
+
+final class ActionsSectionBuilder: SectionBuilder {
+
+    // MARK: - Methods
+
+    func build() -> TableSection {
+        var blocks: [MainTableBlock] = []
+
+        let actionsList = configureActionsList()
+
+        blocks = [
+            .actionsList(model: actionsList)
+        ]
+
+        return .init(title: L10n.Actions.header, blocks: blocks)
+    }
+  
+    // MARK: - Private Methods  
+  
+    private func configureActionsList() -> DebugScreenActionsList {
+        let actions = getActionsListModels()
+        let actionsList: DebugScreenActionsList = .init(title: L10n.ActionsList.title,
+                                                        message: L10n.ActionsList.message,
+                                                        actions: actions)
+
+        return actionsList
+    }
+
+    private func getActionsListModels() -> [DebugScreenAction] {
+        let firstAction: DebugScreenAction = .init(title: L10n.ActionsList.firstActionTitle) {
+            debugPrint("✅ First action complete")
+        }
+
+        let secondAction: DebugScreenAction = .init(title: L10n.ActionsList.secondActionTitle) {
+            debugPrint("✅ Second action complete")
+        }
+
+        return [firstAction, secondAction]
+    }
+
+}
+```
+  
+</details>
+
+#### CopiedText
+
+<details>
+<summary>Details</summary>
+    
+Allows to add tapable text, that will be copied to clipboard on tap.
+
+For using it you'll need to do next:
+- create instance, that implements `CopiedText` protocol (it will be model of your copied text block)
+
+```swift
+import DebugScreen
+
+final class CopiedTextItem: CopiedText {
+
+    // MARK: - Properties
+
+    let title: String
+    let value: String
+
+    // MARK: - Initialization
+
+    init(title: String, value: String) {
+        self.title = title
+        self.value = value
+    }
+
+}
+```
+    - `title` - Description, that will be shown on screen
+    - `value` - Useful value, that will be copied on cell select (for example, token or some key)
+
+- create instance, that implements `Builder` protocol for needed section
+- initialize actions models and add them into section with help `.copiedText(model: CopiedText)` block
+
+```swift
+import DebugScreen
+
+final class CopiedTextSectionBuilder: SectionBuilder {
+
+    // MARK: - Methods
+
+    func build() -> TableSection {
+        let textItems = getTextItems()
+        let blocks = configureBlocks(with: textItems)
+
+        return .init(title: L10n.CopiedText.header, blocks: blocks)
+    }
+    
+    // MARK: - Private Methods
+  
+    private func getTextItems() -> [CopiedTextItem] {
+        let items: [CopiedTextItem] = [
+            .init(title: L10n.CopiedText.firstTextTitle, value: "kjdhgaieagf8yhfb8445u_SSH_key"),
+            .init(title: L10n.CopiedText.secondTextTitle, value: "2283gghug4783g4h_Token"),
+            .init(title: L10n.CopiedText.thirdTextTitle, value: "This is very important info")
+        ]
+
+        return items
+    }
+
+    private func configureBlocks(with items: [CopiedTextItem]) -> [MainTableBlock] {
+        var blocks: [MainTableBlock] = []
+
+        items.forEach { item in
+            let block: MainTableBlock = .copiedText(model: item)
+            blocks.append(block)
+        }
+
+        return blocks
+    }
+
+}
+```
+  
+</details>
+
+#### FeatureToggle
+
+<details>
+<summary>Details</summary>
+    
+Provides toggles for activate / disable your application features.
+
+For using it you'll need to do next:
+- create instance, that implements `FeatureToggle` protocol (it will be model of your feature toggle)
+
+```swift
+import DebugScreen
+import Foundation
+
+final class UserDefaultsFeatureToggle: FeatureToggle {
+
+    // MARK: - Properties
+
+    let title: String
+
+    var isEnabled: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: key)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: key)
+        }
+
+    }
+
+    // MARK: - Private Properties
+
+    private let key: String
+
+    // MARK: - Initialization
+
+    init(title: String, key: String) {
+        self.title = title
+        self.key = key
+    }
+
+}
+```
+    - `title` - Toggle's name, will be shown on screen
+    - `isEnabled` - Toggle's status. You can add needed action inside `set` block, that will be triggered on `valueChanged` event
+
+- create instance, that implements `Builder` protocol for needed section
+- initialize actions models and add them into section with help `.toggle(model: FeatureToggle)` block
+
+```swift
+import DebugScreen
+
+final class TogglesSectionBuilder: SectionBuilder {
+
+    // MARK: - Methods
+
+    func build() -> TableSection {
+        let blocks = configureTogglesBlocks()
+
+        return .init(title: L10n.FeatureToggles.header, blocks: blocks)
+    }
+  
+    // MARK: - Private Methods
+  
+    private func configureTogglesBlocks() -> [MainTableBlock] {
+        let showTouchesToggle: UserDefaultsFeatureToggle = .init(title: L10n.FeatureToggles.firstToggleTitle,
+                                                                 key: UserDefaultsKeys.isNeedShowTouches)
+
+        let needUseSSHToggle: UserDefaultsFeatureToggle = .init(title: L10n.FeatureToggles.secondToggleTitle,
+                                                                key: UserDefaultsKeys.isNeedUseSSH)
+
+        let needShowEcomCatalogToggle: UserDefaultsFeatureToggle = .init(title: L10n.FeatureToggles.thirdToggleTitle,
+                                                                         key: UserDefaultsKeys.isNeedShowEcomCatalog)
+
+        return [.toggle(model: showTouchesToggle),
+                .toggle(model: needUseSSHToggle),
+                .toggle(model: needShowEcomCatalogToggle)]
+    }
+
+}
+```
+  
+</details>
+
+#### SelectionList
+
+<details>
+<summary>Details</summary>
+    
+Allows you to implement element selection from list (using UIPickerView).
+
+For using it you'll need to do next:
+- create instance, that implements `SelectionListItem` protocol (it will be model of your selection list item)
+
+```swift
+import DebugScreen
+import Foundation
+
+final class ServersSelectionItem: SelectionListItem {
+
+    // MARK: - Properties
+
+    let name: String
+    let value: Any?
+
+    // MARK: - Initialization
+
+    init(name: String, value: Any?) {
+        self.name = name
+        self.value = value
+    }
+
+}
+```
+    - `name` - Item's name, that will be displayed on selection list item
+    - `value` - Items's value
+
+- create instance, that implements `SelectionList` protocol (it will be model of your selection list)
+
+```swift
+import DebugScreen
+import Foundation
+
+final class ServersSelectionList: SelectionList {
+
+    // MARK: - Properties
+
+    let items: [SelectionListItem]
+    var selectedItem: SelectionListItem?
+    let onSelectAction: ((SelectionListItem) -> Void)?
+
+    // MARK: - Initialization
+
+    init(items: [SelectionListItem],
+         selectedItem: SelectionListItem?,
+         onSelectAction: ((SelectionListItem) -> Void)?) {
+        self.items = items
+        self.selectedItem = selectedItem
+        self.onSelectAction = onSelectAction
+    }
+
+}
+```
+    - `items` - Items list
+    - `selectedItem` - Current selected item
+    - `onSelectAction` - Action, triggered on select item
+
+- create instance, that implements `Builder` protocol for needed section
+- initialize actions models and add them into section with help `.selectionList(model: SelectionList)` block
+
+```swift
+import DebugScreen
+import Foundation
+
+final class ServerSelectionSectionBuilder: SectionBuilder {
+
+    // MARK: - Methods
+
+    func build() -> TableSection {
+        let blocks = configureSelectionList()
+
+        return .init(title: L10n.ServerSelection.header, blocks: blocks)
+    }
+  
+    // MARK: - Private Methods
+  
+    private func configureSelectionList() -> [MainTableBlock] {
+
+        let selectedServerUrl = UserDefaultsService().serverUrl
+        var selectedItem: SelectionListItem?
+
+        let items: [ServersSelectionItem] = [
+            .init(name: L10n.ServerSelection.firstServerTitle, value: "https://surf.ru/address/prod"),
+            .init(name: L10n.ServerSelection.secondServerTitle, value: "https://surf.ru/address/test"),
+            .init(name: L10n.ServerSelection.thirdServerTitle, value: "https://surf.ru/address/stage")
+        ]
+
+        items.forEach { item in
+            if
+                let itemUrl = item.value as? String,
+                itemUrl == selectedServerUrl
+            {
+                selectedItem = item
+                return
+            }
+        }
+
+        let selectionList = ServersSelectionList(items: items, selectedItem: selectedItem) { item in
+            guard let url = item.value as? String else {
+                return
+            }
+
+            UserDefaultsService().serverUrl = url
+            debugPrint("✅ \(item.name) server selected")
+        }
+
+        return [.selectionList(model: selectionList)]
+    }
+
+}
+```
+  
+</details>
+
+#### Logger section
+
+<details>
+<summary>Details</summary>
+    
+Library has some ready-to-use components for build logger section:
+- **loggerActivationToggle** - Toggle, that activate / deactive logger
+- **enableLogInfoToggle** - Toggle, that activate / deactivate writing info logs to file
+- **enableLogErrorsToggle** - Toggle, that activate / deactivate writing errors logs to file
+- **logFileActionsList** - Button, that will open log file actions list
+- **logFileOpenAction** - Button, that open log file
+- **logFileClearAction** - Button, that clear log file  
+  
+All you need is to call `logger` function of `TableSection` type and choose all components, that you want to use. Then you can add builded section into full sections list.
+  
+For example:
+
+```swift
+func configureDebugScreenSections() {
+    let serverSelectionSection = ServerSelectionSectionBuilder().build()
+    let actionsSection = ActionsSectionBuilder().build()
+    let togglesSection = TogglesSectionBuilder().build()
+    let copiedTextSection = CopiedTextSectionBuilder().build()
+
+    let loggerSection = TableSection.logger(with: [.loggerActivationToggle,
+                                                   .enableLogInfoToggle,
+                                                   .enableLogErrorsToggle,
+                                                   .logFileActionsList,
+                                                   .logFileOpenAction,
+                                                   .logFileClearAction])
+
+    DebugScreenConfiguration.shared.sections = [serverSelectionSection,
+                                                actionsSection,
+                                                togglesSection,
+                                                copiedTextSection,
+                                                loggerSection]
+}
+```
+Also you can build logger section manually like other sections by implementing `SectionBuilder` protocol.
+  
+</details>
+
+</details>
 
 ## Changelog
 
-Список всех изменений можно посмотреть в этом [файле](./Changelog.md).
+The full list of changes can be found in this [file](./Changelog.md).
 
 ## License
 

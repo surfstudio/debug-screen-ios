@@ -33,20 +33,24 @@ public final class DebugScreenPresenterService {
     }
 
     public func showAlert(with message: String) {
+        let model = DeepLinkOptionModel(value: message, isRootModule: coordinator == nil)
+
         if coordinator == nil {
             configureCoordinator()
         }
 
-        coordinator?.handle(deepLinkOption: .alert(message: message))
+        coordinator?.handle(deepLinkOption: .alert(model: model))
     }
 
     public func openLogFile() {
+        let model = DeepLinkOptionModel(value: DebugScreenConfiguration.shared.logCatcherService.logFilePath,
+                                        isRootModule: coordinator == nil)
+
         if coordinator == nil {
             configureCoordinator()
         }
 
-        let logFilePath = DebugScreenConfiguration.shared.logCatcherService.logFilePath
-        coordinator?.handle(deepLinkOption: .fileViewer(path: logFilePath))
+        coordinator?.handle(deepLinkOption: .fileViewer(model: model))
     }
 
 }

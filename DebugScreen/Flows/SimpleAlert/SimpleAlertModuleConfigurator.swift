@@ -15,12 +15,12 @@ public final class SimpleAlertModuleConfigurator {
 
     // MARK: - Public Methods
 
-    public func configure(with message: String?) -> UIAlertController? {
+    public func configure(with message: String?, _ onClose: (() -> Void)? = nil) -> UIAlertController? {
         guard let message = message else {
             return nil
         }
 
-        let alertController = configureAlertController(with: message)
+        let alertController = configureAlertController(with: message, onClose: onClose)
         return alertController
     }
 
@@ -30,12 +30,14 @@ public final class SimpleAlertModuleConfigurator {
 
 private extension SimpleAlertModuleConfigurator {
 
-    func configureAlertController(with message: String) -> UIAlertController {
+    func configureAlertController(with message: String, onClose: (() -> Void)? = nil) -> UIAlertController {
         let alertController = UIAlertController(title: nil,
                                                 message: message,
                                                 preferredStyle: .alert)
 
-        let okAction = UIAlertAction(title: L10n.Common.Actions.ok, style: .default)
+        let okAction = UIAlertAction(title: L10n.Common.Actions.ok, style: .default) { _ in
+            onClose?()
+        }
         alertController.addAction(okAction)
 
         return alertController
