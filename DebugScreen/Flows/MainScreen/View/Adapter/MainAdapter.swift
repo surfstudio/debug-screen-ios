@@ -182,6 +182,8 @@ private extension MainAdapter {
         cell.onSelectItem = { selectedItem in
             var updatedModel = model
             updatedModel.selectedItem = selectedItem
+
+            model.onSelectAction?(selectedItem)
         }
 
         return cell

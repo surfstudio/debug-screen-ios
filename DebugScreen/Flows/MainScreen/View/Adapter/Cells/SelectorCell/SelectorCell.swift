@@ -19,6 +19,7 @@ final class SelectorCell: UITableViewCell {
     // MARK: - IBOutlets
 
     @IBOutlet private weak var pickerView: UIPickerView!
+    @IBOutlet private weak var confirmButton: UIButton!
 
     // MARK: - Properties
 
@@ -27,7 +28,6 @@ final class SelectorCell: UITableViewCell {
     // MARK: - Private Properties
 
     private var values: [SelectionListItem] = []
-    private var directAction: ((SelectionListItem) -> Void)?
 
     // MARK: - UITableViewCell
 
@@ -39,7 +39,6 @@ final class SelectorCell: UITableViewCell {
     // MARK: - Methods
 
     func configure(with model: SelectionList) {
-        directAction = model.onSelectAction
         values = model.items
 
         pickerView.reloadAllComponents()
@@ -81,18 +80,6 @@ extension SelectorCell: UIPickerViewDelegate {
         return label
     }
 
-    func pickerView(_ pickerView: UIPickerView,
-                    didSelectRow row: Int,
-                    inComponent component: Int) {
-        let index = pickerView.selectedRow(inComponent: 0)
-        guard let value = values[safe: index] else {
-            return
-        }
-
-        directAction?(value)
-        onSelectItem?(value)
-    }
-
 }
 
 // MARK: - Appearance
@@ -102,11 +89,32 @@ private extension SelectorCell {
     func configureAppearance() {
         selectionStyle = .none
         configurePickerView()
+        configureConfirmButton()
     }
 
     func configurePickerView() {
         pickerView.dataSource = self
         pickerView.delegate = self
+    }
+
+    func configureConfirmButton() {
+        confirmButton.configure(type: .primary)
+        confirmButton.setTitleForAllState(L10n.Common.Actions.select)
+    }
+
+}
+
+// MARK: - Actions
+
+private extension SelectorCell {
+
+    @IBAction func selectValue(_ sender: UIButton) {
+        let index = pickerView.selectedRow(inComponent: 0)
+        guard let value = values[safe: index] else {
+            return
+        }
+
+        onSelectItem?(value)
     }
 
 }

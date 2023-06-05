@@ -42,7 +42,7 @@ Library has different components for create debug screen with functionality that
 - **FeatureToggle** - Provides toggles for activate / disable your application features
 - **SelectionList** - Allows you to implement element selection from list (using UIPickerView)
 
-Also library has ready-to-use components, can be used for builing logger section.
+Also library has ready-to-use components, can be used for building logger section.
 
 ### Services
 

@@ -17,6 +17,8 @@ internal enum L10n {
       internal static let cancel = L10n.tr("Localizable", "Common.Actions.cancel")
       /// ОК
       internal static let ok = L10n.tr("Localizable", "Common.Actions.ok")
+      /// Выбрать
+      internal static let select = L10n.tr("Localizable", "Common.Actions.select")
     }
   }
 

@@ -9,6 +9,19 @@ import UIKit
 
 extension UIButton {
 
+    func configure(type: ActionType) {
+        clipsToBounds = true
+        layer.cornerRadius = 12
+
+        titleLabel?.font = .systemFont(ofSize: 17, weight: .medium)
+        setTitleColor(type.titleColor, for: .normal)
+        setTitleColor(type.titleColor, for: .highlighted)
+        setTitleColor(type.titleColor, for: .disabled)
+
+        set(backgroundColor: type.backgroundColor, for: .normal)
+        set(backgroundColor: type.highlightedBackgroundColor, for: [.highlighted, .selected])
+    }
+
     func set(backgroundColor: UIColor, for state: UIControl.State) {
         setBackgroundImage(UIImage(color: backgroundColor), for: state)
     }

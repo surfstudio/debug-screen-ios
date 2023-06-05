@@ -8,6 +8,7 @@
 import Foundation
 
 /// Logger section catcher's toggles model
+/// Allows to enable / disable the writing informational and error messages in the log file
 final class LoggerStreamCatcherToggle: FeatureToggle {
 
     // MARK: - Properties

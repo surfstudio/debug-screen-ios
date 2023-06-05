@@ -35,14 +35,7 @@ private extension CopiedTextSectionBuilder {
     }
 
     func configureBlocks(with items: [CopiedTextItem]) -> [MainTableBlock] {
-        var blocks: [MainTableBlock] = []
-
-        items.forEach { item in
-            let block: MainTableBlock = .copiedText(model: item)
-            blocks.append(block)
-        }
-
-        return blocks
+        return items.map { .copiedText(model: $0) }
     }
 
 }

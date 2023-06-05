@@ -31,3 +31,4 @@
 
 "Common.Actions.ok" = "ОК";
 "Common.Actions.cancel" = "Отмена";
+"Common.Actions.select" = "Выбрать";

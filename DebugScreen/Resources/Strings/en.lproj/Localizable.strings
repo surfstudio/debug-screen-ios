@@ -31,3 +31,4 @@
 
 "Common.Actions.ok" = "OK";
 "Common.Actions.cancel" = "Cancel";
+"Common.Actions.select" = "Select";

@@ -29,9 +29,9 @@ final class DebugScreenActionsList: ActionsList {
 
     // MARK: - Properties
 
-    var title: String
-    var message: String?
-    var actions: [Action]
+    let title: String
+    let message: String?
+    let actions: [Action]
 
     // MARK: - Initialization
 

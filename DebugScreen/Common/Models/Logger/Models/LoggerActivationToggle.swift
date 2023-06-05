@@ -8,6 +8,7 @@
 import Foundation
 
 /// Logger section toggle model for activate writing logs process
+/// Allows to activate / deactivate logger service
 final class LoggerActivationToggle: FeatureToggle {
 
     // MARK: - Properties
