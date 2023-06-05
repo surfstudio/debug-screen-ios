@@ -52,8 +52,8 @@ private extension LoggerSectionBuilder {
             return buildStreamCatcherToggle(title: L10n.Logger.enableLogInfoMessagesTitle, id: STDOUT_FILENO)
         case .enableLogErrorsToggle:
             return buildStreamCatcherToggle(title: L10n.Logger.enableLogErrorMessagesTitle, id: STDERR_FILENO)
-        case .logFileActionsList:
-            return buildLogFileActionsList()
+        case .logFileActionList:
+            return buildLogFileActionList()
         case .logFileOpenAction:
             return buildOpenLogFileActionBlock()
         case .logFileClearAction:
@@ -71,17 +71,17 @@ private extension LoggerSectionBuilder {
         return .toggle(model: model)
     }
 
-    func buildLogFileActionsList() -> MainTableBlock {
+    func buildLogFileActionList() -> MainTableBlock {
         let actions: [LoggerAction] = [
-            configureOpenLogFileAction(with: L10n.Logger.LogFile.ActionsList.openActionTitle),
-            configureClearLogFileAction(with: L10n.Logger.LogFile.ActionsList.clearActionTitle)
+            configureOpenLogFileAction(with: L10n.Logger.LogFile.ActionList.openActionTitle),
+            configureClearLogFileAction(with: L10n.Logger.LogFile.ActionList.clearActionTitle)
         ]
 
-        let actionsList: LoggerActionsList = .init(title: L10n.Logger.LogFile.header,
+        let actionList: LoggerActionList = .init(title: L10n.Logger.LogFile.header,
                                                    message: L10n.Logger.LogFile.header,
                                                    actions: actions)
 
-        return .actionsList(model: actionsList)
+        return .actionList(model: actionList)
     }
 
     func buildOpenLogFileActionBlock() -> MainTableBlock {
@@ -96,7 +96,7 @@ private extension LoggerSectionBuilder {
 
     func configureOpenLogFileAction(with title: String) -> LoggerAction {
         let openFileAction: LoggerAction = .init(title: title,
-                                                 type: .primary) {
+                                                 style: .primary) {
             DebugScreenPresenterService.shared.openLogFile()
         }
 
@@ -105,7 +105,7 @@ private extension LoggerSectionBuilder {
 
     func configureClearLogFileAction(with title: String) -> LoggerAction {
         let clearFileAction: LoggerAction = .init(title: title,
-                                                  type: .destructive) {
+                                                  style: .destructive) {
             DebugScreenConfiguration.shared.logCatcherService.clearLogFile { isSuccess in
                 let message = isSuccess ?
                     L10n.Logger.ClearLogsAlert.success :

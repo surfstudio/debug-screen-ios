@@ -47,10 +47,17 @@
 		B237FF5D2A28CBB90095FA33 /* LoggerActivationToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237FF5C2A28CBB90095FA33 /* LoggerActivationToggle.swift */; };
 		B237FF632A2912D10095FA33 /* MainTableBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237FF622A2912D10095FA33 /* MainTableBlock.swift */; };
 		B237FF652A2913DF0095FA33 /* LoggerSectionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237FF642A2913DF0095FA33 /* LoggerSectionComponent.swift */; };
+		B252951F2A2E675B000EEDC9 /* CustomScreenModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252951E2A2E675B000EEDC9 /* CustomScreenModuleConfigurator.swift */; };
+		B25295222A2E6796000EEDC9 /* CustomScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25295212A2E6796000EEDC9 /* CustomScreenPresenter.swift */; };
+		B25295242A2E67A5000EEDC9 /* CustomScreenModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25295232A2E67A5000EEDC9 /* CustomScreenModuleInput.swift */; };
+		B25295262A2E67B0000EEDC9 /* CustomScreenModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25295252A2E67B0000EEDC9 /* CustomScreenModuleOutput.swift */; };
+		B25295282A2E73C0000EEDC9 /* DebugScreenPresentableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25295272A2E73C0000EEDC9 /* DebugScreenPresentableController.swift */; };
+		B252952A2A2E74F3000EEDC9 /* DebugScreenPresentableViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25295292A2E74F3000EEDC9 /* DebugScreenPresentableViewOutput.swift */; };
+		B252952D2A2E7751000EEDC9 /* DebugScreenPresentableViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252952C2A2E7751000EEDC9 /* DebugScreenPresentableViewInput.swift */; };
 		B2610E212A16D90600509FA1 /* FileViewerModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2610E202A16D90600509FA1 /* FileViewerModuleConfigurator.swift */; };
 		B2610E242A16DCC300509FA1 /* SimpleAlertModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2610E232A16DCC300509FA1 /* SimpleAlertModuleConfigurator.swift */; };
 		B28F97E42A271F980089C032 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97E32A271F980089C032 /* Action.swift */; };
-		B28F97E62A271FA30089C032 /* ActionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97E52A271FA30089C032 /* ActionsList.swift */; };
+		B28F97E62A271FA30089C032 /* ActionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97E52A271FA30089C032 /* ActionList.swift */; };
 		B28F97E82A271FAF0089C032 /* FeatureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97E72A271FAF0089C032 /* FeatureToggle.swift */; };
 		B28F97EA2A271FC00089C032 /* CopiedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97E92A271FC00089C032 /* CopiedText.swift */; };
 		B28F97EC2A271FF30089C032 /* SelectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97EB2A271FF30089C032 /* SelectionList.swift */; };
@@ -68,6 +75,7 @@
 		B28F98142A27E17F0089C032 /* SectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F98132A27E17F0089C032 /* SectionBuilder.swift */; };
 		B28F98172A27E2040089C032 /* LoggerAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F98162A27E2040089C032 /* LoggerAction.swift */; };
 		B28F98192A27E2920089C032 /* LoggerStreamCatcherToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F98182A27E2920089C032 /* LoggerStreamCatcherToggle.swift */; };
+		B29DB2BD2A2CAB8E008250B0 /* ActionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29DB2BC2A2CAB8D008250B0 /* ActionStyle.swift */; };
 		B2CA74DB2A1743A900E91B24 /* FileViewerModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA74DA2A1743A900E91B24 /* FileViewerModuleInput.swift */; };
 		B2CA74DD2A1743B700E91B24 /* FileViewerModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA74DC2A1743B700E91B24 /* FileViewerModuleOutput.swift */; };
 		B2CA74DF2A1743C700E91B24 /* FileViewerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA74DE2A1743C700E91B24 /* FileViewerPresenter.swift */; };
@@ -121,10 +129,17 @@
 		B237FF5C2A28CBB90095FA33 /* LoggerActivationToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerActivationToggle.swift; sourceTree = "<group>"; };
 		B237FF622A2912D10095FA33 /* MainTableBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableBlock.swift; sourceTree = "<group>"; };
 		B237FF642A2913DF0095FA33 /* LoggerSectionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSectionComponent.swift; sourceTree = "<group>"; };
+		B252951E2A2E675B000EEDC9 /* CustomScreenModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScreenModuleConfigurator.swift; sourceTree = "<group>"; };
+		B25295212A2E6796000EEDC9 /* CustomScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScreenPresenter.swift; sourceTree = "<group>"; };
+		B25295232A2E67A5000EEDC9 /* CustomScreenModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScreenModuleInput.swift; sourceTree = "<group>"; };
+		B25295252A2E67B0000EEDC9 /* CustomScreenModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScreenModuleOutput.swift; sourceTree = "<group>"; };
+		B25295272A2E73C0000EEDC9 /* DebugScreenPresentableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugScreenPresentableController.swift; sourceTree = "<group>"; };
+		B25295292A2E74F3000EEDC9 /* DebugScreenPresentableViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugScreenPresentableViewOutput.swift; sourceTree = "<group>"; };
+		B252952C2A2E7751000EEDC9 /* DebugScreenPresentableViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugScreenPresentableViewInput.swift; sourceTree = "<group>"; };
 		B2610E202A16D90600509FA1 /* FileViewerModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileViewerModuleConfigurator.swift; sourceTree = "<group>"; };
 		B2610E232A16DCC300509FA1 /* SimpleAlertModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlertModuleConfigurator.swift; sourceTree = "<group>"; };
 		B28F97E32A271F980089C032 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
-		B28F97E52A271FA30089C032 /* ActionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsList.swift; sourceTree = "<group>"; };
+		B28F97E52A271FA30089C032 /* ActionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionList.swift; sourceTree = "<group>"; };
 		B28F97E72A271FAF0089C032 /* FeatureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureToggle.swift; sourceTree = "<group>"; };
 		B28F97E92A271FC00089C032 /* CopiedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopiedText.swift; sourceTree = "<group>"; };
 		B28F97EB2A271FF30089C032 /* SelectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionList.swift; sourceTree = "<group>"; };
@@ -142,6 +157,7 @@
 		B28F98132A27E17F0089C032 /* SectionBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionBuilder.swift; sourceTree = "<group>"; };
 		B28F98162A27E2040089C032 /* LoggerAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerAction.swift; sourceTree = "<group>"; };
 		B28F98182A27E2920089C032 /* LoggerStreamCatcherToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerStreamCatcherToggle.swift; sourceTree = "<group>"; };
+		B29DB2BC2A2CAB8D008250B0 /* ActionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionStyle.swift; sourceTree = "<group>"; };
 		B2CA74DA2A1743A900E91B24 /* FileViewerModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerModuleInput.swift; sourceTree = "<group>"; };
 		B2CA74DC2A1743B700E91B24 /* FileViewerModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerModuleOutput.swift; sourceTree = "<group>"; };
 		B2CA74DE2A1743C700E91B24 /* FileViewerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerPresenter.swift; sourceTree = "<group>"; };
@@ -293,6 +309,7 @@
 		A4BDF48B28512F7700651C61 /* Base Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B252952B2A2E7730000EEDC9 /* PresentableController */,
 				A4BDF48D28512F7700651C61 /* BaseCoordinator.swift */,
 				A4BDF48C28512F7700651C61 /* DeepLinkOption.swift */,
 			);
@@ -315,6 +332,7 @@
 		A4BDF49F28512FAA00651C61 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				B252951C2A2E60D9000EEDC9 /* CustomScreen */,
 				B2610E1F2A16D90600509FA1 /* FileViewer */,
 				A4BDF4A028512FAA00651C61 /* MainScreen */,
 				B2610E222A16DCAC00509FA1 /* SimpleAlert */,
@@ -411,6 +429,7 @@
 		B237FF602A29126F0095FA33 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B29DB2BC2A2CAB8D008250B0 /* ActionStyle.swift */,
 				B237FF622A2912D10095FA33 /* MainTableBlock.swift */,
 				A4D337552863A7AA002328F2 /* TableSection.swift */,
 			);
@@ -444,6 +463,43 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		B252951C2A2E60D9000EEDC9 /* CustomScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B252951D2A2E6105000EEDC9 /* Configurator */,
+				B25295202A2E677F000EEDC9 /* Presenter */,
+			);
+			path = CustomScreen;
+			sourceTree = "<group>";
+		};
+		B252951D2A2E6105000EEDC9 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				B252951E2A2E675B000EEDC9 /* CustomScreenModuleConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		B25295202A2E677F000EEDC9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B25295212A2E6796000EEDC9 /* CustomScreenPresenter.swift */,
+				B25295232A2E67A5000EEDC9 /* CustomScreenModuleInput.swift */,
+				B25295252A2E67B0000EEDC9 /* CustomScreenModuleOutput.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B252952B2A2E7730000EEDC9 /* PresentableController */ = {
+			isa = PBXGroup;
+			children = (
+				B25295272A2E73C0000EEDC9 /* DebugScreenPresentableController.swift */,
+				B252952C2A2E7751000EEDC9 /* DebugScreenPresentableViewInput.swift */,
+				B25295292A2E74F3000EEDC9 /* DebugScreenPresentableViewOutput.swift */,
+			);
+			path = PresentableController;
+			sourceTree = "<group>";
+		};
 		B2610E1F2A16D90600509FA1 /* FileViewer */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,7 +522,7 @@
 			isa = PBXGroup;
 			children = (
 				B28F97E32A271F980089C032 /* Action.swift */,
-				B28F97E52A271FA30089C032 /* ActionsList.swift */,
+				B28F97E52A271FA30089C032 /* ActionList.swift */,
 				B28F97E92A271FC00089C032 /* CopiedText.swift */,
 				B28F97E72A271FAF0089C032 /* FeatureToggle.swift */,
 				B28F97EB2A271FF30089C032 /* SelectionList.swift */,
@@ -730,19 +786,23 @@
 				A4BDF49428512F7700651C61 /* NSObject.swift in Sources */,
 				A4D337562863A7AA002328F2 /* TableSection.swift in Sources */,
 				B28F97FB2A27315B0089C032 /* UIButton.swift in Sources */,
-				B28F97E62A271FA30089C032 /* ActionsList.swift in Sources */,
+				B28F97E62A271FA30089C032 /* ActionList.swift in Sources */,
 				A4BDF49C28512F7700651C61 /* Presentable.swift in Sources */,
 				B28F97F72A27288D0089C032 /* ButtonCellModel.swift in Sources */,
+				B25295222A2E6796000EEDC9 /* CustomScreenPresenter.swift in Sources */,
 				B28F98192A27E2920089C032 /* LoggerStreamCatcherToggle.swift in Sources */,
 				A4BDF49E28512F7700651C61 /* Coordinator.swift in Sources */,
 				B2610E212A16D90600509FA1 /* FileViewerModuleConfigurator.swift in Sources */,
 				A4BDF4C228512FAA00651C61 /* MainViewInput.swift in Sources */,
 				A4BDF4C628512FAA00651C61 /* MainAdapter.swift in Sources */,
+				B252951F2A2E675B000EEDC9 /* CustomScreenModuleConfigurator.swift in Sources */,
 				A4BDF4BB28512FAA00651C61 /* MainModulePresenter.swift in Sources */,
+				B25295282A2E73C0000EEDC9 /* DebugScreenPresentableController.swift in Sources */,
 				B28F97F32A2728560089C032 /* ButtonCell.swift in Sources */,
 				A4BDF49628512F7700651C61 /* UIViewController.swift in Sources */,
 				B28F98142A27E17F0089C032 /* SectionBuilder.swift in Sources */,
 				B28F98122A27E0EE0089C032 /* LoggerSectionBuilder.swift in Sources */,
+				B252952D2A2E7751000EEDC9 /* DebugScreenPresentableViewInput.swift in Sources */,
 				B237FF5D2A28CBB90095FA33 /* LoggerActivationToggle.swift in Sources */,
 				B2CA74E82A175D7700E91B24 /* FileViewerViewController.swift in Sources */,
 				A4BDF49528512F7700651C61 /* UITableView.swift in Sources */,
@@ -750,17 +810,21 @@
 				B2CA74DF2A1743C700E91B24 /* FileViewerPresenter.swift in Sources */,
 				A4BDF4C428512FAA00651C61 /* MainViewOutput.swift in Sources */,
 				A4BDF49A28512F7700651C61 /* DeepLinkOption.swift in Sources */,
+				B252952A2A2E74F3000EEDC9 /* DebugScreenPresentableViewOutput.swift in Sources */,
 				A4BDF49B28512F7700651C61 /* BaseCoordinator.swift in Sources */,
 				A4BDF49228512F7700651C61 /* MainRouter.swift in Sources */,
 				B237FF632A2912D10095FA33 /* MainTableBlock.swift in Sources */,
+				B25295262A2E67B0000EEDC9 /* CustomScreenModuleOutput.swift in Sources */,
 				A4BDF4D528512FB500651C61 /* DebugScreenConfiguration.swift in Sources */,
 				B28F97FF2A2753120089C032 /* SelectorCell.swift in Sources */,
+				B29DB2BD2A2CAB8E008250B0 /* ActionStyle.swift in Sources */,
 				B2CA74DB2A1743A900E91B24 /* FileViewerModuleInput.swift in Sources */,
 				A47BDB49286A13AC002326B8 /* Strings.swift in Sources */,
 				B28F98172A27E2040089C032 /* LoggerAction.swift in Sources */,
 				A4BDF4D128512FB000651C61 /* DebugScreenPresenterService.swift in Sources */,
 				B28F98062A27B30D0089C032 /* CopiedTextCell.swift in Sources */,
 				A4BDF4BA28512FAA00651C61 /* MainModuleOutput.swift in Sources */,
+				B25295242A2E67A5000EEDC9 /* CustomScreenModuleInput.swift in Sources */,
 				A4BDF49D28512F7700651C61 /* Router.swift in Sources */,
 				A4BDF4B928512FAA00651C61 /* MainModuleInput.swift in Sources */,
 				A4BDF4C828512FAA00651C61 /* DebugScreenCoordinator.swift in Sources */,

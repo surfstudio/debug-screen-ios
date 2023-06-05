@@ -59,7 +59,7 @@ private extension MainViewController {
     func configureTableView() {
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.separatorStyle = .none
-        tableView.contentInset = .init(top: 0,
+        tableView.contentInset = .init(top: 10,
                                        left: 0,
                                        bottom: 32,
                                        right: 0)
@@ -67,8 +67,11 @@ private extension MainViewController {
 
     func configureAdapter() {
         adapter = MainAdapter(tableView: tableView)
-        adapter?.onOpenActionsList = { [weak self] model in
-            self?.output?.didTapActionsList(model: model)
+        adapter?.onOpenActionList = { [weak self] model in
+            self?.output?.didTapActionList(model: model)
+        }
+        adapter?.onOpenScreenAction = { [weak self] view in
+            self?.output?.didTapOpenScreenAction(view: view)
         }
         adapter?.onSelectableTextTap = { [weak self] model in
             self?.output?.didTapSelectableText(model: model)

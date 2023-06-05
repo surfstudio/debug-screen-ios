@@ -16,8 +16,8 @@
 "Logger.enableLogInfoMessagesTitle" = "Info";
 "Logger.enableLogErrorMessagesTitle" = "Errors";
 "Logger.LogFile.header" = "Logs file";
-"Logger.LogFile.ActionsList.openActionTitle" = "Open";
-"Logger.LogFile.ActionsList.clearActionTitle" = "Clear";
+"Logger.LogFile.ActionList.openActionTitle" = "Open";
+"Logger.LogFile.ActionList.clearActionTitle" = "Clear";
 "Logger.openLogFileActionTitle" = "Open logs file";
 "Logger.clearLogFileActionTitle" = "Clear logs file";
 "Logger.ClearLogsAlert.success" = "Clear complete";

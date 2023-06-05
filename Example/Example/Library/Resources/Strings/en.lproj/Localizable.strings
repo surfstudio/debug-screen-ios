@@ -11,14 +11,13 @@
 "Actions.header" = "Actions";
 "Actions.secondaryTitle" = "Secondary";
 "Actions.destructiveTitle" = "Destructive";
+"Actions.openScreenTitle" = "Open Screen";
 
-// MARK: - ActionsList
+// MARK: - ActionList
 
-"ActionsList.title" = "Actions list";
-"ActionsList.message" = "Choose action";
-"ActionsList.firstActionTitle" = "First";
-"ActionsList.secondActionTitle" = "Second";
-"ActionsList.thirdActionTitle" = "Third";
+"ActionList.title" = "Action list";
+"ActionList.message" = "Choose action";
+"ActionList.defaultActionTitle" = "Default";
 
 // MARK: - FeatureToggles
 
@@ -40,3 +39,8 @@
 "CopiedText.firstTextTitle" = "SSH key";
 "CopiedText.secondTextTitle" = "Token";
 "CopiedText.thirdTextTitle" = "Some data for copy";
+
+// MARK: - Destination Controller
+
+"DestinationController.title" = "Destination controller";
+"DestinationController.contentText" = "This is new screen!";

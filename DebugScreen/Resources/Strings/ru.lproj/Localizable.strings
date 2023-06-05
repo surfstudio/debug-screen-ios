@@ -16,8 +16,8 @@
 "Logger.enableLogInfoMessagesTitle" = "Информация";
 "Logger.enableLogErrorMessagesTitle" = "Ошибки";
 "Logger.LogFile.header" = "Файл логов";
-"Logger.LogFile.ActionsList.openActionTitle" = "Открыть";
-"Logger.LogFile.ActionsList.clearActionTitle" = "Очистить";
+"Logger.LogFile.ActionList.openActionTitle" = "Открыть";
+"Logger.LogFile.ActionList.clearActionTitle" = "Очистить";
 "Logger.openLogFileActionTitle" = "Открыть файл логов";
 "Logger.clearLogFileActionTitle" = "Очистить файл логов";
 "Logger.ClearLogsAlert.success" = "Очистка выполнена";

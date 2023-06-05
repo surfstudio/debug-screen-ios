@@ -44,8 +44,11 @@ private extension DebugScreenCoordinator {
         output.didModuleClosed = { [weak self] in
             self?.router.dismissModule()
         }
-        output.onActionsListShow = { [weak self] model in
-            self?.showActionsList(model: model)
+        output.onActionListShow = { [weak self] model in
+            self?.showActionList(model: model)
+        }
+        output.onOpenScreenAction = { [weak self] view in
+            self?.openUserScreen(view)
         }
         output.onAlertShow = { [weak self] message in
             self?.showAlert(with: message)
@@ -56,16 +59,17 @@ private extension DebugScreenCoordinator {
         router.present(view)
     }
 
-    func showActionsList(model: ActionsList) {
+    func showActionList(model: ActionList) {
         let actionsSheet = UIAlertController(title: nil,
                                              message: model.message,
                                              preferredStyle: .actionSheet)
 
-        model.actions.forEach { actionModel in
-            let action = UIAlertAction(title: actionModel.title, style: .destructive) { _ in
-                actionModel.block?()
+        for item in model.actions {
+            guard let actionModel = item as? (any Action) else {
+                continue
             }
 
+            let action = configureAlertAction(with: actionModel)
             actionsSheet.addAction(action)
         }
 
@@ -98,6 +102,29 @@ private extension DebugScreenCoordinator {
             self?.completionHandler?()
         }
         router.present(view)
+    }
+
+    func openUserScreen(_ screen: UIViewController) {
+        let view = UINavigationController(rootViewController: screen)
+        view.modalPresentationStyle = .overFullScreen
+        router.present(view)
+    }
+
+    func configureAlertAction(with model: any Action) -> UIAlertAction {
+        let style: UIAlertAction.Style = model.style == .destructive ? .destructive : .default
+        let action = UIAlertAction(title: model.title, style: style) { [weak self] _ in
+            guard
+                model.resultType == UIViewController.self,
+                let view = model.block?() as? UIViewController
+            else {
+                _ = model.block?()
+                return
+            }
+
+            self?.openUserScreen(view)
+        }
+
+        return action
     }
 
 }

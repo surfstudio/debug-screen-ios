@@ -59,7 +59,7 @@ private extension AppDelegate {
         let loggerSection = TableSection.logger(with: [.loggerActivationToggle,
                                                        .enableLogInfoToggle,
                                                        .enableLogErrorsToggle,
-                                                       .logFileActionsList,
+                                                       .logFileActionList,
                                                        .logFileOpenAction,
                                                        .logFileClearAction])
 

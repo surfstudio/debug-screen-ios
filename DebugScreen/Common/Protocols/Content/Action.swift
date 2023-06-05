@@ -5,64 +5,21 @@
 //  Created by Ilya Klimenyuk on 31.05.2023.
 //
 
-import UIKit
+/// Protocol for all debug screen actions.
+/// All instances, that implements this protocol, can be grouped into `ActionList`
+public protocol Action: ActionListItem {
+    associatedtype ActionResult
 
-/// Protocol for simple action
-public protocol Action {
     /// Action's name, that will be displayed on button title
     var title: String { get }
-    /// Action type
-    var type: ActionType { get }
-    /// Block of code, that will be performed on action select
-    var block: (() -> Void)? { get }
+    /// Action style
+    var style: ActionStyle { get }
+    /// Block of code, that will be performed on action button tap
+    var block: (() -> ActionResult)? { get }
 }
 
-/// Action type, that affects on action button appearance
-public enum ActionType {
-    /// Primary action. It's default type for actions list button
-    case primary
-    /// Secondary action
-    case secondary
-    /// Destructive action (for example, clear cookies)
-    case destructive
-}
-
-extension ActionType {
-
-    /// Action button title color
-    var titleColor: UIColor {
-        switch self {
-        case .primary:
-            return Colors.Buttons.Primary.text
-        case .destructive:
-            return Colors.Buttons.Destructive.text
-        case .secondary:
-            return Colors.Buttons.Secondary.text
-        }
+extension Action {
+    var resultType: ActionResult.Type {
+        return ActionResult.self
     }
-
-    /// Action button normal background color
-    var backgroundColor: UIColor {
-        switch self {
-        case .primary:
-            return Colors.Buttons.Primary.normalBackground
-        case .destructive:
-            return Colors.Buttons.Destructive.normalBackground
-        case .secondary:
-            return Colors.Buttons.Secondary.normalBackground
-        }
-    }
-
-    /// Action button highlighted and selected color
-    var highlightedBackgroundColor: UIColor {
-        switch self {
-        case .primary:
-            return Colors.Buttons.Primary.highlightedBackground
-        case .destructive:
-            return Colors.Buttons.Destructive.highlightedBackground
-        case .secondary:
-            return Colors.Buttons.Secondary.highlightedBackground
-        }
-    }
-
 }

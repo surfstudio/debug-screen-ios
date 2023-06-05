@@ -13,7 +13,8 @@ final class MainModulePresenter: MainModuleOutput {
     // MARK: - MainModuleOutput
 
     var didModuleClosed: (() -> Void)?
-    var onActionsListShow: ((ActionsList) -> Void)?
+    var onActionListShow: ((ActionList) -> Void)?
+    var onOpenScreenAction: ((UIViewController) -> Void)?
     var onAlertShow: ((String) -> Void)?
     var didModuleDismissed: (() -> Void)?
 
@@ -41,8 +42,12 @@ extension MainModulePresenter: MainViewOutput {
         view?.setupInitialState(sections: DebugScreenConfiguration.shared.sections)
     }
 
-    func didTapActionsList(model: ActionsList) {
-        onActionsListShow?(model)
+    func didTapActionList(model: ActionList) {
+        onActionListShow?(model)
+    }
+
+    func didTapOpenScreenAction(view: UIViewController) {
+        onOpenScreenAction?(view)
     }
 
     func didTapSelectableText(model: CopiedText) {

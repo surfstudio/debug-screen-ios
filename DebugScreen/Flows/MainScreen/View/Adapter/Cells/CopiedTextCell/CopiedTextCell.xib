@@ -26,6 +26,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="KrY-Mq-Tn1" secondAttribute="bottom" constant="16" id="HMA-YY-K56"/>
+                    <constraint firstItem="KrY-Mq-Tn1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" priority="750" id="Td1-i3-aFv"/>
                     <constraint firstAttribute="trailing" secondItem="KrY-Mq-Tn1" secondAttribute="trailing" constant="16" id="hln-GV-Dwk"/>
                     <constraint firstItem="KrY-Mq-Tn1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="nnm-bB-Z00"/>
                     <constraint firstItem="KrY-Mq-Tn1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="sv0-GO-hXi"/>

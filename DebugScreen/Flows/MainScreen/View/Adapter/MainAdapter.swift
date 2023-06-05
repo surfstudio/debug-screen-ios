@@ -12,12 +12,13 @@ final class MainAdapter: NSObject {
     // MARK: - Constants
 
     private enum Constants {
-        static let sectionFooterHeight: CGFloat = 4
+        static let sectionFooterHeight: CGFloat = 10
     }
 
     // MARK: - Properties
 
-    var onOpenActionsList: ((ActionsList) -> Void)?
+    var onOpenActionList: ((ActionList) -> Void)?
+    var onOpenScreenAction: ((UIViewController) -> Void)?
     var onSelectableTextTap: ((CopiedText) -> Void)?
 
     // MARK: - Private Properties
@@ -64,12 +65,24 @@ extension MainAdapter: UITableViewDataSource {
 
         switch block {
         case .action(let model):
-            let cellModel = ButtonCellModel(title: model.title, actionType: model.type)
-            return configureButtonCell(tableView, indexPath: indexPath, model: cellModel, buttonAction: model.block)
-        case .actionsList(let model):
+            let cellModel = ButtonCellModel(title: model.title, actionStyle: model.style)
+            let buttonAction: (() -> Void)? = { [weak self] in
+                guard
+                    model.resultType == UIViewController.self,
+                    let view = model.block?() as? UIViewController
+                else {
+                    _ = model.block?()
+                    return
+                }
+
+                self?.onOpenScreenAction?(view)
+            }
+
+            return configureButtonCell(tableView, indexPath: indexPath, model: cellModel, buttonAction: buttonAction)
+        case .actionList(let model):
             let cellModel = ButtonCellModel(title: model.title)
             let buttonAction: (() -> Void)? = { [weak self] in
-                self?.onOpenActionsList?(model)
+                self?.onOpenActionList?(model)
             }
 
             return configureButtonCell(tableView, indexPath: indexPath, model: cellModel, buttonAction: buttonAction)

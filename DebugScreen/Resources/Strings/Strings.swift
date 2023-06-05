@@ -44,11 +44,11 @@ internal enum L10n {
     internal enum LogFile {
       /// Файл логов
       internal static let header = L10n.tr("Localizable", "Logger.LogFile.header")
-      internal enum ActionsList {
+      internal enum ActionList {
         /// Очистить
-        internal static let clearActionTitle = L10n.tr("Localizable", "Logger.LogFile.ActionsList.clearActionTitle")
+        internal static let clearActionTitle = L10n.tr("Localizable", "Logger.LogFile.ActionList.clearActionTitle")
         /// Открыть
-        internal static let openActionTitle = L10n.tr("Localizable", "Logger.LogFile.ActionsList.openActionTitle")
+        internal static let openActionTitle = L10n.tr("Localizable", "Logger.LogFile.ActionList.openActionTitle")
       }
     }
   }
