@@ -200,28 +200,22 @@ However, they will still be displayed in the Xcode console.
 <details>
 <summary>Details</summary>
     
-Allows you to perform some action on button tap. Actions can be Void or non-Void. 
-To implement Void action set `block` property result type to `Void`:
- ```swift
-let block: (() -> Void)?
- ```
+Allows you to perform some action on button tap.
 
-To implement non-void action, set `block` result type to type you need:
- ```swift
-let block: (() -> UIViewController)?
- ```
-
-If you want to open some screen on action buttop tap, just create model, that implements `Action` protocol with `UIViewController` action block result type. Also you can add non-void actions into actions list.
+If you want to open custom screen on action buttop tap, your view controller must be inherited by `DebugScreenPresentableController`. Only this way it can be presented.
+Library present custom screen on `overFullScreen` presentation style. For present some screen call function `showCustomScreen`:
+```swift
+let view = DestinationViewController()
+DebugScreenPresenterService.shared.showCustomScreen(view)
+```
 
 For using it you'll need to do next:
 - create instance, that implements `Action` protocol (it will be model of your action)
 
 ```swift
 import DebugScreen
-import UIKit
 
-/// Model of default screen action
-final class DefaultAction: Action {
+final class DebugScreenAction: Action {
 
     // MARK: - Properties
 
@@ -238,28 +232,6 @@ final class DefaultAction: Action {
     }
 
 }
-
-/// Model of open screen action
-final class OpenScreenAction: Action {
-
-    // MARK: - Properties
-
-    let title: String
-    let style: ActionStyle
-    let block: (() -> UIViewController)?
-
-    // MARK: - Initialization
-
-    init(title: String,
-         style: ActionStyle = .primary,
-         block: (() -> UIViewController)?) {
-        self.title = title
-        self.style = style
-        self.block = block
-    }
-
-}
-
 ```
     - `title` - Text, that will be displayed on action button
     - `style` - Action style, that affects on the action button appearance (can be primary, secondary, destructive). Default value is `primary`.
@@ -293,7 +265,7 @@ final class ActionsSectionBuilder: SectionBuilder {
   
     // MARK: - Private Methods
   
-    private func getAction(style: ActionStyle) -> DefaultAction {
+    private func getAction(style: ActionStyle) -> DebugScreenAction {
         let title = style == .secondary ? L10n.Actions.secondaryTitle : L10n.Actions.destructiveTitle
         let actionName = style == .secondary ? "Secondary" : "Destructive"
 
@@ -302,11 +274,12 @@ final class ActionsSectionBuilder: SectionBuilder {
         }
 
         return action
-     }
-     
-     private func getOpenScreenAction() -> OpenScreenAction {
-        let action: OpenScreenAction = .init(title: L10n.Actions.openScreenTitle) {
-            return DestinationViewController()
+    }
+
+    private func getOpenScreenAction() -> DebugScreenAction {
+        let action: DebugScreenAction = .init(title: L10n.Actions.openScreenTitle) {
+            let view = DestinationViewController()
+            DebugScreenPresenterService.shared.showCustomScreen(view)
         }
         return action
     }
@@ -328,18 +301,18 @@ For using it you'll need to do next:
 
 ```swift
 import DebugScreen
-  
+
 final class DebugScreenActionList: ActionList {
 
     // MARK: - Properties
 
     let title: String
     let message: String?
-    let actions: [ActionListItem]
+    let actions: [Action]
 
     // MARK: - Initialization
 
-    init(title: String, message: String?, actions: [ActionListItem]) {
+    init(title: String, message: String?, actions: [Action]) {
         self.title = title
         self.message = message
         self.actions = actions
@@ -384,15 +357,15 @@ final class ActionsSectionBuilder: SectionBuilder {
         return actionsList
     }
 
-    private func getActionListModels() -> [ActionListItem] {
+    private func getActionListModels() -> [Action] {
         let openScreenAction = getOpenScreenAction()
 
-        let defaultAction: DefaultAction = .init(title: L10n.ActionsList.defaultActionTitle) {
+        let defaultAction: DebugScreenAction = .init(title: L10n.ActionList.defaultActionTitle) {
             debugPrint("✅ Default action complete")
         }
 
-        let destructiveAction: DefaultAction = .init(title: L10n.Actions.destructiveTitle,
-                                                style: .destructive) {
+        let destructiveAction: DebugScreenAction = .init(title: L10n.Actions.destructiveTitle,
+                                                         style: .destructive) {
             debugPrint("✅ Destructive action complete")
         }
 
