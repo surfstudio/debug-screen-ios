@@ -5,9 +5,10 @@
 //  Created by Ilya Klimenyuk on 04.06.2023.
 //
 
+import DebugScreen
 import UIKit
 
-final class DestinationViewController: UIViewController {
+final class DestinationViewController: DebugScreenPresentableController {
 
     // MARK: - Private Properties
 

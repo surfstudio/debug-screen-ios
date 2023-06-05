@@ -13,11 +13,11 @@ final class DebugScreenActionList: ActionList {
 
     let title: String
     let message: String?
-    let actions: [ActionListItem]
+    let actions: [Action]
 
     // MARK: - Initialization
 
-    init(title: String, message: String?, actions: [ActionListItem]) {
+    init(title: String, message: String?, actions: [Action]) {
         self.title = title
         self.message = message
         self.actions = actions

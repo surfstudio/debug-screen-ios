@@ -37,20 +37,21 @@ final class ActionsSectionBuilder: SectionBuilder {
 
 private extension ActionsSectionBuilder {
 
-    func getAction(style: ActionStyle) -> DefaultAction {
+    func getAction(style: ActionStyle) -> DebugScreenAction {
         let title = style == .secondary ? L10n.Actions.secondaryTitle : L10n.Actions.destructiveTitle
         let actionName = style == .secondary ? "Secondary" : "Destructive"
 
-        let action: DefaultAction = .init(title: title, style: style) {
+        let action: DebugScreenAction = .init(title: title, style: style) {
             debugPrint("✅ \(actionName) action complete")
         }
 
         return action
     }
 
-    func getOpenScreenAction() -> OpenScreenAction {
-        let action: OpenScreenAction = .init(title: L10n.Actions.openScreenTitle) {
-            return DestinationViewController()
+    func getOpenScreenAction() -> DebugScreenAction {
+        let action: DebugScreenAction = .init(title: L10n.Actions.openScreenTitle) {
+            let view = DestinationViewController()
+            DebugScreenPresenterService.shared.showCustomScreen(view)
         }
         return action
     }
@@ -64,15 +65,15 @@ private extension ActionsSectionBuilder {
         return actionList
     }
 
-    func getActionListModels() -> [ActionListItem] {
+    func getActionListModels() -> [Action] {
         let openScreenAction = getOpenScreenAction()
 
-        let defaultAction: DefaultAction = .init(title: L10n.ActionList.defaultActionTitle) {
+        let defaultAction: DebugScreenAction = .init(title: L10n.ActionList.defaultActionTitle) {
             debugPrint("✅ Default action complete")
         }
 
-        let destructiveAction: DefaultAction = .init(title: L10n.Actions.destructiveTitle,
-                                                     style: .destructive) {
+        let destructiveAction: DebugScreenAction = .init(title: L10n.Actions.destructiveTitle,
+                                                         style: .destructive) {
             debugPrint("✅ Destructive action complete")
         }
 
