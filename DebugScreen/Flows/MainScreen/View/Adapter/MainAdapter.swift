@@ -18,7 +18,6 @@ final class MainAdapter: NSObject {
     // MARK: - Properties
 
     var onOpenActionList: ((ActionList) -> Void)?
-    var onOpenScreenAction: ((UIViewController) -> Void)?
     var onSelectableTextTap: ((CopiedText) -> Void)?
 
     // MARK: - Private Properties
@@ -66,16 +65,8 @@ extension MainAdapter: UITableViewDataSource {
         switch block {
         case .action(let model):
             let cellModel = ButtonCellModel(title: model.title, actionStyle: model.style)
-            let buttonAction: (() -> Void)? = { [weak self] in
-                guard
-                    model.resultType == UIViewController.self,
-                    let view = model.block?() as? UIViewController
-                else {
-                    _ = model.block?()
-                    return
-                }
-
-                self?.onOpenScreenAction?(view)
+            let buttonAction: (() -> Void)? = {
+                model.block?()
             }
 
             return configureButtonCell(tableView, indexPath: indexPath, model: cellModel, buttonAction: buttonAction)

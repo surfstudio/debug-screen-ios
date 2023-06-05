@@ -10,7 +10,6 @@ import UIKit
 protocol MainViewOutput {
     func viewLoaded()
     func didTapActionList(model: ActionList)
-    func didTapOpenScreenAction(view: UIViewController)
     func didTapSelectableText(model: CopiedText)
     func didTapCloseButton()
 }

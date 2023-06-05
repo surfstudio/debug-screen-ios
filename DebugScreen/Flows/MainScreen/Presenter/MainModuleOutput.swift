@@ -10,8 +10,6 @@ import UIKit
 protocol MainModuleOutput: AnyObject {
     /// Call then open action list
     var onActionListShow: ((ActionList) -> Void)? { get set }
-    /// Call then open another view controller
-    var onOpenScreenAction: ((UIViewController) -> Void)? { get set }
     /// Call then show alert with text
     var onAlertShow: ((String) -> Void)? { get set }
     /// Call then close module

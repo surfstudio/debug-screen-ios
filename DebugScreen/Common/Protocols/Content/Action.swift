@@ -7,19 +7,11 @@
 
 /// Protocol for all debug screen actions.
 /// All instances, that implements this protocol, can be grouped into `ActionList`
-public protocol Action: ActionListItem {
-    associatedtype ActionResult
-
+public protocol Action {
     /// Action's name, that will be displayed on button title
     var title: String { get }
     /// Action style
     var style: ActionStyle { get }
     /// Block of code, that will be performed on action button tap
-    var block: (() -> ActionResult)? { get }
-}
-
-extension Action {
-    var resultType: ActionResult.Type {
-        return ActionResult.self
-    }
+    var block: (() -> Void)? { get }
 }

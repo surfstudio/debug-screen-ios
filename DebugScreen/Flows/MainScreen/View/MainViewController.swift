@@ -70,9 +70,6 @@ private extension MainViewController {
         adapter?.onOpenActionList = { [weak self] model in
             self?.output?.didTapActionList(model: model)
         }
-        adapter?.onOpenScreenAction = { [weak self] view in
-            self?.output?.didTapOpenScreenAction(view: view)
-        }
         adapter?.onSelectableTextTap = { [weak self] model in
             self?.output?.didTapSelectableText(model: model)
         }

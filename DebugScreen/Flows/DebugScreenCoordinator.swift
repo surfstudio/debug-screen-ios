@@ -27,9 +27,15 @@ final class DebugScreenCoordinator: BaseCoordinator {
     override func handle(deepLinkOption option: DeepLinkOption) {
         switch option {
         case .alert(let model):
-            showAlert(with: model.value, isRoot: model.isRootModule)
+            showAlert(with: model.value as? String, isRoot: model.isRootModule)
+        case .customScreen(let model):
+            if let view = model.value as? DebugScreenPresentableController {
+                showCustomScreen(screen: view, isRoot: model.isRootModule)
+            }
         case .fileViewer(let model):
-            showFile(with: model.value, isRoot: model.isRootModule)
+            if let filePath = model.value as? String {
+                showFile(with: filePath, isRoot: model.isRootModule)
+            }
         }
     }
 
@@ -47,9 +53,6 @@ private extension DebugScreenCoordinator {
         output.onActionListShow = { [weak self] model in
             self?.showActionList(model: model)
         }
-        output.onOpenScreenAction = { [weak self] view in
-            self?.openUserScreen(view)
-        }
         output.onAlertShow = { [weak self] message in
             self?.showAlert(with: message)
         }
@@ -64,12 +67,8 @@ private extension DebugScreenCoordinator {
                                              message: model.message,
                                              preferredStyle: .actionSheet)
 
-        for item in model.actions {
-            guard let actionModel = item as? (any Action) else {
-                continue
-            }
-
-            let action = configureAlertAction(with: actionModel)
+        model.actions.forEach { model in
+            let action = configureActionSheetItem(with: model)
             actionsSheet.addAction(action)
         }
 
@@ -104,24 +103,23 @@ private extension DebugScreenCoordinator {
         router.present(view)
     }
 
-    func openUserScreen(_ screen: UIViewController) {
-        let view = UINavigationController(rootViewController: screen)
-        view.modalPresentationStyle = .overFullScreen
-        router.present(view)
-    }
-
-    func configureAlertAction(with model: any Action) -> UIAlertAction {
-        let style: UIAlertAction.Style = model.style == .destructive ? .destructive : .default
-        let action = UIAlertAction(title: model.title, style: style) { [weak self] _ in
-            guard
-                model.resultType == UIViewController.self,
-                let view = model.block?() as? UIViewController
-            else {
-                _ = model.block?()
+    func showCustomScreen(screen: DebugScreenPresentableController, isRoot: Bool = false) {
+        let (view, output) = CustomScreenModuleConfigurator().configure(with: screen)
+        output.didModuleDismissed = { [weak self] in
+            guard isRoot else {
                 return
             }
 
-            self?.openUserScreen(view)
+            self?.completionHandler?()
+        }
+
+        router.present(view)
+    }
+
+    func configureActionSheetItem(with model: any Action) -> UIAlertAction {
+        let style: UIAlertAction.Style = model.style == .destructive ? .destructive : .default
+        let action = UIAlertAction(title: model.title, style: style) { _ in
+            model.block?()
         }
 
         return action

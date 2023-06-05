@@ -5,7 +5,7 @@
 //  Created by Anton Shelar on 02.11.2020.
 //
 
-import Foundation
+import UIKit
 
 public final class DebugScreenPresenterService {
 
@@ -40,6 +40,16 @@ public final class DebugScreenPresenterService {
         }
 
         coordinator?.handle(deepLinkOption: .alert(model: model))
+    }
+
+    public func showCustomScreen(_ view: DebugScreenPresentableController) {
+        let model = DeepLinkOptionModel(value: view, isRootModule: coordinator == nil)
+
+        if coordinator == nil {
+            configureCoordinator()
+        }
+
+        coordinator?.handle(deepLinkOption: .customScreen(model: model))
     }
 
     public func openLogFile() {

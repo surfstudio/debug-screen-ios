@@ -8,7 +8,7 @@
 /// Debug screen main table blocks types
 public enum MainTableBlock {
     /// Block with action button
-    case action(model: any Action)
+    case action(model: Action)
     /// Block with action list button
     case actionList(model: ActionList)
     /// Block with CopiedText instance, whose value is copied when pressed

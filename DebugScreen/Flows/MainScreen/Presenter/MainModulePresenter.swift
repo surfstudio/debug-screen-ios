@@ -14,7 +14,6 @@ final class MainModulePresenter: MainModuleOutput {
 
     var didModuleClosed: (() -> Void)?
     var onActionListShow: ((ActionList) -> Void)?
-    var onOpenScreenAction: ((UIViewController) -> Void)?
     var onAlertShow: ((String) -> Void)?
     var didModuleDismissed: (() -> Void)?
 
@@ -44,10 +43,6 @@ extension MainModulePresenter: MainViewOutput {
 
     func didTapActionList(model: ActionList) {
         onActionListShow?(model)
-    }
-
-    func didTapOpenScreenAction(view: UIViewController) {
-        onOpenScreenAction?(view)
     }
 
     func didTapSelectableText(model: CopiedText) {
