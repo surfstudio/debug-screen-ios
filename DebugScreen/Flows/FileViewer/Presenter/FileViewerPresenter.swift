@@ -15,6 +15,10 @@ final class FileViewerPresenter: FileViewerModuleOutput {
         static let numberOfPreviewItems = 1
     }
 
+    // MARK: - MainModuleOutput
+
+    var didModuleDismissed: (() -> Void)?
+
     // MARK: - Properties
 
     weak var view: FileViewerViewInput?
@@ -30,6 +34,12 @@ final class FileViewerPresenter: FileViewerModuleOutput {
 
     init(filePath: String) {
         self.filePath = filePath
+    }
+
+    // MARK: - Deinitialization
+
+    deinit {
+        didModuleDismissed?()
     }
 
 }

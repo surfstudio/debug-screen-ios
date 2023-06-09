@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		904A3C4A28E20E8A00844715 /* SelectableTextProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904A3C4928E20E8A00844715 /* SelectableTextProvider.swift */; };
 		A4301A65285A462F006B77C0 /* DebugScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43019E6285A3137006B77C0 /* DebugScreenTests.swift */; };
-		A44907A5289A0C270022D440 /* SelectedTextTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44907A3289A0C270022D440 /* SelectedTextTableCell.swift */; };
-		A4567F46289D52DB008AE667 /* SelectedTextTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4567F45289D52DB008AE667 /* SelectedTextTableCell.xib */; };
 		A47BDB42286A1249002326B8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A47BDB38286A1249002326B8 /* Colors.xcassets */; };
 		A47BDB43286A1249002326B8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDB39286A1249002326B8 /* Colors.swift */; };
 		A47BDB44286A1249002326B8 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDB3B286A1249002326B8 /* Assets.swift */; };
@@ -34,12 +31,8 @@
 		A4BDF4B928512FAA00651C61 /* MainModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4A228512FAA00651C61 /* MainModuleInput.swift */; };
 		A4BDF4BA28512FAA00651C61 /* MainModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4A328512FAA00651C61 /* MainModuleOutput.swift */; };
 		A4BDF4BB28512FAA00651C61 /* MainModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4A428512FAA00651C61 /* MainModulePresenter.swift */; };
-		A4BDF4BC28512FAA00651C61 /* TextTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4BDF4A828512FAA00651C61 /* TextTableCell.xib */; };
-		A4BDF4BD28512FAA00651C61 /* TextTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4A928512FAA00651C61 /* TextTableCell.swift */; };
-		A4BDF4BE28512FAA00651C61 /* SwitcherTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4BDF4AB28512FAA00651C61 /* SwitcherTableCell.xib */; };
-		A4BDF4BF28512FAA00651C61 /* SwitcherTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4AC28512FAA00651C61 /* SwitcherTableCell.swift */; };
-		A4BDF4C028512FAA00651C61 /* SelectionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4AE28512FAA00651C61 /* SelectionTableCell.swift */; };
-		A4BDF4C128512FAA00651C61 /* SelectionTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4BDF4AF28512FAA00651C61 /* SelectionTableCell.xib */; };
+		A4BDF4BE28512FAA00651C61 /* SwitcherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4BDF4AB28512FAA00651C61 /* SwitcherCell.xib */; };
+		A4BDF4BF28512FAA00651C61 /* SwitcherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4AC28512FAA00651C61 /* SwitcherCell.swift */; };
 		A4BDF4C228512FAA00651C61 /* MainViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4B028512FAA00651C61 /* MainViewInput.swift */; };
 		A4BDF4C328512FAA00651C61 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4BDF4B128512FAA00651C61 /* MainViewController.xib */; };
 		A4BDF4C428512FAA00651C61 /* MainViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4B228512FAA00651C61 /* MainViewOutput.swift */; };
@@ -47,15 +40,34 @@
 		A4BDF4C628512FAA00651C61 /* MainAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4B528512FAA00651C61 /* MainAdapter.swift */; };
 		A4BDF4C728512FAA00651C61 /* MainModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4B728512FAA00651C61 /* MainModuleConfigurator.swift */; };
 		A4BDF4C828512FAA00651C61 /* DebugScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4B828512FAA00651C61 /* DebugScreenCoordinator.swift */; };
-		A4BDF4CF28512FB000651C61 /* SelectServerActionsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4CA28512FB000651C61 /* SelectServerActionsProvider.swift */; };
 		A4BDF4D028512FB000651C61 /* LogCatcherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4CB28512FB000651C61 /* LogCatcherService.swift */; };
 		A4BDF4D128512FB000651C61 /* DebugScreenPresenterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4CC28512FB000651C61 /* DebugScreenPresenterService.swift */; };
-		A4BDF4D228512FB000651C61 /* ActionsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4CD28512FB000651C61 /* ActionsProvider.swift */; };
-		A4BDF4D328512FB000651C61 /* FeatureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4CE28512FB000651C61 /* FeatureToggle.swift */; };
 		A4BDF4D528512FB500651C61 /* DebugScreenConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4D428512FB500651C61 /* DebugScreenConfiguration.swift */; };
 		A4D337562863A7AA002328F2 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D337552863A7AA002328F2 /* TableSection.swift */; };
+		B237FF5D2A28CBB90095FA33 /* LoggerActivationToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237FF5C2A28CBB90095FA33 /* LoggerActivationToggle.swift */; };
+		B237FF632A2912D10095FA33 /* MainTableBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237FF622A2912D10095FA33 /* MainTableBlock.swift */; };
+		B237FF652A2913DF0095FA33 /* LoggerSectionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237FF642A2913DF0095FA33 /* LoggerSectionComponent.swift */; };
 		B2610E212A16D90600509FA1 /* FileViewerModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2610E202A16D90600509FA1 /* FileViewerModuleConfigurator.swift */; };
 		B2610E242A16DCC300509FA1 /* SimpleAlertModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2610E232A16DCC300509FA1 /* SimpleAlertModuleConfigurator.swift */; };
+		B28F97E42A271F980089C032 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97E32A271F980089C032 /* Action.swift */; };
+		B28F97E62A271FA30089C032 /* ActionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97E52A271FA30089C032 /* ActionsList.swift */; };
+		B28F97E82A271FAF0089C032 /* FeatureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97E72A271FAF0089C032 /* FeatureToggle.swift */; };
+		B28F97EA2A271FC00089C032 /* CopiedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97E92A271FC00089C032 /* CopiedText.swift */; };
+		B28F97EC2A271FF30089C032 /* SelectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97EB2A271FF30089C032 /* SelectionList.swift */; };
+		B28F97EF2A2723AA0089C032 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97EE2A2723AA0089C032 /* HeaderView.swift */; };
+		B28F97F32A2728560089C032 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97F12A2728560089C032 /* ButtonCell.swift */; };
+		B28F97F42A2728560089C032 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B28F97F22A2728560089C032 /* ButtonCell.xib */; };
+		B28F97F72A27288D0089C032 /* ButtonCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97F62A27288D0089C032 /* ButtonCellModel.swift */; };
+		B28F97F92A27313E0089C032 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97F82A27313E0089C032 /* UIImage.swift */; };
+		B28F97FB2A27315B0089C032 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97FA2A27315B0089C032 /* UIButton.swift */; };
+		B28F97FF2A2753120089C032 /* SelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97FD2A2753120089C032 /* SelectorCell.swift */; };
+		B28F98002A2753120089C032 /* SelectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B28F97FE2A2753120089C032 /* SelectorCell.xib */; };
+		B28F98062A27B30D0089C032 /* CopiedTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F98042A27B30D0089C032 /* CopiedTextCell.swift */; };
+		B28F98072A27B30D0089C032 /* CopiedTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B28F98052A27B30D0089C032 /* CopiedTextCell.xib */; };
+		B28F98122A27E0EE0089C032 /* LoggerSectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F98112A27E0EE0089C032 /* LoggerSectionBuilder.swift */; };
+		B28F98142A27E17F0089C032 /* SectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F98132A27E17F0089C032 /* SectionBuilder.swift */; };
+		B28F98172A27E2040089C032 /* LoggerAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F98162A27E2040089C032 /* LoggerAction.swift */; };
+		B28F98192A27E2920089C032 /* LoggerStreamCatcherToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F98182A27E2920089C032 /* LoggerStreamCatcherToggle.swift */; };
 		B2CA74DB2A1743A900E91B24 /* FileViewerModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA74DA2A1743A900E91B24 /* FileViewerModuleInput.swift */; };
 		B2CA74DD2A1743B700E91B24 /* FileViewerModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA74DC2A1743B700E91B24 /* FileViewerModuleOutput.swift */; };
 		B2CA74DF2A1743C700E91B24 /* FileViewerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA74DE2A1743C700E91B24 /* FileViewerPresenter.swift */; };
@@ -66,10 +78,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		904A3C4928E20E8A00844715 /* SelectableTextProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableTextProvider.swift; sourceTree = "<group>"; };
 		A43019E6285A3137006B77C0 /* DebugScreenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugScreenTests.swift; sourceTree = "<group>"; };
-		A44907A3289A0C270022D440 /* SelectedTextTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTextTableCell.swift; sourceTree = "<group>"; };
-		A4567F45289D52DB008AE667 /* SelectedTextTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedTextTableCell.xib; sourceTree = "<group>"; };
 		A47BDB38286A1249002326B8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		A47BDB39286A1249002326B8 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A47BDB3B286A1249002326B8 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
@@ -95,12 +104,8 @@
 		A4BDF4A228512FAA00651C61 /* MainModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModuleInput.swift; sourceTree = "<group>"; };
 		A4BDF4A328512FAA00651C61 /* MainModuleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModuleOutput.swift; sourceTree = "<group>"; };
 		A4BDF4A428512FAA00651C61 /* MainModulePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModulePresenter.swift; sourceTree = "<group>"; };
-		A4BDF4A828512FAA00651C61 /* TextTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextTableCell.xib; sourceTree = "<group>"; };
-		A4BDF4A928512FAA00651C61 /* TextTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableCell.swift; sourceTree = "<group>"; };
-		A4BDF4AB28512FAA00651C61 /* SwitcherTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitcherTableCell.xib; sourceTree = "<group>"; };
-		A4BDF4AC28512FAA00651C61 /* SwitcherTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitcherTableCell.swift; sourceTree = "<group>"; };
-		A4BDF4AE28512FAA00651C61 /* SelectionTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionTableCell.swift; sourceTree = "<group>"; };
-		A4BDF4AF28512FAA00651C61 /* SelectionTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectionTableCell.xib; sourceTree = "<group>"; };
+		A4BDF4AB28512FAA00651C61 /* SwitcherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitcherCell.xib; sourceTree = "<group>"; };
+		A4BDF4AC28512FAA00651C61 /* SwitcherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitcherCell.swift; sourceTree = "<group>"; };
 		A4BDF4B028512FAA00651C61 /* MainViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewInput.swift; sourceTree = "<group>"; };
 		A4BDF4B128512FAA00651C61 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		A4BDF4B228512FAA00651C61 /* MainViewOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewOutput.swift; sourceTree = "<group>"; };
@@ -108,16 +113,35 @@
 		A4BDF4B528512FAA00651C61 /* MainAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainAdapter.swift; sourceTree = "<group>"; };
 		A4BDF4B728512FAA00651C61 /* MainModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModuleConfigurator.swift; sourceTree = "<group>"; };
 		A4BDF4B828512FAA00651C61 /* DebugScreenCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugScreenCoordinator.swift; sourceTree = "<group>"; };
-		A4BDF4CA28512FB000651C61 /* SelectServerActionsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectServerActionsProvider.swift; sourceTree = "<group>"; };
 		A4BDF4CB28512FB000651C61 /* LogCatcherService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogCatcherService.swift; sourceTree = "<group>"; };
 		A4BDF4CC28512FB000651C61 /* DebugScreenPresenterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugScreenPresenterService.swift; sourceTree = "<group>"; };
-		A4BDF4CD28512FB000651C61 /* ActionsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsProvider.swift; sourceTree = "<group>"; };
-		A4BDF4CE28512FB000651C61 /* FeatureToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureToggle.swift; sourceTree = "<group>"; };
 		A4BDF4D428512FB500651C61 /* DebugScreenConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugScreenConfiguration.swift; sourceTree = "<group>"; };
 		A4D337552863A7AA002328F2 /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
 		A4F267192858EFE60096AB68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = DebugScreen/Info.plist; sourceTree = SOURCE_ROOT; };
+		B237FF5C2A28CBB90095FA33 /* LoggerActivationToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerActivationToggle.swift; sourceTree = "<group>"; };
+		B237FF622A2912D10095FA33 /* MainTableBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableBlock.swift; sourceTree = "<group>"; };
+		B237FF642A2913DF0095FA33 /* LoggerSectionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSectionComponent.swift; sourceTree = "<group>"; };
 		B2610E202A16D90600509FA1 /* FileViewerModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileViewerModuleConfigurator.swift; sourceTree = "<group>"; };
 		B2610E232A16DCC300509FA1 /* SimpleAlertModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlertModuleConfigurator.swift; sourceTree = "<group>"; };
+		B28F97E32A271F980089C032 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		B28F97E52A271FA30089C032 /* ActionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsList.swift; sourceTree = "<group>"; };
+		B28F97E72A271FAF0089C032 /* FeatureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureToggle.swift; sourceTree = "<group>"; };
+		B28F97E92A271FC00089C032 /* CopiedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopiedText.swift; sourceTree = "<group>"; };
+		B28F97EB2A271FF30089C032 /* SelectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionList.swift; sourceTree = "<group>"; };
+		B28F97EE2A2723AA0089C032 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		B28F97F12A2728560089C032 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
+		B28F97F22A2728560089C032 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
+		B28F97F62A27288D0089C032 /* ButtonCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellModel.swift; sourceTree = "<group>"; };
+		B28F97F82A27313E0089C032 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		B28F97FA2A27315B0089C032 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		B28F97FD2A2753120089C032 /* SelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorCell.swift; sourceTree = "<group>"; };
+		B28F97FE2A2753120089C032 /* SelectorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectorCell.xib; sourceTree = "<group>"; };
+		B28F98042A27B30D0089C032 /* CopiedTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopiedTextCell.swift; sourceTree = "<group>"; };
+		B28F98052A27B30D0089C032 /* CopiedTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CopiedTextCell.xib; sourceTree = "<group>"; };
+		B28F98112A27E0EE0089C032 /* LoggerSectionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSectionBuilder.swift; sourceTree = "<group>"; };
+		B28F98132A27E17F0089C032 /* SectionBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionBuilder.swift; sourceTree = "<group>"; };
+		B28F98162A27E2040089C032 /* LoggerAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerAction.swift; sourceTree = "<group>"; };
+		B28F98182A27E2920089C032 /* LoggerStreamCatcherToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerStreamCatcherToggle.swift; sourceTree = "<group>"; };
 		B2CA74DA2A1743A900E91B24 /* FileViewerModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerModuleInput.swift; sourceTree = "<group>"; };
 		B2CA74DC2A1743B700E91B24 /* FileViewerModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerModuleOutput.swift; sourceTree = "<group>"; };
 		B2CA74DE2A1743C700E91B24 /* FileViewerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerPresenter.swift; sourceTree = "<group>"; };
@@ -152,15 +176,6 @@
 				A43019E6285A3137006B77C0 /* DebugScreenTests.swift */,
 			);
 			path = DebugScreenTests;
-			sourceTree = "<group>";
-		};
-		A44907A2289A0C0A0022D440 /* SelectedTextCell */ = {
-			isa = PBXGroup;
-			children = (
-				A44907A3289A0C270022D440 /* SelectedTextTableCell.swift */,
-				A4567F45289D52DB008AE667 /* SelectedTextTableCell.xib */,
-			);
-			path = SelectedTextCell;
 			sourceTree = "<group>";
 		};
 		A47BDB35286A11E4002326B8 /* Resources */ = {
@@ -236,8 +251,9 @@
 			children = (
 				A4BDF48B28512F7700651C61 /* Base Classes */,
 				A4BDF48228512F7700651C61 /* Extensions */,
+				B237FF5F2A2910EE0095FA33 /* Models */,
 				A4BDF48E28512F7700651C61 /* Protocols */,
-				A4BDF48028512F7700651C61 /* Routers */,
+				B237FF6A2A2919540095FA33 /* Utils */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -264,10 +280,12 @@
 		A4BDF48428512F7700651C61 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				A4BDF48928512F7700651C61 /* UIApplication.swift */,
+				B28F97FA2A27315B0089C032 /* UIButton.swift */,
+				B28F97F82A27313E0089C032 /* UIImage.swift */,
 				A4BDF48628512F7700651C61 /* UITableView.swift */,
 				A4BDF48728512F7700651C61 /* UIViewController.swift */,
 				A4BDF48828512F7700651C61 /* UIWindow.swift */,
-				A4BDF48928512F7700651C61 /* UIApplication.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -275,8 +293,8 @@
 		A4BDF48B28512F7700651C61 /* Base Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A4BDF48C28512F7700651C61 /* DeepLinkOption.swift */,
 				A4BDF48D28512F7700651C61 /* BaseCoordinator.swift */,
+				A4BDF48C28512F7700651C61 /* DeepLinkOption.swift */,
 			);
 			path = "Base Classes";
 			sourceTree = "<group>";
@@ -284,9 +302,12 @@
 		A4BDF48E28512F7700651C61 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				B237FF5E2A2910A30095FA33 /* Builders */,
+				B28F97E22A271F830089C032 /* Content */,
+				A4BDF48028512F7700651C61 /* Routers */,
+				A4BDF49128512F7700651C61 /* Coordinator.swift */,
 				A4BDF48F28512F7700651C61 /* Presentable.swift */,
 				A4BDF49028512F7700651C61 /* Router.swift */,
-				A4BDF49128512F7700651C61 /* Coordinator.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -326,7 +347,6 @@
 			isa = PBXGroup;
 			children = (
 				A4BDF4B428512FAA00651C61 /* Adapter */,
-				A4BDF4A628512FAA00651C61 /* Cells */,
 				A4BDF4B028512FAA00651C61 /* MainViewInput.swift */,
 				A4BDF4B228512FAA00651C61 /* MainViewOutput.swift */,
 				A4BDF4B328512FAA00651C61 /* MainViewController.swift */,
@@ -335,49 +355,21 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		A4BDF4A628512FAA00651C61 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				A44907A2289A0C0A0022D440 /* SelectedTextCell */,
-				A4BDF4A728512FAA00651C61 /* TextCell */,
-				A4BDF4AA28512FAA00651C61 /* SwitcherCell */,
-				A4BDF4AD28512FAA00651C61 /* SelectionCell */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		A4BDF4A728512FAA00651C61 /* TextCell */ = {
-			isa = PBXGroup;
-			children = (
-				A4BDF4A928512FAA00651C61 /* TextTableCell.swift */,
-				A4BDF4A828512FAA00651C61 /* TextTableCell.xib */,
-			);
-			path = TextCell;
-			sourceTree = "<group>";
-		};
 		A4BDF4AA28512FAA00651C61 /* SwitcherCell */ = {
 			isa = PBXGroup;
 			children = (
-				A4BDF4AC28512FAA00651C61 /* SwitcherTableCell.swift */,
-				A4BDF4AB28512FAA00651C61 /* SwitcherTableCell.xib */,
+				A4BDF4AC28512FAA00651C61 /* SwitcherCell.swift */,
+				A4BDF4AB28512FAA00651C61 /* SwitcherCell.xib */,
 			);
 			path = SwitcherCell;
-			sourceTree = "<group>";
-		};
-		A4BDF4AD28512FAA00651C61 /* SelectionCell */ = {
-			isa = PBXGroup;
-			children = (
-				A4BDF4AE28512FAA00651C61 /* SelectionTableCell.swift */,
-				A4BDF4AF28512FAA00651C61 /* SelectionTableCell.xib */,
-			);
-			path = SelectionCell;
 			sourceTree = "<group>";
 		};
 		A4BDF4B428512FAA00651C61 /* Adapter */ = {
 			isa = PBXGroup;
 			children = (
+				B28F97F02A27283A0089C032 /* Cells */,
+				B28F97ED2A2723980089C032 /* HeaderView */,
 				A4BDF4B528512FAA00651C61 /* MainAdapter.swift */,
-				A4D337552863A7AA002328F2 /* TableSection.swift */,
 			);
 			path = Adapter;
 			sourceTree = "<group>";
@@ -393,14 +385,63 @@
 		A4BDF4C928512FB000651C61 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A4BDF4CD28512FB000651C61 /* ActionsProvider.swift */,
 				A4BDF4CC28512FB000651C61 /* DebugScreenPresenterService.swift */,
-				A4BDF4CE28512FB000651C61 /* FeatureToggle.swift */,
 				A4BDF4CB28512FB000651C61 /* LogCatcherService.swift */,
-				904A3C4928E20E8A00844715 /* SelectableTextProvider.swift */,
-				A4BDF4CA28512FB000651C61 /* SelectServerActionsProvider.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		B237FF5E2A2910A30095FA33 /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				B28F98132A27E17F0089C032 /* SectionBuilder.swift */,
+			);
+			path = Builders;
+			sourceTree = "<group>";
+		};
+		B237FF5F2A2910EE0095FA33 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B237FF602A29126F0095FA33 /* Common */,
+				B237FF612A29127C0095FA33 /* Logger */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B237FF602A29126F0095FA33 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B237FF622A2912D10095FA33 /* MainTableBlock.swift */,
+				A4D337552863A7AA002328F2 /* TableSection.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B237FF612A29127C0095FA33 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				B237FF692A2916610095FA33 /* Models */,
+				B237FF642A2913DF0095FA33 /* LoggerSectionComponent.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		B237FF692A2916610095FA33 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B28F98162A27E2040089C032 /* LoggerAction.swift */,
+				B237FF5C2A28CBB90095FA33 /* LoggerActivationToggle.swift */,
+				B28F98182A27E2920089C032 /* LoggerStreamCatcherToggle.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B237FF6A2A2919540095FA33 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B28F98112A27E0EE0089C032 /* LoggerSectionBuilder.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		B2610E1F2A16D90600509FA1 /* FileViewer */ = {
@@ -419,6 +460,65 @@
 				B2610E232A16DCC300509FA1 /* SimpleAlertModuleConfigurator.swift */,
 			);
 			path = SimpleAlert;
+			sourceTree = "<group>";
+		};
+		B28F97E22A271F830089C032 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				B28F97E32A271F980089C032 /* Action.swift */,
+				B28F97E52A271FA30089C032 /* ActionsList.swift */,
+				B28F97E92A271FC00089C032 /* CopiedText.swift */,
+				B28F97E72A271FAF0089C032 /* FeatureToggle.swift */,
+				B28F97EB2A271FF30089C032 /* SelectionList.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		B28F97ED2A2723980089C032 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				B28F97EE2A2723AA0089C032 /* HeaderView.swift */,
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		B28F97F02A27283A0089C032 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B28F97F52A27285C0089C032 /* ButtonCell */,
+				B28F98032A27B2F00089C032 /* CopiedTextCell */,
+				B28F97FC2A2752FA0089C032 /* SelectorCell */,
+				A4BDF4AA28512FAA00651C61 /* SwitcherCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B28F97F52A27285C0089C032 /* ButtonCell */ = {
+			isa = PBXGroup;
+			children = (
+				B28F97F12A2728560089C032 /* ButtonCell.swift */,
+				B28F97F22A2728560089C032 /* ButtonCell.xib */,
+				B28F97F62A27288D0089C032 /* ButtonCellModel.swift */,
+			);
+			path = ButtonCell;
+			sourceTree = "<group>";
+		};
+		B28F97FC2A2752FA0089C032 /* SelectorCell */ = {
+			isa = PBXGroup;
+			children = (
+				B28F97FD2A2753120089C032 /* SelectorCell.swift */,
+				B28F97FE2A2753120089C032 /* SelectorCell.xib */,
+			);
+			path = SelectorCell;
+			sourceTree = "<group>";
+		};
+		B28F98032A27B2F00089C032 /* CopiedTextCell */ = {
+			isa = PBXGroup;
+			children = (
+				B28F98042A27B30D0089C032 /* CopiedTextCell.swift */,
+				B28F98052A27B30D0089C032 /* CopiedTextCell.xib */,
+			);
+			path = CopiedTextCell;
 			sourceTree = "<group>";
 		};
 		B2CA74D72A17436600E91B24 /* Configurator */ = {
@@ -547,13 +647,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4567F46289D52DB008AE667 /* SelectedTextTableCell.xib in Resources */,
+				B28F98072A27B30D0089C032 /* CopiedTextCell.xib in Resources */,
 				A47BDB42286A1249002326B8 /* Colors.xcassets in Resources */,
-				A4BDF4BC28512FAA00651C61 /* TextTableCell.xib in Resources */,
-				A4BDF4C128512FAA00651C61 /* SelectionTableCell.xib in Resources */,
+				B28F98002A2753120089C032 /* SelectorCell.xib in Resources */,
 				A47BDB47286A124A002326B8 /* Localizable.strings in Resources */,
-				A4BDF4BE28512FAA00651C61 /* SwitcherTableCell.xib in Resources */,
+				A4BDF4BE28512FAA00651C61 /* SwitcherCell.xib in Resources */,
 				A47BDB45286A1249002326B8 /* Assets.xcassets in Resources */,
+				B28F97F42A2728560089C032 /* ButtonCell.xib in Resources */,
 				A4BDF4C328512FAA00651C61 /* MainViewController.xib in Resources */,
 				B2CA74E92A175D7700E91B24 /* FileViewerViewController.xib in Resources */,
 			);
@@ -613,49 +713,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2CA74E12A1744E300E91B24 /* FileViewerViewInput.swift in Sources */,
-				A4BDF4CF28512FB000651C61 /* SelectServerActionsProvider.swift in Sources */,
+				B28F97F92A27313E0089C032 /* UIImage.swift in Sources */,
 				A47BDB43286A1249002326B8 /* Colors.swift in Sources */,
 				A4BDF49828512F7700651C61 /* UIApplication.swift in Sources */,
 				A4BDF4C528512FAA00651C61 /* MainViewController.swift in Sources */,
 				B2610E242A16DCC300509FA1 /* SimpleAlertModuleConfigurator.swift in Sources */,
-				A4BDF4BD28512FAA00651C61 /* TextTableCell.swift in Sources */,
+				B28F97E42A271F980089C032 /* Action.swift in Sources */,
+				B237FF652A2913DF0095FA33 /* LoggerSectionComponent.swift in Sources */,
 				A4BDF49928512F7700651C61 /* Bundle.swift in Sources */,
 				B2CA74DD2A1743B700E91B24 /* FileViewerModuleOutput.swift in Sources */,
 				A47BDB44286A1249002326B8 /* Assets.swift in Sources */,
 				A4BDF49728512F7700651C61 /* UIWindow.swift in Sources */,
 				B2CA74E32A1744F300E91B24 /* FileViewerViewOutput.swift in Sources */,
-				A4BDF4D228512FB000651C61 /* ActionsProvider.swift in Sources */,
 				A4BDF4C728512FAA00651C61 /* MainModuleConfigurator.swift in Sources */,
 				A4BDF49328512F7700651C61 /* Array.swift in Sources */,
 				A4BDF49428512F7700651C61 /* NSObject.swift in Sources */,
 				A4D337562863A7AA002328F2 /* TableSection.swift in Sources */,
+				B28F97FB2A27315B0089C032 /* UIButton.swift in Sources */,
+				B28F97E62A271FA30089C032 /* ActionsList.swift in Sources */,
 				A4BDF49C28512F7700651C61 /* Presentable.swift in Sources */,
+				B28F97F72A27288D0089C032 /* ButtonCellModel.swift in Sources */,
+				B28F98192A27E2920089C032 /* LoggerStreamCatcherToggle.swift in Sources */,
 				A4BDF49E28512F7700651C61 /* Coordinator.swift in Sources */,
-				904A3C4A28E20E8A00844715 /* SelectableTextProvider.swift in Sources */,
 				B2610E212A16D90600509FA1 /* FileViewerModuleConfigurator.swift in Sources */,
 				A4BDF4C228512FAA00651C61 /* MainViewInput.swift in Sources */,
 				A4BDF4C628512FAA00651C61 /* MainAdapter.swift in Sources */,
 				A4BDF4BB28512FAA00651C61 /* MainModulePresenter.swift in Sources */,
-				A4BDF4D328512FB000651C61 /* FeatureToggle.swift in Sources */,
-				A4BDF4C028512FAA00651C61 /* SelectionTableCell.swift in Sources */,
+				B28F97F32A2728560089C032 /* ButtonCell.swift in Sources */,
 				A4BDF49628512F7700651C61 /* UIViewController.swift in Sources */,
+				B28F98142A27E17F0089C032 /* SectionBuilder.swift in Sources */,
+				B28F98122A27E0EE0089C032 /* LoggerSectionBuilder.swift in Sources */,
+				B237FF5D2A28CBB90095FA33 /* LoggerActivationToggle.swift in Sources */,
 				B2CA74E82A175D7700E91B24 /* FileViewerViewController.swift in Sources */,
 				A4BDF49528512F7700651C61 /* UITableView.swift in Sources */,
+				B28F97EF2A2723AA0089C032 /* HeaderView.swift in Sources */,
 				B2CA74DF2A1743C700E91B24 /* FileViewerPresenter.swift in Sources */,
 				A4BDF4C428512FAA00651C61 /* MainViewOutput.swift in Sources */,
 				A4BDF49A28512F7700651C61 /* DeepLinkOption.swift in Sources */,
 				A4BDF49B28512F7700651C61 /* BaseCoordinator.swift in Sources */,
 				A4BDF49228512F7700651C61 /* MainRouter.swift in Sources */,
+				B237FF632A2912D10095FA33 /* MainTableBlock.swift in Sources */,
 				A4BDF4D528512FB500651C61 /* DebugScreenConfiguration.swift in Sources */,
+				B28F97FF2A2753120089C032 /* SelectorCell.swift in Sources */,
 				B2CA74DB2A1743A900E91B24 /* FileViewerModuleInput.swift in Sources */,
 				A47BDB49286A13AC002326B8 /* Strings.swift in Sources */,
+				B28F98172A27E2040089C032 /* LoggerAction.swift in Sources */,
 				A4BDF4D128512FB000651C61 /* DebugScreenPresenterService.swift in Sources */,
+				B28F98062A27B30D0089C032 /* CopiedTextCell.swift in Sources */,
 				A4BDF4BA28512FAA00651C61 /* MainModuleOutput.swift in Sources */,
 				A4BDF49D28512F7700651C61 /* Router.swift in Sources */,
 				A4BDF4B928512FAA00651C61 /* MainModuleInput.swift in Sources */,
 				A4BDF4C828512FAA00651C61 /* DebugScreenCoordinator.swift in Sources */,
-				A4BDF4BF28512FAA00651C61 /* SwitcherTableCell.swift in Sources */,
-				A44907A5289A0C270022D440 /* SelectedTextTableCell.swift in Sources */,
+				B28F97EC2A271FF30089C032 /* SelectionList.swift in Sources */,
+				B28F97EA2A271FC00089C032 /* CopiedText.swift in Sources */,
+				B28F97E82A271FAF0089C032 /* FeatureToggle.swift in Sources */,
+				A4BDF4BF28512FAA00651C61 /* SwitcherCell.swift in Sources */,
 				A4BDF4D028512FB000651C61 /* LogCatcherService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

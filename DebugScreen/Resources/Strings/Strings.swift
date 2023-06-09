@@ -13,55 +13,56 @@ internal enum L10n {
 
   internal enum Common {
     internal enum Actions {
+      /// Отмена
+      internal static let cancel = L10n.tr("Localizable", "Common.Actions.cancel")
       /// ОК
       internal static let ok = L10n.tr("Localizable", "Common.Actions.ok")
+      /// Выбрать
+      internal static let select = L10n.tr("Localizable", "Common.Actions.select")
     }
   }
 
-  internal enum DebugScreenCoordinator {
-    /// Отмена
-    internal static let cancelAction = L10n.tr("Localizable", "DebugScreenCoordinator.cancelAction")
+  internal enum Logger {
+    /// Очистить файл логов
+    internal static let clearLogFileActionTitle = L10n.tr("Localizable", "Logger.clearLogFileActionTitle")
+    /// Ошибки
+    internal static let enableLogErrorMessagesTitle = L10n.tr("Localizable", "Logger.enableLogErrorMessagesTitle")
+    /// Информация
+    internal static let enableLogInfoMessagesTitle = L10n.tr("Localizable", "Logger.enableLogInfoMessagesTitle")
+    /// Записывать логи
+    internal static let enableToggleTitle = L10n.tr("Localizable", "Logger.enableToggleTitle")
+    /// Логгер
+    internal static let header = L10n.tr("Localizable", "Logger.header")
+    /// Открыть файл логов
+    internal static let openLogFileActionTitle = L10n.tr("Localizable", "Logger.openLogFileActionTitle")
+    internal enum ClearLogsAlert {
+      /// Ошибка при очистке файла логов. Попробуйте позже
+      internal static let error = L10n.tr("Localizable", "Logger.ClearLogsAlert.error")
+      /// Очистка выполнена
+      internal static let success = L10n.tr("Localizable", "Logger.ClearLogsAlert.success")
+    }
+    internal enum LogFile {
+      /// Файл логов
+      internal static let header = L10n.tr("Localizable", "Logger.LogFile.header")
+      internal enum ActionsList {
+        /// Очистить
+        internal static let clearActionTitle = L10n.tr("Localizable", "Logger.LogFile.ActionsList.clearActionTitle")
+        /// Открыть
+        internal static let openActionTitle = L10n.tr("Localizable", "Logger.LogFile.ActionsList.openActionTitle")
+      }
+    }
   }
 
   internal enum MainPresenter {
-    /// Функции
-    internal static let featuresTitle = L10n.tr("Localizable", "MainPresenter.featuresTitle")
-    /// Нажимаемый текст
-    internal static let selectedTextTitle = L10n.tr("Localizable", "MainPresenter.selectedTextTitle")
-    /// Выбрать сервер
-    internal static let serverTitle = L10n.tr("Localizable", "MainPresenter.serverTitle")
-    internal enum Logger {
-      /// Ошибки
-      internal static let errorMessages = L10n.tr("Localizable", "MainPresenter.Logger.errorMessages")
-      /// Logger
-      internal static let header = L10n.tr("Localizable", "MainPresenter.Logger.header")
-      /// Информация
-      internal static let infoMessages = L10n.tr("Localizable", "MainPresenter.Logger.infoMessages")
-      internal enum ClearLogs {
-        /// Ошибка при очистке файла логов. Попробуйте позже
-        internal static let error = L10n.tr("Localizable", "MainPresenter.Logger.ClearLogs.error")
-        /// Очистка завершена
-        internal static let success = L10n.tr("Localizable", "MainPresenter.Logger.ClearLogs.success")
-      }
-      internal enum LogFile {
-        /// Очистить
-        internal static let clearActionTitle = L10n.tr("Localizable", "MainPresenter.Logger.LogFile.clearActionTitle")
-        /// Файл логов
-        internal static let header = L10n.tr("Localizable", "MainPresenter.Logger.LogFile.header")
-        /// Открыть
-        internal static let openActionTitle = L10n.tr("Localizable", "MainPresenter.Logger.LogFile.openActionTitle")
-      }
+    internal enum CopyTextAction {
+      /// Текст скопирован
+      internal static let complete = L10n.tr("Localizable", "MainPresenter.copyTextAction.complete")
     }
   }
 
   internal enum MainViewController {
     /// Debug Screen
     internal static let debugTitle = L10n.tr("Localizable", "MainViewController.debugTitle")
-  }
-
-  internal enum SelectionTableCell {
-    /// Активен
-    internal static let statusTitle = L10n.tr("Localizable", "SelectionTableCell.statusTitle")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

@@ -4,4 +4,23 @@
 
 import Foundation
 
-enum DeepLinkOption { }
+enum DeepLinkOption {
+    case alert(model: DeepLinkOptionModel)
+    case fileViewer(model: DeepLinkOptionModel)
+}
+
+struct DeepLinkOptionModel {
+
+    // MARK: - Properties
+
+    let value: String
+    let isRootModule: Bool
+
+    // MARK: - Initialization
+
+    init(value: String, isRootModule: Bool) {
+        self.value = value
+        self.isRootModule = isRootModule
+    }
+
+}

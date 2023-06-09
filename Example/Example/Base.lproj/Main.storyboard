@@ -24,16 +24,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="XFv-i3-91d">
-                                <rect key="frame" x="160.5" y="777" width="93.5" height="61"/>
+                                <rect key="frame" x="161" y="777" width="92" height="61"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="shake enabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Wj-0E-leT">
-                                        <rect key="frame" x="0.0" y="0.0" width="93.5" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="shake support" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Wj-0E-leT">
+                                        <rect key="frame" x="0.0" y="0.0" width="92" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KWP-LS-y6X">
-                                        <rect key="frame" x="22" y="30" width="51" height="31"/>
+                                        <rect key="frame" x="21.5" y="30" width="51" height="31"/>
                                         <color key="onTintColor" systemColor="labelColor"/>
                                         <connections>
                                             <action selector="onToggleShakeEnabled:" destination="BYZ-38-t0r" eventType="valueChanged" id="8on-Il-lsv"/>
@@ -76,8 +76,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="shakeEnabledToggle" destination="KWP-LS-y6X" id="hcb-hJ-Z9c"/>
                         <outlet property="shakeMeLabel" destination="jmJ-YW-tjS" id="xXX-gg-LH7"/>
+                        <outlet property="shakeSupportToggle" destination="KWP-LS-y6X" id="hcb-hJ-Z9c"/>
                         <outlet property="showButton" destination="tVx-Kj-Nbn" id="cQN-Cy-JhX"/>
                     </connections>
                 </viewController>

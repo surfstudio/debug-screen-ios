@@ -7,30 +7,28 @@
 
 // MARK: - MainPresenter
 
-"MainPresenter.serverTitle" = "Select server";
-"MainPresenter.featuresTitle" = "Features";
-"MainPresenter.selectedTextTitle" = "Selected text";
-"MainPresenter.Logger.header" = "Logger";
-"MainPresenter.Logger.LogFile.header" = "Logs file";
-"MainPresenter.Logger.LogFile.openActionTitle" = "Open";
-"MainPresenter.Logger.LogFile.clearActionTitle" = "Clear";
-"MainPresenter.Logger.infoMessages" = "Info";
-"MainPresenter.Logger.errorMessages" = "Errors";
-"MainPresenter.Logger.ClearLogs.success" = "Clear complete";
-"MainPresenter.Logger.ClearLogs.error" = "Error on clear logs file. Try again later";
+"MainPresenter.copyTextAction.complete" = "Text copied";
 
-// MARK: - SelectionTableCell
+// MARK: - Logger
 
-"SelectionTableCell.statusTitle" = "Active";
+"Logger.header" = "Logger";
+"Logger.enableToggleTitle" = "Write logs";
+"Logger.enableLogInfoMessagesTitle" = "Info";
+"Logger.enableLogErrorMessagesTitle" = "Errors";
+"Logger.LogFile.header" = "Logs file";
+"Logger.LogFile.ActionsList.openActionTitle" = "Open";
+"Logger.LogFile.ActionsList.clearActionTitle" = "Clear";
+"Logger.openLogFileActionTitle" = "Open logs file";
+"Logger.clearLogFileActionTitle" = "Clear logs file";
+"Logger.ClearLogsAlert.success" = "Clear complete";
+"Logger.ClearLogsAlert.error" = "Error on clear logs file. Try again later";
 
 // MARK: - MainViewController
 
 "MainViewController.debugTitle" = "Debug Screen";
 
-// MARK: - DebugScreenCoordinator
-
-"DebugScreenCoordinator.cancelAction" = "Cancel";
-
 // MARK: - Common
 
 "Common.Actions.ok" = "OK";
+"Common.Actions.cancel" = "Cancel";
+"Common.Actions.select" = "Select";

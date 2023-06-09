@@ -1,0 +1,42 @@
+/* 
+  Localizable.strings
+  Example
+
+  Created by Ilya Klimenyuk on 29.05.2023.
+  
+*/
+
+// MARK: - Actions
+
+"Actions.header" = "Actions";
+"Actions.secondaryTitle" = "Secondary";
+"Actions.destructiveTitle" = "Destructive";
+
+// MARK: - ActionsList
+
+"ActionsList.title" = "Actions list";
+"ActionsList.message" = "Choose action";
+"ActionsList.firstActionTitle" = "First";
+"ActionsList.secondActionTitle" = "Second";
+"ActionsList.thirdActionTitle" = "Third";
+
+// MARK: - FeatureToggles
+
+"FeatureToggles.header" = "Toggles";
+"FeatureToggles.firstToggleTitle" = "Show touches";
+"FeatureToggles.secondToggleTitle" = "Use SSH";
+"FeatureToggles.thirdToggleTitle" = "Open foodtech/ecom catalog listing";
+
+// MARK: - ServerSelection
+
+"ServerSelection.header" = "Server Selection";
+"ServerSelection.firstServerTitle" = "Production";
+"ServerSelection.secondServerTitle" = "Test";
+"ServerSelection.thirdServerTitle" = "Mock (with long long long description)";
+
+// MARK: - CopiedText
+
+"CopiedText.header" = "Copied text";
+"CopiedText.firstTextTitle" = "SSH key";
+"CopiedText.secondTextTitle" = "Token";
+"CopiedText.thirdTextTitle" = "Some data for copy";

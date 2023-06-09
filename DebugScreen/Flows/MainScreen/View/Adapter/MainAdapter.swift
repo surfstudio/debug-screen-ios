@@ -9,12 +9,16 @@ import UIKit
 
 final class MainAdapter: NSObject {
 
+    // MARK: - Constants
+
+    private enum Constants {
+        static let sectionFooterHeight: CGFloat = 4
+    }
+
     // MARK: - Properties
 
-    var onSelectServer: ((SelectServerActionModel) -> Void)?
-    var onSelectAction: ((ActionsProviderModel) -> Void)?
-    var onSelectText: ((SelectableTextModel) -> Void)?
-    var onToggleFeatureAction: ((_ model: FeatureToggleModel, _ newValue: Bool) -> Void)?
+    var onOpenActionsList: ((ActionsList) -> Void)?
+    var onSelectableTextTap: ((CopiedText) -> Void)?
 
     // MARK: - Private Properties
 
@@ -26,13 +30,7 @@ final class MainAdapter: NSObject {
     init(tableView: UITableView) {
         self.tableView = tableView
         super.init()
-
-        tableView.registerNib(TextTableCell.self)
-        tableView.registerNib(SwitcherTableCell.self)
-        tableView.registerNib(SelectionTableCell.self)
-        tableView.registerNib(SelectedTextTableCell.self)
-        tableView.delegate = self
-        tableView.dataSource = self
+        configureTableView()
     }
 
     // MARK: - Methods
@@ -56,10 +54,6 @@ extension MainAdapter: UITableViewDataSource {
         return sections[safe: section]?.blocks.count ?? 0
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[safe: section]?.title
-    }
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
             let section = sections[safe: indexPath.section],
@@ -69,33 +63,22 @@ extension MainAdapter: UITableViewDataSource {
         }
 
         switch block {
-        case .featureToggle(let model):
-            guard let cell = tableView.dequeueReusableCell(SwitcherTableCell.self, indexPath: indexPath) else {
-                return UITableViewCell()
+        case .action(let model):
+            let cellModel = ButtonCellModel(title: model.title, actionType: model.type)
+            return configureButtonCell(tableView, indexPath: indexPath, model: cellModel, buttonAction: model.block)
+        case .actionsList(let model):
+            let cellModel = ButtonCellModel(title: model.title)
+            let buttonAction: (() -> Void)? = { [weak self] in
+                self?.onOpenActionsList?(model)
             }
-            cell.configure(with: model)
-            cell.didChangeSwitch = { [weak self] newValue in
-                self?.onToggleFeatureAction?(model, newValue)
-            }
-            return cell
-        case .featureAction(let model):
-            guard let cell = tableView.dequeueReusableCell(TextTableCell.self, indexPath: indexPath) else {
-                return UITableViewCell()
-            }
-            cell.configure(with: model.title)
-            return cell
-        case .selectServer(let model):
-            guard let cell = tableView.dequeueReusableCell(SelectionTableCell.self, indexPath: indexPath) else {
-                return UITableViewCell()
-            }
-            cell.configure(with: model)
-            return cell
-        case .selectText(model: let model):
-            guard let cell = tableView.dequeueReusableCell(SelectedTextTableCell.self, indexPath: indexPath) else {
-                return UITableViewCell()
-            }
-            cell.configure(with: model.title)
-            return cell
+
+            return configureButtonCell(tableView, indexPath: indexPath, model: cellModel, buttonAction: buttonAction)
+        case .toggle(let model):
+            return configureSwitcherCell(tableView, indexPath: indexPath, model: model)
+        case .copiedText(let model):
+            return configureSelectableTextCell(tableView, indexPath: indexPath, title: model.title)
+        case .selectionList(let model):
+            return configureSelectorCell(tableView, indexPath: indexPath, model: model)
         }
     }
 
@@ -105,26 +88,116 @@ extension MainAdapter: UITableViewDataSource {
 
 extension MainAdapter: UITableViewDelegate {
 
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let section = sections[safe: section] else {
+            return nil
+        }
+
+        let headerView = HeaderView()
+        headerView.configure(with: section.title)
+
+        return headerView
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return Constants.sectionFooterHeight
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
         guard
             let section = sections[safe: indexPath.section],
-            let block = section.blocks[safe: indexPath.row]
+            let block = section.blocks[safe: indexPath.row],
+            case let MainTableBlock.copiedText(model) = block
         else {
             return
         }
 
-        switch block {
-        case .selectText(let model):
-            onSelectText?(model)
-        case .featureAction(let model):
-            onSelectAction?(model)
-        case .selectServer(let model):
-            onSelectServer?(model)
-        case .featureToggle:
-            break
+        onSelectableTextTap?(model)
+    }
+
+}
+
+// MARK: - Private Methods
+
+private extension MainAdapter {
+
+    func configureTableView() {
+        guard let tableView = tableView else {
+            return
         }
+
+        tableView.registerNib(ButtonCell.self)
+        tableView.registerNib(SwitcherCell.self)
+        tableView.registerNib(SelectorCell.self)
+        tableView.registerNib(CopiedTextCell.self)
+
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+
+    func configureButtonCell(_ tableView: UITableView,
+                             indexPath: IndexPath,
+                             model: ButtonCellModel,
+                             buttonAction: (() -> Void)? = nil) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(ButtonCell.self, indexPath: indexPath) else {
+            return UITableViewCell()
+        }
+
+        cell.configure(with: model)
+        cell.onAction = buttonAction
+
+        return cell
+    }
+
+    func configureSwitcherCell(_ tableView: UITableView,
+                               indexPath: IndexPath,
+                               model: FeatureToggle) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(SwitcherCell.self, indexPath: indexPath) else {
+            return UITableViewCell()
+        }
+
+        cell.configure(with: model)
+        cell.onSwitch = { value in
+            var updatedModel = model
+            updatedModel.isEnabled = value
+        }
+
+        return cell
+    }
+
+    func configureSelectorCell(_ tableView: UITableView,
+                               indexPath: IndexPath,
+                               model: SelectionList) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(SelectorCell.self, indexPath: indexPath) else {
+            return UITableViewCell()
+        }
+
+        cell.configure(with: model)
+        cell.onSelectItem = { selectedItem in
+            var updatedModel = model
+            updatedModel.selectedItem = selectedItem
+
+            model.onSelectAction?(selectedItem)
+        }
+
+        return cell
+    }
+
+    func configureSelectableTextCell(_ tableView: UITableView,
+                                     indexPath: IndexPath,
+                                     title: String) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(CopiedTextCell.self, indexPath: indexPath) else {
+            return UITableViewCell()
+        }
+
+        cell.configure(with: title)
+        return cell
     }
 
 }

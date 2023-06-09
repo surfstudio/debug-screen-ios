@@ -1,0 +1,42 @@
+/* 
+  Localizable.strings
+  Example
+
+  Created by Ilya Klimenyuk on 29.05.2023.
+  
+*/
+
+// MARK: - Actions
+
+"Actions.header" = "Действия";
+"Actions.secondaryTitle" = "Вспомогательное";
+"Actions.destructiveTitle" = "Удаление";
+
+// MARK: - ActionsList
+
+"ActionsList.title" = "Список действий";
+"ActionsList.message" = "Выберите действие";
+"ActionsList.firstActionTitle" = "Первое";
+"ActionsList.secondActionTitle" = "Второе";
+"ActionsList.thirdActionTitle" = "Третье";
+
+// MARK: - FeatureToggles
+
+"FeatureToggles.header" = "Переключатели";
+"FeatureToggles.firstToggleTitle" = "Показывать касания";
+"FeatureToggles.secondToggleTitle" = "Использовать SSH";
+"FeatureToggles.thirdToggleTitle" = "Открыть листинг foodtech/ecom каталога перед просмотром";
+
+// MARK: - ServerSelection
+
+"ServerSelection.header" = "Выбор сервера";
+"ServerSelection.firstServerTitle" = "Продовый";
+"ServerSelection.secondServerTitle" = "Тестовый";
+"ServerSelection.thirdServerTitle" = "Моковый (с очень очень очень длинным описанием)";
+
+// MARK: - CopiedText
+
+"CopiedText.header" = "Копируемый текст";
+"CopiedText.firstTextTitle" = "Ключ SSH";
+"CopiedText.secondTextTitle" = "Токен";
+"CopiedText.thirdTextTitle" = "Данные для копирования";

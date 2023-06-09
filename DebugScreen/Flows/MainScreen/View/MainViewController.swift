@@ -36,46 +36,54 @@ extension MainViewController: MainViewInput {
 
     func setupInitialState(sections: [TableSection]) {
         configureAppearance()
-        update(sections: sections)
-    }
-
-    func update(sections: [TableSection]) {
         adapter?.fill(with: sections)
     }
 
 }
 
-// MARK: - Configuration
+// MARK: - Appearance
 
 private extension MainViewController {
 
     func configureAppearance() {
-        title = L10n.MainViewController.debugTitle
-        configureCloseButton()
+        configureNavigationBar()
+        configureTableView()
         configureAdapter()
     }
 
-    func configureCloseButton() {
-        let item = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel,
-                                   target: self,
-                                   action: #selector(didTapCloseButton))
-        self.navigationItem.rightBarButtonItem = item
+    func configureNavigationBar() {
+        navigationItem.title = L10n.MainViewController.debugTitle
+        configureCloseButton()
+    }
+
+    func configureTableView() {
+        tableView.contentInsetAdjustmentBehavior = .never
+        tableView.separatorStyle = .none
+        tableView.contentInset = .init(top: 0,
+                                       left: 0,
+                                       bottom: 32,
+                                       right: 0)
     }
 
     func configureAdapter() {
         adapter = MainAdapter(tableView: tableView)
-        adapter?.onSelectAction = { [weak self] model in
-            self?.output?.selectAction(model: model)
+        adapter?.onOpenActionsList = { [weak self] model in
+            self?.output?.didTapActionsList(model: model)
         }
-        adapter?.onSelectServer = { [weak self] model in
-            self?.output?.selectServer(model: model)
+        adapter?.onSelectableTextTap = { [weak self] model in
+            self?.output?.didTapSelectableText(model: model)
         }
-        adapter?.onSelectText = { [weak self] model in
-            self?.output?.selectText(model: model)
-        }
-        adapter?.onToggleFeatureAction = { [weak self] action, newValue in
-            self?.output?.featureToggled(model: action, newValue: newValue)
-        }
+    }
+
+    func configureCloseButton() {
+        let closeButton = UIBarButtonItem(
+            image: Resources.Assets.Icons.close.image.withRenderingMode(.alwaysOriginal),
+            style: .plain,
+            target: self,
+            action: #selector(didTapCloseButton)
+        )
+
+        self.navigationItem.rightBarButtonItem = closeButton
     }
 
 }
