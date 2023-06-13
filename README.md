@@ -164,6 +164,8 @@ To open log file from any place of your app call `openLogFile()` function:
 DebugScreenPresenterService.shared.openLogFile()
 ```
   
+**Log file can be opened only when Debug Dashboard is active!**  
+  
 To get a list of logs in string form, you can use the function `logs()`:   
 ```swift
 let logs = DebugScreenConfiguration.shared.logCatcherService.logs()
@@ -208,6 +210,8 @@ Library present custom screen on `overFullScreen` presentation style. For presen
 let view = DestinationViewController()
 DebugScreenPresenterService.shared.showCustomScreen(view)
 ```
+
+**Custom screen can be presented only when Debug Dashboard is open!**
 
 For using it you'll need to do next:
 - create instance, that implements `Action` protocol (it will be model of your action)
