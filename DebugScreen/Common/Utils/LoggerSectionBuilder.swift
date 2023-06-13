@@ -111,7 +111,7 @@ private extension LoggerSectionBuilder {
                     L10n.Logger.ClearLogsAlert.success :
                     L10n.Logger.ClearLogsAlert.error
 
-                DebugScreenPresenterService.shared.showAlert(with: message)
+                DebugScreenPresenterService.shared.showAlert(message: message)
             }
         }
 

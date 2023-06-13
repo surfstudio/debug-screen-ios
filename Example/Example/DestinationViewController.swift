@@ -8,7 +8,7 @@
 import DebugScreen
 import UIKit
 
-final class DestinationViewController: DebugScreenPresentableController {
+final class DestinationViewController: UIViewController {
 
     // MARK: - Private Properties
 

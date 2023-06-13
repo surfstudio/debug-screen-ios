@@ -7,20 +7,16 @@
 
 import UIKit
 
-public final class SimpleAlertModuleConfigurator {
+final class SimpleAlertModuleConfigurator {
 
     // MARK: - Initialization
 
-    public init() {}
+    init() {}
 
     // MARK: - Public Methods
 
-    public func configure(with message: String?, _ onClose: (() -> Void)? = nil) -> UIAlertController? {
-        guard let message = message else {
-            return nil
-        }
-
-        let alertController = configureAlertController(with: message, onClose: onClose)
+    func configure(with model: AlertModel) -> UIAlertController? {
+        let alertController = configureAlertController(with: model)
         return alertController
     }
 
@@ -30,14 +26,12 @@ public final class SimpleAlertModuleConfigurator {
 
 private extension SimpleAlertModuleConfigurator {
 
-    func configureAlertController(with message: String, onClose: (() -> Void)? = nil) -> UIAlertController {
-        let alertController = UIAlertController(title: nil,
-                                                message: message,
+    func configureAlertController(with model: AlertModel) -> UIAlertController {
+        let alertController = UIAlertController(title: model.title,
+                                                message: model.message,
                                                 preferredStyle: .alert)
 
-        let okAction = UIAlertAction(title: L10n.Common.Actions.ok, style: .default) { _ in
-            onClose?()
-        }
+        let okAction = UIAlertAction(title: L10n.Common.Actions.ok, style: .default)
         alertController.addAction(okAction)
 
         return alertController

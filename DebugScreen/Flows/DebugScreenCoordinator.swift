@@ -24,18 +24,14 @@ final class DebugScreenCoordinator: BaseCoordinator {
         showMainScreen()
     }
 
-    override func handle(deepLinkOption option: DeepLinkOption) {
-        switch option {
+    func open(module: ModuleType) {
+        switch module {
         case .alert(let model):
-            showAlert(with: model.value as? String, isRoot: model.isRootModule)
-        case .customScreen(let model):
-            if let view = model.value as? DebugScreenPresentableController {
-                showCustomScreen(screen: view, isRoot: model.isRootModule)
-            }
+            showAlert(with: model)
+        case .customScreen(let screen):
+            showCustomScreen(screen)
         case .fileViewer(let model):
-            if let filePath = model.value as? String {
-                showFile(with: filePath, isRoot: model.isRootModule)
-            }
+            showFile(with: model)
         }
     }
 
@@ -53,8 +49,8 @@ private extension DebugScreenCoordinator {
         output.onActionListShow = { [weak self] model in
             self?.showActionList(model: model)
         }
-        output.onAlertShow = { [weak self] message in
-            self?.showAlert(with: message)
+        output.onAlertShow = { [weak self] model in
+            self?.showAlert(with: model)
         }
         output.didModuleDismissed = { [weak self] in
             self?.completionHandler?()
@@ -80,43 +76,24 @@ private extension DebugScreenCoordinator {
         router.present(actionsSheet)
     }
 
-    func showFile(with filePath: String, isRoot: Bool = false) {
-        let (view, output) = FileViewerModuleConfigurator().configure(with: filePath)
-        output.didModuleDismissed = { [weak self] in
-            guard isRoot else {
-                return
-            }
-
-            self?.completionHandler?()
-        }
+    func showFile(with model: FileViewerModel) {
+        let (view, _) = FileViewerModuleConfigurator().configure(with: model)
         router.present(view)
     }
 
-    func showAlert(with message: String?, isRoot: Bool = false) {
-        let view = SimpleAlertModuleConfigurator().configure(with: message) { [weak self] in
-            guard isRoot else {
-                return
-            }
-
-            self?.completionHandler?()
-        }
+    func showAlert(with model: AlertModel) {
+        let view = SimpleAlertModuleConfigurator().configure(with: model)
         router.present(view)
     }
 
-    func showCustomScreen(screen: DebugScreenPresentableController, isRoot: Bool = false) {
-        let (view, output) = CustomScreenModuleConfigurator().configure(with: screen)
-        output.didModuleDismissed = { [weak self] in
-            guard isRoot else {
-                return
-            }
-
-            self?.completionHandler?()
-        }
+    func showCustomScreen(_ screen: UIViewController) {
+        let view = UINavigationController(rootViewController: screen)
+        view.modalPresentationStyle = .overFullScreen
 
         router.present(view)
     }
 
-    func configureActionSheetItem(with model: any Action) -> UIAlertAction {
+    func configureActionSheetItem(with model: Action) -> UIAlertAction {
         let style: UIAlertAction.Style = model.style == .destructive ? .destructive : .default
         let action = UIAlertAction(title: model.title, style: style) { _ in
             model.block?()

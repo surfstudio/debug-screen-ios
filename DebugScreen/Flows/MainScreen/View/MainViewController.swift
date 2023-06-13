@@ -59,7 +59,7 @@ private extension MainViewController {
     func configureTableView() {
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.separatorStyle = .none
-        tableView.contentInset = .init(top: 10,
+        tableView.contentInset = .init(top: 0,
                                        left: 0,
                                        bottom: 32,
                                        right: 0)

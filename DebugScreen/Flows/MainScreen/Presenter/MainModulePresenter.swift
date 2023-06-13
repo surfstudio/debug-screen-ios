@@ -14,7 +14,7 @@ final class MainModulePresenter: MainModuleOutput {
 
     var didModuleClosed: (() -> Void)?
     var onActionListShow: ((ActionList) -> Void)?
-    var onAlertShow: ((String) -> Void)?
+    var onAlertShow: ((AlertModel) -> Void)?
     var didModuleDismissed: (() -> Void)?
 
     // MARK: - Properties
@@ -47,7 +47,7 @@ extension MainModulePresenter: MainViewOutput {
 
     func didTapSelectableText(model: CopiedText) {
         UIPasteboard.general.string = model.value
-        onAlertShow?(L10n.MainPresenter.CopyTextAction.complete)
+        onAlertShow?(.init(message: L10n.MainPresenter.CopyTextAction.complete))
         debugPrint("✅ \(model.title) copied to clipboard")
     }
 

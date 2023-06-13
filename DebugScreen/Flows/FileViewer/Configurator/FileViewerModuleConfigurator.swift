@@ -20,9 +20,9 @@ final class FileViewerModuleConfigurator {
 
     // MARK: - Methods
 
-    func configure(with filePath: String) -> FileViewerModuleComponents {
+    func configure(with model: FileViewerModel) -> FileViewerModuleComponents {
         let view = UIViewController.instantiate(ofType: FileViewerViewController.self)
-        let presenter = FileViewerPresenter(filePath: filePath)
+        let presenter = FileViewerPresenter(model: model)
 
         presenter.view = view
         view.output = presenter
