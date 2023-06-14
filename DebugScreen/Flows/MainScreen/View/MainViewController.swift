@@ -67,8 +67,8 @@ private extension MainViewController {
 
     func configureAdapter() {
         adapter = MainAdapter(tableView: tableView)
-        adapter?.onOpenActionsList = { [weak self] model in
-            self?.output?.didTapActionsList(model: model)
+        adapter?.onOpenActionList = { [weak self] model in
+            self?.output?.didTapActionList(model: model)
         }
         adapter?.onSelectableTextTap = { [weak self] model in
             self?.output?.didTapSelectableText(model: model)

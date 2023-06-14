@@ -98,7 +98,7 @@ private extension SelectorCell {
     }
 
     func configureConfirmButton() {
-        confirmButton.configure(type: .primary)
+        confirmButton.configure(style: .primary)
         confirmButton.setTitleForAllState(L10n.Common.Actions.select)
     }
 

@@ -13,7 +13,7 @@ Library for quickly creating and customizing an application`s debug screen. It a
 
 ## Screenshots
 
-![DebugScreenScreenshot](https://i.ibb.co/rb5ZHpr/2023-06-02-11-07-36.png)
+![DebugScreenScreenshot](TechDocs/MainScreen_Demo.png)
 
 ## Installation
 
@@ -164,6 +164,8 @@ To open log file from any place of your app call `openLogFile()` function:
 DebugScreenPresenterService.shared.openLogFile()
 ```
   
+**Log file can be opened only when Debug Dashboard is active!**  
+  
 To get a list of logs in string form, you can use the function `logs()`:   
 ```swift
 let logs = DebugScreenConfiguration.shared.logCatcherService.logs()
@@ -200,7 +202,16 @@ However, they will still be displayed in the Xcode console.
 <details>
 <summary>Details</summary>
     
-Allows you to perform some action on button tap. 
+Allows you to perform some action on button tap.
+
+If you want to open custom screen on action buttop tap, your view controller must be inherited by `DebugScreenPresentableController`. Only this way it can be presented.
+Library present custom screen on `overFullScreen` presentation style. For present some screen call function `showCustomScreen`:
+```swift
+let view = DestinationViewController()
+DebugScreenPresenterService.shared.showCustomScreen(view)
+```
+
+**Custom screen can be presented only when Debug Dashboard is open!**
 
 For using it you'll need to do next:
 - create instance, that implements `Action` protocol (it will be model of your action)
@@ -213,21 +224,21 @@ final class DebugScreenAction: Action {
     // MARK: - Properties
 
     let title: String
-    let type: ActionType
+    let style: ActionStyle
     let block: (() -> Void)?
 
     // MARK: - Initialization
 
-    init(title: String, type: ActionType = .primary, block: (() -> Void)?) {
+    init(title: String, style: ActionStyle = .primary, block: (() -> Void)?) {
         self.title = title
-        self.type = type
+        self.style = style
         self.block = block
     }
 
 }
 ```
     - `title` - Text, that will be displayed on action button
-    - `type` - Type of action, that affects on the action button appearance (can be primary, secondary, destructive). Default value is `primary`.
+    - `style` - Action style, that affects on the action button appearance (can be primary, secondary, destructive). Default value is `primary`.
     - `block` - Action block, that will be triggered on button tap
 
 - create instance, that implements `Builder` protocol for needed section
@@ -243,12 +254,14 @@ final class ActionsSectionBuilder: SectionBuilder {
     func build() -> TableSection {
         var blocks: [MainTableBlock] = []
 
-        let defaultAction = getAction(type: .secondary)
-        let destructiveAction = getAction(type: .destructive)
+        let defaultAction = getAction(style: .secondary)
+        let destructiveAction = getAction(style: .destructive)
+        let openScreenAction = getOpenScreenAction()
 
         blocks = [
             .action(model: defaultAction),
-            .action(model: destructiveAction)
+            .action(model: destructiveAction),
+            .action(model: openScreenAction)
         ]
 
         return .init(title: L10n.Actions.header, blocks: blocks)
@@ -256,42 +269,50 @@ final class ActionsSectionBuilder: SectionBuilder {
   
     // MARK: - Private Methods
   
-    private func getAction(type: ActionType) -> DebugScreenAction {
-        let title = type == .secondary ? L10n.Actions.secondaryTitle : L10n.Actions.destructiveTitle
-        let actionName = type == .secondary ? "Secondary" : "Destructive"
+    private func getAction(style: ActionStyle) -> DebugScreenAction {
+        let title = style == .secondary ? L10n.Actions.secondaryTitle : L10n.Actions.destructiveTitle
+        let actionName = style == .secondary ? "Secondary" : "Destructive"
 
-        let action: DebugScreenAction = .init(title: title, type: type) {
+        let action: DebugScreenAction = .init(title: title, style: style) {
             debugPrint("✅ \(actionName) action complete")
         }
 
         return action
-     }
+    }
+
+    private func getOpenScreenAction() -> DebugScreenAction {
+        let action: DebugScreenAction = .init(title: L10n.Actions.openScreenTitle) {
+            let view = DestinationViewController()
+            DebugScreenPresenterService.shared.showCustomScreen(view)
+        }
+        return action
+    }
 
 }
 ```
   
 </details>
 
-#### ActionsList
+#### ActionList
 
 <details>
 <summary>Details</summary>
     
-Provides custom actions list, that will be opened on button tap. Actions inside list needs to conform `Action` protocol.
+Provides custom action list, that will be opened on button tap. Actions inside list needs to conform `Action` protocol.
 
 For using it you'll need to do next:
-- create instance, that implements `ActionList` protocol (it will be model of your actions list)
+- create instance, that implements `ActionList` protocol (it will be model of your action list)
 
 ```swift
 import DebugScreen
-  
-final class DebugScreenActionsList: ActionsList {
+
+final class DebugScreenActionList: ActionList {
 
     // MARK: - Properties
 
-    var title: String
-    var message: String?
-    var actions: [Action]
+    let title: String
+    let message: String?
+    let actions: [Action]
 
     // MARK: - Initialization
 
@@ -308,7 +329,7 @@ final class DebugScreenActionsList: ActionsList {
     - `actions` - Action sheet actions (cancel action added by default, don't need to implement it yourself)
 
 - create instance, that implements `Builder` protocol for needed section
-- initialize actions models and add them into section with help `.actionsList(model: ActionsList)` block
+- initialize actions models and add them into section with help `.actionList(model: ActionList)` block
 
 ```swift
 import DebugScreen
@@ -323,7 +344,7 @@ final class ActionsSectionBuilder: SectionBuilder {
         let actionsList = configureActionsList()
 
         blocks = [
-            .actionsList(model: actionsList)
+            .actionList(model: actionList)
         ]
 
         return .init(title: L10n.Actions.header, blocks: blocks)
@@ -331,25 +352,28 @@ final class ActionsSectionBuilder: SectionBuilder {
   
     // MARK: - Private Methods  
   
-    private func configureActionsList() -> DebugScreenActionsList {
+    private func configureActionList() -> DebugScreenActionList {
         let actions = getActionsListModels()
-        let actionsList: DebugScreenActionsList = .init(title: L10n.ActionsList.title,
-                                                        message: L10n.ActionsList.message,
-                                                        actions: actions)
+        let actionList: DebugScreenActionList = .init(title: L10n.ActionsList.title,
+                                                      message: L10n.ActionsList.message,
+                                                      actions: actions)
 
         return actionsList
     }
 
-    private func getActionsListModels() -> [DebugScreenAction] {
-        let firstAction: DebugScreenAction = .init(title: L10n.ActionsList.firstActionTitle) {
-            debugPrint("✅ First action complete")
+    private func getActionListModels() -> [Action] {
+        let openScreenAction = getOpenScreenAction()
+
+        let defaultAction: DebugScreenAction = .init(title: L10n.ActionList.defaultActionTitle) {
+            debugPrint("✅ Default action complete")
         }
 
-        let secondAction: DebugScreenAction = .init(title: L10n.ActionsList.secondActionTitle) {
-            debugPrint("✅ Second action complete")
+        let destructiveAction: DebugScreenAction = .init(title: L10n.Actions.destructiveTitle,
+                                                         style: .destructive) {
+            debugPrint("✅ Destructive action complete")
         }
 
-        return [firstAction, secondAction]
+        return [openScreenAction, defaultAction, destructiveAction]
     }
 
 }

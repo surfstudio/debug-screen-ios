@@ -13,8 +13,8 @@ public enum LoggerSectionComponent {
     case enableLogInfoToggle
     /// Toggle, that activate / deactivate writing errors logs to file
     case enableLogErrorsToggle
-    /// Button, that will open log file actions list
-    case logFileActionsList
+    /// Button, that will open log file action list
+    case logFileActionList
     /// Button, that open log file
     case logFileOpenAction
     /// Button, that clear log file

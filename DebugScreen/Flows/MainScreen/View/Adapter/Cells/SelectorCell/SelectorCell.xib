@@ -18,13 +18,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7eB-cL-x6A">
-                        <rect key="frame" x="16" y="0.0" width="288" height="162"/>
+                        <rect key="frame" x="16" y="16" width="288" height="162"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="162" id="Wm8-yv-0yq"/>
                         </constraints>
                     </pickerView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPB-qC-zHo">
-                        <rect key="frame" x="16" y="178" width="288" height="46"/>
+                        <rect key="frame" x="16" y="194" width="288" height="46"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="46" id="RZt-X1-I3G"/>
                         </constraints>
@@ -37,10 +37,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="CPB-qC-zHo" secondAttribute="trailing" constant="16" id="5Fz-Sg-hTz"/>
-                    <constraint firstItem="7eB-cL-x6A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="B8J-jP-MTq"/>
+                    <constraint firstItem="7eB-cL-x6A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="B8J-jP-MTq"/>
                     <constraint firstItem="7eB-cL-x6A" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="FTI-DR-Zdt"/>
                     <constraint firstItem="CPB-qC-zHo" firstAttribute="top" secondItem="7eB-cL-x6A" secondAttribute="bottom" constant="16" id="KZz-nY-tvC"/>
-                    <constraint firstAttribute="bottom" secondItem="CPB-qC-zHo" secondAttribute="bottom" id="nOg-vb-USP"/>
+                    <constraint firstAttribute="bottom" secondItem="CPB-qC-zHo" secondAttribute="bottom" constant="16" id="nOg-vb-USP"/>
                     <constraint firstAttribute="trailing" secondItem="7eB-cL-x6A" secondAttribute="trailing" constant="16" id="p9Z-3x-KCu"/>
                     <constraint firstItem="CPB-qC-zHo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="s7s-Tu-j0q"/>
                 </constraints>

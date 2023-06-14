@@ -11,26 +11,24 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
 
+  internal enum ActionList {
+    /// Стандартное
+    internal static let defaultActionTitle = L10n.tr("Localizable", "ActionList.defaultActionTitle")
+    /// Выберите действие
+    internal static let message = L10n.tr("Localizable", "ActionList.message")
+    /// Список действий
+    internal static let title = L10n.tr("Localizable", "ActionList.title")
+  }
+
   internal enum Actions {
     /// Удаление
     internal static let destructiveTitle = L10n.tr("Localizable", "Actions.destructiveTitle")
     /// Действия
     internal static let header = L10n.tr("Localizable", "Actions.header")
+    /// Открытие экрана
+    internal static let openScreenTitle = L10n.tr("Localizable", "Actions.openScreenTitle")
     /// Вспомогательное
     internal static let secondaryTitle = L10n.tr("Localizable", "Actions.secondaryTitle")
-  }
-
-  internal enum ActionsList {
-    /// Первое
-    internal static let firstActionTitle = L10n.tr("Localizable", "ActionsList.firstActionTitle")
-    /// Выберите действие
-    internal static let message = L10n.tr("Localizable", "ActionsList.message")
-    /// Второе
-    internal static let secondActionTitle = L10n.tr("Localizable", "ActionsList.secondActionTitle")
-    /// Третье
-    internal static let thirdActionTitle = L10n.tr("Localizable", "ActionsList.thirdActionTitle")
-    /// Список действий
-    internal static let title = L10n.tr("Localizable", "ActionsList.title")
   }
 
   internal enum CopiedText {
@@ -42,6 +40,13 @@ internal enum L10n {
     internal static let secondTextTitle = L10n.tr("Localizable", "CopiedText.secondTextTitle")
     /// Данные для копирования
     internal static let thirdTextTitle = L10n.tr("Localizable", "CopiedText.thirdTextTitle")
+  }
+
+  internal enum DestinationController {
+    /// Это новый экран!
+    internal static let contentText = L10n.tr("Localizable", "DestinationController.contentText")
+    /// Новый экран
+    internal static let title = L10n.tr("Localizable", "DestinationController.title")
   }
 
   internal enum FeatureToggles {

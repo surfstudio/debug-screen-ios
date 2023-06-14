@@ -11,21 +11,21 @@ final class LoggerAction: Action {
     // MARK: - Properties
 
     let title: String
-    let type: ActionType
+    let style: ActionStyle
     let block: (() -> Void)?
 
     // MARK: - Initialization
 
-    init(title: String, type: ActionType, block: (() -> Void)?) {
+    init(title: String, style: ActionStyle, block: (() -> Void)?) {
         self.title = title
-        self.type = type
+        self.style = style
         self.block = block
     }
 
 }
 
-/// Logger section actions list model
-final class LoggerActionsList: ActionsList {
+/// Logger section action list model
+final class LoggerActionList: ActionList {
 
     // MARK: - Properties
 

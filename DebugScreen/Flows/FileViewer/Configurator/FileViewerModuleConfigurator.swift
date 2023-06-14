@@ -7,22 +7,22 @@
 
 import UIKit
 
-public typealias FileViewerModuleComponents = (
+typealias FileViewerModuleComponents = (
     view: UIViewController,
     output: FileViewerModuleOutput
 )
 
-public final class FileViewerModuleConfigurator {
+final class FileViewerModuleConfigurator {
 
     // MARK: - Initialization
 
-    public init() {}
+    init() {}
 
-    // MARK: - Public Methods
+    // MARK: - Methods
 
-    public func configure(with filePath: String) -> FileViewerModuleComponents {
+    func configure(with model: FileViewerModel) -> FileViewerModuleComponents {
         let view = UIViewController.instantiate(ofType: FileViewerViewController.self)
-        let presenter = FileViewerPresenter(filePath: filePath)
+        let presenter = FileViewerPresenter(model: model)
 
         presenter.view = view
         view.output = presenter

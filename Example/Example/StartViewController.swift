@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  StartViewController.swift
 //  Example
 //
 //  Created by vasilev on 20.06.2022.
@@ -8,7 +8,7 @@
 import UIKit
 import DebugScreen
 
-final class ViewController: UIViewController {
+final class StartViewController: UIViewController {
 
     // MARK: - Constants
 
@@ -33,7 +33,7 @@ final class ViewController: UIViewController {
 
 // MARK: - Appearance
 
-private extension ViewController {
+private extension StartViewController {
 
     func configureAppearance() {
         shakeMeLabel.alpha = 0
@@ -60,7 +60,7 @@ private extension ViewController {
 
 // MARK: - Actions
 
-private extension ViewController {
+private extension StartViewController {
 
     @IBAction func onShowButtonTap(_ sender: UIButton) {
         DebugScreenPresenterService.shared.showDebugScreen()

@@ -15,31 +15,21 @@ final class FileViewerPresenter: FileViewerModuleOutput {
         static let numberOfPreviewItems = 1
     }
 
-    // MARK: - MainModuleOutput
-
-    var didModuleDismissed: (() -> Void)?
-
     // MARK: - Properties
 
     weak var view: FileViewerViewInput?
 
     // MARK: - Private Properties
 
-    private let filePath: String
+    private let model: FileViewerModel
     private var filePreviewItem: QLPreviewItem {
-        NSURL(fileURLWithPath: filePath) as QLPreviewItem
+        return NSURL(fileURLWithPath: model.filePath) as QLPreviewItem
     }
 
     // MARK: - Initialization
 
-    init(filePath: String) {
-        self.filePath = filePath
-    }
-
-    // MARK: - Deinitialization
-
-    deinit {
-        didModuleDismissed?()
+    init(model: FileViewerModel) {
+        self.model = model
     }
 
 }
@@ -51,11 +41,11 @@ extension FileViewerPresenter: FileViewerModuleInput {
     // MARK: - QLPreviewControllerDataSource
 
     func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
-        Constants.numberOfPreviewItems
+        return Constants.numberOfPreviewItems
     }
 
     func previewController( _ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
-        filePreviewItem
+        return filePreviewItem
     }
 
 }

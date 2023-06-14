@@ -11,14 +11,13 @@
 "Actions.header" = "Действия";
 "Actions.secondaryTitle" = "Вспомогательное";
 "Actions.destructiveTitle" = "Удаление";
+"Actions.openScreenTitle" = "Открытие экрана";
 
-// MARK: - ActionsList
+// MARK: - ActionList
 
-"ActionsList.title" = "Список действий";
-"ActionsList.message" = "Выберите действие";
-"ActionsList.firstActionTitle" = "Первое";
-"ActionsList.secondActionTitle" = "Второе";
-"ActionsList.thirdActionTitle" = "Третье";
+"ActionList.title" = "Список действий";
+"ActionList.message" = "Выберите действие";
+"ActionList.defaultActionTitle" = "Стандартное";
 
 // MARK: - FeatureToggles
 
@@ -40,3 +39,8 @@
 "CopiedText.firstTextTitle" = "Ключ SSH";
 "CopiedText.secondTextTitle" = "Токен";
 "CopiedText.thirdTextTitle" = "Данные для копирования";
+
+// MARK: - Destination Controller
+
+"DestinationController.title" = "Новый экран";
+"DestinationController.contentText" = "Это новый экран!";

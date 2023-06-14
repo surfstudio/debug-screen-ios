@@ -28,7 +28,7 @@ final class ButtonCell: UITableViewCell {
 
     func configure(with model: ButtonCellModel) {
         actionButton.setTitleForAllState(model.title)
-        actionButton.configure(type: model.actionType)
+        actionButton.configure(style: model.actionStyle)
     }
 
 }

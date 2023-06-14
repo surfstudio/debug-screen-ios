@@ -9,8 +9,8 @@
 public enum MainTableBlock {
     /// Block with action button
     case action(model: Action)
-    /// Block with actions list button
-    case actionsList(model: ActionsList)
+    /// Block with action list button
+    case actionList(model: ActionList)
     /// Block with CopiedText instance, whose value is copied when pressed
     case copiedText(model: CopiedText)
     /// Block with selector (server selection, for example)

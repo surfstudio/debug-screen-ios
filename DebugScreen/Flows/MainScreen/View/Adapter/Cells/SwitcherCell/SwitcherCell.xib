@@ -31,7 +31,8 @@
                     </switch>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="rbh-EW-yzG" secondAttribute="bottom" constant="16" id="50F-hM-OWC"/>
+                    <constraint firstItem="rbh-EW-yzG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" priority="750" id="1CQ-Og-vhP"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="rbh-EW-yzG" secondAttribute="bottom" constant="16" id="50F-hM-OWC"/>
                     <constraint firstItem="rbh-EW-yzG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="BmU-FP-GvG"/>
                     <constraint firstAttribute="trailing" secondItem="xw1-Iw-asC" secondAttribute="trailing" constant="16" id="Bp8-ty-2cw"/>
                     <constraint firstItem="xw1-Iw-asC" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="FRo-IV-uj9"/>

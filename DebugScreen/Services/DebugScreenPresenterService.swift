@@ -5,7 +5,7 @@
 //  Created by Anton Shelar on 02.11.2020.
 //
 
-import Foundation
+import UIKit
 
 public final class DebugScreenPresenterService {
 
@@ -23,6 +23,7 @@ public final class DebugScreenPresenterService {
 
     // MARK: - Public Methods
 
+    /// Open Debug screen menu
     public func showDebugScreen() {
         guard coordinator == nil else {
             return
@@ -32,25 +33,24 @@ public final class DebugScreenPresenterService {
         coordinator?.start()
     }
 
-    public func showAlert(with message: String) {
-        let model = DeepLinkOptionModel(value: message, isRootModule: coordinator == nil)
-
-        if coordinator == nil {
-            configureCoordinator()
-        }
-
-        coordinator?.handle(deepLinkOption: .alert(model: model))
+    /// Show alert with title and message.
+    /// Can be showed only when debug screen is open.
+    public func showAlert(title: String? = nil, message: String) {
+        let model = AlertModel(title: title, message: message)
+        openModule(.alert(model: model))
     }
 
+    /// Show custom view controller.
+    /// Can be showed only when debug screen is open.
+    public func showCustomScreen(_ view: UIViewController) {
+        openModule(.customScreen(view))
+    }
+
+    /// Open log file.
+    /// Can be showed only when debug screen is open.
     public func openLogFile() {
-        let model = DeepLinkOptionModel(value: DebugScreenConfiguration.shared.logCatcherService.logFilePath,
-                                        isRootModule: coordinator == nil)
-
-        if coordinator == nil {
-            configureCoordinator()
-        }
-
-        coordinator?.handle(deepLinkOption: .fileViewer(model: model))
+        let model = FileViewerModel(filePath: DebugScreenConfiguration.shared.logCatcherService.logFilePath)
+        openModule(.fileViewer(model: model))
     }
 
 }
@@ -64,6 +64,23 @@ private extension DebugScreenPresenterService {
         coordinator?.completionHandler = { [weak self] in
             self?.coordinator = nil
         }
+    }
+
+    func isDebugScreenAvailable() -> Bool {
+        guard coordinator != nil else {
+            debugPrint("ℹ️ Modules presentation available only from Debug Screen menu!")
+            return false
+        }
+
+        return true
+    }
+
+    func openModule(_ module: ModuleType) {
+        guard isDebugScreenAvailable() else {
+            return
+        }
+
+        coordinator?.open(module: module)
     }
 
 }

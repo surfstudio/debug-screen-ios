@@ -13,8 +13,8 @@ final class MainModulePresenter: MainModuleOutput {
     // MARK: - MainModuleOutput
 
     var didModuleClosed: (() -> Void)?
-    var onActionsListShow: ((ActionsList) -> Void)?
-    var onAlertShow: ((String) -> Void)?
+    var onActionListShow: ((ActionList) -> Void)?
+    var onAlertShow: ((AlertModel) -> Void)?
     var didModuleDismissed: (() -> Void)?
 
     // MARK: - Properties
@@ -41,13 +41,13 @@ extension MainModulePresenter: MainViewOutput {
         view?.setupInitialState(sections: DebugScreenConfiguration.shared.sections)
     }
 
-    func didTapActionsList(model: ActionsList) {
-        onActionsListShow?(model)
+    func didTapActionList(model: ActionList) {
+        onActionListShow?(model)
     }
 
     func didTapSelectableText(model: CopiedText) {
         UIPasteboard.general.string = model.value
-        onAlertShow?(L10n.MainPresenter.CopyTextAction.complete)
+        onAlertShow?(.init(message: L10n.MainPresenter.CopyTextAction.complete))
         debugPrint("✅ \(model.title) copied to clipboard")
     }
 

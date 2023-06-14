@@ -1,12 +1,12 @@
 //
-//  ActionsList.swift
+//  ActionList.swift
 //  DebugScreen
 //
 //  Created by Ilya Klimenyuk on 31.05.2023.
 //
 
-/// Protocol for actions list
-public protocol ActionsList {
+/// Protocol for action list
+public protocol ActionList {
     /// List name, that will be displayed on button
     var title: String { get }
     /// Message, that will be displayed on top of actionSheet

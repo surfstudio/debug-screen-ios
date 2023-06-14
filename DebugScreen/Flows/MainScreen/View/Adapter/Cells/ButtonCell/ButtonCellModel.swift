@@ -10,13 +10,13 @@ struct ButtonCellModel {
     // MARK: - Properties
 
     let title: String
-    let actionType: ActionType
+    let actionStyle: ActionStyle
 
     // MARK: - Initialization
 
-    init(title: String, actionType: ActionType = .primary) {
+    init(title: String, actionStyle: ActionStyle = .primary) {
         self.title = title
-        self.actionType = actionType
+        self.actionStyle = actionStyle
     }
 
 }

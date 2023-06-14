@@ -24,12 +24,14 @@ final class DebugScreenCoordinator: BaseCoordinator {
         showMainScreen()
     }
 
-    override func handle(deepLinkOption option: DeepLinkOption) {
-        switch option {
+    func open(module: ModuleType) {
+        switch module {
         case .alert(let model):
-            showAlert(with: model.value, isRoot: model.isRootModule)
+            showAlert(with: model)
+        case .customScreen(let screen):
+            showCustomScreen(screen)
         case .fileViewer(let model):
-            showFile(with: model.value, isRoot: model.isRootModule)
+            showFile(with: model)
         }
     }
 
@@ -44,11 +46,11 @@ private extension DebugScreenCoordinator {
         output.didModuleClosed = { [weak self] in
             self?.router.dismissModule()
         }
-        output.onActionsListShow = { [weak self] model in
-            self?.showActionsList(model: model)
+        output.onActionListShow = { [weak self] model in
+            self?.showActionList(model: model)
         }
-        output.onAlertShow = { [weak self] message in
-            self?.showAlert(with: message)
+        output.onAlertShow = { [weak self] model in
+            self?.showAlert(with: model)
         }
         output.didModuleDismissed = { [weak self] in
             self?.completionHandler?()
@@ -56,16 +58,13 @@ private extension DebugScreenCoordinator {
         router.present(view)
     }
 
-    func showActionsList(model: ActionsList) {
+    func showActionList(model: ActionList) {
         let actionsSheet = UIAlertController(title: nil,
                                              message: model.message,
                                              preferredStyle: .actionSheet)
 
-        model.actions.forEach { actionModel in
-            let action = UIAlertAction(title: actionModel.title, style: .destructive) { _ in
-                actionModel.block?()
-            }
-
+        model.actions.forEach { model in
+            let action = configureActionSheetItem(with: model)
             actionsSheet.addAction(action)
         }
 
@@ -77,27 +76,30 @@ private extension DebugScreenCoordinator {
         router.present(actionsSheet)
     }
 
-    func showFile(with filePath: String, isRoot: Bool = false) {
-        let (view, output) = FileViewerModuleConfigurator().configure(with: filePath)
-        output.didModuleDismissed = { [weak self] in
-            guard isRoot else {
-                return
-            }
-
-            self?.completionHandler?()
-        }
+    func showFile(with model: FileViewerModel) {
+        let (view, _) = FileViewerModuleConfigurator().configure(with: model)
         router.present(view)
     }
 
-    func showAlert(with message: String?, isRoot: Bool = false) {
-        let view = SimpleAlertModuleConfigurator().configure(with: message) { [weak self] in
-            guard isRoot else {
-                return
-            }
-
-            self?.completionHandler?()
-        }
+    func showAlert(with model: AlertModel) {
+        let view = SimpleAlertModuleConfigurator().configure(with: model)
         router.present(view)
+    }
+
+    func showCustomScreen(_ screen: UIViewController) {
+        let view = UINavigationController(rootViewController: screen)
+        view.modalPresentationStyle = .overFullScreen
+
+        router.present(view)
+    }
+
+    func configureActionSheetItem(with model: Action) -> UIAlertAction {
+        let style: UIAlertAction.Style = model.style == .destructive ? .destructive : .default
+        let action = UIAlertAction(title: model.title, style: style) { _ in
+            model.block?()
+        }
+
+        return action
     }
 
 }

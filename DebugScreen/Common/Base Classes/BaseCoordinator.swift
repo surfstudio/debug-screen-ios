@@ -33,16 +33,6 @@ class BaseCoordinator: Coordinator {
 
     func start(with deepLinkOption: DeepLinkOption?) { }
 
-    open func handle(deepLinkOption option: DeepLinkOption) {
-        guard let parent = parentCoordinator else {
-            // вызываем обработку у родительского координатора,
-            // пока не упремся в тот координатор, который сам обработает это,
-            // переопределив данный метод
-            return
-        }
-        parent.handle(deepLinkOption: option)
-    }
-
     // Add only unique object
     func addDependency(_ coordinator: Coordinator) {
         guard !haveDependency(coordinator) else {

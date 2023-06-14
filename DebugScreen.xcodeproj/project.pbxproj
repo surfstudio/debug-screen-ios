@@ -47,10 +47,13 @@
 		B237FF5D2A28CBB90095FA33 /* LoggerActivationToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237FF5C2A28CBB90095FA33 /* LoggerActivationToggle.swift */; };
 		B237FF632A2912D10095FA33 /* MainTableBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237FF622A2912D10095FA33 /* MainTableBlock.swift */; };
 		B237FF652A2913DF0095FA33 /* LoggerSectionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237FF642A2913DF0095FA33 /* LoggerSectionComponent.swift */; };
+		B24B27E12A37152C00624E29 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B27E02A37152C00624E29 /* AlertModel.swift */; };
+		B24B27E32A37153800624E29 /* FileViewerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B27E22A37153800624E29 /* FileViewerModel.swift */; };
+		B24B27E72A37161300624E29 /* ModuleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B27E62A37161300624E29 /* ModuleType.swift */; };
 		B2610E212A16D90600509FA1 /* FileViewerModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2610E202A16D90600509FA1 /* FileViewerModuleConfigurator.swift */; };
 		B2610E242A16DCC300509FA1 /* SimpleAlertModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2610E232A16DCC300509FA1 /* SimpleAlertModuleConfigurator.swift */; };
 		B28F97E42A271F980089C032 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97E32A271F980089C032 /* Action.swift */; };
-		B28F97E62A271FA30089C032 /* ActionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97E52A271FA30089C032 /* ActionsList.swift */; };
+		B28F97E62A271FA30089C032 /* ActionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97E52A271FA30089C032 /* ActionList.swift */; };
 		B28F97E82A271FAF0089C032 /* FeatureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97E72A271FAF0089C032 /* FeatureToggle.swift */; };
 		B28F97EA2A271FC00089C032 /* CopiedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97E92A271FC00089C032 /* CopiedText.swift */; };
 		B28F97EC2A271FF30089C032 /* SelectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F97EB2A271FF30089C032 /* SelectionList.swift */; };
@@ -68,6 +71,7 @@
 		B28F98142A27E17F0089C032 /* SectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F98132A27E17F0089C032 /* SectionBuilder.swift */; };
 		B28F98172A27E2040089C032 /* LoggerAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F98162A27E2040089C032 /* LoggerAction.swift */; };
 		B28F98192A27E2920089C032 /* LoggerStreamCatcherToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F98182A27E2920089C032 /* LoggerStreamCatcherToggle.swift */; };
+		B29DB2BD2A2CAB8E008250B0 /* ActionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29DB2BC2A2CAB8D008250B0 /* ActionStyle.swift */; };
 		B2CA74DB2A1743A900E91B24 /* FileViewerModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA74DA2A1743A900E91B24 /* FileViewerModuleInput.swift */; };
 		B2CA74DD2A1743B700E91B24 /* FileViewerModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA74DC2A1743B700E91B24 /* FileViewerModuleOutput.swift */; };
 		B2CA74DF2A1743C700E91B24 /* FileViewerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA74DE2A1743C700E91B24 /* FileViewerPresenter.swift */; };
@@ -121,10 +125,13 @@
 		B237FF5C2A28CBB90095FA33 /* LoggerActivationToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerActivationToggle.swift; sourceTree = "<group>"; };
 		B237FF622A2912D10095FA33 /* MainTableBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableBlock.swift; sourceTree = "<group>"; };
 		B237FF642A2913DF0095FA33 /* LoggerSectionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSectionComponent.swift; sourceTree = "<group>"; };
+		B24B27E02A37152C00624E29 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
+		B24B27E22A37153800624E29 /* FileViewerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerModel.swift; sourceTree = "<group>"; };
+		B24B27E62A37161300624E29 /* ModuleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleType.swift; sourceTree = "<group>"; };
 		B2610E202A16D90600509FA1 /* FileViewerModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileViewerModuleConfigurator.swift; sourceTree = "<group>"; };
 		B2610E232A16DCC300509FA1 /* SimpleAlertModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlertModuleConfigurator.swift; sourceTree = "<group>"; };
 		B28F97E32A271F980089C032 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
-		B28F97E52A271FA30089C032 /* ActionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsList.swift; sourceTree = "<group>"; };
+		B28F97E52A271FA30089C032 /* ActionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionList.swift; sourceTree = "<group>"; };
 		B28F97E72A271FAF0089C032 /* FeatureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureToggle.swift; sourceTree = "<group>"; };
 		B28F97E92A271FC00089C032 /* CopiedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopiedText.swift; sourceTree = "<group>"; };
 		B28F97EB2A271FF30089C032 /* SelectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionList.swift; sourceTree = "<group>"; };
@@ -142,6 +149,7 @@
 		B28F98132A27E17F0089C032 /* SectionBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionBuilder.swift; sourceTree = "<group>"; };
 		B28F98162A27E2040089C032 /* LoggerAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerAction.swift; sourceTree = "<group>"; };
 		B28F98182A27E2920089C032 /* LoggerStreamCatcherToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerStreamCatcherToggle.swift; sourceTree = "<group>"; };
+		B29DB2BC2A2CAB8D008250B0 /* ActionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionStyle.swift; sourceTree = "<group>"; };
 		B2CA74DA2A1743A900E91B24 /* FileViewerModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerModuleInput.swift; sourceTree = "<group>"; };
 		B2CA74DC2A1743B700E91B24 /* FileViewerModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerModuleOutput.swift; sourceTree = "<group>"; };
 		B2CA74DE2A1743C700E91B24 /* FileViewerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerPresenter.swift; sourceTree = "<group>"; };
@@ -404,6 +412,7 @@
 			children = (
 				B237FF602A29126F0095FA33 /* Common */,
 				B237FF612A29127C0095FA33 /* Logger */,
+				B24B27DF2A37150B00624E29 /* Modules */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -411,6 +420,7 @@
 		B237FF602A29126F0095FA33 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B29DB2BC2A2CAB8D008250B0 /* ActionStyle.swift */,
 				B237FF622A2912D10095FA33 /* MainTableBlock.swift */,
 				A4D337552863A7AA002328F2 /* TableSection.swift */,
 			);
@@ -444,6 +454,24 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		B24B27DF2A37150B00624E29 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				B24B27E82A37161800624E29 /* Models */,
+				B24B27E62A37161300624E29 /* ModuleType.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		B24B27E82A37161800624E29 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B24B27E02A37152C00624E29 /* AlertModel.swift */,
+				B24B27E22A37153800624E29 /* FileViewerModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		B2610E1F2A16D90600509FA1 /* FileViewer */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,7 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				B28F97E32A271F980089C032 /* Action.swift */,
-				B28F97E52A271FA30089C032 /* ActionsList.swift */,
+				B28F97E52A271FA30089C032 /* ActionList.swift */,
 				B28F97E92A271FC00089C032 /* CopiedText.swift */,
 				B28F97E72A271FAF0089C032 /* FeatureToggle.swift */,
 				B28F97EB2A271FF30089C032 /* SelectionList.swift */,
@@ -720,6 +748,7 @@
 				B2610E242A16DCC300509FA1 /* SimpleAlertModuleConfigurator.swift in Sources */,
 				B28F97E42A271F980089C032 /* Action.swift in Sources */,
 				B237FF652A2913DF0095FA33 /* LoggerSectionComponent.swift in Sources */,
+				B24B27E32A37153800624E29 /* FileViewerModel.swift in Sources */,
 				A4BDF49928512F7700651C61 /* Bundle.swift in Sources */,
 				B2CA74DD2A1743B700E91B24 /* FileViewerModuleOutput.swift in Sources */,
 				A47BDB44286A1249002326B8 /* Assets.swift in Sources */,
@@ -730,7 +759,8 @@
 				A4BDF49428512F7700651C61 /* NSObject.swift in Sources */,
 				A4D337562863A7AA002328F2 /* TableSection.swift in Sources */,
 				B28F97FB2A27315B0089C032 /* UIButton.swift in Sources */,
-				B28F97E62A271FA30089C032 /* ActionsList.swift in Sources */,
+				B28F97E62A271FA30089C032 /* ActionList.swift in Sources */,
+				B24B27E12A37152C00624E29 /* AlertModel.swift in Sources */,
 				A4BDF49C28512F7700651C61 /* Presentable.swift in Sources */,
 				B28F97F72A27288D0089C032 /* ButtonCellModel.swift in Sources */,
 				B28F98192A27E2920089C032 /* LoggerStreamCatcherToggle.swift in Sources */,
@@ -754,7 +784,9 @@
 				A4BDF49228512F7700651C61 /* MainRouter.swift in Sources */,
 				B237FF632A2912D10095FA33 /* MainTableBlock.swift in Sources */,
 				A4BDF4D528512FB500651C61 /* DebugScreenConfiguration.swift in Sources */,
+				B24B27E72A37161300624E29 /* ModuleType.swift in Sources */,
 				B28F97FF2A2753120089C032 /* SelectorCell.swift in Sources */,
+				B29DB2BD2A2CAB8E008250B0 /* ActionStyle.swift in Sources */,
 				B2CA74DB2A1743A900E91B24 /* FileViewerModuleInput.swift in Sources */,
 				A47BDB49286A13AC002326B8 /* Strings.swift in Sources */,
 				B28F98172A27E2040089C032 /* LoggerAction.swift in Sources */,

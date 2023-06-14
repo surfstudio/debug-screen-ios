@@ -2,7 +2,7 @@
 //  DebugScreenAction.swift
 //  Example
 //
-//  Created by Ilya Klimenyuk on 29.05.2023.
+//  Created by Ilya Klimenyuk on 05.06.2023.
 //
 
 import DebugScreen
@@ -12,33 +12,15 @@ final class DebugScreenAction: Action {
     // MARK: - Properties
 
     let title: String
-    let type: ActionType
+    let style: ActionStyle
     let block: (() -> Void)?
 
     // MARK: - Initialization
 
-    init(title: String, type: ActionType = .primary, block: (() -> Void)?) {
+    init(title: String, style: ActionStyle = .primary, block: (() -> Void)?) {
         self.title = title
-        self.type = type
+        self.style = style
         self.block = block
-    }
-
-}
-
-final class DebugScreenActionsList: ActionsList {
-
-    // MARK: - Properties
-
-    let title: String
-    let message: String?
-    let actions: [Action]
-
-    // MARK: - Initialization
-
-    init(title: String, message: String?, actions: [Action]) {
-        self.title = title
-        self.message = message
-        self.actions = actions
     }
 
 }
