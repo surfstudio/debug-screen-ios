@@ -44,6 +44,12 @@ internal enum Resources {
         internal static let text = ColorAsset(name: "Buttons/Secondary/text")
       }
     }
+    internal enum Main {
+      internal static let background = ColorAsset(name: "Main/background")
+    }
+    internal enum Text {
+      internal static let primary = ColorAsset(name: "Text/primary")
+    }
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

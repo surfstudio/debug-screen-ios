@@ -40,17 +40,18 @@ private extension SwitcherCell {
 
     func configureAppearance() {
         selectionStyle = .none
+        backgroundColor = Colors.Main.background
         configureSwitcher()
         configureTitleLabel()
     }
 
     func configureSwitcher() {
-        switcher.onTintColor = Colors.Buttons.Primary.normalBackground
+        switcher.onTintColor = Colors.Buttons.Secondary.normalBackground
     }
 
     func configureTitleLabel() {
         titleLabel.font = .systemFont(ofSize: 16, weight: .regular)
-        titleLabel.textColor = .black
+        titleLabel.textColor = Colors.Text.primary
         titleLabel.numberOfLines = 0
     }
 

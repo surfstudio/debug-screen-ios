@@ -34,12 +34,13 @@ private extension CopiedTextCell {
 
     func configureAppearance() {
         accessoryType = .disclosureIndicator
+        backgroundColor = Colors.Main.background
         configureTitleLabel()
     }
 
     func configureTitleLabel() {
         titleLabel.font = .systemFont(ofSize: 16, weight: .regular)
-        titleLabel.textColor = .black
+        titleLabel.textColor = Colors.Text.primary
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .left
     }
