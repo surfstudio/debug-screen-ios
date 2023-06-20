@@ -29,6 +29,11 @@ final class StartViewController: UIViewController {
         configureAppearance()
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        configureShowButton()
+    }
+
 }
 
 // MARK: - Appearance
@@ -36,22 +41,28 @@ final class StartViewController: UIViewController {
 private extension StartViewController {
 
     func configureAppearance() {
-        shakeMeLabel.alpha = 0
-        shakeSupportToggle.isOn = false
-
+        configureShakeMeLabel()
+        configureShakeSupportToggle()
         configureShowButton()
+    }
+
+    func configureShakeMeLabel() {
+        shakeMeLabel.alpha = 0
+        shakeMeLabel.textColor = Colors.Text.primary
+    }
+
+    func configureShakeSupportToggle() {
+        shakeSupportToggle.isOn = false
+        shakeSupportToggle.onTintColor = Colors.Buttons.Secondary.normalBackground
     }
 
     func configureShowButton() {
         showButton.clipsToBounds = true
         showButton.layer.cornerRadius = 12
 
-        let normalBackground = UIColor(red: 0.051, green: 0.047, blue: 0.071, alpha: 1)
-        let highlightedBackground = UIColor(red: 0.122, green: 0.122, blue: 0.129, alpha: 1)
-
-        showButton.setTitleColor(.white, for: [.normal, .highlighted, .disabled])
-        showButton.set(backgroundColor: normalBackground, for: .normal)
-        showButton.set(backgroundColor: highlightedBackground, for: [.highlighted, .selected])
+        showButton.setTitleColor(Colors.Buttons.Primary.text, for: [.normal, .highlighted, .disabled])
+        showButton.set(backgroundColor: Colors.Buttons.Primary.normalBackground, for: .normal)
+        showButton.set(backgroundColor: Colors.Buttons.Primary.highlightedBackground, for: [.highlighted, .selected])
 
         showButton.setTitleForAllState("Debug Screen")
     }

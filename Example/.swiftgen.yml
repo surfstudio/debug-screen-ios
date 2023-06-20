@@ -1,3 +1,14 @@
+xcassets:
+  - inputs:
+      - Example/Library/Resources/Images/Assets.xcassets
+      - Example/Library/Resources/Colors/Colors.xcassets
+    outputs:
+      - templateName: swift4
+        output: Example/Library/Resources/Images/Assets.swift
+        params:
+          enumName: Resources
+          publicAccess: false
+
 strings:
   inputs:
     - Example/Library/Resources/Strings/ru.lproj/Localizable.strings
