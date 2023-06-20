@@ -24,6 +24,7 @@ example_build:
 doc:
 	bundle exec jazzy --clean --build-tool-arguments -scheme,DebugScreen,-sdk,iphonesimulator --output "docs"
 
+
 # COLORS
 GREEN  := $(shell tput -Txterm setaf 2)
 YELLOW := $(shell tput -Txterm setaf 3)
