@@ -20,6 +20,7 @@ DerivedData
 *.ipa
 .build/
 .swiftpm/
+docc/
 
 # Bundler
 .bundle
