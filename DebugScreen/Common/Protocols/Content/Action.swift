@@ -6,6 +6,7 @@
 //
 
 /// Protocol for all debug screen actions.
+///
 /// All instances, that implements this protocol, can be grouped into `ActionList`
 public protocol Action {
     /// Action's name, that will be displayed on button title
