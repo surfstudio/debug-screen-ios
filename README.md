@@ -10,7 +10,7 @@
 
 Library for quickly creating and customizing an application's debug screen. It allows you to customize your DebugScreen as you want.
 
-Check out the full documentation ![here](https://surfstudio.github.io/debug-screen-ios/documentation/debugscreen/).
+Check out the full documentation [here](https://surfstudio.github.io/debug-screen-ios/documentation/debugscreen/).
 
 ## Screenshots
 
