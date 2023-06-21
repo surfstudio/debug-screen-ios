@@ -1,7 +1,6 @@
 # DebugScreen
 
 [![CI](https://github.com/surfstudio/debug-screen-ios/actions/workflows/main.yml/badge.svg)](https://github.com/surfstudio/debug-screen-ios/actions/workflows/main.yml)
-[![Documentation](https://github.com/surfstudio/debug-screen-ios/blob/master/docs/badge.svg)](https://surfstudio.github.io/debug-screen-ios/)
 [![SPM Compatible](https://img.shields.io/badge/SPM-compatible-blue.svg)](https://github.com/apple/swift-package-manager)
 [![CocoaPods Version](https://img.shields.io/cocoapods/v/DebugScreen.svg?style=flat)](https://cocoapods.org)
 
@@ -9,7 +8,9 @@
 
 ## About
 
-Library for quickly creating and customizing an application`s debug screen. It allows you to customize your DebugScreen as you want.
+Library for quickly creating and customizing an application's debug screen. It allows you to customize your DebugScreen as you want.
+
+Check out the full documentation ![here](https://surfstudio.github.io/debug-screen-ios/documentation/debugscreen/).
 
 ## Screenshots
 
