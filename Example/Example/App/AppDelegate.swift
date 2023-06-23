@@ -64,8 +64,8 @@ private extension AppDelegate {
                                                        .logFileClearAction])
 
         DebugScreenConfiguration.shared.sections = [serverSelectionSection,
-                                                    actionsSection,
                                                     togglesSection,
+                                                    actionsSection,
                                                     copiedTextSection,
                                                     loggerSection]
     }
