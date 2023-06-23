@@ -34,7 +34,8 @@ private extension TogglesSectionBuilder {
                                                                          key: UserDefaultsKeys.isNeedShowEcomCatalog)
 
         return [.toggle(model: showTouchesToggle),
-                .toggle(model: needUseSSHToggle)]
+                .toggle(model: needUseSSHToggle),
+                .toggle(model: needShowEcomCatalogToggle)]
     }
 
 }
