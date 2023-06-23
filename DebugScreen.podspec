@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name             = 'DebugScreen'
-  spec.version          = '1.0.1'
+  spec.version          = '2.0.0-beta1'
   spec.summary          = 'A library for quickly creating and customizing an application`s debug screen.'
   spec.description      = <<-DESC
 Allows you to customize your DebugScreen as you want! Available features: server selection, feature toggle managment, custom actions.
