@@ -35,7 +35,6 @@
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ctw-Gh-7q0">
                                         <rect key="frame" x="34" y="30" width="51" height="31"/>
-                                        <color key="onTintColor" systemColor="labelColor"/>
                                         <connections>
                                             <action selector="onToggleShakeEnabled:" destination="BYZ-38-t0r" eventType="valueChanged" id="TPL-1s-bpv"/>
                                         </connections>
@@ -91,9 +90,6 @@
         <namedColor name="Text/primary">
             <color red="0.15294117647058825" green="0.16078431372549021" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

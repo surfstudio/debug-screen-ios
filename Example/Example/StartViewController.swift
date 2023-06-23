@@ -41,6 +41,8 @@ final class StartViewController: UIViewController {
 private extension StartViewController {
 
     func configureAppearance() {
+        view.backgroundColor = Colors.Main.background
+
         configureShakeMeLabel()
         configureShakeSupportToggle()
         configureShowButton()
@@ -53,7 +55,6 @@ private extension StartViewController {
 
     func configureShakeSupportToggle() {
         shakeSupportToggle.isOn = false
-        shakeSupportToggle.onTintColor = Colors.Buttons.Secondary.normalBackground
     }
 
     func configureShowButton() {

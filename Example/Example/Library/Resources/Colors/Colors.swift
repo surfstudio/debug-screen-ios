@@ -23,6 +23,10 @@ enum Colors {
         }
     }
 
+    enum Main {
+        static let background = Resources.Colors.Main.background.color
+    }
+
     enum Text {
         static let primary = Resources.Colors.Text.primary.color
     }

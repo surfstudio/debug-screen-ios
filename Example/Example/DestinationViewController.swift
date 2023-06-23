@@ -34,7 +34,8 @@ final class DestinationViewController: UIViewController {
 private extension DestinationViewController {
 
     func configureAppearance() {
-        view.backgroundColor = .white
+        view.backgroundColor = Colors.Main.background
+
         configureNavigationBar()
         setupConstraints()
         configureTitleLabel()
@@ -58,14 +59,22 @@ private extension DestinationViewController {
 
     func configureTitleLabel() {
         titleLabel.font = .systemFont(ofSize: 20, weight: .heavy)
-        titleLabel.textColor = .black
+        titleLabel.textColor = Colors.Text.primary
         titleLabel.textAlignment = .center
 
         titleLabel.text = L10n.DestinationController.contentText
     }
 
     func configureCloseButton() {
-        let closeButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(tapOnClose))
+        let closeIcon = Resources.Assets.Icons.close.image.withTintColor(Colors.Buttons.Primary.normalBackground,
+                                                                         renderingMode: .alwaysOriginal)
+        let closeButton = UIBarButtonItem(
+            image: closeIcon,
+            style: .plain,
+            target: self,
+            action: #selector(didTapCloseButton)
+        )
+
         navigationItem.rightBarButtonItem = closeButton
     }
 
@@ -76,7 +85,7 @@ private extension DestinationViewController {
 private extension DestinationViewController {
 
     @objc
-    func tapOnClose() {
+    func didTapCloseButton() {
         navigationController?.dismiss(animated: true)
     }
 
