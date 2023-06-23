@@ -12,17 +12,16 @@ on:
 
 jobs:
   build:
-
-    runs-on: macos-12
-
+    name: Build and Test project
+    runs-on: macos-13
     steps:
     - uses: actions/checkout@v2
     - name: Init
       run: |
         make init
-    - name: Force xcode 13
-      run: |
-        sudo xcode-select -switch /Applications/Xcode_13.4.app
+    - name: Force xcode 14.3.1
+        run: |
+          sudo xcode-select -switch /Applications/Xcode_14.3.1.app
     - name: Build
       run: |
         make build
