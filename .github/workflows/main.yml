@@ -20,8 +20,8 @@ jobs:
       run: |
         make init
     - name: Force xcode 14.3.1
-        run: |
-          sudo xcode-select -switch /Applications/Xcode_14.3.1.app
+      run: |
+        sudo xcode-select -switch /Applications/Xcode_14.3.1.app
     - name: Build
       run: |
         make build
