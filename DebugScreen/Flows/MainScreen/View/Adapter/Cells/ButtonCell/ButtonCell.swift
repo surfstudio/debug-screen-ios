@@ -53,8 +53,7 @@ final class ButtonCell: UITableViewCell {
 private extension ButtonCell {
 
     func configureAppearance() {
-        selectionStyle = .none
-        backgroundColor = Colors.Main.background
+        setDefaultStyle()
     }
 
 }

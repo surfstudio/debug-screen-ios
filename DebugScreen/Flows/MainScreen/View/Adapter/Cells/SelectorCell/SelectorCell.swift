@@ -92,8 +92,7 @@ extension SelectorCell: UIPickerViewDelegate {
 private extension SelectorCell {
 
     func configureAppearance() {
-        selectionStyle = .none
-        backgroundColor = Colors.Main.background
+        setDefaultStyle()
         configurePickerView()
         configureConfirmButton()
     }

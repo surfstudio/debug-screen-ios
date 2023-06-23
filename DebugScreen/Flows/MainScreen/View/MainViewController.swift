@@ -87,7 +87,7 @@ private extension MainViewController {
             action: #selector(didTapCloseButton)
         )
 
-        self.navigationItem.rightBarButtonItem = closeButton
+        navigationItem.rightBarButtonItem = closeButton
     }
 
 }

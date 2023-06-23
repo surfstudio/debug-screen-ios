@@ -33,9 +33,13 @@ final class CopiedTextCell: UITableViewCell {
 private extension CopiedTextCell {
 
     func configureAppearance() {
+        configureContainer()
+        configureTitleLabel()
+    }
+
+    func configureContainer() {
         accessoryType = .disclosureIndicator
         backgroundColor = Colors.Main.background
-        configureTitleLabel()
     }
 
     func configureTitleLabel() {
