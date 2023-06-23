@@ -39,18 +39,13 @@ final class SwitcherCell: UITableViewCell {
 private extension SwitcherCell {
 
     func configureAppearance() {
-        selectionStyle = .none
-        configureSwitcher()
+        setDefaultStyle()
         configureTitleLabel()
-    }
-
-    func configureSwitcher() {
-        switcher.onTintColor = Colors.Buttons.Primary.normalBackground
     }
 
     func configureTitleLabel() {
         titleLabel.font = .systemFont(ofSize: 16, weight: .regular)
-        titleLabel.textColor = .black
+        titleLabel.textColor = Colors.Text.primary
         titleLabel.numberOfLines = 0
     }
 
@@ -61,7 +56,7 @@ private extension SwitcherCell {
 private extension SwitcherCell {
 
     @IBAction func didChangeSwitcher(_ sender: UISwitch) {
-        onSwitch?(switcher.isOn)
+        onSwitch?(sender.isOn)
     }
 
 }

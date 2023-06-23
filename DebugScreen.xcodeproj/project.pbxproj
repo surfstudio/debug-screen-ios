@@ -72,6 +72,7 @@
 		B28F98172A27E2040089C032 /* LoggerAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F98162A27E2040089C032 /* LoggerAction.swift */; };
 		B28F98192A27E2920089C032 /* LoggerStreamCatcherToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F98182A27E2920089C032 /* LoggerStreamCatcherToggle.swift */; };
 		B29DB2BD2A2CAB8E008250B0 /* ActionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29DB2BC2A2CAB8D008250B0 /* ActionStyle.swift */; };
+		B2C65D122A4571E0004DC80D /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C65D112A4571E0004DC80D /* UITableViewCell.swift */; };
 		B2CA74DB2A1743A900E91B24 /* FileViewerModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA74DA2A1743A900E91B24 /* FileViewerModuleInput.swift */; };
 		B2CA74DD2A1743B700E91B24 /* FileViewerModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA74DC2A1743B700E91B24 /* FileViewerModuleOutput.swift */; };
 		B2CA74DF2A1743C700E91B24 /* FileViewerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA74DE2A1743C700E91B24 /* FileViewerPresenter.swift */; };
@@ -150,6 +151,7 @@
 		B28F98162A27E2040089C032 /* LoggerAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerAction.swift; sourceTree = "<group>"; };
 		B28F98182A27E2920089C032 /* LoggerStreamCatcherToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerStreamCatcherToggle.swift; sourceTree = "<group>"; };
 		B29DB2BC2A2CAB8D008250B0 /* ActionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionStyle.swift; sourceTree = "<group>"; };
+		B2C65D112A4571E0004DC80D /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		B2CA74DA2A1743A900E91B24 /* FileViewerModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerModuleInput.swift; sourceTree = "<group>"; };
 		B2CA74DC2A1743B700E91B24 /* FileViewerModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerModuleOutput.swift; sourceTree = "<group>"; };
 		B2CA74DE2A1743C700E91B24 /* FileViewerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerPresenter.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				B28F97FA2A27315B0089C032 /* UIButton.swift */,
 				B28F97F82A27313E0089C032 /* UIImage.swift */,
 				A4BDF48628512F7700651C61 /* UITableView.swift */,
+				B2C65D112A4571E0004DC80D /* UITableViewCell.swift */,
 				A4BDF48728512F7700651C61 /* UIViewController.swift */,
 				A4BDF48828512F7700651C61 /* UIWindow.swift */,
 			);
@@ -755,6 +758,7 @@
 				A4BDF49728512F7700651C61 /* UIWindow.swift in Sources */,
 				B2CA74E32A1744F300E91B24 /* FileViewerViewOutput.swift in Sources */,
 				A4BDF4C728512FAA00651C61 /* MainModuleConfigurator.swift in Sources */,
+				B2C65D122A4571E0004DC80D /* UITableViewCell.swift in Sources */,
 				A4BDF49328512F7700651C61 /* Array.swift in Sources */,
 				A4BDF49428512F7700651C61 /* NSObject.swift in Sources */,
 				A4D337562863A7AA002328F2 /* TableSection.swift in Sources */,

@@ -36,6 +36,11 @@ final class SelectorCell: UITableViewCell {
         configureAppearance()
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        confirmButton.configure(style: .primary)
+    }
+
     // MARK: - Methods
 
     func configure(with model: SelectionList) {
@@ -87,7 +92,7 @@ extension SelectorCell: UIPickerViewDelegate {
 private extension SelectorCell {
 
     func configureAppearance() {
-        selectionStyle = .none
+        setDefaultStyle()
         configurePickerView()
         configureConfirmButton()
     }
@@ -126,7 +131,7 @@ private extension SelectorCell {
     func configureItemLabel(with view: UIView?) -> UILabel {
         let label = (view as? UILabel) ?? UILabel()
         label.font = .systemFont(ofSize: 21, weight: .regular)
-        label.textColor = .black
+        label.textColor = Colors.Text.primary
         label.textAlignment = .center
 
         return label

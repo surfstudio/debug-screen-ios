@@ -17,6 +17,10 @@ final class ButtonCell: UITableViewCell {
 
     var onAction: (() -> Void)?
 
+    // MARK: - Private Properties
+
+    private var style: ActionStyle?
+
     // MARK: - UITableViewCell
 
     override func awakeFromNib() {
@@ -24,11 +28,22 @@ final class ButtonCell: UITableViewCell {
         configureAppearance()
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        guard let style = style else {
+            return
+        }
+
+        actionButton.configure(style: style)
+    }
+
     // MARK: - Methods
 
     func configure(with model: ButtonCellModel) {
         actionButton.setTitleForAllState(model.title)
         actionButton.configure(style: model.actionStyle)
+
+        style = model.actionStyle
     }
 
 }
@@ -38,7 +53,7 @@ final class ButtonCell: UITableViewCell {
 private extension ButtonCell {
 
     func configureAppearance() {
-        selectionStyle = .none
+        setDefaultStyle()
     }
 
 }

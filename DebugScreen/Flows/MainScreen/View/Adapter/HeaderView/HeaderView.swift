@@ -38,7 +38,7 @@ final class HeaderView: UIView {
 private extension HeaderView {
 
     func configureAppearance() {
-        backgroundColor = .white
+        backgroundColor = Colors.Main.background
         setupConstraints()
         configureTitleLabel()
     }
@@ -58,7 +58,7 @@ private extension HeaderView {
 
     func configureTitleLabel() {
         titleLabel.font = .systemFont(ofSize: 20, weight: .heavy)
-        titleLabel.textColor = .black
+        titleLabel.textColor = Colors.Text.primary
         titleLabel.textAlignment = .left
     }
 
