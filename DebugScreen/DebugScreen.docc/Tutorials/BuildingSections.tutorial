@@ -1,0 +1,127 @@
+@Tutorial(time: 30) {
+    @Intro(title: "Configure content using DebugScreen components") {
+        This tutorial guides you through building debug screen sections. You'll start by building server selection section.
+    }
+    
+    @Section(title: "Building server selection section") {
+        @ContentAndMedia {
+            See how to use `SelectionList` component to create server selection section for your debug screen.
+        }
+        
+        @Steps {
+            @Step {
+                Create instance, that implements `SelectionListItem` protocol (it will be model of your selection list item).
+                
+                @Code(name: "ServersSelectionListItem.swift", file: BuildingSections-01-01.swift)
+            }
+            
+            @Step {
+                Create instance, that implements `SelectionList` protocol (it will be model of your selection list).
+                
+                @Code(name: "ServersSelectionList.swift", file: BuildingSections-01-02.swift)
+            }
+            
+            @Step {
+                Create instance, that implements `SectionBuilder` protocol.
+                
+                @Code(name: "ServerSelectionSectionBuilder.swift", file: BuildingSections-01-03.swift)
+            }
+            
+            @Step {
+                Initialize selection list model and add it into section with help `.selectionList(model: SelectionList)` block.
+                
+                @Code(name: "ServerSelectionSectionBuilder.swift", file: BuildingSections-01-04.swift)
+            }
+        }
+    }
+    
+    @Section(title: "Building actions section") {
+        @ContentAndMedia {
+            See how to use `Action` and `ActionList` components to create section with action buttons for your debug screen.
+        }
+        
+        @Steps {
+            @Step {
+                Create instance, that implements `Action` protocol (it will be model of your action).
+                
+                @Code(name: "DebugScreenAction.swift", file: BuildingSections-02-01.swift)
+            }
+            
+            @Step {
+                Create instance, that implements `ActionList` protocol (it will be model of your action list).
+                
+                @Code(name: "DebugScreenActionList.swift", file: BuildingSections-02-02.swift)
+            }
+            
+            @Step {
+                Create instance, that implements `SectionBuilder` protocol.
+                
+                @Code(name: "ActionsSectionBuilder.swift", file: BuildingSections-02-03.swift)
+            }
+            
+            @Step {
+                Initialize actions models and add them into section with help `.action(model: Action)` block.
+                
+                @Code(name: "ActionsSectionBuilder.swift", file: BuildingSections-02-04.swift)
+            }
+            
+            @Step {
+                Initialize action list model and add it into section with help `.actionList(model: ActionList)` block.
+                
+                @Code(name: "ActionsSectionBuilder.swift", file: BuildingSections-02-05.swift)
+            }
+        }
+    }
+    
+    @Section(title: "Building feature toggles section") {
+        @ContentAndMedia {
+            See how to use `FeatureToggle` component to create feature toggles section for your debug screen.
+        }
+        
+        @Steps {
+            @Step {
+                Create instance, that implements `FeatureToggle` protocol (it will be model of your feature toggles).
+                
+                @Code(name: "UserDefaultsFeatureToggle.swift", file: BuildingSections-03-01.swift)
+            }
+            
+            @Step {
+                Create instance, that implements `SectionBuilder` protocol.
+                
+                @Code(name: "TogglesSectionBuilder.swift", file: BuildingSections-03-02.swift)
+            }
+            
+            @Step {
+                Initialize toggles models and add them into section with help `.toggle(model: FeatureToggle)` block.
+                
+                @Code(name: "TogglesSectionBuilder.swift", file: BuildingSections-03-03.swift)
+            }
+        }
+    }
+    
+    @Section(title: "Building copied text section") {
+        @ContentAndMedia {
+            See how to use `CopiedText` component to create copied text section for your debug screen.
+        }
+        
+        @Steps {
+            @Step {
+                Create instance, that implements `CopiedText` protocol (it will be model of your copied text item).
+                
+                @Code(name: "CopiedTextItem.swift", file: BuildingSections-04-01.swift)
+            }
+            
+            @Step {
+                Create instance, that implements `SectionBuilder` protocol.
+                
+                @Code(name: "CopiedTextSectionBuilder.swift", file: BuildingSections-04-02.swift)
+            }
+            
+            @Step {
+                Initialize copied text items models and add them into section with help `.copiedText(model: CopiedText)` block.
+                
+                @Code(name: "CopiedTextSectionBuilder.swift", file: BuildingSections-04-03.swift)
+            }
+        }
+    }
+}
