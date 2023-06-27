@@ -7,13 +7,13 @@
 
 import UIKit
 
-/// Action style, that affects on action button appearance
+/// Action style, that affects on action button appearance.
 public enum ActionStyle {
-    /// Primary action. It's default type for actions list button
+    /// Primary action. It's default type for action list button.
     case primary
-    /// Secondary action
+    /// Secondary action.
     case secondary
-    /// Destructive action (for example, clear cookies)
+    /// Destructive action (for example, clear cookies).
     case destructive
 }
 

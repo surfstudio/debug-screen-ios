@@ -16,7 +16,6 @@
 		A401836E2860714600D7F18B /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A401836D2860714600D7F18B /* ExampleTests.swift */; };
 		A40183782860714600D7F18B /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40183772860714600D7F18B /* ExampleUITests.swift */; };
 		A401837A2860714600D7F18B /* ExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40183792860714600D7F18B /* ExampleUITestsLaunchTests.swift */; };
-		A431161B286A198D00907BD8 /* DebugScreen in Frameworks */ = {isa = PBXBuildFile; productRef = A431161A286A198D00907BD8 /* DebugScreen */; };
 		B214A15F2A266BEC0023AB61 /* ActionsSectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B214A15E2A266BEC0023AB61 /* ActionsSectionBuilder.swift */; };
 		B214A1612A26708F0023AB61 /* TogglesSectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B214A1602A26708F0023AB61 /* TogglesSectionBuilder.swift */; };
 		B214CDF22A2E0A9000FCA984 /* DebugScreenAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B214CDF12A2E0A9000FCA984 /* DebugScreenAction.swift */; };
@@ -36,6 +35,7 @@
 		B293B1AB2A24DE4C00BA881A /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B293B1AA2A24DE4C00BA881A /* UIButton.swift */; };
 		B29DB2C12A2CAF63008250B0 /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29DB2C02A2CAF63008250B0 /* DestinationViewController.swift */; };
 		B2B778AC2A25214E00FEDBFD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2B778AE2A25214E00FEDBFD /* Localizable.strings */; };
+		B2E9ED772A4B3130009106DB /* DebugScreen in Frameworks */ = {isa = PBXBuildFile; productRef = B2E9ED762A4B3130009106DB /* DebugScreen */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +69,6 @@
 		A40183732860714600D7F18B /* ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A40183772860714600D7F18B /* ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITests.swift; sourceTree = "<group>"; };
 		A40183792860714600D7F18B /* ExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		A47BDB4A286A191D002326B8 /* debug-screen-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "debug-screen-ios"; path = ..; sourceTree = "<group>"; };
 		B214A15E2A266BEC0023AB61 /* ActionsSectionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsSectionBuilder.swift; sourceTree = "<group>"; };
 		B214A1602A26708F0023AB61 /* TogglesSectionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglesSectionBuilder.swift; sourceTree = "<group>"; };
 		B214CDF12A2E0A9000FCA984 /* DebugScreenAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugScreenAction.swift; sourceTree = "<group>"; };
@@ -91,6 +90,7 @@
 		B2B778A92A2520CD00FEDBFD /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B2B778AD2A25214E00FEDBFD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B2B778AF2A25215100FEDBFD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B2E9ED742A4B30FA009106DB /* debug-screen-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "debug-screen-ios"; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A431161B286A198D00907BD8 /* DebugScreen in Frameworks */,
+				B2E9ED772A4B3130009106DB /* DebugScreen in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +127,7 @@
 				A401836C2860714600D7F18B /* ExampleTests */,
 				A40183762860714600D7F18B /* ExampleUITests */,
 				A40183542860714500D7F18B /* Products */,
+				B2E9ED752A4B3130009106DB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,7 +176,7 @@
 		A40183862860717600D7F18B /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				A47BDB4A286A191D002326B8 /* debug-screen-ios */,
+				B2E9ED742A4B30FA009106DB /* debug-screen-ios */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -294,6 +295,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		B2E9ED752A4B3130009106DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -313,7 +321,7 @@
 			);
 			name = Example;
 			packageProductDependencies = (
-				A431161A286A198D00907BD8 /* DebugScreen */,
+				B2E9ED762A4B3130009106DB /* DebugScreen */,
 			);
 			productName = Example;
 			productReference = A40183532860714500D7F18B /* Example.app */;
@@ -860,7 +868,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A431161A286A198D00907BD8 /* DebugScreen */ = {
+		B2E9ED762A4B3130009106DB /* DebugScreen */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DebugScreen;
 		};

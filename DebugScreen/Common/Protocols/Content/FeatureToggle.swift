@@ -5,10 +5,10 @@
 //  Created by Ilya Klimenyuk on 31.05.2023.
 //
 
-/// Protocol for feature toggles
+/// Provides toggles for activate / disable your application features.
 public protocol FeatureToggle {
-    /// Toggle's name
+    /// Toggle's name.
     var title: String { get }
-    /// Toggle's status
+    /// Toggle's status.
     var isEnabled: Bool { get set }
 }
