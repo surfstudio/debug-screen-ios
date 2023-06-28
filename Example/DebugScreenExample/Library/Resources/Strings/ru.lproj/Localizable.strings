@@ -44,3 +44,9 @@
 
 "DestinationController.title" = "Новый экран";
 "DestinationController.contentText" = "Это новый экран!";
+
+// MARK: - Start Controller
+
+"StartController.companyNameLabel" = "Surf";
+"StartController.shakeMeLabel" = "Встряхни меня!";
+"StartController.shakeSupportTitleLabel" = "поддержка shake";

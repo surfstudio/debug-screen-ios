@@ -1,19 +1,19 @@
 //
-//  ExampleUITests.swift
-//  ExampleUITests
+//  DebugScreenExampleUITests.swift
+//  DebugScreenExampleUITests
 //
-//  Created by vasilev on 20.06.2022.
+//  Created by Ilya Klimenyuk on 28.06.2023.
 //
 
 import XCTest
 
-class ExampleUITests: XCTestCase {
+final class DebugScreenExampleUITests: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
 
-    override func tearDownWithError() throws { }
+    override func tearDownWithError() throws {}
 
     func testExample() throws {
         let app = XCUIApplication()
