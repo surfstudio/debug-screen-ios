@@ -39,12 +39,12 @@ private extension PlainTextCell {
 
     func configureContainer() {
         accessoryType = .disclosureIndicator
-        backgroundColor = Colors.Main.background
+        backgroundColor = DebugScreenConfiguration.shared.colorScheme.backgroundColor
     }
 
     func configureTitleLabel() {
         titleLabel.font = .systemFont(ofSize: 16, weight: .regular)
-        titleLabel.textColor = Colors.Text.primary
+        titleLabel.textColor = DebugScreenConfiguration.shared.colorScheme.textColor
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .left
     }

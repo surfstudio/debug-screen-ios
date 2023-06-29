@@ -131,7 +131,7 @@ private extension SelectorCell {
     func configureItemLabel(with view: UIView?) -> UILabel {
         let label = (view as? UILabel) ?? UILabel()
         label.font = .systemFont(ofSize: 21, weight: .regular)
-        label.textColor = Colors.Text.primary
+        label.textColor = DebugScreenConfiguration.shared.colorScheme.textColor
         label.textAlignment = .center
 
         return label

@@ -26,6 +26,10 @@ public class DebugScreenConfiguration {
     /// Default value is `false`.
     public var isEnabledOnShake = false
 
+    /// DebugScreen color scheme.
+    /// You can initialize custom color scheme by setting all available colors.
+    public var colorScheme: ColorScheme = .default()
+
     // MARK: - Initialization
 
     private init() { }

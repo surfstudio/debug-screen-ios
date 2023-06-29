@@ -45,7 +45,7 @@ private extension SwitcherCell {
 
     func configureTitleLabel() {
         titleLabel.font = .systemFont(ofSize: 16, weight: .regular)
-        titleLabel.textColor = Colors.Text.primary
+        titleLabel.textColor = DebugScreenConfiguration.shared.colorScheme.textColor
         titleLabel.numberOfLines = 0
     }
 

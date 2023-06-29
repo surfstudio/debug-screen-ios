@@ -50,6 +50,9 @@
 		B23477792A540D5C00F788A8 /* InfoTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23477782A540D5C00F788A8 /* InfoTableSection.swift */; };
 		B234777D2A541EDE00F788A8 /* HeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B234777C2A541EDE00F788A8 /* HeaderViewModel.swift */; };
 		B234F72D2A498BC600161F52 /* DebugScreen.docc in Sources */ = {isa = PBXBuildFile; fileRef = B234F72C2A498BC600161F52 /* DebugScreen.docc */; };
+		B2255DE12A4DC9180010A69D /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2255DDE2A4DC9170010A69D /* ColorScheme.swift */; };
+		B2255DE22A4DC9180010A69D /* ButtonConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2255DDF2A4DC9170010A69D /* ButtonConfigurations.swift */; };
+		B2255DE32A4DC9180010A69D /* ButtonAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2255DE02A4DC9170010A69D /* ButtonAppearance.swift */; };
 		B237FF5D2A28CBB90095FA33 /* LoggerActivationToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237FF5C2A28CBB90095FA33 /* LoggerActivationToggle.swift */; };
 		B237FF632A2912D10095FA33 /* MainTableBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237FF622A2912D10095FA33 /* MainTableBlock.swift */; };
 		B237FF652A2913DF0095FA33 /* LoggerSectionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237FF642A2913DF0095FA33 /* LoggerSectionComponent.swift */; };
@@ -216,6 +219,9 @@
 		B23477782A540D5C00F788A8 /* InfoTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableSection.swift; sourceTree = "<group>"; };
 		B234777C2A541EDE00F788A8 /* HeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModel.swift; sourceTree = "<group>"; };
 		B234F72C2A498BC600161F52 /* DebugScreen.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = DebugScreen.docc; sourceTree = "<group>"; };
+		B2255DDE2A4DC9170010A69D /* ColorScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
+		B2255DDF2A4DC9170010A69D /* ButtonConfigurations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonConfigurations.swift; sourceTree = "<group>"; };
+		B2255DE02A4DC9170010A69D /* ButtonAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonAppearance.swift; sourceTree = "<group>"; };
 		B237FF5C2A28CBB90095FA33 /* LoggerActivationToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerActivationToggle.swift; sourceTree = "<group>"; };
 		B237FF622A2912D10095FA33 /* MainTableBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableBlock.swift; sourceTree = "<group>"; };
 		B237FF642A2913DF0095FA33 /* LoggerSectionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSectionComponent.swift; sourceTree = "<group>"; };
@@ -591,6 +597,16 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B2255DDD2A4DC9170010A69D /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				B2255DE02A4DC9170010A69D /* ButtonAppearance.swift */,
+				B2255DDF2A4DC9170010A69D /* ButtonConfigurations.swift */,
+				B2255DDE2A4DC9170010A69D /* ColorScheme.swift */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
 		B237FF5E2A2910A30095FA33 /* Builders */ = {
 			isa = PBXGroup;
 			children = (
@@ -602,6 +618,7 @@
 		B237FF5F2A2910EE0095FA33 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B2255DDD2A4DC9170010A69D /* Appearance */,
 				B237FF602A29126F0095FA33 /* Common */,
 				B237FF612A29127C0095FA33 /* Logger */,
 				B24B27DF2A37150B00624E29 /* Modules */,
@@ -1350,6 +1367,7 @@
 				B237FF652A2913DF0095FA33 /* LoggerSectionComponent.swift in Sources */,
 				B24B27E32A37153800624E29 /* FileViewerModel.swift in Sources */,
 				A4BDF49928512F7700651C61 /* Bundle.swift in Sources */,
+				B2255DE12A4DC9180010A69D /* ColorScheme.swift in Sources */,
 				B2CA74DD2A1743B700E91B24 /* FileViewerModuleOutput.swift in Sources */,
 				A47BDB44286A1249002326B8 /* Assets.swift in Sources */,
 				A4BDF49728512F7700651C61 /* UIWindow.swift in Sources */,
@@ -1387,6 +1405,7 @@
 				B2B1D4542A5307F400CC5A11 /* InfoTableViewAdapter.swift in Sources */,
 				B23477772A540D3D00F788A8 /* InfoTableItem.swift in Sources */,
 				B28F97EF2A2723AA0089C032 /* HeaderView.swift in Sources */,
+				B2255DE32A4DC9180010A69D /* ButtonAppearance.swift in Sources */,
 				B2CA74DF2A1743C700E91B24 /* FileViewerPresenter.swift in Sources */,
 				B2B1D44B2A52DBB000CC5A11 /* InfoTableViewOutput.swift in Sources */,
 				A4BDF4C428512FAA00651C61 /* MainViewOutput.swift in Sources */,
@@ -1413,6 +1432,7 @@
 				A4BDF4C828512FAA00651C61 /* DebugScreenCoordinator.swift in Sources */,
 				B28F97EC2A271FF30089C032 /* SelectionList.swift in Sources */,
 				B28F97EA2A271FC00089C032 /* CopiedText.swift in Sources */,
+				B2255DE22A4DC9180010A69D /* ButtonConfigurations.swift in Sources */,
 				B28F97E82A271FAF0089C032 /* FeatureToggle.swift in Sources */,
 				B2B1D43B2A52D6B400CC5A11 /* InfoTableModel.swift in Sources */,
 				A4BDF4BF28512FAA00651C61 /* SwitcherCell.swift in Sources */,
