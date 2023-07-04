@@ -32,6 +32,8 @@ final class DebugScreenCoordinator: BaseCoordinator {
             showCustomScreen(screen)
         case .fileViewer(let model):
             showFile(with: model)
+        case .infoTable(let model):
+            showInfoTable(with: model)
         }
     }
 
@@ -43,14 +45,17 @@ private extension DebugScreenCoordinator {
 
     func showMainScreen() {
         let (view, output) = MainModuleConfigurator().configure()
-        output.didModuleClosed = { [weak self] in
-            self?.router.dismissModule()
-        }
         output.onActionListShow = { [weak self] model in
             self?.showActionList(model: model)
         }
         output.onAlertShow = { [weak self] model in
             self?.showAlert(with: model)
+        }
+        output.onInfoTableShow = { [weak self] model in
+            self?.showInfoTable(with: model)
+        }
+        output.didModuleClosed = { [weak self] in
+            self?.router.dismissModule()
         }
         output.didModuleDismissed = { [weak self] in
             self?.completionHandler?()
@@ -84,6 +89,15 @@ private extension DebugScreenCoordinator {
     func showAlert(with model: AlertModel) {
         let view = SimpleAlertModuleConfigurator().configure(with: model)
         router.present(view)
+    }
+
+    func showInfoTable(with model: InfoTableModel) {
+        let (view, output) = InfoTableModuleConfigurator().configure(with: model)
+        output.didModuleClosed = { [weak self] in
+            self?.router.popModule()
+        }
+
+        router.push(view)
     }
 
     func showCustomScreen(_ screen: UIViewController) {

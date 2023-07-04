@@ -16,4 +16,6 @@ enum ModuleType {
     case customScreen(_ screen: UIViewController)
     /// Module to open local file by selected filepath
     case fileViewer(model: FileViewerModel)
+    /// Module to present information table screen.
+    case infoTable(model: InfoTableModel)
 }

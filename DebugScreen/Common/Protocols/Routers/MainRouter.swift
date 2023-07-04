@@ -31,6 +31,10 @@ final class MainRouter: Router {
         return UIApplication.getTopViewController()
     }
 
+    private var topNavigationController: UINavigationController? {
+        return topViewController?.navigationController
+    }
+
     func present(_ module: Presentable?) {
         self.present(module, animated: true, completion: nil)
     }
@@ -56,7 +60,7 @@ final class MainRouter: Router {
     }
 
     func popModule(animated: Bool) {
-        self.navigationController?.popViewController(animated: animated)
+        topNavigationController?.popViewController(animated: animated)
     }
 
     func popPreviousView() {
@@ -68,6 +72,10 @@ final class MainRouter: Router {
         }
         controllers.remove(at: controllers.count - 2)
         navigationController?.viewControllers = controllers
+    }
+
+    func popToRoot(animated: Bool) {
+        topNavigationController?.popToRootViewController(animated: animated)
     }
 
     func dismissModule() {

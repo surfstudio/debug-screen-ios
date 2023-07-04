@@ -18,6 +18,9 @@ public enum MainTableBlock {
     case actionList(model: ActionList)
     /// Block with CopiedText instance, whose value is copied on tap.
     case copiedText(model: CopiedText)
+    /// A block with a title that, when clicked,
+    /// opens a table containing key-value pairs.
+    case infoTable(model: InfoTableModel)
     /// Block with selector (server selection, for example).
     case selectionList(model: SelectionList)
     /// Block with toggle.

@@ -19,6 +19,7 @@ final class MainAdapter: NSObject {
 
     var onOpenActionList: ((ActionList) -> Void)?
     var onSelectableTextTap: ((CopiedText) -> Void)?
+    var onOpenInfoTable: ((InfoTableModel) -> Void)?
 
     // MARK: - Private Properties
 
@@ -80,7 +81,9 @@ extension MainAdapter: UITableViewDataSource {
         case .toggle(let model):
             return configureSwitcherCell(tableView, indexPath: indexPath, model: model)
         case .copiedText(let model):
-            return configureSelectableTextCell(tableView, indexPath: indexPath, title: model.title)
+            return configurePlainTextCell(tableView, indexPath: indexPath, title: model.title)
+        case .infoTable(let model):
+            return configurePlainTextCell(tableView, indexPath: indexPath, title: model.header)
         case .selectionList(let model):
             return configureSelectorCell(tableView, indexPath: indexPath, model: model)
         }
@@ -98,7 +101,7 @@ extension MainAdapter: UITableViewDelegate {
         }
 
         let headerView = HeaderView()
-        headerView.configure(with: section.title)
+        headerView.configure(with: .init(text: section.title))
 
         return headerView
     }
@@ -116,13 +119,20 @@ extension MainAdapter: UITableViewDelegate {
 
         guard
             let section = sections[safe: indexPath.section],
-            let block = section.blocks[safe: indexPath.row],
-            case let MainTableBlock.copiedText(model) = block
+            let block = section.blocks[safe: indexPath.row]
         else {
             return
         }
 
-        onSelectableTextTap?(model)
+        switch block {
+        case .copiedText(let model):
+            onSelectableTextTap?(model)
+        case .infoTable(let model):
+            onOpenInfoTable?(model)
+        default:
+            return
+        }
+
     }
 
 }
@@ -139,7 +149,7 @@ private extension MainAdapter {
         tableView.registerNib(ButtonCell.self)
         tableView.registerNib(SwitcherCell.self)
         tableView.registerNib(SelectorCell.self)
-        tableView.registerNib(CopiedTextCell.self)
+        tableView.registerNib(PlainTextCell.self)
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -193,10 +203,10 @@ private extension MainAdapter {
         return cell
     }
 
-    func configureSelectableTextCell(_ tableView: UITableView,
-                                     indexPath: IndexPath,
-                                     title: String) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(CopiedTextCell.self, indexPath: indexPath) else {
+    func configurePlainTextCell(_ tableView: UITableView,
+                                indexPath: IndexPath,
+                                title: String) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(PlainTextCell.self, indexPath: indexPath) else {
             return UITableViewCell()
         }
 
