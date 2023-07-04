@@ -40,6 +40,13 @@
 "CopiedText.secondTextTitle" = "Token";
 "CopiedText.thirdTextTitle" = "Some data for copy";
 
+// MARK: - InfoTable
+
+"InfoTable.header" = "Info tables";
+"InfoTable.AboutApp" = "App Info";
+"InfoTable.AboutDevice" = "Device Info";
+"InfoTable.Custom" = "Custom Data";
+
 // MARK: - Destination Controller
 
 "DestinationController.title" = "Destination controller";
