@@ -32,3 +32,22 @@
 "Common.Actions.ok" = "ОК";
 "Common.Actions.cancel" = "Отмена";
 "Common.Actions.select" = "Выбрать";
+"Common.BoolValues.true" = "Да";
+"Common.BoolValues.false" = "Нет";
+
+// MARK: - AppInfo
+
+"InfoTable.AppInfo.title" = "О приложении";
+"InfoTable.AppInfo.appName" = "Название";
+"InfoTable.AppInfo.version" = "Версия";
+"InfoTable.AppInfo.build" = "Номер сборки";
+"InfoTable.AppInfo.BundleId" = "Bundle ID";
+
+// MARK: - DeviceInfo
+
+"InfoTable.DeviceInfo.title" = "Об устройстве";
+"InfoTable.DeviceInfo.name" = "Имя";
+"InfoTable.DeviceInfo.systemVersion" = "Версия iOS";
+"InfoTable.DeviceInfo.model" = "Модель";
+"InfoTable.DeviceInfo.batteryLevel" = "Уровень заряда";
+"InfoTable.DeviceInfo.lowPowerMode" = "Режим энергосбережения";

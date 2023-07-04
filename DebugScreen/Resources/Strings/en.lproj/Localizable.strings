@@ -32,3 +32,22 @@
 "Common.Actions.ok" = "OK";
 "Common.Actions.cancel" = "Cancel";
 "Common.Actions.select" = "Select";
+"Common.BoolValues.true" = "Yes";
+"Common.BoolValues.false" = "No";
+
+// MARK: - AppInfo
+
+"InfoTable.AppInfo.title" = "App Info";
+"InfoTable.AppInfo.appName" = "Name";
+"InfoTable.AppInfo.version" = "Version";
+"InfoTable.AppInfo.build" = "Build";
+"InfoTable.AppInfo.BundleId" = "Bundle ID";
+
+// MARK: - DeviceInfo
+
+"InfoTable.DeviceInfo.title" = "Device Info";
+"InfoTable.DeviceInfo.name" = "Name";
+"InfoTable.DeviceInfo.systemVersion" = "iOS Version";
+"InfoTable.DeviceInfo.model" = "Model Name";
+"InfoTable.DeviceInfo.batteryLevel" = "Battery";
+"InfoTable.DeviceInfo.lowPowerMode" = "Low Power Mode";

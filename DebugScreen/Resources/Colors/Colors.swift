@@ -35,6 +35,7 @@ enum Colors {
 
     enum Text {
         static let primary = Resources.Colors.Text.primary.color
+        static let secondary = Resources.Colors.Text.secondary.color
     }
 
 }

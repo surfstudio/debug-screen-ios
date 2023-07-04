@@ -27,8 +27,9 @@ final class HeaderView: UIView {
 
     // MARK: - Methods
 
-    func configure(with text: String) {
-        titleLabel.text = text
+    func configure(with model: HeaderViewModel) {
+        configureTitleLabel(with: model)
+        backgroundColor = model.backgroundColor
     }
 
 }
@@ -38,9 +39,7 @@ final class HeaderView: UIView {
 private extension HeaderView {
 
     func configureAppearance() {
-        backgroundColor = Colors.Main.background
         setupConstraints()
-        configureTitleLabel()
     }
 
     func setupConstraints() {
@@ -56,10 +55,18 @@ private extension HeaderView {
         ])
     }
 
-    func configureTitleLabel() {
-        titleLabel.font = .systemFont(ofSize: 20, weight: .heavy)
-        titleLabel.textColor = Colors.Text.primary
+}
+
+// MARK: - Private Methods
+
+private extension HeaderView {
+
+    func configureTitleLabel(with model: HeaderViewModel) {
+        titleLabel.font = model.font
+        titleLabel.textColor = model.textColor
         titleLabel.textAlignment = .left
+
+        titleLabel.text = model.text
     }
 
 }

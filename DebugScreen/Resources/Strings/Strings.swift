@@ -20,6 +20,41 @@ internal enum L10n {
       /// Выбрать
       internal static let select = L10n.tr("Localizable", "Common.Actions.select")
     }
+    internal enum BoolValues {
+      /// Нет
+      internal static let `false` = L10n.tr("Localizable", "Common.BoolValues.false")
+      /// Да
+      internal static let `true` = L10n.tr("Localizable", "Common.BoolValues.true")
+    }
+  }
+
+  internal enum InfoTable {
+    internal enum AppInfo {
+      /// Название
+      internal static let appName = L10n.tr("Localizable", "InfoTable.AppInfo.appName")
+      /// Номер сборки
+      internal static let build = L10n.tr("Localizable", "InfoTable.AppInfo.build")
+      /// Bundle ID
+      internal static let bundleId = L10n.tr("Localizable", "InfoTable.AppInfo.BundleId")
+      /// О приложении
+      internal static let title = L10n.tr("Localizable", "InfoTable.AppInfo.title")
+      /// Версия
+      internal static let version = L10n.tr("Localizable", "InfoTable.AppInfo.version")
+    }
+    internal enum DeviceInfo {
+      /// Уровень заряда
+      internal static let batteryLevel = L10n.tr("Localizable", "InfoTable.DeviceInfo.batteryLevel")
+      /// Режим энергосбережения
+      internal static let lowPowerMode = L10n.tr("Localizable", "InfoTable.DeviceInfo.lowPowerMode")
+      /// Модель
+      internal static let model = L10n.tr("Localizable", "InfoTable.DeviceInfo.model")
+      /// Имя
+      internal static let name = L10n.tr("Localizable", "InfoTable.DeviceInfo.name")
+      /// Версия iOS
+      internal static let systemVersion = L10n.tr("Localizable", "InfoTable.DeviceInfo.systemVersion")
+      /// Об устройстве
+      internal static let title = L10n.tr("Localizable", "InfoTable.DeviceInfo.title")
+    }
   }
 
   internal enum Logger {
