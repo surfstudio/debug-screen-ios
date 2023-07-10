@@ -36,3 +36,5 @@ func configureDebugScreenSections() {
 Here we are implement builders for every needed section, build them and then add into sections array.
 
 > Note: Sections will be displayed on the screen in the same order as they are in the array!
+
+You can learn how to create your own DebugScreen with [Meet DebugScreen](<doc:DebugScreen>) tutorial.

@@ -14,6 +14,9 @@ So, library allows you to customize debug screen as you want.
 
 ## Topics
 
+### Tutorials
+- <doc:DebugScreen>
+
 ### Essentials
 - <doc:ConfigureDebugScreenContent>
 - <doc:OpenDebugScreen>
