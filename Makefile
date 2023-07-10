@@ -5,8 +5,8 @@ init:
   		echo "bundler gem is not installed!";\
   		-sudo gem install bundler -v "1.17.3";\
 	fi
+	-bundle config set --local path '.bundle'
 	-bundle update
-	-bundle config set path '.bundle'
 
 build:
 	xcodebuild clean build -scheme DebugScreen -sdk iphonesimulator | bundle exec xcpretty -c
