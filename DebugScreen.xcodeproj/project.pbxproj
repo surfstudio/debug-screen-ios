@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9054BA4A2A5C6CCA0009D70D /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9054BA492A5C6CCA0009D70D /* BaseNavigationController.swift */; };
 		90985F5C2A5C58980066790A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E91F9A2A4C2308000E3E45 /* LaunchScreen.storyboard */; };
 		A4301A65285A462F006B77C0 /* DebugScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43019E6285A3137006B77C0 /* DebugScreenTests.swift */; };
 		A47BDB42286A1249002326B8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A47BDB38286A1249002326B8 /* Colors.xcassets */; };
@@ -45,10 +46,10 @@
 		A4BDF4D128512FB000651C61 /* DebugScreenPresenterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4CC28512FB000651C61 /* DebugScreenPresenterService.swift */; };
 		A4BDF4D528512FB500651C61 /* DebugScreenConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4D428512FB500651C61 /* DebugScreenConfiguration.swift */; };
 		A4D337562863A7AA002328F2 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D337552863A7AA002328F2 /* TableSection.swift */; };
-		B234F72D2A498BC600161F52 /* DebugScreen.docc in Sources */ = {isa = PBXBuildFile; fileRef = B234F72C2A498BC600161F52 /* DebugScreen.docc */; };
 		B23477772A540D3D00F788A8 /* InfoTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23477762A540D3D00F788A8 /* InfoTableItem.swift */; };
 		B23477792A540D5C00F788A8 /* InfoTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23477782A540D5C00F788A8 /* InfoTableSection.swift */; };
 		B234777D2A541EDE00F788A8 /* HeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B234777C2A541EDE00F788A8 /* HeaderViewModel.swift */; };
+		B234F72D2A498BC600161F52 /* DebugScreen.docc in Sources */ = {isa = PBXBuildFile; fileRef = B234F72C2A498BC600161F52 /* DebugScreen.docc */; };
 		B237FF5D2A28CBB90095FA33 /* LoggerActivationToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237FF5C2A28CBB90095FA33 /* LoggerActivationToggle.swift */; };
 		B237FF632A2912D10095FA33 /* MainTableBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237FF622A2912D10095FA33 /* MainTableBlock.swift */; };
 		B237FF652A2913DF0095FA33 /* LoggerSectionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237FF642A2913DF0095FA33 /* LoggerSectionComponent.swift */; };
@@ -77,7 +78,6 @@
 		B28F98172A27E2040089C032 /* LoggerAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F98162A27E2040089C032 /* LoggerAction.swift */; };
 		B28F98192A27E2920089C032 /* LoggerStreamCatcherToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F98182A27E2920089C032 /* LoggerStreamCatcherToggle.swift */; };
 		B29DB2BD2A2CAB8E008250B0 /* ActionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29DB2BC2A2CAB8D008250B0 /* ActionStyle.swift */; };
-		B2B1D4372A52CF1A00CC5A11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E91F9A2A4C2308000E3E45 /* LaunchScreen.storyboard */; };
 		B2B1D43B2A52D6B400CC5A11 /* InfoTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B1D43A2A52D6B400CC5A11 /* InfoTableModel.swift */; };
 		B2B1D43F2A52DB5400CC5A11 /* InfoTableModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B1D43E2A52DB5400CC5A11 /* InfoTableModuleConfigurator.swift */; };
 		B2B1D4422A52DB7100CC5A11 /* InfoTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B1D4412A52DB7100CC5A11 /* InfoTablePresenter.swift */; };
@@ -171,6 +171,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9054BA492A5C6CCA0009D70D /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		A43019E6285A3137006B77C0 /* DebugScreenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugScreenTests.swift; sourceTree = "<group>"; };
 		A47BDB38286A1249002326B8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		A47BDB39286A1249002326B8 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -211,10 +212,10 @@
 		A4BDF4D428512FB500651C61 /* DebugScreenConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugScreenConfiguration.swift; sourceTree = "<group>"; };
 		A4D337552863A7AA002328F2 /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
 		A4F267192858EFE60096AB68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = DebugScreen/Info.plist; sourceTree = SOURCE_ROOT; };
-		B234F72C2A498BC600161F52 /* DebugScreen.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = DebugScreen.docc; sourceTree = "<group>"; };
 		B23477762A540D3D00F788A8 /* InfoTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableItem.swift; sourceTree = "<group>"; };
 		B23477782A540D5C00F788A8 /* InfoTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableSection.swift; sourceTree = "<group>"; };
 		B234777C2A541EDE00F788A8 /* HeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModel.swift; sourceTree = "<group>"; };
+		B234F72C2A498BC600161F52 /* DebugScreen.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = DebugScreen.docc; sourceTree = "<group>"; };
 		B237FF5C2A28CBB90095FA33 /* LoggerActivationToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerActivationToggle.swift; sourceTree = "<group>"; };
 		B237FF622A2912D10095FA33 /* MainTableBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableBlock.swift; sourceTree = "<group>"; };
 		B237FF642A2913DF0095FA33 /* LoggerSectionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSectionComponent.swift; sourceTree = "<group>"; };
@@ -474,6 +475,7 @@
 			isa = PBXGroup;
 			children = (
 				A4BDF48D28512F7700651C61 /* BaseCoordinator.swift */,
+				9054BA492A5C6CCA0009D70D /* BaseNavigationController.swift */,
 				A4BDF48C28512F7700651C61 /* DeepLinkOption.swift */,
 			);
 			path = "Base Classes";
@@ -1343,6 +1345,7 @@
 				A4BDF4C528512FAA00651C61 /* MainViewController.swift in Sources */,
 				B2610E242A16DCC300509FA1 /* SimpleAlertModuleConfigurator.swift in Sources */,
 				B28F97E42A271F980089C032 /* Action.swift in Sources */,
+				9054BA4A2A5C6CCA0009D70D /* BaseNavigationController.swift in Sources */,
 				B2B1D4442A52DB7F00CC5A11 /* InfoTableModuleInput.swift in Sources */,
 				B237FF652A2913DF0095FA33 /* LoggerSectionComponent.swift in Sources */,
 				B24B27E32A37153800624E29 /* FileViewerModel.swift in Sources */,

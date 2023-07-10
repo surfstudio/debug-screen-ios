@@ -9,8 +9,6 @@ final class InfoTablePresenter: InfoTableModuleOutput {
 
     // MARK: - InfoTableModuleOutput
 
-    var didModuleClosed: (() -> Void)?
-
     // MARK: - Properties
 
     weak var view: InfoTableViewInput?
@@ -37,10 +35,6 @@ extension InfoTablePresenter: InfoTableViewOutput {
 
     func viewLoaded() {
         view?.setupInitialState(with: model)
-    }
-
-    func didTapBackButton() {
-        didModuleClosed?()
     }
 
 }

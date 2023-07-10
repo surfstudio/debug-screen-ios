@@ -20,7 +20,7 @@ final class MainModuleConfigurator {
         presenter.view = viewController
         viewController.output = presenter
 
-        let navController = UINavigationController(rootViewController: viewController)
+        let navController = BaseNavigationController(rootViewController: viewController)
         navController.modalPresentationStyle = .overFullScreen
 
         return (navController, presenter)

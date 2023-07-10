@@ -60,15 +60,13 @@ private extension InfoTableViewController {
     }
 
     func configureNavigationBar(with title: String) {
-        navigationItem.largeTitleDisplayMode = .never
         navigationItem.title = title
-
-        configureBackButton()
     }
 
     func configureTableView() {
         tableView.contentInsetAdjustmentBehavior = .never
-        tableView.contentInset = .init(top: 0,
+        tableView.backgroundColor = Colors.Main.background
+        tableView.contentInset = .init(top: 8,
                                        left: 0,
                                        bottom: 32,
                                        right: 0)
@@ -78,36 +76,6 @@ private extension InfoTableViewController {
 
     func configureAdapter() {
         adapter = InfoTableViewAdapter(tableView: tableView)
-    }
-
-    func configureBackButton() {
-        let backButtonIcon = Resources.Assets.Icons.back.image.withTintColor(
-            Colors.Buttons.Primary.normalBackground,
-            renderingMode: .alwaysOriginal
-        )
-
-        let backButton = UIBarButtonItem(
-            image: backButtonIcon,
-            style: .plain,
-            target: self,
-            action: #selector(onBackButtonTap)
-        )
-
-        navigationItem.leftBarButtonItem = backButton
-        navigationItem.leftBarButtonItem?.tintColor = Colors.Buttons.Primary.normalBackground
-
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
-    }
-
-}
-
-// MARK: - Actions
-
-private extension InfoTableViewController {
-
-    @objc
-    func onBackButtonTap() {
-        output?.didTapBackButton()
     }
 
 }

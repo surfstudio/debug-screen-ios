@@ -7,5 +7,4 @@
 
 protocol InfoTableViewOutput {
     func viewLoaded()
-    func didTapBackButton()
 }

@@ -6,6 +6,4 @@
 //
 
 protocol InfoTableModuleOutput: AnyObject {
-    /// Call then close module
-    var didModuleClosed: (() -> Void)? { get set }
 }

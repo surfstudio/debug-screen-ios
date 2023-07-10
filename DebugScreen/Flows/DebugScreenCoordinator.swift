@@ -92,18 +92,13 @@ private extension DebugScreenCoordinator {
     }
 
     func showInfoTable(with model: InfoTableModel) {
-        let (view, output) = InfoTableModuleConfigurator().configure(with: model)
-        output.didModuleClosed = { [weak self] in
-            self?.router.popModule()
-        }
-
+        let (view, _) = InfoTableModuleConfigurator().configure(with: model)
         router.push(view)
     }
 
     func showCustomScreen(_ screen: UIViewController) {
-        let view = UINavigationController(rootViewController: screen)
+        let view = BaseNavigationController(rootViewController: screen)
         view.modalPresentationStyle = .overFullScreen
-
         router.present(view)
     }
 
