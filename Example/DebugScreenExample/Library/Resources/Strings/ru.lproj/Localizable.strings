@@ -40,6 +40,13 @@
 "CopiedText.secondTextTitle" = "Токен";
 "CopiedText.thirdTextTitle" = "Данные для копирования";
 
+// MARK: - InfoTable
+
+"InfoTable.header" = "Информационные таблицы";
+"InfoTable.AboutApp" = "Информация о приложении";
+"InfoTable.AboutDevice" = "Информация об устройстве";
+"InfoTable.Custom" = "Произвольные данные";
+
 // MARK: - Destination Controller
 
 "DestinationController.title" = "Новый экран";

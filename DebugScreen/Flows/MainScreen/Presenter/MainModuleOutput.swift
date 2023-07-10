@@ -12,6 +12,8 @@ protocol MainModuleOutput: AnyObject {
     var onActionListShow: ((ActionList) -> Void)? { get set }
     /// Call then show alert with text
     var onAlertShow: ((AlertModel) -> Void)? { get set }
+    /// Call then show information table screen
+    var onInfoTableShow: ((InfoTableModel) -> Void)? { get set }
     /// Call then close module
     var didModuleClosed: (() -> Void)? { get set }
     /// Call after module deinit from memory

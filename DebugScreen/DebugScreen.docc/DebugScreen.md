@@ -39,9 +39,10 @@ So, library allows you to customize debug screen as you want.
 - ``ActionStyle``
 - ``ActionList``
 
-### Copied text and toggles
+### Copied text, toggles and info-screns
 - ``CopiedText``
 - ``FeatureToggle``
+- ``InfoTableModel``
 
 ### Selection list
 - ``SelectionList``

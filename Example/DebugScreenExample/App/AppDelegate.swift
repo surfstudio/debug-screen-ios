@@ -53,6 +53,7 @@ private extension AppDelegate {
         let actionsSection = ActionsSectionBuilder().build()
         let togglesSection = TogglesSectionBuilder().build()
         let copiedTextSection = CopiedTextSectionBuilder().build()
+        let infoTablesSection = InfoTablesSectionBuilder().build()
 
         /// You can build logger section from ready-to-use components
         /// or create it manually like other sections by implementing `SectionBuilder` protocol
@@ -67,6 +68,7 @@ private extension AppDelegate {
                                                     actionsSection,
                                                     togglesSection,
                                                     copiedTextSection,
+                                                    infoTablesSection,
                                                     loggerSection]
     }
 

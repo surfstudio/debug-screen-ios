@@ -60,6 +60,17 @@ internal enum L10n {
     internal static let thirdToggleTitle = L10n.tr("Localizable", "FeatureToggles.thirdToggleTitle")
   }
 
+  internal enum InfoTable {
+    /// Информация о приложении
+    internal static let aboutApp = L10n.tr("Localizable", "InfoTable.AboutApp")
+    /// Информация об устройстве
+    internal static let aboutDevice = L10n.tr("Localizable", "InfoTable.AboutDevice")
+    /// Произвольные данные
+    internal static let custom = L10n.tr("Localizable", "InfoTable.Custom")
+    /// Информационные таблицы
+    internal static let header = L10n.tr("Localizable", "InfoTable.header")
+  }
+
   internal enum ServerSelection {
     /// Продовый
     internal static let firstServerTitle = L10n.tr("Localizable", "ServerSelection.firstServerTitle")

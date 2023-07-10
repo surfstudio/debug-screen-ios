@@ -72,14 +72,19 @@ private extension MainViewController {
         adapter?.onOpenActionList = { [weak self] model in
             self?.output?.didTapActionList(model: model)
         }
+        adapter?.onOpenInfoTable = { [weak self] model in
+            self?.output?.didTapInfoTable(model: model)
+        }
         adapter?.onSelectableTextTap = { [weak self] model in
             self?.output?.didTapSelectableText(model: model)
         }
     }
 
     func configureCloseButton() {
-        let closeIcon = Resources.Assets.Icons.close.image.withTintColor(Colors.Buttons.Primary.normalBackground,
-                                                                         renderingMode: .alwaysOriginal)
+        let closeIcon = Resources.Assets.Icons.close.image.withTintColor(
+            Colors.Buttons.Primary.normalBackground,
+            renderingMode: .alwaysOriginal
+        )
         let closeButton = UIBarButtonItem(
             image: closeIcon,
             style: .plain,

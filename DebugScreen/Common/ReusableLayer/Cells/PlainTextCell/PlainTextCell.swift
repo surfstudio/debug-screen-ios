@@ -1,5 +1,5 @@
 //
-//  CopiedTextCell.swift
+//  PlainTextCell.swift
 //  DebugScreen
 //
 //  Created by Ilya Klimenyuk on 31.05.2023.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class CopiedTextCell: UITableViewCell {
+final class PlainTextCell: UITableViewCell {
 
     // MARK: - IBOutlets
 
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
 
     // MARK: - UITableViewCell
 
@@ -30,7 +30,7 @@ final class CopiedTextCell: UITableViewCell {
 
 // MARK: - Appearance
 
-private extension CopiedTextCell {
+private extension PlainTextCell {
 
     func configureAppearance() {
         configureContainer()

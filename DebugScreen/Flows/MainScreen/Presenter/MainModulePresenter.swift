@@ -12,9 +12,10 @@ final class MainModulePresenter: MainModuleOutput {
 
     // MARK: - MainModuleOutput
 
-    var didModuleClosed: (() -> Void)?
     var onActionListShow: ((ActionList) -> Void)?
     var onAlertShow: ((AlertModel) -> Void)?
+    var onInfoTableShow: ((InfoTableModel) -> Void)?
+    var didModuleClosed: (() -> Void)?
     var didModuleDismissed: (() -> Void)?
 
     // MARK: - Properties
@@ -43,6 +44,10 @@ extension MainModulePresenter: MainViewOutput {
 
     func didTapActionList(model: ActionList) {
         onActionListShow?(model)
+    }
+
+    func didTapInfoTable(model: InfoTableModel) {
+        onInfoTableShow?(model)
     }
 
     func didTapSelectableText(model: CopiedText) {

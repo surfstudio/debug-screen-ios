@@ -23,6 +23,7 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 internal enum Resources {
   internal enum Assets {
     internal enum Icons {
+      internal static let back = ImageAsset(name: "Icons/back")
       internal static let close = ImageAsset(name: "Icons/close")
     }
   }
@@ -49,6 +50,7 @@ internal enum Resources {
     }
     internal enum Text {
       internal static let primary = ColorAsset(name: "Text/primary")
+      internal static let secondary = ColorAsset(name: "Text/secondary")
     }
   }
 }
