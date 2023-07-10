@@ -5,8 +5,8 @@ init:
   		echo "bundler gem is not installed!";\
   		-sudo gem install bundler -v "1.17.3";\
 	fi
+	-bundle config set --local path '.bundle'
 	-bundle update
-	-bundle install --path .bundle
 
 build:
 	xcodebuild clean build -scheme DebugScreen -sdk iphonesimulator | bundle exec xcpretty -c
@@ -19,7 +19,7 @@ test:
 	xcodebuild test -scheme DebugScreen -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO -enableCodeCoverage YES -destination 'platform=iOS Simulator,name=iPhone 8,OS=15.5' | bundle exec xcpretty -c
 
 example_build:
-	cd Example && xcodebuild clean build -scheme Example -sdk iphonesimulator | bundle exec xcpretty -c
+	xcodebuild clean build -scheme DebugScreenExample -sdk iphonesimulator | bundle exec xcpretty -c
 
 doc:
 	bundle exec jazzy --clean --build-tool-arguments -scheme,DebugScreen,-sdk,iphonesimulator --output "docs"

@@ -1,13 +1,13 @@
 //
-//  ExampleUITestsLaunchTests.swift
-//  ExampleUITests
+//  DebugScreenExampleUITestsLaunchTests.swift
+//  DebugScreenExampleUITests
 //
-//  Created by vasilev on 20.06.2022.
+//  Created by Ilya Klimenyuk on 28.06.2023.
 //
 
 import XCTest
 
-class ExampleUITestsLaunchTests: XCTestCase {
+final class DebugScreenExampleUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
@@ -20,9 +20,6 @@ class ExampleUITestsLaunchTests: XCTestCase {
     func testLaunch() throws {
         let app = XCUIApplication()
         app.launch()
-
-        // Insert steps here to perform after app launch but before taking a screenshot,
-        // such as logging into a test account or navigating somewhere in the app
 
         let attachment = XCTAttachment(screenshot: app.screenshot())
         attachment.name = "Launch Screen"

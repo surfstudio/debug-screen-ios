@@ -70,6 +70,15 @@ internal enum L10n {
     /// Моковый (с очень очень очень длинным описанием)
     internal static let thirdServerTitle = L10n.tr("Localizable", "ServerSelection.thirdServerTitle")
   }
+
+  internal enum StartController {
+    /// Surf
+    internal static let companyNameLabel = L10n.tr("Localizable", "StartController.companyNameLabel")
+    /// Встряхни меня!
+    internal static let shakeMeLabel = L10n.tr("Localizable", "StartController.shakeMeLabel")
+    /// поддержка shake
+    internal static let shakeSupportTitleLabel = L10n.tr("Localizable", "StartController.shakeSupportTitleLabel")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

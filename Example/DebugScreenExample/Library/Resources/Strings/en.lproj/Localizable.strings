@@ -44,3 +44,9 @@
 
 "DestinationController.title" = "Destination controller";
 "DestinationController.contentText" = "This is new screen!";
+
+// MARK: - Start Controller
+
+"StartController.companyNameLabel" = "Surf";
+"StartController.shakeMeLabel" = "Shake me!";
+"StartController.shakeSupportTitleLabel" = "shake support";
