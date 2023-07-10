@@ -1,0 +1,50 @@
+@Tutorial(time: 5) {
+    @Intro(title: "Setup DebugScreen configuration") {
+        In this tutorial you'll see how to setup configuration for your project debug screen.
+    }
+    
+    @Section(title: "Setup configuration") {
+        @ContentAndMedia {
+            Now it's time to configure our debug screen using all instances, that was created at previous steps. All functions will be added into `AppDelegate` file.
+        }
+        
+        @Steps {
+            @Step {
+                Add `configureDebugScreen()` function into `AppDelegate` file and call it inside `didFinishLaunchingWithOptions` function.
+                
+                @Code(name: "AppDelegate.swift", file: SetupConfiguration-01-01)
+            }
+            
+            @Step {
+                Library has a logger service, that allows you to write info and error messages and error messages into a file. Let's activate it (this is optional).
+                
+                @Code(name: "AppDelegate.swift", file: SetupConfiguration-01-02)
+            }
+            
+            @Step {
+                In previous tutorial we created builders for all necessary sections. Let's usem them here here.
+                
+                @Code(name: "AppDelegate.swift", file: SetupConfiguration-01-03)
+            }
+            
+            @Step {
+                Add all builded sections objects into `DebugScreenConfiguration` `sections` property.
+                
+                @Code(name: "AppDelegate.swift", file: SetupConfiguration-01-04)
+            }
+            
+            @Step {
+                Also let's add section for manage logger service. Here we'll use ready-to-use library `LoggerSectionComponent` components.
+                
+                @Code(name: "AppDelegate.swift", file: SetupConfiguration-01-05)
+            }
+            
+            @Step {
+                This is final result!
+                
+                @Video(source: setup_configuration_final_result.mp4)
+            }
+            
+        }
+    }
+}

@@ -1,0 +1,17 @@
+@Tutorials(name: "DebugScreen") {
+    @Intro(title: "Meet DebugScreen") {
+        Create and customize debug dashboard for your app using DebugScreen framework. Get started with DebugScreen by building the demo app.
+        
+        @Image(source: debug_screen_demo.png, alt: "An illustration of 2 iPhones in portrait mode, displaying the UI of debug dashboard in sample app that you build in this collection of tutorials.")
+    }
+    
+    @Chapter(name: "Using DebugScreen") {
+        Learn how to integrate and use DebugScreen framework in your project.
+        
+        @Image(source: first_chapter_logo.png, alt: "Logo of the first chapter")
+        
+        @TutorialReference(tutorial: "doc:BuildingSections")
+        @TutorialReference(tutorial: "doc:SetupConfiguration")
+    }
+    
+}

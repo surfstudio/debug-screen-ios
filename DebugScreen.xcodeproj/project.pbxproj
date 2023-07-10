@@ -44,6 +44,7 @@
 		A4BDF4D128512FB000651C61 /* DebugScreenPresenterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4CC28512FB000651C61 /* DebugScreenPresenterService.swift */; };
 		A4BDF4D528512FB500651C61 /* DebugScreenConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BDF4D428512FB500651C61 /* DebugScreenConfiguration.swift */; };
 		A4D337562863A7AA002328F2 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D337552863A7AA002328F2 /* TableSection.swift */; };
+		B234F72D2A498BC600161F52 /* DebugScreen.docc in Sources */ = {isa = PBXBuildFile; fileRef = B234F72C2A498BC600161F52 /* DebugScreen.docc */; };
 		B237FF5D2A28CBB90095FA33 /* LoggerActivationToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237FF5C2A28CBB90095FA33 /* LoggerActivationToggle.swift */; };
 		B237FF632A2912D10095FA33 /* MainTableBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237FF622A2912D10095FA33 /* MainTableBlock.swift */; };
 		B237FF652A2913DF0095FA33 /* LoggerSectionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237FF642A2913DF0095FA33 /* LoggerSectionComponent.swift */; };
@@ -190,6 +191,7 @@
 		A4BDF4D428512FB500651C61 /* DebugScreenConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugScreenConfiguration.swift; sourceTree = "<group>"; };
 		A4D337552863A7AA002328F2 /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
 		A4F267192858EFE60096AB68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = DebugScreen/Info.plist; sourceTree = SOURCE_ROOT; };
+		B234F72C2A498BC600161F52 /* DebugScreen.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = DebugScreen.docc; sourceTree = "<group>"; };
 		B237FF5C2A28CBB90095FA33 /* LoggerActivationToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerActivationToggle.swift; sourceTree = "<group>"; };
 		B237FF622A2912D10095FA33 /* MainTableBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableBlock.swift; sourceTree = "<group>"; };
 		B237FF642A2913DF0095FA33 /* LoggerSectionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSectionComponent.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 		A48C76432850F828004FFAAB /* DebugScreen */ = {
 			isa = PBXGroup;
 			children = (
+				B234F72C2A498BC600161F52 /* DebugScreen.docc */,
 				A4BDF47F28512F7700651C61 /* Common */,
 				A4BDF49F28512FAA00651C61 /* Flows */,
 				A47BDB35286A11E4002326B8 /* Resources */,
@@ -1218,6 +1221,7 @@
 				A4BDF4D128512FB000651C61 /* DebugScreenPresenterService.swift in Sources */,
 				B28F98062A27B30D0089C032 /* CopiedTextCell.swift in Sources */,
 				A4BDF4BA28512FAA00651C61 /* MainModuleOutput.swift in Sources */,
+				B234F72D2A498BC600161F52 /* DebugScreen.docc in Sources */,
 				A4BDF49D28512F7700651C61 /* Router.swift in Sources */,
 				A4BDF4B928512FAA00651C61 /* MainModuleInput.swift in Sources */,
 				A4BDF4C828512FAA00651C61 /* DebugScreenCoordinator.swift in Sources */,

@@ -8,7 +8,7 @@
 import DebugScreen
 import Foundation
 
-final class ServersSelectionItem: SelectionListItem {
+final class ServersSelectionListItem: SelectionListItem {
 
     // MARK: - Properties
 

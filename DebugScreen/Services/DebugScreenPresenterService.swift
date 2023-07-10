@@ -7,10 +7,12 @@
 
 import UIKit
 
+/// Provides functionality for open DebugScreen, logs file, show custom screens and simple alerts with messages.
 public final class DebugScreenPresenterService {
 
     // MARK: - Static Properties
 
+    /// Singleton that provides access to all presenter functions.
     public static let shared = DebugScreenPresenterService()
 
     // MARK: - Private Properties
@@ -23,7 +25,7 @@ public final class DebugScreenPresenterService {
 
     // MARK: - Public Methods
 
-    /// Open Debug screen menu
+    /// Open Debug screen menu.
     public func showDebugScreen() {
         guard coordinator == nil else {
             return
@@ -35,6 +37,9 @@ public final class DebugScreenPresenterService {
 
     /// Show alert with title and message.
     /// Can be showed only when debug screen is open.
+    /// - Parameters:
+    ///   - title: Alert title.
+    ///   - message: Alert message.
     public func showAlert(title: String? = nil, message: String) {
         let model = AlertModel(title: title, message: message)
         openModule(.alert(model: model))
@@ -42,6 +47,7 @@ public final class DebugScreenPresenterService {
 
     /// Show custom view controller.
     /// Can be showed only when debug screen is open.
+    /// - Parameter view: Screen to display.
     public func showCustomScreen(_ view: UIViewController) {
         openModule(.customScreen(view))
     }
