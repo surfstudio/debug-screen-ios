@@ -124,4 +124,36 @@
             }
         }
     }
+        
+    @Section(title: "Building info screen") {
+        @ContentAndMedia {
+            See how to use `InfoTable` component to create screen with supported key-value information.
+        }
+        
+        @Steps {
+            @Step {
+                Create instance, that implements `SectionBuilder` protocol.
+                
+                @Code(name: "InfoTable.swift", file: BuildingSections-05-01.swift)
+            }
+            
+            @Step {
+                Append code that returns `.infoTable` component, and wrap out-of-the-box model with application information into the it.
+                
+                @Code(name: "CopiedTextSectionBuilder.swift", file: BuildingSections-05-02.swift) {
+                    @Image(source: building_sections_05_02.png, 
+                           alt: "Screenshot from real application, where is table with application information on it")
+                }
+            }
+            
+            @Step {
+                Also, you can create your own model with needed information. 
+                
+                @Code(name: "CopiedTextSectionBuilder.swift", file: BuildingSections-05-03.swift) {
+                    @Image(source: building_sections_05_03.png, 
+                           alt: "Screenshot from real application, where is table with custom information on it")
+                }
+            }
+        }
+    }
 }

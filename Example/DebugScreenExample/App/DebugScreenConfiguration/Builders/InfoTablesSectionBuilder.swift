@@ -22,7 +22,7 @@ final class InfoTablesSectionBuilder: SectionBuilder {
             .infoTable(model: combinedInfoTable)
         ]
 
-        return .init(title: L10n.InfoTable.header,blocks: blocks)
+        return .init(title: L10n.InfoTable.header, blocks: blocks)
     }
 
 }
