@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Service, that allows you to catch and get all logs from the console output
+/// Allows you to catch and get all logs from the console output.
 public final class LogCatcherService {
 
     // MARK: - Nested Types
@@ -33,14 +33,14 @@ public final class LogCatcherService {
 
     // MARK: - Public Properties
 
-    /// Containts `true` on logger start.
-    /// Default value is `false`
+    /// Flag that indicates that the logger is active.
+    /// Default value is `false`.
     public var isActive = false
-    /// Need write info messages to logFile.
-    /// Default value is `true`
+    /// Flag that indicates that info messages will be written to the log file.
+    /// Default value is `true`.
     public var writeInfoMessages = true
-    /// Need write error messages to logFile.
-    /// Default value is `true`
+    /// Flag that indicates that error messages will be written to the log file.
+    /// Default value is `true`.
     public var writeErrorMessages = true
 
     // MARK: - Properties
@@ -67,7 +67,6 @@ public final class LogCatcherService {
         setupInitialState()
     }
 
-    /// Initialization log service in debug screen
     public init() {
         self.logPath = NSTemporaryDirectory().appending("\(Constants.defaultLogName)")
         setupInitialState()
@@ -75,12 +74,14 @@ public final class LogCatcherService {
 
     // MARK: - Public Methods
 
-    /// Returns you all saved logs
+    /// Returns you all saved logs.
+    /// - Returns: Full logs list from file.
     public func logs() -> String? {
         return try? String(contentsOfFile: logPath)
     }
 
-    /// Clear log file
+    /// Clear log file.
+    /// - Parameter onClearComplete: Calls on finish log file clear, contains operation result.
     public func clearLogFile(_ onClearComplete: ((Bool) -> Void)? = nil) {
         do {
             try "".write(toFile: self.logPath, atomically: true, encoding: .utf8)

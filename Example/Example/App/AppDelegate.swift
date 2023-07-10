@@ -55,7 +55,7 @@ private extension AppDelegate {
         let copiedTextSection = CopiedTextSectionBuilder().build()
 
         /// You can build logger section from ready-to-use components
-        /// or you create it manually like other sections by implementing `SectionBuilder` protocol
+        /// or create it manually like other sections by implementing `SectionBuilder` protocol
         let loggerSection = TableSection.logger(with: [.loggerActivationToggle,
                                                        .enableLogInfoToggle,
                                                        .enableLogErrorsToggle,

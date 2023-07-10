@@ -29,7 +29,7 @@ private extension ServerSelectionSectionBuilder {
         let selectedServerUrl = UserDefaultsService().serverUrl
         var selectedItem: SelectionListItem?
 
-        let items: [ServersSelectionItem] = [
+        let items: [ServersSelectionListItem] = [
             .init(name: L10n.ServerSelection.firstServerTitle, value: "https://surf.ru/address/prod"),
             .init(name: L10n.ServerSelection.secondServerTitle, value: "https://surf.ru/address/test"),
             .init(name: L10n.ServerSelection.thirdServerTitle, value: "https://surf.ru/address/stage")
