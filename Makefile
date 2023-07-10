@@ -6,7 +6,7 @@ init:
   		-sudo gem install bundler -v "1.17.3";\
 	fi
 	-bundle update
-	-bundle install --path .bundle
+	-bundle config set path '.bundle'
 
 build:
 	xcodebuild clean build -scheme DebugScreen -sdk iphonesimulator | bundle exec xcpretty -c
