@@ -78,6 +78,16 @@ extension InfoTableViewAdapter: UITableViewDelegate {
         return headerView
     }
 
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard
+            let section = sections[safe: section],
+            !(section.title?.isEmpty ?? true)
+        else {
+            return 0.001
+        }
+        return 50
+    }
+
 }
 
 // MARK: - Private Methods
