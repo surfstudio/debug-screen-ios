@@ -46,7 +46,7 @@ extension MainViewController: MainViewInput {
 private extension MainViewController {
 
     func configureAppearance() {
-        view.backgroundColor = Colors.Main.background
+        view.backgroundColor = DebugScreenConfiguration.shared.colorScheme.backgroundColor
         configureNavigationBar()
         configureTableView()
         configureAdapter()
@@ -58,7 +58,7 @@ private extension MainViewController {
     }
 
     func configureTableView() {
-        tableView.backgroundColor = Colors.Main.background
+        tableView.backgroundColor = DebugScreenConfiguration.shared.colorScheme.backgroundColor
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.separatorStyle = .none
         tableView.contentInset = .init(top: 0,
@@ -82,7 +82,7 @@ private extension MainViewController {
 
     func configureCloseButton() {
         let closeIcon = Resources.Assets.Icons.close.image.withTintColor(
-            Colors.Buttons.Primary.normalBackground,
+            DebugScreenConfiguration.shared.colorScheme.textColor,
             renderingMode: .alwaysOriginal
         )
         let closeButton = UIBarButtonItem(

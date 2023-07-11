@@ -34,7 +34,7 @@ private extension BaseNavigationController {
         appearance.setBackIndicatorImage(backImage, transitionMaskImage: backImage)
 
         navigationBar.standardAppearance = appearance
-        navigationBar.tintColor = Colors.Buttons.Primary.normalBackground
+        navigationBar.tintColor = DebugScreenConfiguration.shared.colorScheme.textColor
     }
 
 }

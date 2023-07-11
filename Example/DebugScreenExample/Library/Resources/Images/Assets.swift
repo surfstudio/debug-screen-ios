@@ -28,6 +28,11 @@ internal enum Resources {
   }
   internal enum Colors {
     internal enum Buttons {
+      internal enum Extra {
+        internal static let highlightedBackground = ColorAsset(name: "Buttons/Extra/highlightedBackground")
+        internal static let normalBackground = ColorAsset(name: "Buttons/Extra/normalBackground")
+        internal static let text = ColorAsset(name: "Buttons/Extra/text")
+      }
       internal enum Primary {
         internal static let highlightedBackground = ColorAsset(name: "Buttons/Primary/highlightedBackground")
         internal static let normalBackground = ColorAsset(name: "Buttons/Primary/normalBackground")

@@ -67,7 +67,7 @@ extension InfoTableViewAdapter: UITableViewDelegate {
 
         let model = HeaderViewModel(
             text: section.title?.uppercased(),
-            textColor: Colors.Text.secondary,
+            textColor: DebugScreenConfiguration.shared.colorScheme.textSecondaryColor,
             backgroundColor: .clear,
             font: .systemFont(ofSize: 14)
         )
@@ -76,6 +76,16 @@ extension InfoTableViewAdapter: UITableViewDelegate {
         headerView.configure(with: model)
 
         return headerView
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard
+            let section = sections[safe: section],
+            !(section.title?.isEmpty ?? true)
+        else {
+            return 0.001
+        }
+        return 50
     }
 
 }

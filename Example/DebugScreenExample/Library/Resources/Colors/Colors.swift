@@ -10,6 +10,12 @@ import UIKit
 enum Colors {
 
     enum Buttons {
+        enum Extra {
+            static let highlightedBackground = Resources.Colors.Buttons.Extra.highlightedBackground.color
+            static let normalBackground = Resources.Colors.Buttons.Extra.normalBackground.color
+            static let text = Resources.Colors.Buttons.Extra.text.color
+        }
+
         enum Primary {
             static let highlightedBackground = Resources.Colors.Buttons.Primary.highlightedBackground.color
             static let normalBackground = Resources.Colors.Buttons.Primary.normalBackground.color

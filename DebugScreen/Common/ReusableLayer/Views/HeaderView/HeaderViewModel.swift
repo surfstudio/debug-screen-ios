@@ -20,8 +20,8 @@ struct HeaderViewModel {
 
     init(
         text: String?,
-        textColor: UIColor = Colors.Text.primary,
-        backgroundColor: UIColor = Colors.Main.background,
+        textColor: UIColor = DebugScreenConfiguration.shared.colorScheme.textColor,
+        backgroundColor: UIColor = DebugScreenConfiguration.shared.colorScheme.backgroundColor,
         font: UIFont = .systemFont(ofSize: 20, weight: .heavy)
     ) {
         self.text = text

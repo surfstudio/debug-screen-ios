@@ -52,7 +52,7 @@ extension InfoTableViewController: InfoTableViewInput {
 private extension InfoTableViewController {
 
     func configureAppearance(with title: String) {
-        view.backgroundColor = Colors.Main.background
+        view.backgroundColor = DebugScreenConfiguration.shared.colorScheme.backgroundColor
 
         configureNavigationBar(with: title)
         configureTableView()
@@ -65,7 +65,7 @@ private extension InfoTableViewController {
 
     func configureTableView() {
         tableView.contentInsetAdjustmentBehavior = .never
-        tableView.backgroundColor = Colors.Main.background
+        tableView.backgroundColor = DebugScreenConfiguration.shared.colorScheme.backgroundColor
         tableView.contentInset = .init(top: 8,
                                        left: 0,
                                        bottom: 32,

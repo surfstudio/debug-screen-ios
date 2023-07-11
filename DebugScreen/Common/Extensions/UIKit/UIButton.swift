@@ -10,16 +10,27 @@ import UIKit
 extension UIButton {
 
     func configure(style: ActionStyle) {
+        var appearance = ButtonAppearance.appearance(for: style)
+
+        switch style {
+        case .primary:
+            appearance = DebugScreenConfiguration.shared.colorScheme.buttonConfigurations.primary
+        case .secondary:
+            appearance = DebugScreenConfiguration.shared.colorScheme.buttonConfigurations.secondary
+        case .destructive:
+            appearance = DebugScreenConfiguration.shared.colorScheme.buttonConfigurations.destructive
+        }
+
         clipsToBounds = true
         layer.cornerRadius = 12
 
         titleLabel?.font = .systemFont(ofSize: 17, weight: .medium)
-        setTitleColor(style.titleColor, for: .normal)
-        setTitleColor(style.titleColor, for: .highlighted)
-        setTitleColor(style.titleColor, for: .disabled)
+        setTitleColor(appearance.textColor, for: .normal)
+        setTitleColor(appearance.textColor, for: .highlighted)
+        setTitleColor(appearance.textColor, for: .disabled)
 
-        set(backgroundColor: style.backgroundColor, for: .normal)
-        set(backgroundColor: style.highlightedBackgroundColor, for: [.highlighted, .selected])
+        set(backgroundColor: appearance.normalBackground, for: .normal)
+        set(backgroundColor: appearance.highlightedBackground, for: [.highlighted, .selected])
     }
 
     func set(backgroundColor: UIColor, for state: UIControl.State) {

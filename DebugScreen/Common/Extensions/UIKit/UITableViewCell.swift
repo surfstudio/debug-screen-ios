@@ -11,7 +11,7 @@ extension UITableViewCell {
 
     func setDefaultStyle() {
         selectionStyle = .none
-        backgroundColor = Colors.Main.background
+        backgroundColor = DebugScreenConfiguration.shared.colorScheme.backgroundColor
     }
 
 }

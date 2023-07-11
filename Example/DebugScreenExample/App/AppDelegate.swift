@@ -46,6 +46,8 @@ private extension AppDelegate {
         /// at logger section (if you'll add this element to sections list)
         DebugScreenConfiguration.shared.logCatcherService.isActive = true
         configureDebugScreenSections()
+        /// You can override just necessary colors or full pallette
+        configureDebugScreenColors()
     }
 
     func configureDebugScreenSections() {
@@ -70,6 +72,17 @@ private extension AppDelegate {
                                                     copiedTextSection,
                                                     infoTablesSection,
                                                     loggerSection]
+    }
+
+    func configureDebugScreenColors() {
+        let primaryButtonAppearance = ButtonAppearance(
+            style: .primary,
+            highlightedBackground: Colors.Buttons.Extra.highlightedBackground,
+            normalBackground: Colors.Buttons.Extra.normalBackground,
+            textColor: Colors.Buttons.Extra.text
+        )
+        let buttonConfigurations = ButtonConfigurations(primary: primaryButtonAppearance)
+        DebugScreenConfiguration.shared.colorScheme = .init(buttonConfigurations: buttonConfigurations)
     }
 
 }
