@@ -11,11 +11,11 @@ public struct ButtonConfigurations {
     // MARK: - Properties
 
     /// Primary button apperance configuration.
-    var primary: ButtonAppearance = .appearance(for: .primary)
+    private(set) var primary: ButtonAppearance = .appearance(for: .primary)
     /// Secondary button appearance configuration.
-    var secondary: ButtonAppearance = .appearance(for: .secondary)
+    private(set) var secondary: ButtonAppearance = .appearance(for: .secondary)
     /// Destructive button apperance configuration.
-    var destructive: ButtonAppearance = .appearance(for: .destructive)
+    private(set) var destructive: ButtonAppearance = .appearance(for: .destructive)
 
     // MARK: - Initialization
 

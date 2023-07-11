@@ -16,19 +16,17 @@ public struct ColorScheme {
     // MARK: - Properties
 
     /// DebugScreen views background color.
-    var backgroundColor = Colors.Main.background
+    private(set) var backgroundColor = Colors.Main.background
     /// DebugScreen text background color. Used for section headers and close icon.
-    var textColor = Colors.Text.primary
+    private(set) var textColor = Colors.Text.primary
     /// DebugScreen action buttons appearance configurations.
-    var buttonConfigurations = ButtonConfigurations()
+    private(set) var buttonConfigurations = ButtonConfigurations()
 
     // MARK: - Initialization
 
-    public init(
-        backgroundColor: UIColor? = nil,
-        textColor: UIColor? = nil,
-        buttonConfigurations: ButtonConfigurations? = nil
-    ) {
+    public init(backgroundColor: UIColor? = nil,
+                textColor: UIColor? = nil,
+                buttonConfigurations: ButtonConfigurations? = nil) {
 
         if let backgroundColor = backgroundColor {
             self.backgroundColor = backgroundColor
