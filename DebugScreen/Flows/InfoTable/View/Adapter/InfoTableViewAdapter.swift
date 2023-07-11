@@ -67,7 +67,7 @@ extension InfoTableViewAdapter: UITableViewDelegate {
 
         let model = HeaderViewModel(
             text: section.title?.uppercased(),
-            textColor: Colors.Text.secondary,
+            textColor: DebugScreenConfiguration.shared.colorScheme.textSecondaryColor,
             backgroundColor: .clear,
             font: .systemFont(ofSize: 14)
         )

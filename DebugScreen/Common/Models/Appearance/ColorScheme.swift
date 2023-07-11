@@ -17,8 +17,10 @@ public struct ColorScheme {
 
     /// DebugScreen views background color.
     private(set) var backgroundColor = Colors.Main.background
-    /// DebugScreen text background color. Used for section headers and close icon.
+    /// DebugScreen text color. Used for section headers and close icon.
     private(set) var textColor = Colors.Text.primary
+    /// DebugScreen secondary text color. Used for section headers and labels at an info screens.
+    private(set) var textSecondaryColor = Colors.Text.secondary
     /// DebugScreen action buttons appearance configurations.
     private(set) var buttonConfigurations = ButtonConfigurations()
 
@@ -26,6 +28,7 @@ public struct ColorScheme {
 
     public init(backgroundColor: UIColor? = nil,
                 textColor: UIColor? = nil,
+                textSecondaryColor: UIColor? = nil,
                 buttonConfigurations: ButtonConfigurations? = nil) {
 
         if let backgroundColor = backgroundColor {
@@ -34,6 +37,10 @@ public struct ColorScheme {
 
         if let textColor = textColor {
             self.textColor = textColor
+        }
+
+        if let textSecondaryColor = textSecondaryColor {
+            self.textSecondaryColor = textSecondaryColor
         }
 
         if let buttonConfigurations = buttonConfigurations {

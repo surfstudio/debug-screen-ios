@@ -42,13 +42,13 @@ private extension TwoLabelsCell {
 
     func configureTitleLabel() {
         titleLabel.font = .systemFont(ofSize: 14, weight: .regular)
-        titleLabel.textColor = Colors.Text.primary
+        titleLabel.textColor = DebugScreenConfiguration.shared.colorScheme.textColor
         titleLabel.numberOfLines = 0
     }
 
     func configureValueLabel() {
         valueLabel.font = .systemFont(ofSize: 14, weight: .regular)
-        valueLabel.textColor = Colors.Text.secondary
+        valueLabel.textColor = DebugScreenConfiguration.shared.colorScheme.textSecondaryColor
         valueLabel.numberOfLines = 0
     }
 
