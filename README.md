@@ -59,5 +59,4 @@ The full list of changes can be found in this [file](./Changelog.md).
 ## License
 
 
-
 [MIT License](./LICENSE)
