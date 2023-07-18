@@ -7,6 +7,8 @@
 - Ability to open your custom screen [#29](https://github.com/surfstudio/debug-screen-ios/pull/29)
 - Dark-theme was supported [#30](https://github.com/surfstudio/debug-screen-ios/pull/30)
 - Ability to open DebugScreen programatically [#27](https://github.com/surfstudio/debug-screen-ios/pull/27)
+- Ability to add table-screens with read-only information [#34](https://github.com/surfstudio/debug-screen-ios/pull/34)
+- Also, you can change color theme for DebugScreen UI-component [#33](https://github.com/surfstudio/debug-screen-ios/pull/33)
 
 ## 1.0.1
 
