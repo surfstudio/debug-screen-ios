@@ -4,7 +4,6 @@
 [![SPM Compatible](https://img.shields.io/badge/SPM-compatible-blue.svg)](https://github.com/apple/swift-package-manager)
 [![CocoaPods Compatible](https://img.shields.io/badge/CocoaPods-compatible-blue.svg)](https://cocoapods.org)
 [![Version](https://img.shields.io/github/release/surfstudio/debug-screen-ios.svg?style=flat)]()
-
 [![DebugScreen](https://i.ibb.co/JBY58v8/Debug-Screen.png)](https://github.com/surfstudio/debug-screen-ios)
 
 ## About
@@ -58,5 +57,7 @@ Check out the full documentation [here](https://surfstudio.github.io/debug-scree
 The full list of changes can be found in this [file](./Changelog.md).
 
 ## License
+
+
 
 [MIT License](./LICENSE)
