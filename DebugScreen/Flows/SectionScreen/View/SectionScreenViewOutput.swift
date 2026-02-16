@@ -1,17 +1,14 @@
 //
-//  MainViewOutput.swift
+//  SectionScreenViewOutput.swift
 //  DebugScreen
 //
-//  Created by Anton Shelar on 29.10.2020.
+//  Created by Aleksandr Potemkin on 13.02.2026.
 //
 
-import UIKit
-
-protocol MainViewOutput {
+protocol SectionScreenViewOutput {
     func viewLoaded()
     func didTapActionList(model: ActionList)
     func didTapInfoTable(model: InfoTableModel)
     func didTapSelectableText(model: CopiedText)
-    func didTapCloseButton()
     func didTapSectionScreen(model: SectionScreen)
 }

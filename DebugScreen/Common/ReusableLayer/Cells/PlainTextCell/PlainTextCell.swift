@@ -38,7 +38,6 @@ private extension PlainTextCell {
     }
 
     func configureContainer() {
-        accessoryType = .disclosureIndicator
         backgroundColor = DebugScreenConfiguration.shared.colorScheme.backgroundColor
     }
 

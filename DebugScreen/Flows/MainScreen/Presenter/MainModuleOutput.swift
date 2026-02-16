@@ -18,4 +18,6 @@ protocol MainModuleOutput: AnyObject {
     var didModuleClosed: (() -> Void)? { get set }
     /// Call after module deinit from memory
     var didModuleDismissed: (() -> Void)? { get set }
+    /// Called when a section screen needs to be shown
+    var onSectionScreenShow: ((SectionScreen) -> Void)? { get set }
 }

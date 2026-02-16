@@ -47,6 +47,32 @@
 "InfoTable.AboutDevice" = "Информация об устройстве";
 "InfoTable.Custom" = "Произвольные данные";
 
+// MARK: - MenuItems
+
+"MenuItems.header" = "Пункты меню";
+"MenuItems.simpleTitle" = "Простое действие";
+"MenuItems.disclosureTitle" = "Открыть экран";
+"MenuItems.multilineTitle" = "Многострочный пункт меню\nс очень длинным описанием, которое занимает несколько строк";
+"MenuItems.noActionTitle" = "Информационный пункт (без действия)";
+
+// MARK: - SectionScreens
+
+"SectionScreens.header" = "Вложенные экраны";
+"SectionScreens.settingsTitle" = "Настройки";
+"SectionScreens.nestedTitle" = "Вложенность экранов";
+"SectionScreens.Settings.togglesSectionTitle" = "Переключатели";
+"SectionScreens.Settings.firstToggleTitle" = "Показывать касания";
+"SectionScreens.Settings.secondToggleTitle" = "Использовать SSH";
+"SectionScreens.Settings.copiedTextSectionTitle" = "API ключи";
+"SectionScreens.Settings.copiedTextTitle" = "API ключ";
+"SectionScreens.Nested.middleMenuSectionTitle" = "Действия";
+"SectionScreens.Nested.middleMenuItemTitle" = "Действие среднего уровня";
+"SectionScreens.Nested.nestedScreenSectionTitle" = "Глубже";
+"SectionScreens.Nested.deepScreenTitle" = "Глубокий уровень";
+"SectionScreens.Nested.deepMenuSectionTitle" = "Действия";
+"SectionScreens.Nested.deepMenuItemTitle" = "Действие глубокого уровня";
+"SectionScreens.Nested.deepInfoSectionTitle" = "Информация";
+
 // MARK: - Destination Controller
 
 "DestinationController.title" = "Новый экран";

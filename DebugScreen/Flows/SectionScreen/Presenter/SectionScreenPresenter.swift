@@ -1,46 +1,47 @@
 //
-//  MainModulePresenter.swift
+//  SectionScreenPresenter.swift
 //  DebugScreen
 //
-//  Created by Anton Shelar on 29.10.2020.
+//  Created by Aleksandr Potemkin on 13.02.2026.
 //
 
-import Foundation
 import UIKit
 
-final class MainModulePresenter: MainModuleOutput {
+final class SectionScreenPresenter: SectionScreenModuleOutput {
 
-    // MARK: - MainModuleOutput
+    // MARK: - SectionScreenModuleOutput
 
     var onActionListShow: ((ActionList) -> Void)?
     var onAlertShow: ((AlertModel) -> Void)?
     var onInfoTableShow: ((InfoTableModel) -> Void)?
-    var didModuleClosed: (() -> Void)?
-    var didModuleDismissed: (() -> Void)?
     var onSectionScreenShow: ((SectionScreen) -> Void)?
 
     // MARK: - Properties
 
-    weak var view: MainViewInput?
+    weak var view: SectionScreenViewInput?
 
-    // MARK: - Deinitialization
+    // MARK: - Private Properties
 
-    deinit {
-        didModuleDismissed?()
+    private let model: SectionScreen
+
+    // MARK: - Initialization
+
+    init(model: SectionScreen) {
+        self.model = model
     }
 
 }
 
-// MARK: - MainModuleInput
+// MARK: - SectionScreenModuleInput
 
-extension MainModulePresenter: MainModuleInput { }
+extension SectionScreenPresenter: SectionScreenModuleInput { }
 
-// MARK: - MainViewOutput
+// MARK: - SectionScreenViewOutput
 
-extension MainModulePresenter: MainViewOutput {
+extension SectionScreenPresenter: SectionScreenViewOutput {
 
     func viewLoaded() {
-        view?.setupInitialState(sections: DebugScreenConfiguration.shared.sections)
+        view?.setupInitialState(with: model.title, sections: model.sections)
     }
 
     func didTapActionList(model: ActionList) {
@@ -55,10 +56,6 @@ extension MainModulePresenter: MainViewOutput {
         UIPasteboard.general.string = model.value
         onAlertShow?(.init(message: L10n.MainPresenter.CopyTextAction.complete))
         debugPrint("✅ \(model.title) copied to clipboard")
-    }
-
-    func didTapCloseButton() {
-        didModuleClosed?()
     }
 
     func didTapSectionScreen(model: SectionScreen) {

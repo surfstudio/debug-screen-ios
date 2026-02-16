@@ -60,6 +60,9 @@ private extension DebugScreenCoordinator {
         output.didModuleDismissed = { [weak self] in
             self?.completionHandler?()
         }
+        output.onSectionScreenShow = { [weak self] model in
+            self?.showSectionScreen(with: model)
+        }
         router.present(view)
     }
 
@@ -100,6 +103,15 @@ private extension DebugScreenCoordinator {
         let view = BaseNavigationController(rootViewController: screen)
         view.modalPresentationStyle = .overFullScreen
         router.present(view)
+    }
+
+    func showSectionScreen(with model: SectionScreen) {
+        let (view, output) = SectionScreenModuleConfigurator().configure(with: model)
+        output.onActionListShow = { [weak self] model in self?.showActionList(model: model) }
+        output.onSectionScreenShow = { [weak self] model in self?.showSectionScreen(with: model) }
+        output.onInfoTableShow = { [weak self] model in self?.showInfoTable(with: model) }
+        output.onAlertShow = { [weak self] model in self?.showAlert(with: model) }
+        router.push(view)
     }
 
     func configureActionSheetItem(with model: Action) -> UIAlertAction {

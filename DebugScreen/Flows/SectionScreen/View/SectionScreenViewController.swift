@@ -1,13 +1,13 @@
 //
-//  MainViewController.swift
+//  SectionScreenViewController.swift
 //  DebugScreen
 //
-//  Created by Anton Shelar on 29.10.2020.
+//  Created by Aleksandr Potemkin on 13.02.2026.
 //
 
 import UIKit
 
-final class MainViewController: UIViewController {
+final class SectionScreenViewController: UIViewController {
 
     // MARK: - @IBOutlets
 
@@ -15,7 +15,7 @@ final class MainViewController: UIViewController {
 
     // MARK: - Properties
 
-    var output: MainViewOutput?
+    var output: SectionScreenViewOutput?
 
     // MARK: - Private Properties
 
@@ -30,12 +30,12 @@ final class MainViewController: UIViewController {
 
 }
 
-// MARK: - MainViewInput
+// MARK: - SectionScreenViewInput
 
-extension MainViewController: MainViewInput {
+extension SectionScreenViewController: SectionScreenViewInput {
 
-    func setupInitialState(sections: [TableSection]) {
-        configureAppearance()
+    func setupInitialState(with title: String, sections: [TableSection]) {
+        configureAppearance(with: title)
         adapter?.fill(with: sections)
     }
 
@@ -43,28 +43,24 @@ extension MainViewController: MainViewInput {
 
 // MARK: - Appearance
 
-private extension MainViewController {
+private extension SectionScreenViewController {
 
-    func configureAppearance() {
+    func configureAppearance(with title: String) {
         view.backgroundColor = DebugScreenConfiguration.shared.colorScheme.backgroundColor
-        configureNavigationBar()
+        configureNavigationBar(with: title)
         configureTableView()
         configureAdapter()
     }
 
-    func configureNavigationBar() {
-        navigationItem.title = L10n.MainViewController.debugTitle
-        configureCloseButton()
+    func configureNavigationBar(with title: String) {
+        navigationItem.title = title
     }
 
     func configureTableView() {
         tableView.backgroundColor = DebugScreenConfiguration.shared.colorScheme.backgroundColor
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.separatorStyle = .none
-        tableView.contentInset = .init(top: 0,
-                                       left: 0,
-                                       bottom: 32,
-                                       right: 0)
+        tableView.contentInset = .init(top: 0, left: 0, bottom: 32, right: 0)
     }
 
     func configureAdapter() {
@@ -81,32 +77,6 @@ private extension MainViewController {
         adapter?.onOpenSectionScreen = { [weak self] model in
             self?.output?.didTapSectionScreen(model: model)
         }
-    }
-
-    func configureCloseButton() {
-        let closeIcon = Resources.Assets.Icons.close.image.withTintColor(
-            DebugScreenConfiguration.shared.colorScheme.textColor,
-            renderingMode: .alwaysOriginal
-        )
-        let closeButton = UIBarButtonItem(
-            image: closeIcon,
-            style: .plain,
-            target: self,
-            action: #selector(didTapCloseButton)
-        )
-
-        navigationItem.rightBarButtonItem = closeButton
-    }
-
-}
-
-// MARK: - Actions
-
-private extension MainViewController {
-
-    @objc
-    func didTapCloseButton() {
-        output?.didTapCloseButton()
     }
 
 }
