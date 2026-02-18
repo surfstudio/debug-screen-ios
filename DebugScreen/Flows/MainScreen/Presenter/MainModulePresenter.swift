@@ -56,10 +56,6 @@ extension MainModulePresenter: MainViewOutput {
             title: title,
             sections: sections
         )
-//        view?.setupInitialState(
-//            title: L10n.MainViewController.debugTitle,
-//            sections: DebugScreenConfiguration.shared.sections
-//        )
     }
 
     func didTapActionList(model: ActionList) {
