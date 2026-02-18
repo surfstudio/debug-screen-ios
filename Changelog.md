@@ -1,5 +1,11 @@
 # DebugScreen
 
+## 2.1.0
+
+- Added the ability to display a new item in the Debug screen table - MenuItem. This appears as compact text [#38](https://github.com/surfstudio/debug-screen-ios/pull/38)
+- Added the ability to build nested screens based on existing primitives such as TableSection [#38](https://github.com/surfstudio/debug-screen-ios/pull/38)
+- Git Hub Actions functionality has been restored. [#39](https://github.com/surfstudio/debug-screen-ios/pull/39)
+
 ## 2.0.0
 
 - More flexibility was added to existed features [#28](https://github.com/surfstudio/debug-screen-ios/pull/28)
