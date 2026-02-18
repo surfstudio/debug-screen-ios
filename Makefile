@@ -1,22 +1,17 @@
 
 init:
-	# Install bundler if not installed
-	if ! gem spec bundler > /dev/null 2>&1; then\
-  		echo "bundler gem is not installed!";\
-  		-sudo gem install bundler -v "1.17.3";\
-	fi
-	-bundle config set --local path '.bundle'
-	-bundle update
+	bundle config set --local path '.bundle'
+	bundle install
 
 build:
 	xcodebuild clean build -scheme DebugScreen -sdk iphonesimulator | bundle exec xcpretty -c
 
 spm_build:
 	swift package clean
-	swift build -Xswiftc "-sdk" -Xswiftc "`xcrun --sdk iphonesimulator --show-sdk-path`" -Xswiftc "-target" -Xswiftc "x86_64-apple-ios15.5-simulator" -Xswiftc "-lswiftUIKit"
+	swift build -Xswiftc "-sdk" -Xswiftc "`xcrun --sdk iphonesimulator --show-sdk-path`" -Xswiftc "-target" -Xswiftc "arm64-apple-ios18.5-simulator"
 
 test:
-	xcodebuild test -scheme DebugScreen -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO -enableCodeCoverage YES -destination 'platform=iOS Simulator,name=iPhone 8,OS=15.5' | bundle exec xcpretty -c
+	xcodebuild test -scheme DebugScreen -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO -enableCodeCoverage YES -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.5' | bundle exec xcpretty -c
 
 example_build:
 	xcodebuild clean build -scheme DebugScreenExample -sdk iphonesimulator | bundle exec xcpretty -c
