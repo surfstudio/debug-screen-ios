@@ -21,7 +21,7 @@ final class DebugScreenCoordinator: BaseCoordinator {
     // MARK: - Methods
 
     override func start() {
-        showMainScreen()
+        showMainScreen(type: .root)
     }
 
     func open(module: ModuleType) {
@@ -43,8 +43,15 @@ final class DebugScreenCoordinator: BaseCoordinator {
 
 private extension DebugScreenCoordinator {
 
-    func showMainScreen() {
-        let (view, output) = MainModuleConfigurator().configure()
+    func showMainScreen(type: MainScreenType) {
+        let (view, output): MainModuleComponents
+        switch type {
+        case .root:
+            (view, output) = MainModuleConfigurator().configureMain()
+        case .nested(let model):
+            (view, output) = MainModuleConfigurator().configureNestedModule(model: model)
+        }
+
         output.onActionListShow = { [weak self] model in
             self?.showActionList(model: model)
         }
@@ -54,16 +61,25 @@ private extension DebugScreenCoordinator {
         output.onInfoTableShow = { [weak self] model in
             self?.showInfoTable(with: model)
         }
+        output.onNestedScreenShow = { [weak self] model in
+            self?.showMainScreen(type: .nested(model: model))
+        }
         output.didModuleClosed = { [weak self] in
             self?.router.dismissModule()
         }
-        output.didModuleDismissed = { [weak self] in
-            self?.completionHandler?()
+
+        if case .root = type {
+            output.didModuleDismissed = { [weak self] in
+                self?.completionHandler?()
+            }
         }
-        output.onSectionScreenShow = { [weak self] model in
-            self?.showSectionScreen(with: model)
+
+        switch type {
+        case .root:
+            router.present(view)
+        case .nested(_):
+            router.push(view)
         }
-        router.present(view)
     }
 
     func showActionList(model: ActionList) {
@@ -103,15 +119,6 @@ private extension DebugScreenCoordinator {
         let view = BaseNavigationController(rootViewController: screen)
         view.modalPresentationStyle = .overFullScreen
         router.present(view)
-    }
-
-    func showSectionScreen(with model: SectionScreen) {
-        let (view, output) = SectionScreenModuleConfigurator().configure(with: model)
-        output.onActionListShow = { [weak self] model in self?.showActionList(model: model) }
-        output.onSectionScreenShow = { [weak self] model in self?.showSectionScreen(with: model) }
-        output.onInfoTableShow = { [weak self] model in self?.showInfoTable(with: model) }
-        output.onAlertShow = { [weak self] model in self?.showAlert(with: model) }
-        router.push(view)
     }
 
     func configureActionSheetItem(with model: Action) -> UIAlertAction {

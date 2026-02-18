@@ -55,23 +55,23 @@
 "MenuItems.multilineTitle" = "This is a multiline menu item\nwith a very long description that spans multiple lines";
 "MenuItems.noActionTitle" = "Informational item (no action)";
 
-// MARK: - SectionScreens
+// MARK: - NestedScreens
 
-"SectionScreens.header" = "Section Screens";
-"SectionScreens.settingsTitle" = "Settings";
-"SectionScreens.nestedTitle" = "Nested Screens";
-"SectionScreens.Settings.togglesSectionTitle" = "Toggles";
-"SectionScreens.Settings.firstToggleTitle" = "Show touches";
-"SectionScreens.Settings.secondToggleTitle" = "Use SSH";
-"SectionScreens.Settings.copiedTextSectionTitle" = "API Keys";
-"SectionScreens.Settings.copiedTextTitle" = "API Key";
-"SectionScreens.Nested.middleMenuSectionTitle" = "Actions";
-"SectionScreens.Nested.middleMenuItemTitle" = "Middle level action";
-"SectionScreens.Nested.nestedScreenSectionTitle" = "Go Deeper";
-"SectionScreens.Nested.deepScreenTitle" = "Deep Level";
-"SectionScreens.Nested.deepMenuSectionTitle" = "Deep Actions";
-"SectionScreens.Nested.deepMenuItemTitle" = "Deep nested action";
-"SectionScreens.Nested.deepInfoSectionTitle" = "Info";
+"NestedScreens.header" = "Section Screens";
+"NestedScreens.settingsTitle" = "Settings";
+"NestedScreens.nestedTitle" = "Nested Screens";
+"NestedScreens.Settings.togglesSectionTitle" = "Toggles";
+"NestedScreens.Settings.firstToggleTitle" = "Show touches";
+"NestedScreens.Settings.secondToggleTitle" = "Use SSH";
+"NestedScreens.Settings.copiedTextSectionTitle" = "API Keys";
+"NestedScreens.Settings.copiedTextTitle" = "API Key";
+"NestedScreens.Nested.middleMenuSectionTitle" = "Actions";
+"NestedScreens.Nested.middleMenuItemTitle" = "Middle level action";
+"NestedScreens.Nested.nestedScreenSectionTitle" = "Go Deeper";
+"NestedScreens.Nested.deepScreenTitle" = "Deep Level";
+"NestedScreens.Nested.deepMenuSectionTitle" = "Deep Actions";
+"NestedScreens.Nested.deepMenuItemTitle" = "Deep nested action";
+"NestedScreens.Nested.deepInfoSectionTitle" = "Info";
 
 // MARK: - Destination Controller
 

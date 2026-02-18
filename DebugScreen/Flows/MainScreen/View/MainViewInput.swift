@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MainViewInput: AnyObject {
-    func setupInitialState(sections: [TableSection])
+    func setupInitialState(title: String, sections: [TableSection])
 }

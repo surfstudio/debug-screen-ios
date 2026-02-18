@@ -13,17 +13,33 @@ final class MainModuleConfigurator {
 
     // MARK: - Methods
 
-    func configure() -> MainModuleComponents {
-        let viewController = UIViewController.instantiate(ofType: MainViewController.self)
-        let presenter = MainModulePresenter()
+    func configureMain() -> MainModuleComponents {
+        let view = UIViewController.instantiate(ofType: MainViewController.self)
+        let presenter = MainModulePresenter(
+            title: L10n.MainViewController.debugTitle,
+            sections: DebugScreenConfiguration.shared.sections
+        )
 
-        presenter.view = viewController
-        viewController.output = presenter
+        presenter.view = view
+        view.output = presenter
 
-        let navController = BaseNavigationController(rootViewController: viewController)
+        let navController = BaseNavigationController(rootViewController: view)
         navController.modalPresentationStyle = .overFullScreen
 
         return (navController, presenter)
+    }
+
+    func configureNestedModule(model: NestedScreen) -> MainModuleComponents {
+        let view = UIViewController.instantiate(ofType: MainViewController.self)
+        let presenter = MainModulePresenter(
+            title: model.title,
+            sections: model.sections
+        )
+
+        presenter.view = view
+        view.output = presenter
+
+        return (view, presenter)
     }
 
 }

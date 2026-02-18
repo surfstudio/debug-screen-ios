@@ -12,6 +12,6 @@ protocol MainViewOutput {
     func didTapActionList(model: ActionList)
     func didTapInfoTable(model: InfoTableModel)
     func didTapSelectableText(model: CopiedText)
+    func didTapNestedScreen(model: NestedScreen)
     func didTapCloseButton()
-    func didTapSectionScreen(model: SectionScreen)
 }

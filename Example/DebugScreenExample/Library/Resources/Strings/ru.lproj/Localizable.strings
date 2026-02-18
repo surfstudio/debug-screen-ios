@@ -55,23 +55,23 @@
 "MenuItems.multilineTitle" = "Многострочный пункт меню\nс очень длинным описанием, которое занимает несколько строк";
 "MenuItems.noActionTitle" = "Информационный пункт (без действия)";
 
-// MARK: - SectionScreens
+// MARK: - NestedScreens
 
-"SectionScreens.header" = "Вложенные экраны";
-"SectionScreens.settingsTitle" = "Настройки";
-"SectionScreens.nestedTitle" = "Вложенность экранов";
-"SectionScreens.Settings.togglesSectionTitle" = "Переключатели";
-"SectionScreens.Settings.firstToggleTitle" = "Показывать касания";
-"SectionScreens.Settings.secondToggleTitle" = "Использовать SSH";
-"SectionScreens.Settings.copiedTextSectionTitle" = "API ключи";
-"SectionScreens.Settings.copiedTextTitle" = "API ключ";
-"SectionScreens.Nested.middleMenuSectionTitle" = "Действия";
-"SectionScreens.Nested.middleMenuItemTitle" = "Действие среднего уровня";
-"SectionScreens.Nested.nestedScreenSectionTitle" = "Глубже";
-"SectionScreens.Nested.deepScreenTitle" = "Глубокий уровень";
-"SectionScreens.Nested.deepMenuSectionTitle" = "Действия";
-"SectionScreens.Nested.deepMenuItemTitle" = "Действие глубокого уровня";
-"SectionScreens.Nested.deepInfoSectionTitle" = "Информация";
+"NestedScreens.header" = "Вложенные экраны";
+"NestedScreens.settingsTitle" = "Настройки";
+"NestedScreens.nestedTitle" = "Вложенность экранов";
+"NestedScreens.Settings.togglesSectionTitle" = "Переключатели";
+"NestedScreens.Settings.firstToggleTitle" = "Показывать касания";
+"NestedScreens.Settings.secondToggleTitle" = "Использовать SSH";
+"NestedScreens.Settings.copiedTextSectionTitle" = "API ключи";
+"NestedScreens.Settings.copiedTextTitle" = "API ключ";
+"NestedScreens.Nested.middleMenuSectionTitle" = "Действия";
+"NestedScreens.Nested.middleMenuItemTitle" = "Действие среднего уровня";
+"NestedScreens.Nested.nestedScreenSectionTitle" = "Глубже";
+"NestedScreens.Nested.deepScreenTitle" = "Глубокий уровень";
+"NestedScreens.Nested.deepMenuSectionTitle" = "Действия";
+"NestedScreens.Nested.deepMenuItemTitle" = "Действие глубокого уровня";
+"NestedScreens.Nested.deepInfoSectionTitle" = "Информация";
 
 // MARK: - Destination Controller
 

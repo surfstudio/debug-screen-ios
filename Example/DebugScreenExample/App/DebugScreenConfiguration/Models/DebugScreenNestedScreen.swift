@@ -1,5 +1,5 @@
 //
-//  DebugScreenSectionScreen.swift
+//  DebugScreenNestedScreen.swift
 //  Example
 //
 //  Created by Aleksandr Potemkin on 13.02.2026.
@@ -7,7 +7,7 @@
 
 import DebugScreen
 
-final class DebugScreenSectionScreen: SectionScreen {
+final class DebugScreenNestedScreen: NestedScreen {
 
     // MARK: - Properties
 

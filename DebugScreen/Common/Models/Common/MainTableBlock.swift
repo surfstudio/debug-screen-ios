@@ -28,5 +28,5 @@ public enum MainTableBlock {
     /// Block with a custom menu item that performs an action on tap.
     case menuItem(model: MenuItem)
     /// Block that opens a nested section screen with its own table sections.
-    case sectionScreen(model: SectionScreen)
+    case nestedScreen(model: NestedScreen)
 }

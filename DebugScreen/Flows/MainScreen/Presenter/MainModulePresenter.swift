@@ -15,13 +15,25 @@ final class MainModulePresenter: MainModuleOutput {
     var onActionListShow: ((ActionList) -> Void)?
     var onAlertShow: ((AlertModel) -> Void)?
     var onInfoTableShow: ((InfoTableModel) -> Void)?
+    var onNestedScreenShow: ((NestedScreen) -> Void)?
     var didModuleClosed: (() -> Void)?
     var didModuleDismissed: (() -> Void)?
-    var onSectionScreenShow: ((SectionScreen) -> Void)?
 
     // MARK: - Properties
 
     weak var view: MainViewInput?
+
+    // MARK: - Private Properties
+
+    private let title: String
+    private let sections: [TableSection]
+
+    // MARK: - Initialization
+
+    init(title: String, sections: [TableSection]) {
+        self.title = title
+        self.sections = sections
+    }
 
     // MARK: - Deinitialization
 
@@ -40,7 +52,14 @@ extension MainModulePresenter: MainModuleInput { }
 extension MainModulePresenter: MainViewOutput {
 
     func viewLoaded() {
-        view?.setupInitialState(sections: DebugScreenConfiguration.shared.sections)
+        view?.setupInitialState(
+            title: title,
+            sections: sections
+        )
+//        view?.setupInitialState(
+//            title: L10n.MainViewController.debugTitle,
+//            sections: DebugScreenConfiguration.shared.sections
+//        )
     }
 
     func didTapActionList(model: ActionList) {
@@ -57,12 +76,12 @@ extension MainModulePresenter: MainViewOutput {
         debugPrint("✅ \(model.title) copied to clipboard")
     }
 
-    func didTapCloseButton() {
-        didModuleClosed?()
+    func didTapNestedScreen(model: NestedScreen) {
+        onNestedScreenShow?(model)
     }
 
-    func didTapSectionScreen(model: SectionScreen) {
-        onSectionScreenShow?(model)
+    func didTapCloseButton() {
+        didModuleClosed?()
     }
 
 }

@@ -20,7 +20,7 @@ final class MainAdapter: NSObject {
     var onOpenActionList: ((ActionList) -> Void)?
     var onSelectableTextTap: ((CopiedText) -> Void)?
     var onOpenInfoTable: ((InfoTableModel) -> Void)?
-    var onOpenSectionScreen: ((SectionScreen) -> Void)?
+    var onOpenNestedScreen: ((NestedScreen) -> Void)?
 
     // MARK: - Private Properties
 
@@ -95,7 +95,7 @@ extension MainAdapter: UITableViewDataSource {
             let cell = configurePlainTextCell(tableView, indexPath: indexPath, title: model.title)
             cell.accessoryType = model.showsDisclosure ? .disclosureIndicator : .none
             return cell
-        case .sectionScreen(let model):
+        case .nestedScreen(let model):
             let cell = configurePlainTextCell(tableView, indexPath: indexPath, title: model.title)
             cell.accessoryType = .disclosureIndicator
             return cell
@@ -144,8 +144,8 @@ extension MainAdapter: UITableViewDelegate {
             onOpenInfoTable?(model)
         case .menuItem(let model):
             model.block?()
-        case .sectionScreen(let model):
-            onOpenSectionScreen?(model)
+        case .nestedScreen(let model):
+            onOpenNestedScreen?(model)
         default:
             return
         }
