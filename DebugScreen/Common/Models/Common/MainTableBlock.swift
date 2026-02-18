@@ -25,4 +25,8 @@ public enum MainTableBlock {
     case selectionList(model: SelectionList)
     /// Block with toggle.
     case toggle(model: FeatureToggle)
+    /// Block with a custom menu item that performs an action on tap.
+    case menuItem(model: MenuItem)
+    /// Block that opens a nested section screen with its own table sections.
+    case nestedScreen(model: NestedScreen)
 }

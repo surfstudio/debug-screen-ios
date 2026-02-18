@@ -15,12 +15,25 @@ final class MainModulePresenter: MainModuleOutput {
     var onActionListShow: ((ActionList) -> Void)?
     var onAlertShow: ((AlertModel) -> Void)?
     var onInfoTableShow: ((InfoTableModel) -> Void)?
+    var onNestedScreenShow: ((NestedScreen) -> Void)?
     var didModuleClosed: (() -> Void)?
     var didModuleDismissed: (() -> Void)?
 
     // MARK: - Properties
 
     weak var view: MainViewInput?
+
+    // MARK: - Private Properties
+
+    private let title: String
+    private let sections: [TableSection]
+
+    // MARK: - Initialization
+
+    init(title: String, sections: [TableSection]) {
+        self.title = title
+        self.sections = sections
+    }
 
     // MARK: - Deinitialization
 
@@ -39,7 +52,10 @@ extension MainModulePresenter: MainModuleInput { }
 extension MainModulePresenter: MainViewOutput {
 
     func viewLoaded() {
-        view?.setupInitialState(sections: DebugScreenConfiguration.shared.sections)
+        view?.setupInitialState(
+            title: title,
+            sections: sections
+        )
     }
 
     func didTapActionList(model: ActionList) {
@@ -54,6 +70,10 @@ extension MainModulePresenter: MainViewOutput {
         UIPasteboard.general.string = model.value
         onAlertShow?(.init(message: L10n.MainPresenter.CopyTextAction.complete))
         debugPrint("✅ \(model.title) copied to clipboard")
+    }
+
+    func didTapNestedScreen(model: NestedScreen) {
+        onNestedScreenShow?(model)
     }
 
     func didTapCloseButton() {

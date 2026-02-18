@@ -20,6 +20,7 @@ final class MainAdapter: NSObject {
     var onOpenActionList: ((ActionList) -> Void)?
     var onSelectableTextTap: ((CopiedText) -> Void)?
     var onOpenInfoTable: ((InfoTableModel) -> Void)?
+    var onOpenNestedScreen: ((NestedScreen) -> Void)?
 
     // MARK: - Private Properties
 
@@ -81,11 +82,23 @@ extension MainAdapter: UITableViewDataSource {
         case .toggle(let model):
             return configureSwitcherCell(tableView, indexPath: indexPath, model: model)
         case .copiedText(let model):
-            return configurePlainTextCell(tableView, indexPath: indexPath, title: model.title)
+            let cell = configurePlainTextCell(tableView, indexPath: indexPath, title: model.title)
+            cell.accessoryType = .disclosureIndicator
+            return cell
         case .infoTable(let model):
-            return configurePlainTextCell(tableView, indexPath: indexPath, title: model.header)
+            let cell = configurePlainTextCell(tableView, indexPath: indexPath, title: model.header)
+            cell.accessoryType = .disclosureIndicator
+            return cell
         case .selectionList(let model):
             return configureSelectorCell(tableView, indexPath: indexPath, model: model)
+        case .menuItem(let model):
+            let cell = configurePlainTextCell(tableView, indexPath: indexPath, title: model.title)
+            cell.accessoryType = model.showsDisclosure ? .disclosureIndicator : .none
+            return cell
+        case .nestedScreen(let model):
+            let cell = configurePlainTextCell(tableView, indexPath: indexPath, title: model.title)
+            cell.accessoryType = .disclosureIndicator
+            return cell
         }
     }
 
@@ -129,6 +142,10 @@ extension MainAdapter: UITableViewDelegate {
             onSelectableTextTap?(model)
         case .infoTable(let model):
             onOpenInfoTable?(model)
+        case .menuItem(let model):
+            model.block?()
+        case .nestedScreen(let model):
+            onOpenNestedScreen?(model)
         default:
             return
         }

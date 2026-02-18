@@ -56,6 +56,8 @@ private extension AppDelegate {
         let togglesSection = TogglesSectionBuilder().build()
         let copiedTextSection = CopiedTextSectionBuilder().build()
         let infoTablesSection = InfoTablesSectionBuilder().build()
+        let menuItemsSection = MenuItemsSectionBuilder().build()
+        let nestedScreensSection = NestedScreensSectionBuilder().build()
 
         /// You can build logger section from ready-to-use components
         /// or create it manually like other sections by implementing `SectionBuilder` protocol
@@ -69,6 +71,8 @@ private extension AppDelegate {
         DebugScreenConfiguration.shared.sections = [serverSelectionSection,
                                                     actionsSection,
                                                     togglesSection,
+                                                    menuItemsSection,
+                                                    nestedScreensSection,
                                                     copiedTextSection,
                                                     infoTablesSection,
                                                     loggerSection]

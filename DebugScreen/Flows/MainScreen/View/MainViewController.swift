@@ -34,8 +34,8 @@ final class MainViewController: UIViewController {
 
 extension MainViewController: MainViewInput {
 
-    func setupInitialState(sections: [TableSection]) {
-        configureAppearance()
+    func setupInitialState(title: String, sections: [TableSection]) {
+        configureAppearance(title: title)
         adapter?.fill(with: sections)
     }
 
@@ -45,15 +45,15 @@ extension MainViewController: MainViewInput {
 
 private extension MainViewController {
 
-    func configureAppearance() {
+    func configureAppearance(title: String) {
         view.backgroundColor = DebugScreenConfiguration.shared.colorScheme.backgroundColor
-        configureNavigationBar()
+        configureNavigationBar(title: title)
         configureTableView()
         configureAdapter()
     }
 
-    func configureNavigationBar() {
-        navigationItem.title = L10n.MainViewController.debugTitle
+    func configureNavigationBar(title: String) {
+        navigationItem.title = title
         configureCloseButton()
     }
 
@@ -77,6 +77,9 @@ private extension MainViewController {
         }
         adapter?.onSelectableTextTap = { [weak self] model in
             self?.output?.didTapSelectableText(model: model)
+        }
+        adapter?.onOpenNestedScreen = { [weak self] model in
+            self?.output?.didTapNestedScreen(model: model)
         }
     }
 

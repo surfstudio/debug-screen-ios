@@ -71,6 +71,57 @@ internal enum L10n {
     internal static let header = L10n.tr("Localizable", "InfoTable.header")
   }
 
+  internal enum MenuItems {
+    /// Открыть экран
+    internal static let disclosureTitle = L10n.tr("Localizable", "MenuItems.disclosureTitle")
+    /// Пункты меню
+    internal static let header = L10n.tr("Localizable", "MenuItems.header")
+    /// Многострочный пункт меню
+    /// с очень длинным описанием, которое занимает несколько строк
+    internal static let multilineTitle = L10n.tr("Localizable", "MenuItems.multilineTitle")
+    /// Информационный пункт (без действия)
+    internal static let noActionTitle = L10n.tr("Localizable", "MenuItems.noActionTitle")
+    /// Простое действие
+    internal static let simpleTitle = L10n.tr("Localizable", "MenuItems.simpleTitle")
+  }
+
+  internal enum NestedScreens {
+    /// Вложенные экраны
+    internal static let header = L10n.tr("Localizable", "NestedScreens.header")
+    /// Вложенность экранов
+    internal static let nestedTitle = L10n.tr("Localizable", "NestedScreens.nestedTitle")
+    /// Настройки
+    internal static let settingsTitle = L10n.tr("Localizable", "NestedScreens.settingsTitle")
+    internal enum Nested {
+      /// Информация
+      internal static let deepInfoSectionTitle = L10n.tr("Localizable", "NestedScreens.Nested.deepInfoSectionTitle")
+      /// Действие глубокого уровня
+      internal static let deepMenuItemTitle = L10n.tr("Localizable", "NestedScreens.Nested.deepMenuItemTitle")
+      /// Действия
+      internal static let deepMenuSectionTitle = L10n.tr("Localizable", "NestedScreens.Nested.deepMenuSectionTitle")
+      /// Глубокий уровень
+      internal static let deepScreenTitle = L10n.tr("Localizable", "NestedScreens.Nested.deepScreenTitle")
+      /// Действие среднего уровня
+      internal static let middleMenuItemTitle = L10n.tr("Localizable", "NestedScreens.Nested.middleMenuItemTitle")
+      /// Действия
+      internal static let middleMenuSectionTitle = L10n.tr("Localizable", "NestedScreens.Nested.middleMenuSectionTitle")
+      /// Глубже
+      internal static let nestedScreenSectionTitle = L10n.tr("Localizable", "NestedScreens.Nested.nestedScreenSectionTitle")
+    }
+    internal enum Settings {
+      /// API ключи
+      internal static let copiedTextSectionTitle = L10n.tr("Localizable", "NestedScreens.Settings.copiedTextSectionTitle")
+      /// API ключ
+      internal static let copiedTextTitle = L10n.tr("Localizable", "NestedScreens.Settings.copiedTextTitle")
+      /// Показывать касания
+      internal static let firstToggleTitle = L10n.tr("Localizable", "NestedScreens.Settings.firstToggleTitle")
+      /// Использовать SSH
+      internal static let secondToggleTitle = L10n.tr("Localizable", "NestedScreens.Settings.secondToggleTitle")
+      /// Переключатели
+      internal static let togglesSectionTitle = L10n.tr("Localizable", "NestedScreens.Settings.togglesSectionTitle")
+    }
+  }
+
   internal enum ServerSelection {
     /// Продовый
     internal static let firstServerTitle = L10n.tr("Localizable", "ServerSelection.firstServerTitle")

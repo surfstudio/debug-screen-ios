@@ -47,6 +47,32 @@
 "InfoTable.AboutDevice" = "Device Info";
 "InfoTable.Custom" = "Custom Data";
 
+// MARK: - MenuItems
+
+"MenuItems.header" = "Menu Items";
+"MenuItems.simpleTitle" = "Simple action";
+"MenuItems.disclosureTitle" = "Open Screen";
+"MenuItems.multilineTitle" = "This is a multiline menu item\nwith a very long description that spans multiple lines";
+"MenuItems.noActionTitle" = "Informational item (no action)";
+
+// MARK: - NestedScreens
+
+"NestedScreens.header" = "Section Screens";
+"NestedScreens.settingsTitle" = "Settings";
+"NestedScreens.nestedTitle" = "Nested Screens";
+"NestedScreens.Settings.togglesSectionTitle" = "Toggles";
+"NestedScreens.Settings.firstToggleTitle" = "Show touches";
+"NestedScreens.Settings.secondToggleTitle" = "Use SSH";
+"NestedScreens.Settings.copiedTextSectionTitle" = "API Keys";
+"NestedScreens.Settings.copiedTextTitle" = "API Key";
+"NestedScreens.Nested.middleMenuSectionTitle" = "Actions";
+"NestedScreens.Nested.middleMenuItemTitle" = "Middle level action";
+"NestedScreens.Nested.nestedScreenSectionTitle" = "Go Deeper";
+"NestedScreens.Nested.deepScreenTitle" = "Deep Level";
+"NestedScreens.Nested.deepMenuSectionTitle" = "Deep Actions";
+"NestedScreens.Nested.deepMenuItemTitle" = "Deep nested action";
+"NestedScreens.Nested.deepInfoSectionTitle" = "Info";
+
 // MARK: - Destination Controller
 
 "DestinationController.title" = "Destination controller";

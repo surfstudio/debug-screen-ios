@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		400C6A2B2F3F67C500678284 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C6A2A2F3F67C500678284 /* MenuItem.swift */; };
+		400C6A2D2F3F69A700678284 /* NestedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C6A2C2F3F69A700678284 /* NestedScreen.swift */; };
+		400C6A322F3F700200678284 /* DebugScreenMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C6A312F3F700100678284 /* DebugScreenMenuItem.swift */; };
+		400C6A342F3F700400678284 /* DebugScreenNestedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C6A332F3F700300678284 /* DebugScreenNestedScreen.swift */; };
+		400C6A362F3F700600678284 /* MenuItemsSectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C6A352F3F700500678284 /* MenuItemsSectionBuilder.swift */; };
+		400C6A382F3F700800678284 /* NestedScreensSectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C6A372F3F700700678284 /* NestedScreensSectionBuilder.swift */; };
 		9054BA4A2A5C6CCA0009D70D /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9054BA492A5C6CCA0009D70D /* BaseNavigationController.swift */; };
 		90985F5C2A5C58980066790A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E91F9A2A4C2308000E3E45 /* LaunchScreen.storyboard */; };
+		90C0C14C2F45CC4300D3C438 /* MainScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C0C14B2F45CC3D00D3C438 /* MainScreenType.swift */; };
 		A4301A65285A462F006B77C0 /* DebugScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43019E6285A3137006B77C0 /* DebugScreenTests.swift */; };
 		A47BDB42286A1249002326B8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A47BDB38286A1249002326B8 /* Colors.xcassets */; };
 		A47BDB43286A1249002326B8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDB39286A1249002326B8 /* Colors.swift */; };
@@ -174,7 +181,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		400C6A2A2F3F67C500678284 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		400C6A2C2F3F69A700678284 /* NestedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedScreen.swift; sourceTree = "<group>"; };
+		400C6A312F3F700100678284 /* DebugScreenMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugScreenMenuItem.swift; sourceTree = "<group>"; };
+		400C6A332F3F700300678284 /* DebugScreenNestedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugScreenNestedScreen.swift; sourceTree = "<group>"; };
+		400C6A352F3F700500678284 /* MenuItemsSectionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemsSectionBuilder.swift; sourceTree = "<group>"; };
+		400C6A372F3F700700678284 /* NestedScreensSectionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedScreensSectionBuilder.swift; sourceTree = "<group>"; };
 		9054BA492A5C6CCA0009D70D /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		90C0C14B2F45CC3D00D3C438 /* MainScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenType.swift; sourceTree = "<group>"; };
 		A43019E6285A3137006B77C0 /* DebugScreenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugScreenTests.swift; sourceTree = "<group>"; };
 		A47BDB38286A1249002326B8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		A47BDB39286A1249002326B8 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -565,6 +579,7 @@
 		A4BDF4B628512FAA00651C61 /* Configurator */ = {
 			isa = PBXGroup;
 			children = (
+				90C0C14B2F45CC3D00D3C438 /* MainScreenType.swift */,
 				A4BDF4B728512FAA00651C61 /* MainModuleConfigurator.swift */,
 			);
 			path = Configurator;
@@ -710,6 +725,8 @@
 				B28F97E92A271FC00089C032 /* CopiedText.swift */,
 				B28F97E72A271FAF0089C032 /* FeatureToggle.swift */,
 				B28F97EB2A271FF30089C032 /* SelectionList.swift */,
+				400C6A2A2F3F67C500678284 /* MenuItem.swift */,
+				400C6A2C2F3F69A700678284 /* NestedScreen.swift */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -956,6 +973,8 @@
 				B2E91F772A4C2305000E3E45 /* ActionsSectionBuilder.swift */,
 				B2E91F792A4C2305000E3E45 /* CopiedTextSectionBuilder.swift */,
 				B2B1D4502A52FC3000CC5A11 /* InfoTablesSectionBuilder.swift */,
+				400C6A352F3F700500678284 /* MenuItemsSectionBuilder.swift */,
+				400C6A372F3F700700678284 /* NestedScreensSectionBuilder.swift */,
 				B2E91F7A2A4C2305000E3E45 /* ServerSelectionSectionBuilder.swift */,
 				B2E91F782A4C2305000E3E45 /* TogglesSectionBuilder.swift */,
 			);
@@ -969,6 +988,8 @@
 				B2E91F7D2A4C2305000E3E45 /* CopiedTextItem.swift */,
 				B2E91F7E2A4C2305000E3E45 /* DebugScreenActionList.swift */,
 				B2E91F7F2A4C2305000E3E45 /* DebugScreenAction.swift */,
+				400C6A312F3F700100678284 /* DebugScreenMenuItem.swift */,
+				400C6A332F3F700300678284 /* DebugScreenNestedScreen.swift */,
 				B2E91F802A4C2305000E3E45 /* ServersSelectionList.swift */,
 			);
 			path = Models;
@@ -1359,9 +1380,11 @@
 				B28F97F92A27313E0089C032 /* UIImage.swift in Sources */,
 				A47BDB43286A1249002326B8 /* Colors.swift in Sources */,
 				A4BDF49828512F7700651C61 /* UIApplication.swift in Sources */,
+				90C0C14C2F45CC4300D3C438 /* MainScreenType.swift in Sources */,
 				A4BDF4C528512FAA00651C61 /* MainViewController.swift in Sources */,
 				B2610E242A16DCC300509FA1 /* SimpleAlertModuleConfigurator.swift in Sources */,
 				B28F97E42A271F980089C032 /* Action.swift in Sources */,
+				400C6A2D2F3F69A700678284 /* NestedScreen.swift in Sources */,
 				9054BA4A2A5C6CCA0009D70D /* BaseNavigationController.swift in Sources */,
 				B2B1D4442A52DB7F00CC5A11 /* InfoTableModuleInput.swift in Sources */,
 				B237FF652A2913DF0095FA33 /* LoggerSectionComponent.swift in Sources */,
@@ -1375,6 +1398,7 @@
 				A4BDF4C728512FAA00651C61 /* MainModuleConfigurator.swift in Sources */,
 				B2C65D122A4571E0004DC80D /* UITableViewCell.swift in Sources */,
 				A4BDF49328512F7700651C61 /* Array.swift in Sources */,
+				400C6A2B2F3F67C500678284 /* MenuItem.swift in Sources */,
 				B2B1D4492A52DBA400CC5A11 /* InfoTableViewInput.swift in Sources */,
 				A4BDF49428512F7700651C61 /* NSObject.swift in Sources */,
 				A4D337562863A7AA002328F2 /* TableSection.swift in Sources */,
@@ -1472,6 +1496,10 @@
 				B2E91FA42A4C2309000E3E45 /* UserDefaultsFeatureToggle.swift in Sources */,
 				B2E91FB22A4C2309000E3E45 /* UIImage.swift in Sources */,
 				B2E91FA72A4C2309000E3E45 /* DebugScreenAction.swift in Sources */,
+				400C6A322F3F700200678284 /* DebugScreenMenuItem.swift in Sources */,
+				400C6A342F3F700400678284 /* DebugScreenNestedScreen.swift in Sources */,
+				400C6A362F3F700600678284 /* MenuItemsSectionBuilder.swift in Sources */,
+				400C6A382F3F700800678284 /* NestedScreensSectionBuilder.swift in Sources */,
 				B2E91FB12A4C2309000E3E45 /* UIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
