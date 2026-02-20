@@ -12,6 +12,7 @@
 "Actions.secondaryTitle" = "Вспомогательное";
 "Actions.destructiveTitle" = "Удаление";
 "Actions.openScreenTitle" = "Открытие экрана";
+"Actions.pushScreenTitle" = "Пуш экрана";
 
 // MARK: - ActionList
 

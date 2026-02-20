@@ -12,6 +12,7 @@
 "Actions.secondaryTitle" = "Secondary";
 "Actions.destructiveTitle" = "Destructive";
 "Actions.openScreenTitle" = "Open Screen";
+"Actions.pushScreenTitle" = "Push Screen";
 
 // MARK: - ActionList
 

@@ -35,7 +35,7 @@ private extension MenuItemsSectionBuilder {
             showsDisclosure: true
         ) {
             let view = DestinationViewController()
-            DebugScreenPresenterService.shared.showCustomScreen(view)
+            DebugScreenPresenterService.shared.presentCustomScreen(view)
         }
 
         let multilineItem = DebugScreenMenuItem(
