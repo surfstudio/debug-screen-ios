@@ -14,6 +14,8 @@ enum ModuleType {
     case alert(model: AlertModel)
     /// Module to present any view controller by action button tap
     case customScreen(_ screen: UIViewController)
+    /// Module to push any view controller onto the debug screen navigation stack
+    case pushCustomScreen(_ screen: UIViewController)
     /// Module to open local file by selected filepath
     case fileViewer(model: FileViewerModel)
     /// Module to present information table screen.

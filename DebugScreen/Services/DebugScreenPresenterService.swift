@@ -45,11 +45,19 @@ public final class DebugScreenPresenterService {
         openModule(.alert(model: model))
     }
 
-    /// Show custom view controller.
+    /// Show custom view controller modally.
     /// Can be showed only when debug screen is open.
     /// - Parameter view: Screen to display.
     public func showCustomScreen(_ view: UIViewController) {
         openModule(.customScreen(view))
+    }
+
+    /// Push custom view controller onto the debug screen navigation stack.
+    /// Provides a standard back button to return to the debug menu.
+    /// Can be used only when debug screen is open.
+    /// - Parameter view: Screen to display.
+    public func pushCustomScreen(_ view: UIViewController) {
+        openModule(.pushCustomScreen(view))
     }
 
     /// Open log file.

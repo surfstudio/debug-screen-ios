@@ -30,6 +30,8 @@ final class DebugScreenCoordinator: BaseCoordinator {
             showAlert(with: model)
         case .customScreen(let screen):
             showCustomScreen(screen)
+        case .pushCustomScreen(let screen):
+            pushCustomScreen(screen)
         case .fileViewer(let model):
             showFile(with: model)
         case .infoTable(let model):
@@ -119,6 +121,10 @@ private extension DebugScreenCoordinator {
         let view = BaseNavigationController(rootViewController: screen)
         view.modalPresentationStyle = .overFullScreen
         router.present(view)
+    }
+
+    func pushCustomScreen(_ screen: UIViewController) {
+        router.push(screen)
     }
 
     func configureActionSheetItem(with model: Action) -> UIAlertAction {
