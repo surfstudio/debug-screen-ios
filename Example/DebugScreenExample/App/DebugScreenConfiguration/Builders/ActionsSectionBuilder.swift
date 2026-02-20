@@ -53,7 +53,7 @@ private extension ActionsSectionBuilder {
     func getOpenScreenAction() -> DebugScreenAction {
         let action: DebugScreenAction = .init(title: L10n.Actions.openScreenTitle) {
             let view = DestinationViewController()
-            DebugScreenPresenterService.shared.showCustomScreen(view)
+            DebugScreenPresenterService.shared.presentCustomScreen(view)
         }
         return action
     }

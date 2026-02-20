@@ -48,8 +48,8 @@ public final class DebugScreenPresenterService {
     /// Show custom view controller modally.
     /// Can be showed only when debug screen is open.
     /// - Parameter view: Screen to display.
-    public func showCustomScreen(_ view: UIViewController) {
-        openModule(.customScreen(view))
+    public func presentCustomScreen(_ view: UIViewController) {
+        openModule(.customScreen(view, method: .present))
     }
 
     /// Push custom view controller onto the debug screen navigation stack.
@@ -57,7 +57,7 @@ public final class DebugScreenPresenterService {
     /// Can be used only when debug screen is open.
     /// - Parameter view: Screen to display.
     public func pushCustomScreen(_ view: UIViewController) {
-        openModule(.pushCustomScreen(view))
+        openModule(.customScreen(view, method: .push))
     }
 
     /// Open log file.
