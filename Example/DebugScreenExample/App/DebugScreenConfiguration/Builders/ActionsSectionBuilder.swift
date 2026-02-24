@@ -18,6 +18,7 @@ final class ActionsSectionBuilder: SectionBuilder {
         let defaultAction = getAction(style: .secondary)
         let destructiveAction = getAction(style: .destructive)
         let openScreenAction = getOpenScreenAction()
+        let pushScreenAction = getPushScreenAction()
 
         let actionList = configureActionList()
 
@@ -25,7 +26,8 @@ final class ActionsSectionBuilder: SectionBuilder {
             .actionList(model: actionList),
             .action(model: defaultAction),
             .action(model: destructiveAction),
-            .action(model: openScreenAction)
+            .action(model: openScreenAction),
+            .action(model: pushScreenAction)
         ]
 
         return .init(title: L10n.Actions.header, blocks: blocks)
@@ -51,7 +53,15 @@ private extension ActionsSectionBuilder {
     func getOpenScreenAction() -> DebugScreenAction {
         let action: DebugScreenAction = .init(title: L10n.Actions.openScreenTitle) {
             let view = DestinationViewController()
-            DebugScreenPresenterService.shared.showCustomScreen(view)
+            DebugScreenPresenterService.shared.presentCustomScreen(view)
+        }
+        return action
+    }
+
+    func getPushScreenAction() -> DebugScreenAction {
+        let action: DebugScreenAction = .init(title: L10n.Actions.pushScreenTitle) {
+            let view = DestinationViewController()
+            DebugScreenPresenterService.shared.pushCustomScreen(view)
         }
         return action
     }

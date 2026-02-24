@@ -27,6 +27,8 @@ internal enum L10n {
     internal static let header = L10n.tr("Localizable", "Actions.header")
     /// Открытие экрана
     internal static let openScreenTitle = L10n.tr("Localizable", "Actions.openScreenTitle")
+    /// Пуш экрана
+    internal static let pushScreenTitle = L10n.tr("Localizable", "Actions.pushScreenTitle")
     /// Вспомогательное
     internal static let secondaryTitle = L10n.tr("Localizable", "Actions.secondaryTitle")
   }
