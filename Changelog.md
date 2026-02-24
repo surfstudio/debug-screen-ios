@@ -1,5 +1,9 @@
 # DebugScreen
 
+## 2.2.0
+
+- Added ability to push custom screen onto the current navigation stack [#40](https://github.com/surfstudio/debug-screen-ios/pull/40)
+
 ## 2.1.0
 
 - Added the ability to display a new item in the Debug screen table - MenuItem. This appears as compact text [#38](https://github.com/surfstudio/debug-screen-ios/pull/38)
